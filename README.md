@@ -11,12 +11,12 @@ src/features.py      Elo ratings and rolling form, built only from past matches
 src/evaluate.py      walk-forward evaluation of four models
 src/predict.py       probabilities for any fixture
 src/fixtures.py      next round and full season of fixtures from openfootball
-src/simulate.py      Monte Carlo of the rest of the season (title, top 4, relegation odds)
+src/simulate.py      Monte Carlo of the rest of the season (title, top 4, relegation odds), with Elo updated as results are simulated
 src/tracker.py       logs predictions before kickoff and scores them afterwards
 .github/workflows/   ci.yml runs pytest on every push; refresh.yml updates results and the log daily
 app.py               Streamlit page on top of src/predict.py
 tests/               leakage and Elo sanity checks
-results/             metrics, per-match test predictions, predictions_log.csv (live track record)
+results/             metrics, per-match test predictions (xgboost and logistic, used for the calibration chart), predictions_log.csv (live track record)
 data/odds/           closing odds for the three test seasons, used only as a benchmark
 ```
 

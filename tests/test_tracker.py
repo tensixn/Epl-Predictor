@@ -2,7 +2,7 @@ import math
 
 import pandas as pd
 
-from src.tracker import COLUMNS, score_pending, summarise
+from src.tracker import COLUMNS, calibration, score_pending, summarise
 
 
 def log_of(*rows):
@@ -22,3 +22,12 @@ def test_summarise_ignores_unscored_rows():
     s = summarise(log)
     assert s["n"] == 1 and s["accuracy"] == 1.0 and abs(s["log_loss"] + math.log(0.7)) < 1e-9
     assert summarise(log.iloc[1:]) is None
+
+
+def test_calibration_bins_predicted_against_observed():
+    preds = pd.DataFrame({"p_home": [0.95, 0.06], "p_draw": [0.03, 0.04], "p_away": [0.02, 0.9],
+                          "FTR": ["H", "A"]})
+    cal = calibration(preds, bins=10)
+    top = cal.iloc[-1]
+    assert top.n == 2 and top.observed == 1.0 and abs(top.predicted - 0.925) < 1e-9
+    assert cal.n.sum() == 6

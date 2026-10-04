@@ -75,3 +75,16 @@ def update(models, cols, state):
     log = log_next_round(models, cols, state, log)
     save(log)
     return log
+
+
+def calibration(preds, bins=10):
+    """Predicted vs observed frequency, pooling home/draw/away probabilities into equal-width bins.
+
+    `preds` has p_home, p_draw, p_away and FTR (H/D/A), like results/logistic_test_predictions.csv.
+    """
+    p = preds[["p_home", "p_draw", "p_away"]].astype(float).values.ravel()
+    hit = np.eye(3)[preds.FTR.map(LABELS).values].ravel()
+    bucket = np.minimum((p * bins).astype(int), bins - 1)
+    df = pd.DataFrame({"bucket": bucket, "predicted": p, "observed": hit})
+    return df.groupby("bucket").agg(predicted=("predicted", "mean"), observed=("observed", "mean"),
+                                    n=("observed", "size")).reset_index(drop=True)

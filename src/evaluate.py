@@ -87,7 +87,7 @@ def main():
     cols = feature_columns(feats)
     y_all = feats.FTR.map(LABELS).values
 
-    results, per_match = [], []
+    results, per_match, per_match_lr = [], [], []
     for test in TEST_SEASONS:
         tr, te = feats.season < test, feats.season == test
         y, probs = y_all[te], {}
@@ -95,10 +95,10 @@ def main():
             model = factory().fit(select(feats[tr], use, cols), y_all[tr])
             probs[name] = model.predict_proba(select(feats[te], use, cols))
             results.append(score(test, name, int(te.sum()), y, probs[name]))
-            if name == "xgboost":
+            if name in ("xgboost", "logistic"):
                 out = feats.loc[te, ["Date", "HomeTeam", "AwayTeam", "FTR"]].copy()
                 out[["p_home", "p_draw", "p_away"]] = probs[name]
-                per_match.append(out)
+                (per_match if name == "xgboost" else per_match_lr).append(out)
         probs["ensemble"] = (probs["logistic"] + probs["xgboost"]) / 2
         results.append(score(test, "ensemble", int(te.sum()), y, probs["ensemble"]))
         # bookmaker benchmark, on the matches that have odds; models are rescored on the same subset
@@ -112,6 +112,7 @@ def main():
     OUT_DIR.mkdir(exist_ok=True)
     res.to_csv(OUT_DIR / "metrics_by_season.csv", index=False)
     pd.concat(per_match).to_csv(OUT_DIR / "xgboost_test_predictions.csv", index=False)
+    pd.concat(per_match_lr).to_csv(OUT_DIR / "logistic_test_predictions.csv", index=False)
     (OUT_DIR / "summary.json").write_text(json.dumps(summary.round(4).to_dict(orient="index"), indent=2))
     pd.set_option("display.width", 120)
     print(res.round(4).to_string(index=False))
