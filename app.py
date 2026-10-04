@@ -8,8 +8,10 @@ import pandas as pd
 import streamlit as st
 
 from src.features import load_matches
-from src.fixtures import next_round
+from src.fixtures import next_round, season_matches
 from src.predict import predict, train
+from src.simulate import simulate_season
+from src.tracker import read_log, summarise
 
 st.set_page_config(page_title="EPL match predictor", page_icon="⚽", layout="centered")
 
@@ -42,6 +44,11 @@ def fixtures():
     return next_round()
 
 
+@st.cache_data(ttl=3600, show_spinner="Simulating the rest of the season...")
+def season_odds(model):
+    return simulate_season(models, cols, state, season_matches(), model=model)
+
+
 def bar(p_home, p_draw, p_away, home, away):
     """Stacked home / draw / away bar; labels sit below it too so colour isn't the only cue."""
     ps = (p_home, p_draw, p_away)
@@ -62,7 +69,8 @@ st.caption(f"Elo ratings and form run to {form_to:%d %b %Y}, the last match in t
 model = st.radio("Model", ["logistic", "xgboost"], horizontal=True,
                  help="Logistic regression scored best in the walk-forward test (log loss 0.979 vs 0.988).")
 
-tab_next, tab_pick = st.tabs(["Upcoming fixtures", "Pick a match"])
+tab_next, tab_pick, tab_season, tab_track = st.tabs(
+    ["Upcoming fixtures", "Pick a match", "Season odds", "Track record"])
 
 with tab_next:
     try:
@@ -101,3 +109,34 @@ with tab_pick:
                 rows.append({"team": t, "Elo": round(f["elo"]), "points per game (last 5)": f["pts_5"],
                              "goals for (last 5)": f["gf_5"], "goals against (last 5)": f["ga_5"]})
             st.dataframe(rows, hide_index=True)
+
+with tab_season:
+    st.caption("10,000 simulations of the remaining fixtures. Ratings are frozen at today's values, so early in "
+               "the season the odds are more confident than they should be.")
+    try:
+        odds = season_odds(model)
+        st.dataframe(odds, hide_index=True, width="stretch", column_config={
+            "points now": st.column_config.NumberColumn("points now"),
+            "expected points": st.column_config.NumberColumn("expected points", format="%.1f"),
+            "title": st.column_config.ProgressColumn("title", min_value=0, max_value=1, format="percent"),
+            "top 4": st.column_config.ProgressColumn("top 4", min_value=0, max_value=1, format="percent"),
+            "relegation": st.column_config.ProgressColumn("relegation", min_value=0, max_value=1, format="percent")})
+    except Exception as e:
+        st.warning(f"Couldn't simulate the season ({type(e).__name__}).")
+
+with tab_track:
+    log = read_log()
+    s = summarise(log)
+    st.caption("Predictions are logged before kickoff and scored once the result is in, so these numbers are "
+               "genuinely out of sample. Logistic model only.")
+    if s is None:
+        st.info(f"{len(log)} predictions logged so far. None have been played yet.")
+    else:
+        m1, m2, m3 = st.columns(3)
+        m1.metric("Predictions scored", s["n"])
+        m2.metric("Accuracy", f"{s['accuracy']:.1%}")
+        m3.metric("Brier score", f"{s['brier']:.3f}", f"{s['brier'] - s['base_rate_brier']:+.3f} vs base rate",
+                  delta_color="inverse", help="Lower is better. The base rate always predicts the home/draw/away "
+                                              "frequencies of these same results.")
+    if len(log):
+        st.dataframe(log.sort_values("date", ascending=False), hide_index=True, width="stretch")
