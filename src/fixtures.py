@@ -16,3 +16,9 @@ def next_round(season=None):
         return None, []
     name = todo[0]["round"]
     return name, [f for f in todo if f["round"] == name]
+
+
+def season_matches(season=None):
+    """Every match of the season as {date, home, away, ft}; ft is [home goals, away goals] or None if unplayed."""
+    return [{"date": m["date"], "home": _fcs.team(m["team1"]), "away": _fcs.team(m["team2"]), "ft": _fcs.full_time(m)}
+            for m in _fcs.fetch_matches(season or _fcs.current_season())]

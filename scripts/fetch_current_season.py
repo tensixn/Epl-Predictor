@@ -61,13 +61,19 @@ def current_season(today=None):
     return f"{start % 100:02d}{(start + 1) % 100:02d}"
 
 
+def full_time(m):
+    """[home goals, away goals] of a finished match, else None."""
+    score = m.get("score")
+    # finished matches have score {"ft": [h, a], "ht": [...]}; some 0-0s are a bare [0, 0]
+    return (score.get("ft") if isinstance(score, dict) else score) or None
+
+
 def rows(matches):
     for m in matches:
-        score = m.get("score")
-        # finished matches have score {"ft": [h, a], "ht": [...]}; some 0-0s are a bare [0, 0]
-        ft = score.get("ft") if isinstance(score, dict) else score
+        ft = full_time(m)
         if not ft:
             continue
+        score = m["score"]
         ht = score.get("ht") if isinstance(score, dict) else None
         row = dict.fromkeys(COLUMNS, "")
         row.update(Date=m["date"], HomeTeam=team(m["team1"]), AwayTeam=team(m["team2"]),
