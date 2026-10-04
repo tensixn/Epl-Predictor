@@ -14,21 +14,30 @@ from src.predict import predict, train
 from src.simulate import simulate_season
 from src.tracker import calibration, read_log, summarise
 
-st.set_page_config(page_title="EPL match predictor", page_icon="⚽", layout="centered")
+st.set_page_config(page_title="EPL match predictor", page_icon=str(Path(__file__).parent / "assets" / "favicon.png"),
+                   layout="centered")
 
 st.markdown("""
 <style>
-.pbar { display:flex; height:34px; border-radius:8px; overflow:hidden; font-weight:700; font-size:.9rem; }
+:root { --home:#3ddc97; --draw:#8b7a91; --away:#d6336c; --ink:#1d0a22; --rule:rgba(245,240,247,.16); }
+[data-testid="stHeader"] { background:transparent; }
+.stApp { background-image: radial-gradient(60rem 28rem at 12% -8%, rgba(132,72,150,.20), transparent 70%); }
+h1 { letter-spacing:-.025em; text-wrap:balance; }
+h2, h3 { letter-spacing:-.015em; font-weight:600; text-wrap:balance; }
+[data-testid="stCaptionContainer"] { text-wrap:pretty; }
+.pbar { display:flex; height:34px; border-radius:8px; overflow:hidden; font-weight:600; font-size:.9rem; }
 .pbar span { display:flex; align-items:center; justify-content:center; min-width:0; white-space:nowrap; }
-.pbar .h { background:#00ff85; color:#1d0a22; }
-.pbar .d { background:#8b7a91; color:#1d0a22; }
-.pbar .a { background:#e90052; color:#fff; }
+.pbar .h { background:var(--home); color:var(--ink); }
+.pbar .d { background:var(--draw); color:var(--ink); }
+.pbar .a { background:var(--away); color:#fff; }
 .legend { display:flex; flex-wrap:wrap; justify-content:space-between; gap:.2rem 1rem; font-size:.85rem; margin:.4rem 0 .8rem; }
 .legend i { display:inline-block; width:.7rem; height:.7rem; border-radius:3px; margin-right:.4rem; }
-.legend .h i { background:#00ff85; } .legend .d i { background:#8b7a91; } .legend .a i { background:#e90052; }
-.fx { margin:.9rem 0 .2rem; font-weight:600; }
-.fx small { font-weight:400; opacity:.7; }
-@media (prefers-reduced-motion: no-preference) { .pbar span { transition: flex-basis .3s ease; } }
+.legend .h i { background:var(--home); } .legend .d i { background:var(--draw); } .legend .a i { background:var(--away); }
+.pbar, .legend, .fx { font-variant-numeric: tabular-nums; }
+.day { margin:1.8rem 0 .3rem; padding-bottom:.35rem; font-weight:600; border-bottom:1px solid var(--rule); }
+.fx { display:flex; justify-content:space-between; align-items:baseline; margin:1rem 0 .4rem; font-weight:500; }
+.fx small { font-weight:400; opacity:.75; }
+::selection { background:var(--home); color:var(--ink); }
 </style>
 """, unsafe_allow_html=True)
 
@@ -53,24 +62,26 @@ def season_odds(model):
 
 
 def bar(p_home, p_draw, p_away, home, away):
-    """Stacked home / draw / away bar; labels sit below it too so colour isn't the only cue."""
+    """Stacked home / draw / away bar. The legend names each colour, so colour isn't the only cue."""
     ps = (p_home, p_draw, p_away)
+    tight = [f" {p:.0%}" if p < 0.08 else "" for p in ps]  # no label fits inside a thin segment
     spans = "".join(f'<span class="{c}" style="flex:{p:.4f}">{p:.0%}</span>' if p >= 0.08
                     else f'<span class="{c}" style="flex:{p:.4f}"></span>' for c, p in zip("hda", ps))
     return (f'<div class="pbar" role="img" aria-label="{escape(home)} {p_home:.0%}, draw {p_draw:.0%}, '
             f'{escape(away)} {p_away:.0%}">{spans}</div>'
-            f'<div class="legend"><span class="h"><i></i>{escape(home)} {p_home:.1%}</span>'
-            f'<span class="d"><i></i>Draw {p_draw:.1%}</span>'
-            f'<span class="a"><i></i>{escape(away)} {p_away:.1%}</span></div>')
+            f'<div class="legend"><span class="h"><i></i>{escape(home)}{tight[0]}</span>'
+            f'<span class="d"><i></i>Draw{tight[1]}</span>'
+            f'<span class="a"><i></i>{escape(away)}{tight[2]}</span></div>')
 
 
 models, cols, state, current = load()
 form_to = max(state.last_date.values())
 
-st.title("⚽ EPL match predictor")
+st.title("EPL match predictor")
 st.caption(f"Elo ratings and form run to {form_to:%d %b %Y}, the last match in the data.")
 
 model = st.radio("Model", ["logistic", "xgboost"], horizontal=True,
+                 format_func={"logistic": "Logistic regression", "xgboost": "XGBoost"}.get,
                  help="Logistic regression scored best in the walk-forward test (log loss 0.979 vs 0.988).")
 
 tab_next, tab_pick, tab_season, tab_track = st.tabs(
@@ -87,10 +98,14 @@ with tab_next:
         for team in {t for g in games for t in (g["home"], g["away"])} - set(state.elo):
             st.info(f"{team} isn't in the data yet; treated as a newly promoted side.")
         probs = predict({model: models[model]}, cols, state, [(g["home"], g["away"]) for g in games])[model]
+        day = None
         for g, (ph, pd_, pa) in zip(games, probs):
-            when = pd.Timestamp(g["date"]).strftime("%a %d %b") + (f", {g['time']}" if g["time"] else "")
-            st.markdown(f'<div class="fx">{escape(g["home"])} v {escape(g["away"])} <small>{when}</small></div>'
-                        + bar(ph, pd_, pa, g["home"], g["away"]), unsafe_allow_html=True)
+            if g["date"] != day:
+                day = g["date"]
+                st.markdown(f'<div class="day">{pd.Timestamp(day):%A %d %B}</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="fx"><span>{escape(g["home"])} v {escape(g["away"])}</span>'
+                        f'<small>{escape(g["time"])}</small></div>' + bar(ph, pd_, pa, g["home"], g["away"]),
+                        unsafe_allow_html=True)
     elif round_name is None and not games:
         st.info("No upcoming fixtures found.")
 
@@ -119,12 +134,13 @@ with tab_season:
                "the next game is drawn, so a hot streak carries on. Form (last 5 / 10 matches) stays at today's values.")
     try:
         odds = season_odds(model)
-        st.dataframe(odds, hide_index=True, width="stretch", column_config={
-            "points now": st.column_config.NumberColumn("points now"),
-            "expected points": st.column_config.NumberColumn("expected points", format="%.1f"),
-            "title": st.column_config.ProgressColumn("title", min_value=0, max_value=1, format="percent"),
-            "top 4": st.column_config.ProgressColumn("top 4", min_value=0, max_value=1, format="percent"),
-            "relegation": st.column_config.ProgressColumn("relegation", min_value=0, max_value=1, format="percent")})
+        odds[["title", "top 4", "relegation"]] *= 100
+        chance = lambda label: st.column_config.ProgressColumn(label, min_value=0, max_value=100, format="%.1f%%")
+        st.dataframe(odds, hide_index=True, width="stretch", height="content", column_config={
+            "team": "Team",
+            "points now": st.column_config.NumberColumn("Points", width="small"),
+            "expected points": st.column_config.NumberColumn("Projected", format="%.1f", width="small"),
+            "title": chance("Title"), "top 4": chance("Top 4"), "relegation": chance("Relegation")})
     except Exception as e:
         st.warning(f"Couldn't simulate the season ({type(e).__name__}).")
 
@@ -143,7 +159,15 @@ with tab_track:
                   delta_color="inverse", help="Lower is better. The base rate always predicts the home/draw/away "
                                               "frequencies of these same results.")
     if len(log):
-        st.dataframe(log.sort_values("date", ascending=False), hide_index=True, width="stretch")
+        shown = log.sort_values("date", ascending=False).assign(
+            result=lambda d: d.result.map({"H": "Home win", "D": "Draw", "A": "Away win"}).fillna("Not played yet"),
+            **{c: lambda d, c=c: (d[c].astype(float) * 100).round() for c in ("p_home", "p_draw", "p_away")})
+        st.dataframe(shown[["date", "home", "away", "p_home", "p_draw", "p_away", "result"]], hide_index=True,
+                     width="stretch", column_config={
+                         "date": "Date", "home": "Home", "away": "Away", "result": "Result",
+                         "p_home": st.column_config.NumberColumn("Home win", format="%d%%"),
+                         "p_draw": st.column_config.NumberColumn("Draw", format="%d%%"),
+                         "p_away": st.column_config.NumberColumn("Away win", format="%d%%")})
 
     with st.expander("Backtest: 2023/24 to 2025/26, trained only on earlier seasons"):
         res = Path("results")
@@ -159,3 +183,5 @@ with tab_track:
                        "Closer to the diagonal is better.")
             st.line_chart(cal.rename(columns={"observed": "observed frequency"})
                           .assign(perfect=cal.predicted).set_index("predicted")[["observed frequency", "perfect"]])
+
+st.caption("Data: football-data.co.uk and openfootball. These are model probabilities, not betting tips.")

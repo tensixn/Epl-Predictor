@@ -15,7 +15,7 @@ src/simulate.py      Monte Carlo of the rest of the season (title, top 4, relega
 src/tracker.py       logs predictions before kickoff and scores them afterwards
 .github/workflows/   ci.yml runs pytest on every push; refresh.yml updates results and the log daily
 app.py               Streamlit page on top of src/predict.py
-tests/               leakage and Elo sanity checks
+tests/               leakage, Elo, fetch, simulation and tracker checks
 results/             metrics, per-match test predictions (xgboost and logistic, used for the calibration chart), predictions_log.csv (live track record)
 data/odds/           closing odds for the three test seasons, used only as a benchmark
 ```
@@ -25,7 +25,7 @@ data/odds/           closing odds for the three test seasons, used only as a ben
 [datasets/football-datasets](https://github.com/datasets/football-datasets) mirror of
 football-data.co.uk (the same source as datahub.io). Kaggle isn't reachable from the
 build environment, so this replaces the Kaggle set from the reel. The columns are
-results plus shots, shots on target, corners, fouls and cards. There are no odds,
+results plus shots, shots on target, corners, fouls and cards. data/raw has no odds,
 lineups or injuries.
 
 The mirror only adds a season once it has finished, so the season in progress
@@ -58,7 +58,7 @@ Walk-forward test: each of 2023/24, 2024/25 and 2025/26 is predicted by models t
 | ensemble (logistic + xgboost average) | 0.9820 | 0.5851 | 0.1998 | 53.2% |
 | bookmaker closing odds | **0.9597** | **0.5699** | **0.1938** | 55.0% |
 
-The bookmaker row is market-average closing odds with the margin removed (`data/odds/`, from football-data.co.uk). It beats every model here, so that is the realistic ceiling. Averaging logistic and xgboost did not beat logistic alone, so the app doesn't use it. Odds can't be a model feature: they only exist for past matches, and nothing free supplies them for fixtures that haven't been played.
+The bookmaker row is market-average closing odds with the margin removed (`data/odds/`, from football-data.co.uk). It beats every model here, so that is the realistic ceiling. Averaging logistic and xgboost did not beat logistic alone, so the app doesn't use it. Odds can't be a model feature here: they only exist for past matches, and the fixture feed (openfootball) carries none.
 
 ## Run
 ```
@@ -73,10 +73,11 @@ python scripts/fetch_current_season.py       # refresh just the current season
 Team names follow football-data.co.uk spelling ("Man City", "Man United", "Nott'm Forest", "Spurs" is "Tottenham").
 
 ## Web app
-`app.py` is a Streamlit page with two tabs: predictions for the next round of fixtures, and a picker for any
-home and away team. Each prediction is a home / draw / away probability bar. The theme is in `.streamlit/config.toml`. It trains both models from `data/raw` when it starts (about 10 seconds, cached after that),
-so there is no separate training step. To host it on Streamlit Community Cloud, sign in at
+`app.py` is a Streamlit page with four tabs: predictions for the next round of fixtures, a picker for any
+home and away team, title / top 4 / relegation odds for the season, and the live track record. Each prediction
+is a home / draw / away probability bar. The theme is in `.streamlit/config.toml`. The app trains its models from
+`data/raw` when it starts (about 10 seconds, cached after that), so there is no separate training step. To host it on Streamlit Community Cloud, sign in at
 share.streamlit.io with GitHub, choose this repo, branch `main` and main file path `app.py`.
 
 ## Ideas for next steps
-- Add bookmaker odds or xG as features
+- Add xG as a feature (needs a new data source)
