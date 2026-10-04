@@ -25,3 +25,14 @@ def test_current_season():
     from datetime import date
     assert fcs.current_season(date(2026, 10, 4)) == "2627"
     assert fcs.current_season(date(2027, 3, 1)) == "2627"
+
+
+def test_upcoming_keeps_unplayed_matches():
+    matches = [
+        {"round": "Matchday 1", "date": "2026-08-21", "team1": "Arsenal FC", "team2": "Coventry City FC",
+         "score": {"ft": [3, 0]}},
+        {"round": "Matchday 6", "date": "2026-10-10", "time": "12:30", "team1": "Arsenal FC",
+         "team2": "Leeds United FC"},
+    ]
+    assert list(fcs.upcoming(matches)) == [
+        {"round": "Matchday 6", "date": "2026-10-10", "time": "12:30", "home": "Arsenal", "away": "Leeds"}]

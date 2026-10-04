@@ -10,6 +10,7 @@ scripts/             download_data.sh to refresh the data, fetch_current_season.
 src/features.py      Elo ratings and rolling form, built only from past matches
 src/evaluate.py      walk-forward evaluation of four models
 src/predict.py       probabilities for any fixture
+src/fixtures.py      next round of unplayed fixtures from openfootball
 app.py               Streamlit page on top of src/predict.py
 tests/               leakage and Elo sanity checks
 results/             metrics and per-match test predictions
@@ -66,8 +67,8 @@ python scripts/fetch_current_season.py       # refresh just the current season
 Team names follow football-data.co.uk spelling ("Man City", "Man United", "Nott'm Forest", "Spurs" is "Tottenham").
 
 ## Web app
-`app.py` is a Streamlit page: pick a home and away team and it shows the win, draw and loss
-probabilities. It trains both models from `data/raw` when it starts (about 10 seconds, cached after that),
+`app.py` is a Streamlit page with two tabs: predictions for the next round of fixtures, and a picker for any
+home and away team. Each prediction is a home / draw / away probability bar. The theme is in `.streamlit/config.toml`. It trains both models from `data/raw` when it starts (about 10 seconds, cached after that),
 so there is no separate training step. To host it on Streamlit Community Cloud, sign in at
 share.streamlit.io with GitHub, choose this repo, branch `main` and main file path `app.py`.
 

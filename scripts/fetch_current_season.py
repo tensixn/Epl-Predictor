@@ -77,11 +77,23 @@ def rows(matches):
         yield row
 
 
-def main(args):
-    season = args[0] if args else current_season()
+def fetch_matches(season):
     url = URL.format(a=season[:2], b=season[2:])
     with urllib.request.urlopen(url, timeout=30) as resp:
-        matches = json.load(resp)["matches"]
+        return json.load(resp)["matches"]
+
+
+def upcoming(matches):
+    """Unplayed matches as dicts with round, date, time, home and away (data/raw spelling)."""
+    for m in matches:
+        if not m.get("score"):
+            yield {"round": m["round"], "date": m["date"], "time": m.get("time", ""),
+                   "home": team(m["team1"]), "away": team(m["team2"])}
+
+
+def main(args):
+    season = args[0] if args else current_season()
+    matches = fetch_matches(season)
     played = sorted(rows(matches), key=lambda r: (r["Date"], r["HomeTeam"]))
     if not played:
         sys.exit(f"no played matches yet for {season}")
