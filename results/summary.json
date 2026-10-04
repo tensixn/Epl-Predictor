@@ -18,9 +18,21 @@
     "accuracy": 0.5316
   },
   "xgboost": {
-    "log_loss": 0.9879,
-    "brier": 0.5882,
+    "log_loss": 0.9884,
+    "brier": 0.5886,
     "rps": 0.2012,
-    "accuracy": 0.5351
+    "accuracy": 0.5333
+  },
+  "ensemble": {
+    "log_loss": 0.982,
+    "brier": 0.5851,
+    "rps": 0.1998,
+    "accuracy": 0.5316
+  },
+  "bookmaker": {
+    "log_loss": 0.9597,
+    "brier": 0.5699,
+    "rps": 0.1938,
+    "accuracy": 0.55
   }
 }

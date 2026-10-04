@@ -6,14 +6,18 @@ It is trained on 26 seasons of results and tested walk-forward on the last three
 ## Project layout
 ```
 data/raw/            season CSVs (2000/01 to 2025/26, plus 2026/27 so far)
-scripts/             download_data.sh to refresh the data, fetch_current_season.py for the season in progress
+scripts/             download_data.sh, fetch_current_season.py (season in progress), fetch_odds.py, log_predictions.py
 src/features.py      Elo ratings and rolling form, built only from past matches
 src/evaluate.py      walk-forward evaluation of four models
 src/predict.py       probabilities for any fixture
-src/fixtures.py      next round of unplayed fixtures from openfootball
+src/fixtures.py      next round and full season of fixtures from openfootball
+src/simulate.py      Monte Carlo of the rest of the season (title, top 4, relegation odds)
+src/tracker.py       logs predictions before kickoff and scores them afterwards
+.github/workflows/   ci.yml runs pytest on every push; refresh.yml updates results and the log daily
 app.py               Streamlit page on top of src/predict.py
 tests/               leakage and Elo sanity checks
-results/             metrics and per-match test predictions
+results/             metrics, per-match test predictions, predictions_log.csv (live track record)
+data/odds/           closing odds for the three test seasons, used only as a benchmark
 ```
 
 ## Data
@@ -50,9 +54,11 @@ Walk-forward test: each of 2023/24, 2024/25 and 2025/26 is predicted by models t
 | base_rate | 1.0745 | 0.6507 | 0.2329 | 43.2% |
 | elo_logistic | 0.9852 | 0.5879 | 0.2019 | 53.4% |
 | logistic | **0.9791** | **0.5839** | **0.1993** | 53.2% |
-| xgboost | 0.9879 | 0.5882 | 0.2012 | 53.5% |
+| xgboost | 0.9884 | 0.5886 | 0.2012 | 53.3% |
+| ensemble (logistic + xgboost average) | 0.9820 | 0.5851 | 0.1998 | 53.2% |
+| bookmaker closing odds | **0.9597** | **0.5699** | **0.1938** | 55.0% |
 
-Bookmaker closing odds usually score about 0.96 to 0.97 log loss on the EPL, so that is the realistic ceiling.
+The bookmaker row is market-average closing odds with the margin removed (`data/odds/`, from football-data.co.uk). It beats every model here, so that is the realistic ceiling. Averaging logistic and xgboost did not beat logistic alone, so the app doesn't use it. Odds can't be a model feature: they only exist for past matches, and nothing free supplies them for fixtures that haven't been played.
 
 ## Run
 ```

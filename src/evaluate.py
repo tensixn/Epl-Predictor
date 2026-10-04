@@ -19,6 +19,7 @@ from .features import LABELS, build_features, feature_columns, load_matches
 TEST_SEASONS = ["2324", "2425", "2526"]
 BURN_IN = "0001"  # first season only seeds Elo and form, never used for training
 OUT_DIR = Path(__file__).resolve().parents[1] / "results"
+ODDS_DIR = Path(__file__).resolve().parents[1] / "data" / "odds"
 
 
 def brier(y, p):
@@ -57,6 +58,23 @@ def make_models():
     }
 
 
+def bookmaker_probs(df, season):
+    """Closing odds for `season` as margin-free probabilities aligned to df's rows (NaN if missing)."""
+    path = ODDS_DIR / f"season-{season}.csv"
+    if not path.exists():
+        return np.full((len(df), 3), np.nan)
+    odds = pd.read_csv(path, parse_dates=["Date"])
+    merged = df[["Date", "HomeTeam", "AwayTeam"]].merge(odds, how="left", on=["Date", "HomeTeam", "AwayTeam"])
+    inv = 1 / merged[["OddsH", "OddsD", "OddsA"]].values
+    return inv / inv.sum(axis=1, keepdims=True)
+
+
+def score(season, name, n, y, p):
+    p = p / p.sum(axis=1, keepdims=True)  # xgboost's float32 output can miss 1 by a hair
+    return dict(season=season, model=name, n=n, log_loss=log_loss(y, p, labels=[0, 1, 2]),
+                brier=brier(y, p), rps=rps(y, p), accuracy=accuracy_score(y, p.argmax(1)))
+
+
 def select(df, cols, all_cols):
     if cols is None:
         return df[all_cols[:1]].values
@@ -72,17 +90,22 @@ def main():
     results, per_match = [], []
     for test in TEST_SEASONS:
         tr, te = feats.season < test, feats.season == test
+        y, probs = y_all[te], {}
         for name, (factory, use) in make_models().items():
             model = factory().fit(select(feats[tr], use, cols), y_all[tr])
-            p = model.predict_proba(select(feats[te], use, cols))
-            y = y_all[te]
-            results.append(dict(season=test, model=name, n=int(te.sum()),
-                                log_loss=log_loss(y, p, labels=[0, 1, 2]), brier=brier(y, p),
-                                rps=rps(y, p), accuracy=accuracy_score(y, p.argmax(1))))
+            probs[name] = model.predict_proba(select(feats[te], use, cols))
+            results.append(score(test, name, int(te.sum()), y, probs[name]))
             if name == "xgboost":
                 out = feats.loc[te, ["Date", "HomeTeam", "AwayTeam", "FTR"]].copy()
-                out[["p_home", "p_draw", "p_away"]] = p
+                out[["p_home", "p_draw", "p_away"]] = probs[name]
                 per_match.append(out)
+        probs["ensemble"] = (probs["logistic"] + probs["xgboost"]) / 2
+        results.append(score(test, "ensemble", int(te.sum()), y, probs["ensemble"]))
+        # bookmaker benchmark, on the matches that have odds; models are rescored on the same subset
+        book = bookmaker_probs(feats[te], test)
+        ok = ~np.isnan(book).any(axis=1)
+        if ok.any():
+            results.append(score(test, "bookmaker", int(ok.sum()), y[ok], book[ok]))
 
     res = pd.DataFrame(results)
     summary = res.groupby("model", sort=False)[["log_loss", "brier", "rps", "accuracy"]].mean()
