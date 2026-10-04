@@ -12,8 +12,8 @@ st.set_page_config(page_title="EPL match predictor", page_icon="⚽")
 
 @st.cache_resource(show_spinner="Training on every season in data/raw...")
 def load():
-    models, cols, state = train()
     matches = load_matches()
+    models, cols, state = train(matches=matches)
     latest = matches[matches.season == matches.season.max()]
     current = sorted(set(latest.HomeTeam) | set(latest.AwayTeam))
     return models, cols, state, current

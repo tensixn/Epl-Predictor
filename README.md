@@ -5,8 +5,8 @@ It is trained on 26 seasons of results and tested walk-forward on the last three
 
 ## Project layout
 ```
-data/raw/            season CSVs (2000/01 to 2025/26)
-scripts/             download_data.sh to refresh the data
+data/raw/            season CSVs (2000/01 to 2025/26, plus 2026/27 so far)
+scripts/             download_data.sh to refresh the data, fetch_current_season.py for the season in progress
 src/features.py      Elo ratings and rolling form, built only from past matches
 src/evaluate.py      walk-forward evaluation of four models
 src/predict.py       probabilities for any fixture
@@ -21,7 +21,14 @@ results/             metrics and per-match test predictions
 football-data.co.uk (the same source as datahub.io). Kaggle isn't reachable from the
 build environment, so this replaces the Kaggle set from the reel. The columns are
 results plus shots, shots on target, corners, fouls and cards. There are no odds,
-lineups or injuries. The 2026/27 season isn't in the mirror yet.
+lineups or injuries.
+
+The mirror only adds a season once it has finished, so the season in progress
+(`season-2627.csv`) comes from [openfootball](https://github.com/openfootball/football.json),
+which is updated after each matchday. It has scores and half-time scores only, so
+points and goals form uses this season's matches while shots form falls back to each
+team's latest matches that have shot data. Checked against the mirror on 2024/25,
+all 380 openfootball results match. Refresh it with `python scripts/fetch_current_season.py`.
 
 ## Features (`src/features.py`)
 Everything is computed from matches *before* kickoff:
@@ -53,7 +60,8 @@ python -m src.evaluate                       # metrics -> results/
 python -m src.predict Arsenal Chelsea        # HOME AWAY pairs
 pytest                                       # run the tests
 streamlit run app.py                         # web page with team pickers
-./scripts/download_data.sh                   # refresh data/raw
+./scripts/download_data.sh                   # refresh data/raw (all seasons)
+python scripts/fetch_current_season.py       # refresh just the current season
 ```
 Team names follow football-data.co.uk spelling ("Man City", "Man United", "Nott'm Forest", "Spurs" is "Tottenham").
 
@@ -65,4 +73,3 @@ share.streamlit.io with GitHub, choose this repo, branch `main` and main file pa
 
 ## Ideas for next steps
 - Add bookmaker odds or xG as features
-- Pull in current-season results so predictions use live form
