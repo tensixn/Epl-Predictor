@@ -35,3 +35,14 @@ def test_elo_moves_toward_winner():
     feats, state = build_features(_matches())
     assert feats.loc[1, "away_elo"] > feats.loc[1, "home_elo"]  # A won match 1
     assert state.elo["B"] > feats.loc[2, "away_elo"]  # B won match 3
+
+
+def test_score_only_matches_update_results_form_but_not_shots():
+    df = _matches()
+    df.loc[2, ["HS", "AS", "HST", "AST"]] = np.nan  # e.g. current season from openfootball
+    extra = df.iloc[[0]].assign(Date=pd.Timestamp("2020-08-22"))
+    feats, _ = build_features(pd.concat([df, extra], ignore_index=True))
+    # A: W, D, L -> 4 points over 3 matches; the scoreless-stats loss still counts for points
+    assert feats.loc[3, "home_pts_5"] == 4 / 3
+    # shot form uses only the two matches that have shots, so no NaN creeps in
+    assert feats.loc[3, "home_sf_5"] == 5.0
