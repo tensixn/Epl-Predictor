@@ -17,7 +17,9 @@ ELO_K = 20.0
 ELO_HOME_ADV = 60.0
 ELO_SEASON_REGRESS = 0.2  # pull ratings 20% back toward the mean each summer
 WINDOWS = (5, 10)
-STATS = ["pts", "gf", "ga", "sf", "sa", "stf", "sta"]  # points, goals, shots, shots on target
+RESULT_STATS = ["pts", "gf", "ga"]  # points, goals
+SHOT_STATS = ["sf", "sa", "stf", "sta"]  # shots, shots on target
+STATS = RESULT_STATS + SHOT_STATS
 
 
 def load_matches(raw_dir: Path = RAW_DIR) -> pd.DataFrame:
@@ -41,6 +43,9 @@ class TeamState:
     def __init__(self):
         self.elo = {}
         self.history = defaultdict(lambda: deque(maxlen=max(WINDOWS)))
+        # Shots are kept apart because the in-progress season has scores only: shot form
+        # then comes from the team's most recent matches that do have shot data.
+        self.shot_history = defaultdict(lambda: deque(maxlen=max(WINDOWS)))
         self.last_date = {}
         self.season = None
 
@@ -53,10 +58,10 @@ class TeamState:
 
     def team_features(self, team, date):
         f = {"elo": self.elo.get(team, ELO_PROMOTED)}
-        hist = list(self.history[team])
+        hist, shots = list(self.history[team]), list(self.shot_history[team])
         for w in WINDOWS:
-            recent = hist[-w:]
             for s in STATS:
+                recent = (hist if s in RESULT_STATS else shots)[-w:]
                 f[f"{s}_{w}"] = np.mean([m[s] for m in recent]) if recent else np.nan
         last = self.last_date.get(team)
         f["rest_days"] = min((date - last).days, 30) if last is not None else 30
@@ -85,8 +90,11 @@ class TeamState:
 
         h_pts = 3 if hg > ag else 1 if hg == ag else 0
         a_pts = 3 if ag > hg else 1 if hg == ag else 0
-        self.history[home].append(dict(pts=h_pts, gf=hg, ga=ag, sf=m.HS, sa=m.AS, stf=m.HST, sta=m.AST))
-        self.history[away].append(dict(pts=a_pts, gf=ag, ga=hg, sf=m.AS, sa=m.HS, stf=m.AST, sta=m.HST))
+        self.history[home].append(dict(pts=h_pts, gf=hg, ga=ag))
+        self.history[away].append(dict(pts=a_pts, gf=ag, ga=hg))
+        if not pd.isna([m.HS, m.AS, m.HST, m.AST]).any():
+            self.shot_history[home].append(dict(sf=m.HS, sa=m.AS, stf=m.HST, sta=m.AST))
+            self.shot_history[away].append(dict(sf=m.AS, sa=m.HS, stf=m.AST, sta=m.HST))
         self.last_date[home] = self.last_date[away] = m.Date
 
 
