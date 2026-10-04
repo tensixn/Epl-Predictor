@@ -15,9 +15,9 @@ from .features import LABELS, build_features, feature_columns, load_matches
 MODELS = ("logistic", "xgboost")
 
 
-def train(names=MODELS):
+def train(names=MODELS, matches=None):
     """Fit the named models on every season; return (models, cols, state)."""
-    feats, state = build_features(load_matches())
+    feats, state = build_features(load_matches() if matches is None else matches)
     feats = feats[feats.season != BURN_IN]
     cols = feature_columns(feats)
     y = feats.FTR.map(LABELS).values
@@ -38,7 +38,11 @@ def predict(models, cols, state, fixtures, date=None):
 def main(args):
     if not args or len(args) % 2:
         sys.exit('usage: python -m src.predict HOME AWAY [HOME AWAY ...]')
-    models, cols, state = train()
+    matches = load_matches()
+    models, cols, state = train(matches=matches)
+    last, season = matches.Date.max(), matches.season.iloc[-1]
+    print(f"form and Elo as of {last:%Y-%m-%d} ({(matches.season == season).sum()} "
+          f"matches played in {season[:2]}/{season[2:]})")
     fixtures = list(zip(args[::2], args[1::2]))
     for team in {t for f in fixtures for t in f} - set(state.elo):
         print(f"warning: '{team}' not in the data; treating it as a newly promoted side")
