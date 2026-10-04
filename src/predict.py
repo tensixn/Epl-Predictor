@@ -12,7 +12,7 @@ import pandas as pd
 from .evaluate import BURN_IN, make_models, select
 from .features import LABELS, build_features, feature_columns, load_matches
 
-MODELS = ("logistic", "xgboost")
+MODELS = ("logistic", "xgboost", "elo_logistic")
 
 
 def train(names=MODELS, matches=None):

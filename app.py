@@ -3,6 +3,7 @@
 Run locally from the project root:  streamlit run app.py
 """
 from html import escape
+from pathlib import Path
 
 import pandas as pd
 import streamlit as st
@@ -11,7 +12,7 @@ from src.features import load_matches
 from src.fixtures import next_round, season_matches
 from src.predict import predict, train
 from src.simulate import simulate_season
-from src.tracker import read_log, summarise
+from src.tracker import calibration, read_log, summarise
 
 st.set_page_config(page_title="EPL match predictor", page_icon="⚽", layout="centered")
 
@@ -22,7 +23,9 @@ st.markdown("""
 .pbar .h { background:#00ff85; color:#1d0a22; }
 .pbar .d { background:#8b7a91; color:#1d0a22; }
 .pbar .a { background:#e90052; color:#fff; }
-.legend { display:flex; justify-content:space-between; font-size:.85rem; margin:.3rem 0 .8rem; opacity:.9; }
+.legend { display:flex; flex-wrap:wrap; justify-content:space-between; gap:.2rem 1rem; font-size:.85rem; margin:.4rem 0 .8rem; }
+.legend i { display:inline-block; width:.7rem; height:.7rem; border-radius:3px; margin-right:.4rem; }
+.legend .h i { background:#00ff85; } .legend .d i { background:#8b7a91; } .legend .a i { background:#e90052; }
 .fx { margin:.9rem 0 .2rem; font-weight:600; }
 .fx small { font-weight:400; opacity:.7; }
 @media (prefers-reduced-motion: no-preference) { .pbar span { transition: flex-basis .3s ease; } }
@@ -56,8 +59,9 @@ def bar(p_home, p_draw, p_away, home, away):
                     else f'<span class="{c}" style="flex:{p:.4f}"></span>' for c, p in zip("hda", ps))
     return (f'<div class="pbar" role="img" aria-label="{escape(home)} {p_home:.0%}, draw {p_draw:.0%}, '
             f'{escape(away)} {p_away:.0%}">{spans}</div>'
-            f'<div class="legend"><span>{escape(home)} {p_home:.1%}</span><span>Draw {p_draw:.1%}</span>'
-            f'<span>{escape(away)} {p_away:.1%}</span></div>')
+            f'<div class="legend"><span class="h"><i></i>{escape(home)} {p_home:.1%}</span>'
+            f'<span class="d"><i></i>Draw {p_draw:.1%}</span>'
+            f'<span class="a"><i></i>{escape(away)} {p_away:.1%}</span></div>')
 
 
 models, cols, state, current = load()
@@ -111,8 +115,8 @@ with tab_pick:
             st.dataframe(rows, hide_index=True)
 
 with tab_season:
-    st.caption("10,000 simulations of the remaining fixtures. Ratings are frozen at today's values, so early in "
-               "the season the odds are more confident than they should be.")
+    st.caption("10,000 simulations of the remaining fixtures. Each simulated result moves both teams' Elo before "
+               "the next game is drawn, so a hot streak carries on. Form (last 5 / 10 matches) stays at today's values.")
     try:
         odds = season_odds(model)
         st.dataframe(odds, hide_index=True, width="stretch", column_config={
@@ -140,3 +144,18 @@ with tab_track:
                                               "frequencies of these same results.")
     if len(log):
         st.dataframe(log.sort_values("date", ascending=False), hide_index=True, width="stretch")
+
+    with st.expander("Backtest: 2023/24 to 2025/26, trained only on earlier seasons"):
+        res = Path("results")
+        if (res / "metrics_by_season.csv").exists():
+            m = pd.read_csv(res / "metrics_by_season.csv", dtype={"season": str})
+            m = m[m.model.isin(["base_rate", "logistic", "xgboost", "bookmaker"])]
+            st.caption("Log loss by season (lower is better). The bookmaker row uses closing odds.")
+            st.dataframe(m.pivot(index="model", columns="season", values="log_loss").round(4)
+                         .assign(mean=lambda d: d.mean(axis=1).round(4)), width="stretch")
+        if (res / "logistic_test_predictions.csv").exists():
+            cal = calibration(pd.read_csv(res / "logistic_test_predictions.csv"))
+            st.caption("Calibration: when the model says 30%, does it happen about 30% of the time? "
+                       "Closer to the diagonal is better.")
+            st.line_chart(cal.rename(columns={"observed": "observed frequency"})
+                          .assign(perfect=cal.predicted).set_index("predicted")[["observed frequency", "perfect"]])
