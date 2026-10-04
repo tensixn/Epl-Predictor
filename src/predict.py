@@ -16,11 +16,15 @@ from .features import LABELS, build_features, feature_columns, load_matches
 def main(args):
     if not args or len(args) % 2:
         sys.exit('usage: python -m src.predict HOME AWAY [HOME AWAY ...]')
-    feats, state = build_features(load_matches())
+    matches = load_matches()
+    feats, state = build_features(matches)
     feats = feats[feats.season != BURN_IN]
     cols = feature_columns(feats)
     y = feats.FTR.map(LABELS).values
 
+    last = matches.Date.max()
+    print(f"form and Elo as of {last:%Y-%m-%d} ({(matches.season == matches.season.iloc[-1]).sum()} "
+          f"matches played in {matches.season.iloc[-1][:2]}/{matches.season.iloc[-1][2:]})")
     known = set(state.elo)
     today = pd.Timestamp.today().normalize()
     fixtures = list(zip(args[::2], args[1::2]))
