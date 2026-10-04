@@ -10,6 +10,7 @@ scripts/             download_data.sh to refresh the data
 src/features.py      Elo ratings and rolling form, built only from past matches
 src/evaluate.py      walk-forward evaluation of four models
 src/predict.py       probabilities for any fixture
+app.py               Streamlit page on top of src/predict.py
 tests/               leakage and Elo sanity checks
 results/             metrics and per-match test predictions
 ```
@@ -51,11 +52,17 @@ pip install -r requirements.txt
 python -m src.evaluate                       # metrics -> results/
 python -m src.predict Arsenal Chelsea        # HOME AWAY pairs
 pytest                                       # run the tests
+streamlit run app.py                         # web page with team pickers
 ./scripts/download_data.sh                   # refresh data/raw
 ```
 Team names follow football-data.co.uk spelling ("Man City", "Man United", "Nott'm Forest", "Spurs" is "Tottenham").
 
+## Web app
+`app.py` is a Streamlit page: pick a home and away team and it shows the win, draw and loss
+probabilities. It trains both models from `data/raw` when it starts (about 10 seconds, cached after that),
+so there is no separate training step. To host it on Streamlit Community Cloud, sign in at
+share.streamlit.io with GitHub, choose this repo, branch `main` and main file path `app.py`.
+
 ## Ideas for next steps
 - Add bookmaker odds or xG as features
 - Pull in current-season results so predictions use live form
-- A Streamlit page on top of `src/predict.py`
