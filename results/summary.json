@@ -1,0 +1,26 @@
+{
+  "base_rate": {
+    "log_loss": 1.0745,
+    "brier": 0.6507,
+    "rps": 0.2329,
+    "accuracy": 0.4316
+  },
+  "elo_logistic": {
+    "log_loss": 0.9852,
+    "brier": 0.5879,
+    "rps": 0.2019,
+    "accuracy": 0.5342
+  },
+  "logistic": {
+    "log_loss": 0.9791,
+    "brier": 0.5839,
+    "rps": 0.1993,
+    "accuracy": 0.5316
+  },
+  "xgboost": {
+    "log_loss": 0.9879,
+    "brier": 0.5882,
+    "rps": 0.2012,
+    "accuracy": 0.5351
+  }
+}
