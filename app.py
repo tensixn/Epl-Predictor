@@ -80,9 +80,10 @@ form_to = max(state.last_date.values())
 st.title("EPL match predictor")
 st.caption(f"Elo ratings and form run to {form_to:%d %b %Y}, the last match in the data.")
 
-model = st.radio("Model", ["logistic", "xgboost"], horizontal=True,
-                 format_func={"logistic": "Logistic regression", "xgboost": "XGBoost"}.get,
-                 help="Logistic regression scored best in the walk-forward test (log loss 0.979 vs 0.988).")
+model = st.radio("Model", ["blend", "logistic", "xgboost"], horizontal=True,
+                 format_func={"blend": "Blend", "logistic": "Logistic regression", "xgboost": "XGBoost"}.get,
+                 help="The blend averages logistic regression with a Dixon-Coles goals model. It scored best in the "
+                      "walk-forward test (log loss 0.975 vs 0.979 for logistic alone, 0.988 for XGBoost).")
 
 tab_next, tab_pick, tab_season, tab_track = st.tabs(
     ["Upcoming fixtures", "Pick a match", "Season odds", "Track record"])
@@ -148,7 +149,7 @@ with tab_track:
     log = read_log()
     s = summarise(log)
     st.caption("Predictions are logged before kickoff and scored once the result is in, so these numbers are "
-               "genuinely out of sample. Logistic model only.")
+               "genuinely out of sample. Blend model only.")
     if s is None:
         st.info(f"{len(log)} predictions logged so far. None have been played yet.")
     else:
@@ -173,12 +174,12 @@ with tab_track:
         res = Path("results")
         if (res / "metrics_by_season.csv").exists():
             m = pd.read_csv(res / "metrics_by_season.csv", dtype={"season": str})
-            m = m[m.model.isin(["base_rate", "logistic", "xgboost", "bookmaker"])]
+            m = m[m.model.isin(["base_rate", "logistic", "xgboost", "blend", "bookmaker"])]
             st.caption("Log loss by season (lower is better). The bookmaker row uses closing odds.")
             st.dataframe(m.pivot(index="model", columns="season", values="log_loss").round(4)
                          .assign(mean=lambda d: d.mean(axis=1).round(4)), width="stretch")
-        if (res / "logistic_test_predictions.csv").exists():
-            cal = calibration(pd.read_csv(res / "logistic_test_predictions.csv"))
+        if (res / "blend_test_predictions.csv").exists():
+            cal = calibration(pd.read_csv(res / "blend_test_predictions.csv"))
             st.caption("Calibration: when the model says 30%, does it happen about 30% of the time? "
                        "Closer to the diagonal is better.")
             st.line_chart(cal.rename(columns={"observed": "observed frequency"})

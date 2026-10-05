@@ -18,16 +18,28 @@
     "accuracy": 0.5316
   },
   "xgboost": {
-    "log_loss": 0.9884,
-    "brier": 0.5886,
-    "rps": 0.2012,
-    "accuracy": 0.5333
+    "log_loss": 0.9877,
+    "brier": 0.588,
+    "rps": 0.201,
+    "accuracy": 0.5325
   },
   "ensemble": {
-    "log_loss": 0.982,
-    "brier": 0.5851,
-    "rps": 0.1998,
-    "accuracy": 0.5316
+    "log_loss": 0.9815,
+    "brier": 0.5847,
+    "rps": 0.1997,
+    "accuracy": 0.5333
+  },
+  "dixon_coles": {
+    "log_loss": 0.9787,
+    "brier": 0.5832,
+    "rps": 0.2,
+    "accuracy": 0.5254
+  },
+  "blend": {
+    "log_loss": 0.9747,
+    "brier": 0.5807,
+    "rps": 0.1984,
+    "accuracy": 0.5325
   },
   "bookmaker": {
     "log_loss": 0.9597,

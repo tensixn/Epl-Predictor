@@ -9,22 +9,28 @@ import sys
 
 import pandas as pd
 
+from .dixoncoles import Blend, DixonColes
 from .evaluate import BURN_IN, make_models, select
 from .features import LABELS, build_features, feature_columns, load_matches
 
-MODELS = ("logistic", "xgboost", "elo_logistic")
+MODELS = ("logistic", "xgboost", "elo_logistic", "blend")  # blend = logistic + Dixon-Coles
 
 
 def train(names=MODELS, matches=None):
     """Fit the named models on every season; return (models, cols, state)."""
-    feats, state = build_features(load_matches() if matches is None else matches)
+    matches = load_matches() if matches is None else matches
+    feats, state = build_features(matches)
     feats = feats[feats.season != BURN_IN]
     cols = feature_columns(feats)
     y = feats.FTR.map(LABELS).values
     models = {}
     for name in names:
-        factory, use = make_models()[name]
-        models[name] = (factory().fit(select(feats, use, cols), y), use)
+        if name != "blend":
+            factory, use = make_models()[name]
+            models[name] = (factory().fit(select(feats, use, cols), y), use)
+    if "blend" in names:  # needs "logistic" in names
+        dc = DixonColes(matches, matches.Date.max() + pd.Timedelta(days=1))
+        models["blend"] = (Blend(models["logistic"][0], dc), "all")
     return models, cols, state
 
 
@@ -32,7 +38,8 @@ def predict(models, cols, state, fixtures, date=None):
     """Return {model name: array of [home, draw, away] probabilities per fixture}."""
     date = pd.Timestamp.today().normalize() if date is None else date
     X = pd.DataFrame([state.match_features(h, a, date) for h, a in fixtures])
-    return {name: m.predict_proba(select(X, use, cols)) for name, (m, use) in models.items()}
+    return {name: m.predict_fixtures(fixtures, select(X, use, cols)) if hasattr(m, "predict_fixtures")
+            else m.predict_proba(select(X, use, cols)) for name, (m, use) in models.items()}
 
 
 def main(args):
