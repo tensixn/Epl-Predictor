@@ -3,6 +3,8 @@
 Machine learning model that predicts home win / draw / away win probabilities for Premier League matches.
 It is trained on 26 seasons of results and tested walk-forward on the last three seasons, with no future data leaking into features.
 
+**Live app: https://epl-predictor-tension.streamlit.app/**
+
 ## Project layout
 ```
 data/raw/            season CSVs (2000/01 to 2025/26, plus 2026/27 so far)
