@@ -3,14 +3,14 @@ toolbarMode = "minimal"
 
 [theme]
 base = "dark"
-primaryColor = "#3ddc97"
-backgroundColor = "#1d0a22"
-secondaryBackgroundColor = "#2a1230"
-textColor = "#f5f0f7"
-borderColor = "#43294a"
+primaryColor = "#c8ff3d"
+backgroundColor = "#090d14"
+secondaryBackgroundColor = "#101722"
+textColor = "#eef2f7"
+borderColor = "#1f2a3a"
 font = "Geist"
-blueColor = "#b9a3c4"
-blueBackgroundColor = "#2f1a36"
+blueColor = "#9fb0c8"
+blueBackgroundColor = "#16202e"
 
 [[theme.fontFaces]]
 family = "Geist"

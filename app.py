@@ -27,16 +27,33 @@ st.set_page_config(page_title="Football Predictor", page_icon=str(Path(__file__)
 
 st.markdown("""
 <style>
-:root { --home:#3ddc97; --draw:#8b7a91; --away:#7aa7ff; --ink:#1d0a22; --rule:rgba(245,240,247,.16); }
-html { scrollbar-color:#43294a transparent; }
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&display=swap');
+:root { --home:#c8ff3d; --draw:#7f8da3; --away:#4cc3ff; --ink:#07100a; --panel:#101722; --rule:rgba(238,242,247,.14);
+        --display:'Barlow Condensed','Arial Narrow',sans-serif; --ease:cubic-bezier(.16,1,.3,1); }
+html { scrollbar-color:#2a3a52 transparent; }
 [data-testid="stHeader"] { background:transparent; }
-.stApp { background-image: radial-gradient(60rem 28rem at 12% -8%, rgba(132,72,150,.20), transparent 70%); }
-h1 { letter-spacing:-.025em; text-wrap:balance; }
-h2, h3 { letter-spacing:-.015em; font-weight:600; text-wrap:balance; }
+.stApp { background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.017) 0 7rem, transparent 7rem 14rem),
+                           radial-gradient(50rem 22rem at 50% -10%, rgba(200,255,61,.09), transparent 70%); }
+h1, h1 span { font-family:var(--display) !important; font-weight:800 !important; text-transform:uppercase; }
+h1 { font-size:3.6rem; line-height:.95; letter-spacing:-.01em; text-wrap:balance; }
+h2, h3, h2 span, h3 span { font-family:var(--display) !important; font-weight:700 !important; text-transform:uppercase; }
+h2, h3 { letter-spacing:.015em; text-wrap:balance; }
 [data-testid="stCaptionContainer"] { text-wrap:pretty; }
-.pbar { display:flex; height:34px; border-radius:8px; overflow:hidden; font-weight:500; font-size:.9rem; }
+[data-testid="stRadioOption"] { border:1px solid var(--rule); border-radius:6px; padding:.3rem .95rem; margin-right:.5rem;
+                                transition:border-color .2s, background-color .2s; }
+[data-testid="stRadioOption"] > div > div:first-child { display:none; }
+[data-testid="stRadioOption"] p, [role="tab"] p { font-family:var(--display) !important; font-weight:700;
+                                font-size:1.1rem; letter-spacing:.05em; text-transform:uppercase; }
+[data-testid="stRadioOption"]:hover { border-color:var(--home); }
+[data-testid="stRadioOption"][data-selected="true"] { background:var(--home); border-color:var(--home); }
+[data-testid="stRadioOption"][data-selected="true"] p { color:var(--ink); }
+.card { background:var(--panel); border:1px solid var(--rule); border-radius:10px; padding:.95rem 1.1rem 1.05rem;
+        margin:.7rem 0; transition:border-color .25s; animation:rise .6s var(--ease) both; animation-delay:calc(var(--i,0) * 45ms); }
+.card:hover { border-color:rgba(200,255,61,.5); }
+.pbar { display:flex; gap:2px; height:38px; border-radius:6px; overflow:hidden; font-family:var(--display); font-weight:700;
+        font-size:1.2rem; letter-spacing:.02em; animation:sweep .9s var(--ease) both; animation-delay:calc(var(--i,0) * 45ms + 150ms); }
 .pbar span { display:flex; align-items:center; justify-content:center; min-width:0; white-space:nowrap; }
-.pbar .fav { font-weight:700; }
+.pbar .fav { font-weight:800; }
 .pbar .h { background:var(--home); color:var(--ink); }
 .pbar .d { background:var(--draw); color:var(--ink); }
 .pbar .a { background:var(--away); color:var(--ink); }
@@ -46,15 +63,22 @@ h2, h3 { letter-spacing:-.015em; font-weight:600; text-wrap:balance; }
 .legend i { display:inline-block; width:.7rem; height:.7rem; border-radius:3px; margin-right:.4rem; }
 .legend .h i { background:var(--home); } .legend .d i { background:var(--draw); } .legend .a i { background:var(--away); }
 .pbar, .legend, .fx { font-variant-numeric: tabular-nums; }
-.day { margin:1.8rem 0 .3rem; padding-bottom:.35rem; font-weight:600; border-bottom:1px solid var(--rule); }
-.fx { display:grid; grid-template-columns:1fr auto 1fr; gap:0 .6rem; align-items:baseline; margin:1.1rem 0 .4rem; font-weight:500; }
-.fx span:last-child { text-align:right; }
-.fx small { font-weight:400; opacity:.75; }
+.day { margin:2rem 0 .2rem; padding-bottom:.35rem; font-family:var(--display); font-weight:700; font-size:1.25rem;
+       letter-spacing:.06em; text-transform:uppercase; color:var(--home); border-bottom:1px solid var(--rule); }
+.fx { display:grid; grid-template-columns:1fr auto 1fr; gap:0 .9rem; align-items:center; margin:0 0 .75rem;
+      font-family:var(--display); font-weight:700; font-size:1.65rem; line-height:1; text-transform:uppercase; }
+.fx span:first-child { text-align:right; }
+.fx small { font-family:inherit; font-weight:600; font-size:.95rem; letter-spacing:.06em; padding:.25rem .6rem;
+            border:1px solid var(--rule); border-radius:4px; opacity:.9; }
 ::selection { background:var(--home); color:var(--ink); }
 :focus-visible { outline:2px solid var(--home); outline-offset:2px; }
+@keyframes rise { from { opacity:0; transform:translateY(12px); } }
+@keyframes sweep { from { clip-path:inset(0 100% 0 0 round 6px); } to { clip-path:inset(0 0 0 0 round 6px); } }
+@media (prefers-reduced-motion: reduce) { .card, .pbar { animation:none; } }
 @media (max-width: 640px) {
   [data-testid="stMainBlockContainer"] { padding-top:3.2rem; }
-  [data-testid="stMainBlockContainer"] h1 { font-size:2.1rem; }
+  [data-testid="stMainBlockContainer"] h1 { font-size:2.6rem; }
+  .fx { font-size:1.25rem; gap:0 .5rem; }
   [role="tablist"] { gap:.75rem; }
 }
 </style>
@@ -152,12 +176,13 @@ if section == "Match predictor":
                 st.info(f"{team} isn't in the data yet; treated as a newly promoted side.")
             probs = predict({model: models[model]}, cols, state, [(g["home"], g["away"]) for g in games])[model]
             day = None
-            for g, (ph, pd_, pa) in zip(games, probs):
+            for i, (g, (ph, pd_, pa)) in enumerate(zip(games, probs)):
                 if g["date"] != day:
                     day = g["date"]
                     st.markdown(f'<div class="day">{pd.Timestamp(day):%A %d %B}</div>', unsafe_allow_html=True)
-                st.markdown(f'<div class="fx"><span>{escape(g["home"])}</span><small>{escape(g["time"])}</small>'
-                            f'<span>{escape(g["away"])}</span></div>' + bar(ph, pd_, pa, g["home"], g["away"], legend=False),
+                st.markdown(f'<div class="card" style="--i:{i}"><div class="fx"><span>{escape(g["home"])}</span>'
+                            f'<small>{escape(g["time"])}</small><span>{escape(g["away"])}</span></div>'
+                            + bar(ph, pd_, pa, g["home"], g["away"], legend=False) + '</div>',
                             unsafe_allow_html=True)
         elif round_name is None and not games:
             st.info("No upcoming fixtures found.")
