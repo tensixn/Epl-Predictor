@@ -22,7 +22,7 @@ from src.predict import predict, train
 from src.simulate import simulate_season
 from src.tracker import calibration, read_log, summarise, vs_bookmaker
 
-st.set_page_config(page_title="Football predictor", page_icon=str(Path(__file__).parent / "assets" / "favicon.png"),
+st.set_page_config(page_title="Football Predictor", page_icon=str(Path(__file__).parent / "assets" / "favicon.png"),
                    layout="centered")
 
 st.markdown("""
