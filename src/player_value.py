@@ -22,9 +22,6 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from sklearn.linear_model import RidgeCV
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
 from xgboost import XGBRegressor
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -105,7 +102,6 @@ class FeatureModel:
 def make_models():
     return {
         "age_position": MedianByAgePosition,
-        "ridge": lambda: FeatureModel(lambda: make_pipeline(StandardScaler(), RidgeCV(alphas=np.logspace(-2, 3, 20)))),
         "xgboost": lambda: FeatureModel(lambda: XGBRegressor(
             n_estimators=600, learning_rate=0.03, max_depth=4, subsample=0.8, colsample_bytree=0.7,
             min_child_weight=5, random_state=0)),
