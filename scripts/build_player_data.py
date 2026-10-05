@@ -19,7 +19,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "players" / "epl_player_seasons.csv"
-BASE = "https://media.githubusercontent.com/media/salimt/football-datasets/main/datalake/transfermarkt"
+BASE = "https://github.com/salimt/football-datasets/raw/main/datalake/transfermarkt"  # redirects LFS files to the media host
 FILES = {
     "player_performances.csv": "player_performances/player_performances.csv",
     "player_profiles.csv": "player_profiles/player_profiles.csv",
