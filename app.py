@@ -305,20 +305,19 @@ else:
                 pick = st.selectbox("Player", names.player_id, format_func=dict(zip(names.player_id, names.name)).get)
                 hist = pv[(pv.player_id == pick) & pv.value.notna()].sort_values("season")
                 st.line_chart(hist.assign(season=hist.season.map(label), **{
-                    "Market value (€m)": hist.value / 1e6, "Stats value (€m)": hist.stats_value / 1e6})
-                    .set_index("season")[["Market value (€m)", "Stats value (€m)"]])
+                    "Price (€m)": hist.value / 1e6, "Stats say (€m)": hist.stats_value / 1e6})
+                    .set_index("season")[["Price (€m)", "Stats say (€m)"]])
 
-        with st.expander("How accurate is the stats value?"):
+        with st.expander("How accurate are the estimates?"):
             path = Path(__file__).parent / "results" / "player_value_metrics.csv"
             if path.exists():
-                m = pd.read_csv(path)
-                m = m.groupby("model")[["median_pct_error", "within_25pct", "r2_log"]].mean()
-                st.caption("Tested on 2022/23 to 2024/25 with models trained only on earlier seasons. The app uses "
-                           "XGBoost. Median error is how far a typical estimate is from the market value.")
-                st.dataframe((m * 100).round(0).rename(
-                    index={"age_position": "Age and position only", "ridge": "Ridge regression", "xgboost": "XGBoost"},
-                    columns={"median_pct_error": "Median error %", "within_25pct": "Within 25% of market %",
-                             "r2_log": "Variance explained %"}), width="stretch")
+                m = pd.read_csv(path).groupby("model")[["median_pct_error", "within_25pct"]].mean()
+                st.caption("Tested on 2022/23 to 2024/25, using only earlier seasons to make each estimate. "
+                           "How close are the estimates to the real Transfermarkt price?")
+                st.dataframe((m.loc[["age_position", "xgboost"]] * 100).round(0).rename(
+                    index={"age_position": "Just age and position", "xgboost": "Our model"},
+                    columns={"median_pct_error": "Typical miss %", "within_25pct": "Players within 25% of price"}),
+                    width="stretch")
 
 st.caption("Data: football-data.co.uk, openfootball and Transfermarkt (via salimt/football-datasets). "
            "These are model probabilities, not betting tips.")
