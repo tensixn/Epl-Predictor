@@ -297,7 +297,7 @@ else:
     else:
         st.caption("Is a player's price tag fair? We compare each Premier League player's Transfermarkt price with what "
                    "their season says they're worth: age, position, games, goals, assists and how their club finished. "
-                   "It's an estimate, not a transfer fee.")
+                   "It's an estimate, not a transfer fee. Covers 2004/05 to 2024/25: our price data stops in September 2025.")
         label = lambda s: f"{s - 1}/{s % 100:02d}"
         seasons = sorted(pv.season.unique(), reverse=True)
         c1, c2 = st.columns(2)
