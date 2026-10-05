@@ -22,7 +22,7 @@ from src.predict import predict, train
 from src.simulate import simulate_season
 from src.tracker import calibration, read_log, summarise, vs_bookmaker
 
-st.set_page_config(page_title="EPL match predictor", page_icon=str(Path(__file__).parent / "assets" / "favicon.png"),
+st.set_page_config(page_title="Football predictor", page_icon=str(Path(__file__).parent / "assets" / "favicon.png"),
                    layout="centered")
 
 st.markdown("""
@@ -121,138 +121,147 @@ def bar(p_home, p_draw, p_away, home, away, legend=True):
 models, cols, state, current = load()
 form_to = max(state.last_date.values())
 
-st.title("EPL match predictor")
-st.caption("The chance of a home win, a draw or an away win for each Premier League match, from a model trained on "
-           f"26 seasons of results. Based on matches up to {form_to:%d %b %Y}. Probabilities, not tips.")
+st.title("Football predictor")
+section = st.radio("Section", ["Match predictor", "Player values"], horizontal=True, label_visibility="collapsed")
 
-model = st.session_state.get("model", "blend")  # the picker is in "Model settings" at the bottom
+if section == "Match predictor":
+    st.caption("The chance of a home win, a draw or an away win for each Premier League match, from a model trained on "
+               f"26 seasons of results. Based on matches up to {form_to:%d %b %Y}. Probabilities, not tips.")
 
-tab_next, tab_pick, tab_season, tab_track, tab_value = st.tabs(
-    ["Fixtures", "Pick a match", "Season odds", "Track record", "Player values"])
+    model = st.session_state.get("model", "blend")  # the picker is in "Model settings" at the bottom
 
-with tab_next:
-    try:
-        round_name, games = fixtures()
-    except Exception as e:  # network or an unfamiliar team name; the other tab still works
-        round_name, games = None, []
-        st.warning("Couldn't load the fixtures right now. Try the Pick a match tab, or reload in a minute.")
-    if round_name:
-        st.subheader(round_name)
-        acc = backtest_accuracy()
-        if acc:
-            st.caption(f"In a test on the last three seasons the model picked the right result {acc[0]:.0%} of the "
-                       f"time; the bookmakers managed {acc[1]:.0%}. Track record shows how it is doing on live "
-                       "matches. Kick-off times are UK time.")
-        st.markdown('<div class="legend key"><span class="h"><i></i>Home win</span><span class="d"><i></i>Draw</span>'
-                    '<span class="a"><i></i>Away win</span></div>', unsafe_allow_html=True)
-        for team in {t for g in games for t in (g["home"], g["away"])} - set(state.elo):
-            st.info(f"{team} isn't in the data yet; treated as a newly promoted side.")
-        probs = predict({model: models[model]}, cols, state, [(g["home"], g["away"]) for g in games])[model]
-        day = None
-        for g, (ph, pd_, pa) in zip(games, probs):
-            if g["date"] != day:
-                day = g["date"]
-                st.markdown(f'<div class="day">{pd.Timestamp(day):%A %d %B}</div>', unsafe_allow_html=True)
-            st.markdown(f'<div class="fx"><span>{escape(g["home"])}</span><small>{escape(g["time"])}</small>'
-                        f'<span>{escape(g["away"])}</span></div>' + bar(ph, pd_, pa, g["home"], g["away"], legend=False),
-                        unsafe_allow_html=True)
-    elif round_name is None and not games:
-        st.info("No upcoming fixtures found.")
+    tab_next, tab_pick, tab_season, tab_track = st.tabs(
+        ["Fixtures", "Pick a match", "Season odds", "Track record"])
 
-with tab_pick:
-    all_teams = st.checkbox("Show every team since 2000/01", value=False)
-    teams = sorted(state.elo) if all_teams else current
-    left, right = st.columns(2)
-    home = left.selectbox("Home team", teams, index=teams.index("Arsenal") if "Arsenal" in teams else 0)
-    away = right.selectbox("Away team", teams, index=teams.index("Chelsea") if "Chelsea" in teams else 1)
+    with tab_next:
+        try:
+            round_name, games = fixtures()
+        except Exception as e:  # network or an unfamiliar team name; the other tab still works
+            round_name, games = None, []
+            st.warning("Couldn't load the fixtures right now. Try the Pick a match tab, or reload in a minute.")
+        if round_name:
+            st.subheader(round_name)
+            acc = backtest_accuracy()
+            if acc:
+                st.caption(f"In a test on the last three seasons the model picked the right result {acc[0]:.0%} of the "
+                           f"time; the bookmakers managed {acc[1]:.0%}. Track record shows how it is doing on live "
+                           "matches. Kick-off times are UK time.")
+            st.markdown('<div class="legend key"><span class="h"><i></i>Home win</span><span class="d"><i></i>Draw</span>'
+                        '<span class="a"><i></i>Away win</span></div>', unsafe_allow_html=True)
+            for team in {t for g in games for t in (g["home"], g["away"])} - set(state.elo):
+                st.info(f"{team} isn't in the data yet; treated as a newly promoted side.")
+            probs = predict({model: models[model]}, cols, state, [(g["home"], g["away"]) for g in games])[model]
+            day = None
+            for g, (ph, pd_, pa) in zip(games, probs):
+                if g["date"] != day:
+                    day = g["date"]
+                    st.markdown(f'<div class="day">{pd.Timestamp(day):%A %d %B}</div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="fx"><span>{escape(g["home"])}</span><small>{escape(g["time"])}</small>'
+                            f'<span>{escape(g["away"])}</span></div>' + bar(ph, pd_, pa, g["home"], g["away"], legend=False),
+                            unsafe_allow_html=True)
+        elif round_name is None and not games:
+            st.info("No upcoming fixtures found.")
 
-    if home == away:
-        st.warning("Pick two different teams.")
-    else:
-        p_home, p_draw, p_away = predict({model: models[model]}, cols, state, [(home, away)])[model][0]
-        st.markdown(bar(p_home, p_draw, p_away, home, away), unsafe_allow_html=True)
-        with st.expander("Team form behind this prediction"):
-            rows = []
-            for t in (home, away):
-                f = state.team_features(t, form_to)
-                rows.append({"team": t, "strength rating (Elo)": round(f["elo"]), "points per game (last 5)": f["pts_5"],
-                             "goals for (last 5)": f["gf_5"], "goals against (last 5)": f["ga_5"]})
-            st.dataframe(rows, hide_index=True)
+    with tab_pick:
+        all_teams = st.checkbox("Show every team since 2000/01", value=False)
+        teams = sorted(state.elo) if all_teams else current
+        left, right = st.columns(2)
+        home = left.selectbox("Home team", teams, index=teams.index("Arsenal") if "Arsenal" in teams else 0)
+        away = right.selectbox("Away team", teams, index=teams.index("Chelsea") if "Chelsea" in teams else 1)
 
-with tab_season:
-    st.caption("10,000 simulated finishes to the season. Each simulated result moves both teams' strength ratings "
-               "before the next game is drawn, so a hot streak carries on. Recent form stays at today's values.")
-    try:
-        odds = season_odds(model)
-        odds[["title", "top 4", "relegation"]] *= 100
-        chance = lambda label: st.column_config.ProgressColumn(label, min_value=0, max_value=100, format="%.1f%%",
-                                                               width="small")
-        # the chances come before "Points" so a phone's first screen shows them without sideways scrolling
-        st.dataframe(odds, hide_index=True, width="stretch", height="content",
-                     column_order=["team", "expected points", "title", "top 4", "relegation", "points now"],
-                     column_config={
-            "team": "Team",
-            "points now": st.column_config.NumberColumn("Points", width="small"),
-            "expected points": st.column_config.NumberColumn("Projected", format="%.1f", width="small"),
-            "title": chance("Title"), "top 4": chance("Top 4"), "relegation": chance("Relegation")})
-    except Exception as e:
-        st.warning("Couldn't simulate the season right now. Try reloading in a minute.")
+        if home == away:
+            st.warning("Pick two different teams.")
+        else:
+            p_home, p_draw, p_away = predict({model: models[model]}, cols, state, [(home, away)])[model][0]
+            st.markdown(bar(p_home, p_draw, p_away, home, away), unsafe_allow_html=True)
+            with st.expander("Team form behind this prediction"):
+                rows = []
+                for t in (home, away):
+                    f = state.team_features(t, form_to)
+                    rows.append({"team": t, "strength rating (Elo)": round(f["elo"]), "points per game (last 5)": f["pts_5"],
+                                 "goals for (last 5)": f["gf_5"], "goals against (last 5)": f["ga_5"]})
+                st.dataframe(rows, hide_index=True)
 
-with tab_track:
-    log = read_log()
-    s = summarise(log)
-    st.caption("Predictions are logged before kickoff and scored once the result is in, so these numbers are "
-               "genuinely out of sample. Blend model only.")
-    if s is None:
-        st.info(f"{len(log)} predictions logged so far. None have been played yet.")
-    else:
-        m1, m2, m3 = st.columns(3)
-        m1.metric("Predictions scored", s["n"])
-        m2.metric("Accuracy", f"{s['accuracy']:.1%}")
-        m3.metric("Brier score", f"{s['brier']:.3f}", f"{s['brier'] - s['base_rate_brier']:+.3f} vs base rate",
-                  delta_color="inverse", help="Lower is better. The base rate always predicts the home/draw/away "
-                                              "frequencies of these same results.")
-    vb = vs_bookmaker(log)
-    if vb:
-        st.caption(f"Against the bookmakers over {vb['n']} scored games with odds (log loss, lower is better): "
-                   f"model {vb['model']:.3f}, bookmakers {vb['bookmaker']:.3f}. Odds are the market average "
-                   "when they were first published, so they are a bit less sharp than closing odds.")
-    if len(log):
-        shown = log.sort_values("date", ascending=False).assign(
-            date=lambda d: pd.to_datetime(d.date).dt.strftime("%d %b"),
-            result=lambda d: d.result.map({"H": "Home win", "D": "Draw", "A": "Away win"}).fillna("Not played yet"),
-            **{c: lambda d, c=c: (d[c].astype(float) * 100).round() for c in ("p_home", "p_draw", "p_away")})
-        st.dataframe(shown[["date", "home", "away", "p_home", "p_draw", "p_away", "result"]], hide_index=True,
-                     width="stretch", column_config={
-                         "date": "Date", "home": "Home", "away": "Away", "result": "Result",
-                         "p_home": st.column_config.NumberColumn("Home %", format="%d%%", width="small"),
-                         "p_draw": st.column_config.NumberColumn("Draw %", format="%d%%", width="small"),
-                         "p_away": st.column_config.NumberColumn("Away %", format="%d%%", width="small")})
+    with tab_season:
+        st.caption("10,000 simulated finishes to the season. Each simulated result moves both teams' strength ratings "
+                   "before the next game is drawn, so a hot streak carries on. Recent form stays at today's values.")
+        try:
+            odds = season_odds(model)
+            odds[["title", "top 4", "relegation"]] *= 100
+            chance = lambda label: st.column_config.ProgressColumn(label, min_value=0, max_value=100, format="%.1f%%",
+                                                                   width="small")
+            # the chances come before "Points" so a phone's first screen shows them without sideways scrolling
+            st.dataframe(odds, hide_index=True, width="stretch", height="content",
+                         column_order=["team", "expected points", "title", "top 4", "relegation", "points now"],
+                         column_config={
+                "team": "Team",
+                "points now": st.column_config.NumberColumn("Points", width="small"),
+                "expected points": st.column_config.NumberColumn("Projected", format="%.1f", width="small"),
+                "title": chance("Title"), "top 4": chance("Top 4"), "relegation": chance("Relegation")})
+        except Exception as e:
+            st.warning("Couldn't simulate the season right now. Try reloading in a minute.")
 
-    with st.expander("Backtest: 2023/24 to 2025/26, trained only on earlier seasons"):
-        res = Path("results")
-        if (res / "metrics_by_season.csv").exists():
-            m = pd.read_csv(res / "metrics_by_season.csv", dtype={"season": str})
-            m = m[m.model.isin(["base_rate", "logistic", "xgboost", "blend", "bookmaker"])]
-            st.caption("Log loss by season (lower is better). The bookmaker row uses closing odds.")
-            st.dataframe(m.pivot(index="model", columns="season", values="log_loss").round(4)
-                         .assign(mean=lambda d: d.mean(axis=1).round(4)), width="stretch")
-        if (res / "blend_test_predictions.csv").exists():
-            cal = calibration(pd.read_csv(res / "blend_test_predictions.csv"))
-            st.caption("Calibration: when the model says 30%, does it happen about 30% of the time? "
-                       "Closer to the diagonal is better.")
-            st.line_chart(cal.rename(columns={"observed": "observed frequency"})
-                          .assign(perfect=cal.predicted).set_index("predicted")[["observed frequency", "perfect"]])
+    with tab_track:
+        log = read_log()
+        s = summarise(log)
+        st.caption("Predictions are logged before kickoff and scored once the result is in, so these numbers are "
+                   "genuinely out of sample. Blend model only.")
+        if s is None:
+            st.info(f"{len(log)} predictions logged so far. None have been played yet.")
+        else:
+            m1, m2, m3 = st.columns(3)
+            m1.metric("Predictions scored", s["n"])
+            m2.metric("Accuracy", f"{s['accuracy']:.1%}")
+            m3.metric("Brier score", f"{s['brier']:.3f}", f"{s['brier'] - s['base_rate_brier']:+.3f} vs base rate",
+                      delta_color="inverse", help="Lower is better. The base rate always predicts the home/draw/away "
+                                                  "frequencies of these same results.")
+        vb = vs_bookmaker(log)
+        if vb:
+            st.caption(f"Against the bookmakers over {vb['n']} scored games with odds (log loss, lower is better): "
+                       f"model {vb['model']:.3f}, bookmakers {vb['bookmaker']:.3f}. Odds are the market average "
+                       "when they were first published, so they are a bit less sharp than closing odds.")
+        if len(log):
+            shown = log.sort_values("date", ascending=False).assign(
+                date=lambda d: pd.to_datetime(d.date).dt.strftime("%d %b"),
+                result=lambda d: d.result.map({"H": "Home win", "D": "Draw", "A": "Away win"}).fillna("Not played yet"),
+                **{c: lambda d, c=c: (d[c].astype(float) * 100).round() for c in ("p_home", "p_draw", "p_away")})
+            st.dataframe(shown[["date", "home", "away", "p_home", "p_draw", "p_away", "result"]], hide_index=True,
+                         width="stretch", column_config={
+                             "date": "Date", "home": "Home", "away": "Away", "result": "Result",
+                             "p_home": st.column_config.NumberColumn("Home %", format="%d%%", width="small"),
+                             "p_draw": st.column_config.NumberColumn("Draw %", format="%d%%", width="small"),
+                             "p_away": st.column_config.NumberColumn("Away %", format="%d%%", width="small")})
 
-with tab_value:
+        with st.expander("Backtest: 2023/24 to 2025/26, trained only on earlier seasons"):
+            res = Path("results")
+            if (res / "metrics_by_season.csv").exists():
+                m = pd.read_csv(res / "metrics_by_season.csv", dtype={"season": str})
+                m = m[m.model.isin(["base_rate", "logistic", "xgboost", "blend", "bookmaker"])]
+                st.caption("Log loss by season (lower is better). The bookmaker row uses closing odds.")
+                st.dataframe(m.pivot(index="model", columns="season", values="log_loss").round(4)
+                             .assign(mean=lambda d: d.mean(axis=1).round(4)), width="stretch")
+            if (res / "blend_test_predictions.csv").exists():
+                cal = calibration(pd.read_csv(res / "blend_test_predictions.csv"))
+                st.caption("Calibration: when the model says 30%, does it happen about 30% of the time? "
+                           "Closer to the diagonal is better.")
+                st.line_chart(cal.rename(columns={"observed": "observed frequency"})
+                              .assign(perfect=cal.predicted).set_index("predicted")[["observed frequency", "perfect"]])
+
+    with st.expander("Model settings (advanced)"):
+        st.radio("Model", ["blend", "logistic", "xgboost"], horizontal=True, key="model",
+                 format_func={"blend": "Blend", "logistic": "Logistic regression", "xgboost": "XGBoost"}.get,
+                 help="The blend averages logistic regression with a Dixon-Coles goals model. It scored best in the "
+                      "walk-forward test (log loss 0.975 vs 0.979 for logistic alone, 0.988 for XGBoost).")
+        st.caption("Changes Fixtures, Pick a match and Season odds. Track record always shows the blend.")
+
+else:
     pv = player_values()
     if pv is None:
         st.info("Player values haven't been built yet. Run python -m src.player_value.")
     else:
-        st.caption("What each Premier League player's season says they should be worth, next to their Transfermarkt "
-                   "value from the summer after. The stats value comes from a model that only sees age, position, "
-                   "appearances, starts, goals, assists, European games, experience and the club's finish, trained "
-                   "on earlier seasons only. It never sees a market value.")
+        st.caption("Is a player's price tag fair? We compare each Premier League player's Transfermarkt price with what "
+                   "their season says they're worth: age, position, games, goals, assists and how their club finished. "
+                   "It's an estimate, not a transfer fee.")
         label = lambda s: f"{s - 1}/{s % 100:02d}"
         seasons = sorted(pv.season.unique(), reverse=True)
         c1, c2 = st.columns(2)
@@ -261,36 +270,34 @@ with tab_value:
         club = c2.selectbox("Club", ["All clubs"] + clubs)
         c3, c4 = st.columns(2)
         group = c3.selectbox("Position", ["All positions", "Goalkeeper", "Defender", "Midfield", "Attack"])
-        min_starts = c4.slider("Minimum league starts", 0, 38, 10)
+        min_starts = c4.slider("Minimum games started", 0, 38, 10)
         view = pv[(pv.season == season) & (pv.epl_starts >= min_starts) & pv.value.notna()]
         if club != "All clubs":
             view = view[view.club == club]
         if group != "All positions":
             view = view[view.main_position == group]
-        order = st.radio("Sort by", ["Priced above their stats", "Cheap for their stats", "Market value"],
-                         horizontal=True)
-        by, asc = {"Priced above their stats": ("gap", False), "Cheap for their stats": ("gap", True),
-                   "Market value": ("value", False)}[order]
+        order = st.radio("Show first", ["Most overpriced", "Biggest bargains", "Most expensive"], horizontal=True)
+        by, asc = {"Most overpriced": ("gap", False), "Biggest bargains": ("gap", True),
+                   "Most expensive": ("value", False)}[order]
         view = view.sort_values(by, ascending=asc)
-        st.dataframe(view.assign(value=view.value / 1e6, stats_value=view.stats_value / 1e6, gap=view.gap * 100),
+        verdict = pd.cut(view.gap, [-9, -.5, -.2, .2, .5, 1e9],
+                         labels=["Bargain", "Good value", "Fair price", "Pricey", "Overpriced"]).astype(str)
+        st.dataframe(view.assign(value=view.value / 1e6, stats_value=view.stats_value / 1e6, verdict=verdict),
                      hide_index=True, width="stretch",
-                     column_order=["name", "club", "value", "stats_value", "gap", "age", "sub_position",
+                     column_order=["name", "club", "sub_position", "age", "value", "stats_value", "verdict",
                                    "epl_starts", "epl_goals", "epl_assists"],
                      column_config={
-                         "name": "Player", "club": "Club", "sub_position": "Position",
+                         "name": "Player", "club": "Club", "sub_position": "Position", "verdict": "Verdict",
                          "age": st.column_config.NumberColumn("Age", format="%d", width="small"),
-                         "value": st.column_config.NumberColumn("Market €m", format="%.1f", width="small"),
-                         "stats_value": st.column_config.NumberColumn("Stats €m", format="%.1f", width="small",
-                                                                      help="What the stats model says they're worth"),
-                         "gap": st.column_config.NumberColumn("Gap", format="%+.0f%%", width="small",
-                                                              help="Market value vs stats value. +100% means the "
-                                                                   "market prices them at double their stats value"),
+                         "value": st.column_config.NumberColumn("Price €m", format="%.1f", width="small",
+                                                                help="Transfermarkt market value"),
+                         "stats_value": st.column_config.NumberColumn("Stats say €m", format="%.1f", width="small",
+                                                                      help="What their season suggests they're worth"),
                          "epl_starts": st.column_config.NumberColumn("Starts", width="small"),
                          "epl_goals": st.column_config.NumberColumn("Goals", width="small"),
                          "epl_assists": st.column_config.NumberColumn("Assists", width="small")})
-        st.caption(f"{len(view)} players. A big positive gap usually means the market is paying for youth, "
-                   "potential or reputation the numbers can't see; a big negative one often means age or a "
-                   "short contract. Values are Transfermarkt estimates, not transfer fees.")
+        st.caption(f"{len(view)} players. Overpriced or pricey usually means the market is paying for youth, potential "
+                   "or reputation the numbers can't see. Bargain or good value often means age or a short contract.")
 
         with st.expander("One player's history"):
             names = view.drop_duplicates("player_id")
@@ -312,13 +319,6 @@ with tab_value:
                     index={"age_position": "Age and position only", "ridge": "Ridge regression", "xgboost": "XGBoost"},
                     columns={"median_pct_error": "Median error %", "within_25pct": "Within 25% of market %",
                              "r2_log": "Variance explained %"}), width="stretch")
-
-with st.expander("Model settings (advanced)"):
-    st.radio("Model", ["blend", "logistic", "xgboost"], horizontal=True, key="model",
-             format_func={"blend": "Blend", "logistic": "Logistic regression", "xgboost": "XGBoost"}.get,
-             help="The blend averages logistic regression with a Dixon-Coles goals model. It scored best in the "
-                  "walk-forward test (log loss 0.975 vs 0.979 for logistic alone, 0.988 for XGBoost).")
-    st.caption("Changes Fixtures, Pick a match and Season odds. Track record always shows the blend.")
 
 st.caption("Data: football-data.co.uk, openfootball and Transfermarkt (via salimt/football-datasets). "
            "These are model probabilities, not betting tips.")
