@@ -3,11 +3,18 @@
 Run locally from the project root:  streamlit run app.py
 """
 import json
+import sys
 from html import escape
 from pathlib import Path
 
 import pandas as pd
 import streamlit as st
+
+# Streamlit Cloud pulls each new commit into the running app but keeps the src modules it already imported,
+# so a merge that adds a function this page imports fails with ImportError until the app is rebooted.
+# Dropping them makes every run import the code that is on disk now.
+for _name in [m for m in sys.modules if m == "src" or m.startswith("src.")]:
+    del sys.modules[_name]
 
 from src.features import load_matches
 from src.fixtures import next_round, season_matches
@@ -74,6 +81,15 @@ def season_odds(model):
 
 
 @st.cache_data
+def player_values():
+    """Out-of-sample stats values from `python -m src.player_value`, or None if they haven't been built."""
+    try:
+        return pd.read_csv(Path(__file__).parent / "results" / "player_values.csv")
+    except OSError:
+        return None
+
+
+@st.cache_data
 def backtest_accuracy():
     """(model, bookmaker) share of matches called right in the walk-forward test, or None."""
     try:
@@ -111,8 +127,8 @@ st.caption("The chance of a home win, a draw or an away win for each Premier Lea
 
 model = st.session_state.get("model", "blend")  # the picker is in "Model settings" at the bottom
 
-tab_next, tab_pick, tab_season, tab_track = st.tabs(
-    ["Fixtures", "Pick a match", "Season odds", "Track record"])
+tab_next, tab_pick, tab_season, tab_track, tab_value = st.tabs(
+    ["Fixtures", "Pick a match", "Season odds", "Track record", "Player values"])
 
 with tab_next:
     try:
@@ -228,6 +244,75 @@ with tab_track:
             st.line_chart(cal.rename(columns={"observed": "observed frequency"})
                           .assign(perfect=cal.predicted).set_index("predicted")[["observed frequency", "perfect"]])
 
+with tab_value:
+    pv = player_values()
+    if pv is None:
+        st.info("Player values haven't been built yet. Run python -m src.player_value.")
+    else:
+        st.caption("What each Premier League player's season says they should be worth, next to their Transfermarkt "
+                   "value from the summer after. The stats value comes from a model that only sees age, position, "
+                   "appearances, starts, goals, assists, European games, experience and the club's finish, trained "
+                   "on earlier seasons only. It never sees a market value.")
+        label = lambda s: f"{s - 1}/{s % 100:02d}"
+        seasons = sorted(pv.season.unique(), reverse=True)
+        c1, c2 = st.columns(2)
+        season = c1.selectbox("Season", seasons, format_func=label)
+        clubs = sorted(pv[pv.season == season].club.unique())
+        club = c2.selectbox("Club", ["All clubs"] + clubs)
+        c3, c4 = st.columns(2)
+        group = c3.selectbox("Position", ["All positions", "Goalkeeper", "Defender", "Midfield", "Attack"])
+        min_starts = c4.slider("Minimum league starts", 0, 38, 10)
+        view = pv[(pv.season == season) & (pv.epl_starts >= min_starts) & pv.value.notna()]
+        if club != "All clubs":
+            view = view[view.club == club]
+        if group != "All positions":
+            view = view[view.main_position == group]
+        order = st.radio("Sort by", ["Priced above their stats", "Cheap for their stats", "Market value"],
+                         horizontal=True)
+        by, asc = {"Priced above their stats": ("gap", False), "Cheap for their stats": ("gap", True),
+                   "Market value": ("value", False)}[order]
+        view = view.sort_values(by, ascending=asc)
+        st.dataframe(view.assign(value=view.value / 1e6, stats_value=view.stats_value / 1e6, gap=view.gap * 100),
+                     hide_index=True, width="stretch",
+                     column_order=["name", "club", "value", "stats_value", "gap", "age", "sub_position",
+                                   "epl_starts", "epl_goals", "epl_assists"],
+                     column_config={
+                         "name": "Player", "club": "Club", "sub_position": "Position",
+                         "age": st.column_config.NumberColumn("Age", format="%d", width="small"),
+                         "value": st.column_config.NumberColumn("Market €m", format="%.1f", width="small"),
+                         "stats_value": st.column_config.NumberColumn("Stats €m", format="%.1f", width="small",
+                                                                      help="What the stats model says they're worth"),
+                         "gap": st.column_config.NumberColumn("Gap", format="%+.0f%%", width="small",
+                                                              help="Market value vs stats value. +100% means the "
+                                                                   "market prices them at double their stats value"),
+                         "epl_starts": st.column_config.NumberColumn("Starts", width="small"),
+                         "epl_goals": st.column_config.NumberColumn("Goals", width="small"),
+                         "epl_assists": st.column_config.NumberColumn("Assists", width="small")})
+        st.caption(f"{len(view)} players. A big positive gap usually means the market is paying for youth, "
+                   "potential or reputation the numbers can't see; a big negative one often means age or a "
+                   "short contract. Values are Transfermarkt estimates, not transfer fees.")
+
+        with st.expander("One player's history"):
+            names = view.drop_duplicates("player_id")
+            if len(names):
+                pick = st.selectbox("Player", names.player_id, format_func=dict(zip(names.player_id, names.name)).get)
+                hist = pv[(pv.player_id == pick) & pv.value.notna()].sort_values("season")
+                st.line_chart(hist.assign(season=hist.season.map(label), **{
+                    "Market value (€m)": hist.value / 1e6, "Stats value (€m)": hist.stats_value / 1e6})
+                    .set_index("season")[["Market value (€m)", "Stats value (€m)"]])
+
+        with st.expander("How accurate is the stats value?"):
+            path = Path(__file__).parent / "results" / "player_value_metrics.csv"
+            if path.exists():
+                m = pd.read_csv(path)
+                m = m.groupby("model")[["median_pct_error", "within_25pct", "r2_log"]].mean()
+                st.caption("Tested on 2022/23 to 2024/25 with models trained only on earlier seasons. The app uses "
+                           "XGBoost. Median error is how far a typical estimate is from the market value.")
+                st.dataframe((m * 100).round(0).rename(
+                    index={"age_position": "Age and position only", "ridge": "Ridge regression", "xgboost": "XGBoost"},
+                    columns={"median_pct_error": "Median error %", "within_25pct": "Within 25% of market %",
+                             "r2_log": "Variance explained %"}), width="stretch")
+
 with st.expander("Model settings (advanced)"):
     st.radio("Model", ["blend", "logistic", "xgboost"], horizontal=True, key="model",
              format_func={"blend": "Blend", "logistic": "Logistic regression", "xgboost": "XGBoost"}.get,
@@ -235,4 +320,5 @@ with st.expander("Model settings (advanced)"):
                   "walk-forward test (log loss 0.975 vs 0.979 for logistic alone, 0.988 for XGBoost).")
     st.caption("Changes Fixtures, Pick a match and Season odds. Track record always shows the blend.")
 
-st.caption("Data: football-data.co.uk and openfootball. These are model probabilities, not betting tips.")
+st.caption("Data: football-data.co.uk, openfootball and Transfermarkt (via salimt/football-datasets). "
+           "These are model probabilities, not betting tips.")
