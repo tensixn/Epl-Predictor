@@ -1,6 +1,7 @@
-# EPL match outcome predictor
+# Football predictor
 
-Machine learning model that predicts home win / draw / away win probabilities for Premier League matches.
+Two tools on one page: a match predictor and a player value analyzer.
+The match predictor is a machine learning model that predicts home win / draw / away win probabilities for Premier League matches.
 It is trained on 26 seasons of results and tested walk-forward on the last three seasons, with no future data leaking into features.
 
 **Live app: https://epl-predictor-tension.streamlit.app/**
@@ -83,12 +84,15 @@ python scripts/fetch_current_season.py       # refresh just the current season
 Team names follow football-data.co.uk spelling ("Man City", "Man United", "Nott'm Forest", "Spurs" is "Tottenham").
 
 ## Web app
-`app.py` is a Streamlit page with five tabs: predictions for the next round of fixtures, a picker for any
-home and away team, title / top 4 / relegation odds for the season, the live track record, and player
-values (market value vs stats value, by season, club and position). Each prediction
-is a home / draw / away probability bar. The theme is in `.streamlit/config.toml`. The app trains its models from
-`data/raw` when it starts (about 10 seconds, cached after that), so there is no separate training step. To host it on Streamlit Community Cloud, sign in at
-share.streamlit.io with GitHub, choose this repo, branch `main` and main file path `app.py`.
+`app.py` is a Streamlit page with two sections, switched at the top. **Match predictor** has four tabs: predictions
+for the next round of fixtures (kick-off times are shown in the viewer's own time zone), a picker for any home and
+away team, title / top 4 / relegation odds for the season, and the live track record. Each prediction is a home /
+draw / away probability bar. **Player values** compares each player's Transfermarkt price with what their season says
+they're worth, by season, club and position, with a plain-language verdict from Bargain to Overpriced. The look
+(a dark "matchday broadcast" style) is the CSS block at the top of `app.py` plus the theme in `.streamlit/config.toml`.
+The app trains its models from `data/raw` when it starts (about 10 seconds, cached after that), so there is no
+separate training step. To host it on Streamlit Community Cloud, sign in at share.streamlit.io with GitHub, choose
+this repo, branch `main` and main file path `app.py`.
 
 ## Player value analyzer (`src/player_value.py`)
 The second idea from the reel: what should a player be worth, judging only by their season?

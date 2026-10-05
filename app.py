@@ -152,13 +152,15 @@ models, cols, state, current = load()
 form_to = max(state.last_date.values())
 
 st.title("Football predictor")
+# A widget's state is dropped on runs where it isn't drawn, so re-assign it to survive a trip to Player values.
+st.session_state.model = st.session_state.get("model", "blend")
 section = st.radio("Section", ["Match predictor", "Player values"], horizontal=True, label_visibility="collapsed")
 
 if section == "Match predictor":
     st.caption("The chance of a home win, a draw or an away win for each Premier League match, from a model trained on "
                f"26 seasons of results. Based on matches up to {form_to:%d %b %Y}. Probabilities, not tips.")
 
-    model = st.session_state.get("model", "blend")  # the picker is in "Model settings" at the bottom
+    model = st.session_state.model  # the picker is in "Model settings" at the bottom
 
     tab_next, tab_pick, tab_season, tab_track = st.tabs(
         ["Fixtures", "Pick a match", "Season odds", "Track record"])
