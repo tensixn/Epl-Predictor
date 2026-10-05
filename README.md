@@ -16,10 +16,13 @@ src/predict.py       probabilities for any fixture
 src/fixtures.py      next round and full season of fixtures from openfootball
 src/simulate.py      Monte Carlo of the rest of the season (title, top 4, relegation odds), with Elo updated as results are simulated
 src/tracker.py       logs predictions before kickoff and scores them afterwards
+src/player_value.py  player value analyzer: stats-based value vs Transfermarkt market value
+scripts/build_player_data.py  builds data/players/ from the Transfermarkt datalake
 .github/workflows/   ci.yml runs pytest on every push; refresh.yml updates results and the log daily
 app.py               Streamlit page on top of src/predict.py
 tests/               leakage, Elo, fetch, simulation and tracker checks
 results/             metrics, per-match test predictions (xgboost, logistic and blend; the blend's feeds the calibration chart), predictions_log.csv (live track record)
+data/players/        one row per EPL player-season (2004/05 to 2024/25): stats, profile, summer market value
 data/odds/           closing odds for the three test seasons, used only as a benchmark
 ```
 
@@ -80,11 +83,45 @@ python scripts/fetch_current_season.py       # refresh just the current season
 Team names follow football-data.co.uk spelling ("Man City", "Man United", "Nott'm Forest", "Spurs" is "Tottenham").
 
 ## Web app
-`app.py` is a Streamlit page with four tabs: predictions for the next round of fixtures, a picker for any
-home and away team, title / top 4 / relegation odds for the season, and the live track record. Each prediction
+`app.py` is a Streamlit page with five tabs: predictions for the next round of fixtures, a picker for any
+home and away team, title / top 4 / relegation odds for the season, the live track record, and player
+values (market value vs stats value, by season, club and position). Each prediction
 is a home / draw / away probability bar. The theme is in `.streamlit/config.toml`. The app trains its models from
 `data/raw` when it starts (about 10 seconds, cached after that), so there is no separate training step. To host it on Streamlit Community Cloud, sign in at
 share.streamlit.io with GitHub, choose this repo, branch `main` and main file path `app.py`.
+
+## Player value analyzer (`src/player_value.py`)
+The second idea from the reel: what should a player be worth, judging only by their season?
+For every Premier League player-season since 2004/05, an XGBoost model estimates the player's
+Transfermarkt value in the summer after the season from age, position, height, foot, league and
+all-competition appearances, starts, goals and assists (this season and last), European games,
+big-5 league experience and the club's league finish. It never sees a market value, so the gap
+between the market value and this "stats value" shows who the market prices above or below what
+they did on the pitch. Values are modelled relative to that summer's median EPL value so transfer
+inflation doesn't dominate.
+
+Data: [salimt/football-datasets](https://github.com/salimt/football-datasets), a Transfermarkt
+datalake on GitHub (Transfermarkt itself, FBref and the transfermarkt-datasets R2 bucket are blocked
+from the build environment). Its newest values are from September 2025, so 2024/25 is the latest
+season with a summer value. Its minutes column is missing for over half the rows, so starts stand in.
+Rebuild with `python scripts/build_player_data.py`.
+
+Walk-forward test, each of 2022/23, 2023/24 and 2024/25 predicted by models trained only on earlier seasons:
+
+| model | median error | within 25% | variance explained (log value) |
+|---|---|---|---|
+| median by age band and position | 58% | 22% | 23% |
+| ridge regression | 36% | 37% | 71% |
+| xgboost | **32%** | **40%** | **75%** |
+
+A typical estimate is about a third off the market value. Adding the player's previous market
+value as a feature cuts that to about 21%, but then the model mostly repeats last year's price, so it
+is left out on purpose. `results/player_values.csv` holds out-of-sample stats values for 2009/10 to
+2024/25, which the app's Player values tab reads.
+
+```
+python -m src.player_value                   # metrics + player_values.csv -> results/
+```
 
 ## Ideas for next steps
 - xG was tried (Understat, 2014/15 on, rolling 5/10-match xG for/against): it did not help. Logistic log loss went from 0.9791 to 0.9847 with all xG columns, and 0.9793 with only the 10-match differences, so it was dropped
