@@ -1,7 +1,7 @@
 """Out-of-sample track record: log predictions before kickoff, score them once the result is in.
 
 The log is results/predictions_log.csv, one row per fixture, written by scripts/log_predictions.py.
-Only the logistic model is logged (the best in the walk-forward test).  A fixture is logged the first
+Only the blend (logistic + Dixon-Coles) is logged, the best model in the walk-forward test.  A fixture is logged the first
 time its round becomes the next one to play, and is never rewritten afterwards.
 """
 from pathlib import Path
@@ -16,7 +16,7 @@ from .predict import predict
 
 LOG = Path(__file__).resolve().parents[1] / "results" / "predictions_log.csv"
 COLUMNS = ["date", "round", "home", "away", "p_home", "p_draw", "p_away", "result"]
-MODEL = "logistic"
+MODEL = "blend"
 
 
 def read_log(path=LOG):
