@@ -11,18 +11,30 @@ import pandas as pd
 
 from .evaluate import brier
 from .features import LABELS
-from .fixtures import next_round, season_matches
+from .fixtures import next_round, season_matches, upcoming_odds
 from .predict import predict
 
 LOG = Path(__file__).resolve().parents[1] / "results" / "predictions_log.csv"
 COLUMNS = ["date", "round", "home", "away", "p_home", "p_draw", "p_away", "result"]
+ODDS_COLUMNS = ["odds_h", "odds_d", "odds_a"]  # bookmaker odds, filled in once they are published
 MODEL = "blend"
 
 
 def read_log(path=LOG):
     if not Path(path).exists():
-        return pd.DataFrame(columns=COLUMNS)
-    return pd.read_csv(path, dtype={"result": str}, keep_default_na=False).replace({"result": {"": None}})
+        return pd.DataFrame(columns=COLUMNS + ODDS_COLUMNS)
+    log = pd.read_csv(path, dtype={"result": str}, keep_default_na=False).replace({"result": {"": None}})
+    log[ODDS_COLUMNS] = log.reindex(columns=ODDS_COLUMNS).replace("", np.nan).astype(float)
+    return log
+
+
+def fill_odds(log, odds):
+    """Fill empty odds columns for unplayed rows from `odds` ({(date, home, away): (h, d, a)}); kept once set."""
+    log = log.copy()
+    for i, r in log[log.result.isna() & log.odds_h.isna()].iterrows():
+        if (r.date, r.home, r.away) in odds:
+            log.loc[i, ODDS_COLUMNS] = odds[(r.date, r.home, r.away)]
+    return log
 
 
 def log_next_round(models, cols, state, log, today=None):
@@ -64,6 +76,18 @@ def summarise(log):
                 brier=brier(y, p), base_rate_brier=brier(y, np.tile(base, (len(y), 1))))
 
 
+def vs_bookmaker(log):
+    """Model and bookmaker log loss on scored rows that have odds (margin removed); None if there are none."""
+    d = log[log.result.notna() & log.odds_h.notna()]
+    if d.empty:
+        return None
+    y = d.result.map(LABELS).values
+    inv = 1 / d[ODDS_COLUMNS].astype(float).values
+    book = inv / inv.sum(axis=1, keepdims=True)
+    ll = lambda p: float(-np.log(p[np.arange(len(y)), y]).mean())
+    return dict(n=len(d), model=ll(d[["p_home", "p_draw", "p_away"]].astype(float).values), bookmaker=ll(book))
+
+
 def save(log, path=LOG):
     Path(path).parent.mkdir(exist_ok=True)
     log.sort_values(["date", "home"]).to_csv(path, index=False)
@@ -73,6 +97,10 @@ def update(models, cols, state):
     """Score what has been played, log the next round, write the file; return the new log."""
     log = score_pending(read_log(), season_matches())
     log = log_next_round(models, cols, state, log)
+    try:
+        log = fill_odds(log, upcoming_odds())
+    except OSError:  # the odds site is flaky: predictions and scores still get saved
+        pass
     save(log)
     return log
 
