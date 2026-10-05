@@ -23,12 +23,12 @@ def test_features_are_unchanged_by_market_values():
 def test_season_is_predicted_from_earlier_seasons_only():
     df = players()
     season = 2020
-    base = pv.predict_season(df, season, "ridge")
+    base = pv.predict_season(df, season, "xgboost")
     # scrambling later seasons' values must not change the estimates
     later = df.season >= season
     scrambled = df.copy()
     scrambled.loc[later, "value"] = scrambled.loc[later, "value"].sample(frac=1, random_state=1).values
-    np.testing.assert_allclose(base.values, pv.predict_season(scrambled, season, "ridge").values)
+    np.testing.assert_allclose(base.values, pv.predict_season(scrambled, season, "xgboost").values)
 
 
 def test_one_row_per_player_season():

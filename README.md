@@ -111,7 +111,6 @@ Walk-forward test, each of 2022/23, 2023/24 and 2024/25 predicted by models trai
 | model | median error | within 25% | variance explained (log value) |
 |---|---|---|---|
 | median by age band and position | 58% | 22% | 23% |
-| ridge regression | 36% | 37% | 71% |
 | xgboost | **32%** | **40%** | **75%** |
 
 A typical estimate is about a third off the market value. Adding the player's previous market
