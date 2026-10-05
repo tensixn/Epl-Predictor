@@ -13,7 +13,7 @@ from src.features import load_matches
 from src.fixtures import next_round, season_matches
 from src.predict import predict, train
 from src.simulate import simulate_season
-from src.tracker import calibration, read_log, summarise
+from src.tracker import calibration, read_log, summarise, vs_bookmaker
 
 st.set_page_config(page_title="EPL match predictor", page_icon=str(Path(__file__).parent / "assets" / "favicon.png"),
                    layout="centered")
@@ -196,6 +196,11 @@ with tab_track:
         m3.metric("Brier score", f"{s['brier']:.3f}", f"{s['brier'] - s['base_rate_brier']:+.3f} vs base rate",
                   delta_color="inverse", help="Lower is better. The base rate always predicts the home/draw/away "
                                               "frequencies of these same results.")
+    vb = vs_bookmaker(log)
+    if vb:
+        st.caption(f"Against the bookmakers over {vb['n']} scored games with odds (log loss, lower is better): "
+                   f"model {vb['model']:.3f}, bookmakers {vb['bookmaker']:.3f}. Odds are the market average "
+                   "when they were first published, so they are a bit less sharp than closing odds.")
     if len(log):
         shown = log.sort_values("date", ascending=False).assign(
             date=lambda d: pd.to_datetime(d.date).dt.strftime("%d %b"),

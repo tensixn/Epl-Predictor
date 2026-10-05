@@ -2,7 +2,7 @@ import math
 
 import pandas as pd
 
-from src.tracker import COLUMNS, calibration, score_pending, summarise
+from src.tracker import COLUMNS, ODDS_COLUMNS, calibration, fill_odds, score_pending, summarise, vs_bookmaker
 
 
 def log_of(*rows):
@@ -31,3 +31,15 @@ def test_calibration_bins_predicted_against_observed():
     top = cal.iloc[-1]
     assert top.n == 2 and top.observed == 1.0 and abs(top.predicted - 0.925) < 1e-9
     assert cal.n.sum() == 6
+
+
+def test_fill_odds_sets_missing_unplayed_rows_once_and_scores_against_bookmaker():
+    log = pd.DataFrame([("d1", "R", "A", "B", 0.5, 0.3, 0.2, "H", None, None, None),
+                        ("d2", "R", "C", "D", 0.5, 0.3, 0.2, None, None, None, None)], columns=COLUMNS + ODDS_COLUMNS)
+    log[ODDS_COLUMNS] = log[ODDS_COLUMNS].astype(float)
+    assert vs_bookmaker(log) is None
+    out = fill_odds(log, {("d1", "A", "B"): (2.0, 4.0, 4.0), ("d2", "C", "D"): (1.5, 4.0, 6.0)})
+    assert out.odds_h.isna().tolist() == [True, False]  # d1 is already played, so left alone
+    out.loc[0, ODDS_COLUMNS] = (2.0, 4.0, 4.0)
+    vb = vs_bookmaker(out)
+    assert vb["n"] == 1 and abs(vb["bookmaker"] + math.log(0.5)) < 1e-9 and abs(vb["model"] + math.log(0.5)) < 1e-9
