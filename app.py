@@ -6,6 +6,7 @@ import json
 import sys
 from html import escape
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import pandas as pd
 import streamlit as st
@@ -142,6 +143,11 @@ def bar(p_home, p_draw, p_away, home, away, legend=True):
     return html + (f'<div class="thin">{" · ".join(thin)}</div>' if thin else "")
 
 
+def kickoff(g, tz):
+    """Kick-off as a timestamp in the viewer's time zone; the feed's times are UK time."""
+    return pd.Timestamp(f'{g["date"]} {g["time"]}', tz="Europe/London").tz_convert(tz)
+
+
 models, cols, state, current = load()
 form_to = max(state.last_date.values())
 
@@ -164,12 +170,16 @@ if section == "Match predictor":
             round_name, games = None, []
             st.warning("Couldn't load the fixtures right now. Try the Pick a match tab, or reload in a minute.")
         if round_name:
+            try:  # the browser's zone; None until the page reports it, or if the name isn't one we know
+                tz = ZoneInfo(st.context.timezone).key
+            except (TypeError, ValueError, LookupError):
+                tz = "Europe/London"
             st.subheader(round_name)
             acc = backtest_accuracy()
             if acc:
                 st.caption(f"In a test on the last three seasons the model picked the right result {acc[0]:.0%} of the "
                            f"time; the bookmakers managed {acc[1]:.0%}. Track record shows how it is doing on live "
-                           "matches. Kick-off times are UK time.")
+                           f"matches. Kick-off times are in your time zone ({tz}).")
             st.markdown('<div class="legend key"><span class="h"><i></i>Home win</span><span class="d"><i></i>Draw</span>'
                         '<span class="a"><i></i>Away win</span></div>', unsafe_allow_html=True)
             for team in {t for g in games for t in (g["home"], g["away"])} - set(state.elo):
@@ -177,11 +187,12 @@ if section == "Match predictor":
             probs = predict({model: models[model]}, cols, state, [(g["home"], g["away"]) for g in games])[model]
             day = None
             for i, (g, (ph, pd_, pa)) in enumerate(zip(games, probs)):
-                if g["date"] != day:
-                    day = g["date"]
-                    st.markdown(f'<div class="day">{pd.Timestamp(day):%A %d %B}</div>', unsafe_allow_html=True)
+                ko = kickoff(g, tz)
+                if ko.date() != day:
+                    day = ko.date()
+                    st.markdown(f'<div class="day">{ko:%A %d %B}</div>', unsafe_allow_html=True)
                 st.markdown(f'<div class="card" style="--i:{i}"><div class="fx"><span>{escape(g["home"])}</span>'
-                            f'<small>{escape(g["time"])}</small><span>{escape(g["away"])}</span></div>'
+                            f'<small>{ko:%H:%M}</small><span>{escape(g["away"])}</span></div>'
                             + bar(ph, pd_, pa, g["home"], g["away"], legend=False) + '</div>',
                             unsafe_allow_html=True)
         elif round_name is None and not games:
