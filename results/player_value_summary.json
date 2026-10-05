@@ -1,0 +1,20 @@
+{
+  "age_position": {
+    "mae_log": 0.8404,
+    "r2_log": 0.2322,
+    "median_pct_error": 0.5754,
+    "within_25pct": 0.2203
+  },
+  "ridge": {
+    "mae_log": 0.5022,
+    "r2_log": 0.7062,
+    "median_pct_error": 0.3585,
+    "within_25pct": 0.3664
+  },
+  "xgboost": {
+    "mae_log": 0.456,
+    "r2_log": 0.7487,
+    "median_pct_error": 0.3238,
+    "within_25pct": 0.4006
+  }
+}
