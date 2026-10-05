@@ -2,6 +2,7 @@
 
 Run locally from the project root:  streamlit run app.py
 """
+import json
 from html import escape
 from pathlib import Path
 
@@ -19,30 +20,41 @@ st.set_page_config(page_title="EPL match predictor", page_icon=str(Path(__file__
 
 st.markdown("""
 <style>
-:root { --home:#3ddc97; --draw:#8b7a91; --away:#d6336c; --ink:#1d0a22; --rule:rgba(245,240,247,.16); }
+:root { --home:#3ddc97; --draw:#8b7a91; --away:#7aa7ff; --ink:#1d0a22; --rule:rgba(245,240,247,.16); }
+html { scrollbar-color:#43294a transparent; }
 [data-testid="stHeader"] { background:transparent; }
 .stApp { background-image: radial-gradient(60rem 28rem at 12% -8%, rgba(132,72,150,.20), transparent 70%); }
 h1 { letter-spacing:-.025em; text-wrap:balance; }
 h2, h3 { letter-spacing:-.015em; font-weight:600; text-wrap:balance; }
 [data-testid="stCaptionContainer"] { text-wrap:pretty; }
-.pbar { display:flex; height:34px; border-radius:8px; overflow:hidden; font-weight:600; font-size:.9rem; }
+.pbar { display:flex; height:34px; border-radius:8px; overflow:hidden; font-weight:500; font-size:.9rem; }
 .pbar span { display:flex; align-items:center; justify-content:center; min-width:0; white-space:nowrap; }
+.pbar .fav { font-weight:700; }
 .pbar .h { background:var(--home); color:var(--ink); }
 .pbar .d { background:var(--draw); color:var(--ink); }
-.pbar .a { background:var(--away); color:#fff; }
+.pbar .a { background:var(--away); color:var(--ink); }
+.thin { font-size:.8rem; opacity:.8; text-align:right; margin-top:.25rem; }
 .legend { display:flex; flex-wrap:wrap; justify-content:space-between; gap:.2rem 1rem; font-size:.85rem; margin:.4rem 0 .8rem; }
+.legend.key { justify-content:flex-start; gap:.2rem 1.4rem; margin:.2rem 0 0; }
 .legend i { display:inline-block; width:.7rem; height:.7rem; border-radius:3px; margin-right:.4rem; }
 .legend .h i { background:var(--home); } .legend .d i { background:var(--draw); } .legend .a i { background:var(--away); }
 .pbar, .legend, .fx { font-variant-numeric: tabular-nums; }
 .day { margin:1.8rem 0 .3rem; padding-bottom:.35rem; font-weight:600; border-bottom:1px solid var(--rule); }
-.fx { display:flex; justify-content:space-between; align-items:baseline; margin:1rem 0 .4rem; font-weight:500; }
+.fx { display:grid; grid-template-columns:1fr auto 1fr; gap:0 .6rem; align-items:baseline; margin:1.1rem 0 .4rem; font-weight:500; }
+.fx span:last-child { text-align:right; }
 .fx small { font-weight:400; opacity:.75; }
 ::selection { background:var(--home); color:var(--ink); }
+:focus-visible { outline:2px solid var(--home); outline-offset:2px; }
+@media (max-width: 640px) {
+  [data-testid="stMainBlockContainer"] { padding-top:3.2rem; }
+  [data-testid="stMainBlockContainer"] h1 { font-size:2.1rem; }
+  [role="tablist"] { gap:.75rem; }
+}
 </style>
 """, unsafe_allow_html=True)
 
 
-@st.cache_resource(show_spinner="Training on every season in data/raw...")
+@st.cache_resource(show_spinner="Loading predictions (about 10 seconds the first time)...")
 def load():
     matches = load_matches()
     models, cols, state = train(matches=matches)
@@ -61,41 +73,62 @@ def season_odds(model):
     return simulate_season(models, cols, state, season_matches(), model=model)
 
 
-def bar(p_home, p_draw, p_away, home, away):
-    """Stacked home / draw / away bar. The legend names each colour, so colour isn't the only cue."""
+@st.cache_data
+def backtest_accuracy():
+    """(model, bookmaker) share of matches called right in the walk-forward test, or None."""
+    try:
+        s = json.loads((Path(__file__).parent / "results" / "summary.json").read_text())
+        return s["blend"]["accuracy"], s["bookmaker"]["accuracy"]
+    except (OSError, KeyError, ValueError):
+        return None
+
+
+def bar(p_home, p_draw, p_away, home, away, legend=True):
+    """Stacked home / draw / away bar, the favourite's label in bold. With `legend`, names each colour
+    underneath (so colour isn't the only cue); without it the caller shows one shared key, and any segment
+    too thin for its label is listed below the bar instead."""
     ps = (p_home, p_draw, p_away)
-    tight = [f" {p:.0%}" if p < 0.08 else "" for p in ps]  # no label fits inside a thin segment
-    spans = "".join(f'<span class="{c}" style="flex:{p:.4f}">{p:.0%}</span>' if p >= 0.08
-                    else f'<span class="{c}" style="flex:{p:.4f}"></span>' for c, p in zip("hda", ps))
-    return (f'<div class="pbar" role="img" aria-label="{escape(home)} {p_home:.0%}, draw {p_draw:.0%}, '
-            f'{escape(away)} {p_away:.0%}">{spans}</div>'
-            f'<div class="legend"><span class="h"><i></i>{escape(home)}{tight[0]}</span>'
-            f'<span class="d"><i></i>Draw{tight[1]}</span>'
-            f'<span class="a"><i></i>{escape(away)}{tight[2]}</span></div>')
+    fav = max(range(3), key=ps.__getitem__)
+    spans = "".join(f'<span class="{c}{" fav" if i == fav else ""}" style="flex:{p:.4f}">{p:.0%}</span>' if p >= 0.08
+                    else f'<span class="{c}" style="flex:{p:.4f}"></span>' for i, (c, p) in enumerate(zip("hda", ps)))
+    html = (f'<div class="pbar" role="img" aria-label="{escape(home)} {p_home:.0%}, draw {p_draw:.0%}, '
+            f'{escape(away)} {p_away:.0%}">{spans}</div>')
+    if legend:
+        tight = [f" {p:.0%}" if p < 0.08 else "" for p in ps]  # no label fits inside a thin segment
+        return html + (f'<div class="legend"><span class="h"><i></i>{escape(home)}{tight[0]}</span>'
+                       f'<span class="d"><i></i>Draw{tight[1]}</span>'
+                       f'<span class="a"><i></i>{escape(away)}{tight[2]}</span></div>')
+    thin = [f"{n} {p:.0%}" for n, p in zip(("Home win", "Draw", "Away win"), ps) if p < 0.08]
+    return html + (f'<div class="thin">{" · ".join(thin)}</div>' if thin else "")
 
 
 models, cols, state, current = load()
 form_to = max(state.last_date.values())
 
 st.title("EPL match predictor")
-st.caption(f"Elo ratings and form run to {form_to:%d %b %Y}, the last match in the data.")
+st.caption("The chance of a home win, a draw or an away win for each Premier League match, from a model trained on "
+           f"26 seasons of results. Based on matches up to {form_to:%d %b %Y}. Probabilities, not tips.")
 
-model = st.radio("Model", ["blend", "logistic", "xgboost"], horizontal=True,
-                 format_func={"blend": "Blend", "logistic": "Logistic regression", "xgboost": "XGBoost"}.get,
-                 help="The blend averages logistic regression with a Dixon-Coles goals model. It scored best in the "
-                      "walk-forward test (log loss 0.975 vs 0.979 for logistic alone, 0.988 for XGBoost).")
+model = st.session_state.get("model", "blend")  # the picker is in "Model settings" at the bottom
 
 tab_next, tab_pick, tab_season, tab_track = st.tabs(
-    ["Upcoming fixtures", "Pick a match", "Season odds", "Track record"])
+    ["Fixtures", "Pick a match", "Season odds", "Track record"])
 
 with tab_next:
     try:
         round_name, games = fixtures()
     except Exception as e:  # network or an unfamiliar team name; the other tab still works
         round_name, games = None, []
-        st.warning(f"Couldn't load fixtures ({type(e).__name__}). Use the other tab.")
+        st.warning("Couldn't load the fixtures right now. Try the Pick a match tab, or reload in a minute.")
     if round_name:
         st.subheader(round_name)
+        acc = backtest_accuracy()
+        if acc:
+            st.caption(f"In a test on the last three seasons the model picked the right result {acc[0]:.0%} of the "
+                       f"time; the bookmakers managed {acc[1]:.0%}. Track record shows how it is doing on live "
+                       "matches. Kick-off times are UK time.")
+        st.markdown('<div class="legend key"><span class="h"><i></i>Home win</span><span class="d"><i></i>Draw</span>'
+                    '<span class="a"><i></i>Away win</span></div>', unsafe_allow_html=True)
         for team in {t for g in games for t in (g["home"], g["away"])} - set(state.elo):
             st.info(f"{team} isn't in the data yet; treated as a newly promoted side.")
         probs = predict({model: models[model]}, cols, state, [(g["home"], g["away"]) for g in games])[model]
@@ -104,8 +137,8 @@ with tab_next:
             if g["date"] != day:
                 day = g["date"]
                 st.markdown(f'<div class="day">{pd.Timestamp(day):%A %d %B}</div>', unsafe_allow_html=True)
-            st.markdown(f'<div class="fx"><span>{escape(g["home"])} v {escape(g["away"])}</span>'
-                        f'<small>{escape(g["time"])}</small></div>' + bar(ph, pd_, pa, g["home"], g["away"]),
+            st.markdown(f'<div class="fx"><span>{escape(g["home"])}</span><small>{escape(g["time"])}</small>'
+                        f'<span>{escape(g["away"])}</span></div>' + bar(ph, pd_, pa, g["home"], g["away"], legend=False),
                         unsafe_allow_html=True)
     elif round_name is None and not games:
         st.info("No upcoming fixtures found.")
@@ -126,24 +159,28 @@ with tab_pick:
             rows = []
             for t in (home, away):
                 f = state.team_features(t, form_to)
-                rows.append({"team": t, "Elo": round(f["elo"]), "points per game (last 5)": f["pts_5"],
+                rows.append({"team": t, "strength rating (Elo)": round(f["elo"]), "points per game (last 5)": f["pts_5"],
                              "goals for (last 5)": f["gf_5"], "goals against (last 5)": f["ga_5"]})
             st.dataframe(rows, hide_index=True)
 
 with tab_season:
-    st.caption("10,000 simulations of the remaining fixtures. Each simulated result moves both teams' Elo before "
-               "the next game is drawn, so a hot streak carries on. Form (last 5 / 10 matches) stays at today's values.")
+    st.caption("10,000 simulated finishes to the season. Each simulated result moves both teams' strength ratings "
+               "before the next game is drawn, so a hot streak carries on. Recent form stays at today's values.")
     try:
         odds = season_odds(model)
         odds[["title", "top 4", "relegation"]] *= 100
-        chance = lambda label: st.column_config.ProgressColumn(label, min_value=0, max_value=100, format="%.1f%%")
-        st.dataframe(odds, hide_index=True, width="stretch", height="content", column_config={
+        chance = lambda label: st.column_config.ProgressColumn(label, min_value=0, max_value=100, format="%.1f%%",
+                                                               width="small")
+        # the chances come before "Points" so a phone's first screen shows them without sideways scrolling
+        st.dataframe(odds, hide_index=True, width="stretch", height="content",
+                     column_order=["team", "expected points", "title", "top 4", "relegation", "points now"],
+                     column_config={
             "team": "Team",
             "points now": st.column_config.NumberColumn("Points", width="small"),
             "expected points": st.column_config.NumberColumn("Projected", format="%.1f", width="small"),
             "title": chance("Title"), "top 4": chance("Top 4"), "relegation": chance("Relegation")})
     except Exception as e:
-        st.warning(f"Couldn't simulate the season ({type(e).__name__}).")
+        st.warning("Couldn't simulate the season right now. Try reloading in a minute.")
 
 with tab_track:
     log = read_log()
@@ -161,14 +198,15 @@ with tab_track:
                                               "frequencies of these same results.")
     if len(log):
         shown = log.sort_values("date", ascending=False).assign(
+            date=lambda d: pd.to_datetime(d.date).dt.strftime("%d %b"),
             result=lambda d: d.result.map({"H": "Home win", "D": "Draw", "A": "Away win"}).fillna("Not played yet"),
             **{c: lambda d, c=c: (d[c].astype(float) * 100).round() for c in ("p_home", "p_draw", "p_away")})
         st.dataframe(shown[["date", "home", "away", "p_home", "p_draw", "p_away", "result"]], hide_index=True,
                      width="stretch", column_config={
                          "date": "Date", "home": "Home", "away": "Away", "result": "Result",
-                         "p_home": st.column_config.NumberColumn("Home win", format="%d%%"),
-                         "p_draw": st.column_config.NumberColumn("Draw", format="%d%%"),
-                         "p_away": st.column_config.NumberColumn("Away win", format="%d%%")})
+                         "p_home": st.column_config.NumberColumn("Home %", format="%d%%", width="small"),
+                         "p_draw": st.column_config.NumberColumn("Draw %", format="%d%%", width="small"),
+                         "p_away": st.column_config.NumberColumn("Away %", format="%d%%", width="small")})
 
     with st.expander("Backtest: 2023/24 to 2025/26, trained only on earlier seasons"):
         res = Path("results")
@@ -184,5 +222,12 @@ with tab_track:
                        "Closer to the diagonal is better.")
             st.line_chart(cal.rename(columns={"observed": "observed frequency"})
                           .assign(perfect=cal.predicted).set_index("predicted")[["observed frequency", "perfect"]])
+
+with st.expander("Model settings (advanced)"):
+    st.radio("Model", ["blend", "logistic", "xgboost"], horizontal=True, key="model",
+             format_func={"blend": "Blend", "logistic": "Logistic regression", "xgboost": "XGBoost"}.get,
+             help="The blend averages logistic regression with a Dixon-Coles goals model. It scored best in the "
+                  "walk-forward test (log loss 0.975 vs 0.979 for logistic alone, 0.988 for XGBoost).")
+    st.caption("Changes Fixtures, Pick a match and Season odds. Track record always shows the blend.")
 
 st.caption("Data: football-data.co.uk and openfootball. These are model probabilities, not betting tips.")
