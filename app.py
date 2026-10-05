@@ -3,11 +3,18 @@
 Run locally from the project root:  streamlit run app.py
 """
 import json
+import sys
 from html import escape
 from pathlib import Path
 
 import pandas as pd
 import streamlit as st
+
+# Streamlit Cloud pulls each new commit into the running app but keeps the src modules it already imported,
+# so a merge that adds a function this page imports fails with ImportError until the app is rebooted.
+# Dropping them makes every run import the code that is on disk now.
+for _name in [m for m in sys.modules if m == "src" or m.startswith("src.")]:
+    del sys.modules[_name]
 
 from src.features import load_matches
 from src.fixtures import next_round, season_matches
