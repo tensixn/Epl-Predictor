@@ -87,4 +87,4 @@ is a home / draw / away probability bar. The theme is in `.streamlit/config.toml
 share.streamlit.io with GitHub, choose this repo, branch `main` and main file path `app.py`.
 
 ## Ideas for next steps
-- Add xG as a feature (needs a new data source)
+- xG was tried (Understat, 2014/15 on, rolling 5/10-match xG for/against): it did not help. Logistic log loss went from 0.9791 to 0.9847 with all xG columns, and 0.9793 with only the 10-match differences, so it was dropped
