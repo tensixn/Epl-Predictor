@@ -114,10 +114,11 @@ Walk-forward test, each of 2022/23, 2023/24 and 2024/25 predicted by models trai
 
 | model | median error | within 25% | variance explained (log value) |
 |---|---|---|---|
-| median by age band and position | 58% | 22% | 23% |
-| xgboost | **32%** | **40%** | **75%** |
+| median by age band and position | 58% | 21% | 24% |
+| xgboost | **36%** | **37%** | **74%** |
 
-A typical estimate is about a third off the market value. Adding the player's previous market
+A typical estimate is about a third off the market value. (Before October 2026 the data left out
+Aston Villa, Crystal Palace and Sheffield United, and the same test read 32%.) Adding the player's previous market
 value as a feature cuts that to about 21%, but then the model mostly repeats last year's price, so it
 is left out on purpose. `results/player_values.csv` holds out-of-sample stats values for 2009/10 to
 2024/25, which the app's Player values tab reads.
