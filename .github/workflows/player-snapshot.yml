@@ -1,0 +1,24 @@
+name: player snapshot
+# Run by hand (Actions > player snapshot > Run workflow) if the transfermarkt-datasets snapshot is ever refreshed.
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12", cache: pip}
+      - run: pip install pandas
+      - run: python scripts/fetch_player_snapshot.py
+      - name: Commit if anything changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/players/snapshot
+          if ! git diff --cached --quiet; then
+            git commit -m "Fetch the 2025/26 Transfermarkt snapshot"
+            git push
+          fi

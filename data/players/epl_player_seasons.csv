@@ -161,6 +161,7 @@ player_id,season,epl_squad,epl_apps,epl_starts,epl_goals,epl_assists,epl_pens,ep
 3472,2005,31,31,29,1,0,0,1,0,0,36,34,1,0,0,0,31,28,0,2,27,25,112,Everton,1.605,4,Alan Stubbs,Defender,Centre-Back,,,England,33.74,,
 3312,2005,34,34,34,1,0,0,3,0,0,37,35,1,0,0,0,12,11,0,0,10,9,155,Everton,1.605,4,David Weir,Defender,Centre-Back,191,right,Scotland,35.14,,
 3589,2005,11,11,5,0,0,0,0,0,0,15,9,0,0,0,0,34,31,2,7,29,27,91,Everton,1.605,4,Gary Naysmith,Defender,Left-Back,178,left,Scotland,26.62,,
+3112,2005,23,22,18,4,0,1,1,0,0,24,20,5,0,0,0,42,37,17,6,37,32,151,Everton,1.605,4,James Beattie,Attack,Centre-Forward,185,right,England,27.34,,
 9956,2005,27,23,7,1,0,0,1,0,0,29,13,3,0,0,0,30,17,3,2,23,11,11,Everton,1.605,4,James McFadden,Attack,Second Striker,178,left,Scotland,22.21,,
 30471,2005,2,2,0,1,0,0,0,0,0,2,0,1,0,0,0,0,0,0,0,0,0,0,Everton,1.605,4,James Vaughan,Attack,Centre-Forward,181,right,England  Jamaica,16.96,1.25e+05,
 3270,2005,28,27,19,0,0,0,1,0,0,33,25,0,0,0,0,31,29,2,0,28,27,72,Everton,1.605,4,Joseph Yobo,Defender,Centre-Back,188,right,Nigeria  England,24.82,,
@@ -323,7 +324,6 @@ player_id,season,epl_squad,epl_apps,epl_starts,epl_goals,epl_assists,epl_pens,ep
 4116,2005,17,16,14,0,1,0,0,0,0,18,15,0,1,0,0,31,25,1,2,27,21,87,Southampton,0.8421,20,Fabrice Fernandes,Attack,Left Winger,175,left,France,25.67,2.5e+06,
 3157,2005,25,25,24,1,2,0,2,0,0,26,25,1,2,0,0,21,21,1,1,19,19,289,Southampton,0.8421,20,Graeme Le Saux,Defender,Left-Back,178,left,England  Jersey,36.7,6.5e+05,
 3900,2005,13,13,10,4,0,0,2,0,0,40,28,14,4,5,5,32,31,7,5,30,29,77,Southampton,0.8421,20,Henri Camara,Attack,Centre-Forward,178,both,Senegal  France,28.14,6.5e+06,
-3112,2005,23,22,18,4,0,1,1,0,0,24,20,5,0,0,0,42,37,17,6,37,32,151,Southampton,0.8421,20,James Beattie,Attack,Centre-Forward,185,right,England,27.34,,
 3424,2005,35,30,25,0,1,0,10,0,0,32,27,1,1,0,0,17,14,1,0,17,14,230,Southampton,0.8421,20,Jamie Redknapp,Midfield,Central Midfield,183,right,England,32.02,3e+06,
 3608,2005,16,4,4,0,0,0,0,0,8,23,23,0,0,0,0,45,45,0,0,38,38,235,Southampton,0.8421,20,Kasey Keller,Goalkeeper,Goalkeeper,,,United States,35.59,7e+05,
 28245,2005,2,2,1,0,0,0,0,0,0,23,21,10,1,0,0,0,0,0,0,0,0,0,Southampton,0.8421,20,Kenwyne Jones,Attack,Centre-Forward,187,right,Trinidad and Tobago,20.74,,
@@ -1400,7 +1400,6 @@ player_id,season,epl_squad,epl_apps,epl_starts,epl_goals,epl_assists,epl_pens,ep
 13427,2008,16,15,7,0,1,0,1,0,0,25,13,1,1,1,1,37,37,4,6,35,35,35,Chelsea,2.237,2,Steve Sidwell,Midfield,Central Midfield,183,right,England,25.55,4.5e+06,3.5e+06
 20714,2008,26,13,10,0,0,0,2,0,0,23,17,0,0,2,2,34,32,0,0,32,30,81,Chelsea,2.237,2,Tal Ben Haim,Defender,Centre-Back,183,right,Israel,26.25,4e+06,4.5e+06
 3682,2008,13,11,9,0,1,0,0,0,0,22,19,0,1,3,3,33,27,1,6,22,17,215,Chelsea,2.237,2,Wayne Bridge,Defender,Left-Back,178,left,England,27.9,6e+06,7e+06
-3472,2008,20,16,15,1,0,0,1,0,0,21,19,1,0,2,0,24,24,2,0,23,23,185,Derby,0.2895,20,Alan Stubbs,Defender,Centre-Back,,,England,36.74,9e+05,1e+06
 3579,2008,15,15,13,0,0,0,4,0,0,30,28,0,0,0,0,34,33,2,1,0,0,101,Derby,0.2895,20,Andy Griffin,Defender,Right-Back,173,right,England,29.29,8e+05,
 3103,2008,20,19,14,1,1,0,2,0,0,23,17,1,1,0,0,13,8,0,0,9,6,132,Derby,0.2895,20,Andy Todd,Defender,Centre-Back,178,right,England,33.78,6e+05,1.25e+06
 33118,2008,16,10,1,0,0,0,1,0,0,48,36,4,2,0,0,66,52,6,4,9,6,6,Derby,0.2895,20,Benny Feilhaber,Midfield,Central Midfield,175,both,United States  Austria,23.45,4e+05,1.5e+06
@@ -1426,6 +1425,7 @@ player_id,season,epl_squad,epl_apps,epl_starts,epl_goals,epl_assists,epl_pens,ep
 3534,2008,14,14,14,0,0,0,0,1,38,14,14,0,0,0,0,16,16,0,0,12,12,77,Derby,0.2895,20,Roy Carroll,Goalkeeper,Goalkeeper,189,right,Northern Ireland,30.75,1.7e+06,2.4e+06
 3873,2008,18,18,18,0,0,0,1,2,41,36,36,0,0,0,0,43,43,0,0,0,0,4,Derby,0.2895,20,Stephen Bywater,Goalkeeper,Goalkeeper,189,right,England,27.07,1.2e+06,1.25e+06
 12673,2008,24,24,23,0,0,0,0,0,0,31,28,0,1,0,0,31,15,3,0,0,0,0,Derby,0.2895,20,Stephen Pearson,Midfield,Central Midfield,182,left,Scotland,25.75,1.6e+06,
+3472,2008,20,16,15,1,0,0,1,0,0,21,19,1,0,2,0,24,24,2,0,23,23,185,Everton,1.711,5,Alan Stubbs,Defender,Centre-Back,,,England,36.74,9e+05,1e+06
 57079,2008,5,2,0,0,0,0,0,0,0,3,0,0,0,1,0,0,0,0,0,0,0,0,Everton,1.711,5,Jack Rodwell,Defender,Centre-Back,188,right,England,17.31,1.5e+05,
 9956,2008,28,24,15,6,5,2,4,0,0,33,24,9,7,5,0,21,8,3,1,19,6,48,Everton,1.711,5,James McFadden,Attack,Second Striker,178,left,Scotland,25.22,7e+06,3e+06
 30471,2008,10,8,0,1,0,0,0,0,0,14,2,2,0,3,0,15,7,4,1,14,7,7,Everton,1.711,5,James Vaughan,Attack,Centre-Forward,181,right,England  Jamaica,19.96,1.5e+06,1e+06
@@ -4214,7 +4214,6 @@ player_id,season,epl_squad,epl_apps,epl_starts,epl_goals,epl_assists,epl_pens,ep
 190831,2014,15,13,5,1,0,0,0,0,0,16,7,1,0,0,0,1,0,0,0,0,0,0,Cardiff,0.7895,20,Mats Møller Dæhli,Midfield,Central Midfield,172,right,Norway,19.33,1.5e+06,
 34559,2014,5,3,3,0,0,0,2,0,0,4,4,0,0,0,0,36,36,5,2,0,0,5,Cardiff,0.7895,20,Matthew Connolly,Defender,Centre-Back,188,right,England,26.77,1e+06,2e+06
 39705,2014,15,8,0,0,0,0,0,0,0,28,14,5,1,0,0,5,4,2,2,0,0,0,Cardiff,0.7895,20,Nicky Maynard,Attack,Centre-Forward,180,right,England,27.55,2e+06,2.5e+06
-12516,2014,33,30,26,7,1,0,4,0,0,32,28,8,1,0,0,26,13,5,3,25,13,115,Cardiff,0.7895,20,Peter Odemwingie,Attack,Centre-Forward,181,right,Nigeria  Russia,32.96,2e+06,3.5e+06
 3762,2014,34,32,30,3,5,1,3,0,0,34,32,3,5,0,0,40,37,8,5,0,0,32,Cardiff,0.7895,20,Peter Whittingham,Midfield,Central Midfield,177,left,England,29.81,2.5e+06,2.5e+06
 238185,2014,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,20,13,14,2,0,0,0,Cardiff,0.7895,20,Rhys Healey,Attack,Centre-Forward,180,right,England,19.57,,
 39908,2014,4,3,0,0,0,0,0,0,0,33,22,14,4,0,0,27,5,5,3,0,0,6,Cardiff,0.7895,20,Rudy Gestede,Attack,Centre-Forward,193,right,Benin  France,25.72,1.5e+06,1e+06
@@ -4318,7 +4317,6 @@ player_id,season,epl_squad,epl_apps,epl_starts,epl_goals,epl_assists,epl_pens,ep
 3548,2014,34,31,28,4,3,0,5,0,0,32,29,4,3,0,0,17,13,2,0,15,13,166,Fulham,0.8421,19,Kieran Richardson,Defender,Left-Back,177,left,England,29.69,2e+06,3e+06
 34944,2014,4,3,1,0,0,0,0,0,0,24,19,19,3,5,5,42,22,20,6,0,0,0,Fulham,0.8421,19,Konstantinos Mitroglou,Attack,Centre-Forward,188,both,Greece,26.3,7e+06,4.5e+06
 141650,2014,2,1,0,0,0,0,0,0,0,15,13,3,1,0,0,27,26,7,2,0,0,0,Fulham,0.8421,19,Larnell Cole,Midfield,Right Midfield,168,right,England,21.31,2.5e+05,2e+05
-55508,2014,32,26,17,2,3,0,3,0,0,37,24,6,9,6,0,44,32,4,13,30,22,82,Fulham,0.8421,19,Lewis Holtby,Midfield,Central Midfield,176,left,Germany  England,23.78,7.5e+06,9e+06
 4311,2014,26,19,19,0,0,0,0,2,43,21,21,0,0,0,0,22,22,0,0,19,19,48,Fulham,0.8421,19,Maarten Stekelenburg,Goalkeeper,Goalkeeper,197,right,Netherlands,31.77,5e+06,5.5e+06
 51318,2014,3,2,0,0,0,0,0,0,0,6,4,0,0,0,0,27,22,1,0,5,3,7,Fulham,0.8421,19,Matthew Briggs,Defender,Centre-Back,183,left,Guyana  England,23.32,1e+06,1.5e+06
 160348,2014,1,1,0,0,0,0,0,0,0,19,18,4,3,0,0,5,3,0,0,0,0,0,Fulham,0.8421,19,Mesca,Midfield,Right Midfield,175,right,Guinea-Bissau  Portugal,21.15,,
@@ -4503,6 +4501,7 @@ player_id,season,epl_squad,epl_apps,epl_starts,epl_goals,epl_assists,epl_pens,ep
 41384,2014,32,30,27,4,7,1,3,0,0,38,32,5,9,0,0,27,21,5,9,26,21,46,Stoke,1.316,9,Marko Arnautovic,Attack,Centre-Forward,192,both,Austria  Serbia,25.2,6e+06,7e+06
 3788,2014,20,11,5,0,0,0,0,0,0,13,6,0,0,0,0,33,23,0,2,31,21,226,Stoke,1.316,9,Matthew Etherington,Midfield,Left Midfield,178,left,England,32.88,1.5e+06,2e+06
 4072,2014,38,34,30,7,5,0,7,0,0,38,34,9,5,0,0,38,30,8,4,34,28,232,Stoke,1.316,9,Peter Crouch,Attack,Centre-Forward,201,right,England  Ireland,33.42,2e+06,4e+06
+12516,2014,33,30,26,7,1,0,4,0,0,32,28,8,1,0,0,26,13,5,3,25,13,115,Stoke,1.316,9,Peter Odemwingie,Attack,Centre-Forward,181,right,Nigeria  Russia,32.96,2e+06,3.5e+06
 2998,2014,12,12,12,0,1,0,4,0,0,15,15,0,1,0,0,39,39,1,0,35,35,194,Stoke,1.316,9,Robert Huth,Defender,Centre-Back,191,right,Germany,29.87,7e+06,8e+06
 45861,2014,37,37,37,1,0,0,5,0,0,43,43,1,0,0,0,40,40,1,2,37,37,164,Stoke,1.316,9,Ryan Shawcross,Defender,Centre-Back,191,right,England  Wales,26.74,9e+06,1e+07
 34838,2014,31,25,14,2,2,0,3,0,0,29,17,3,2,0,0,17,12,0,4,13,9,143,Stoke,1.316,9,Stephen Ireland,Midfield,Attacking Midfield,173,right,Ireland,27.86,2.5e+06,3e+06
@@ -4572,6 +4571,7 @@ player_id,season,epl_squad,epl_apps,epl_starts,epl_goals,epl_assists,epl_pens,ep
 3875,2014,20,14,3,1,0,0,1,0,0,22,11,10,3,4,0,43,34,15,6,34,27,251,Tottenham,1.816,6,Jermain Defoe,Attack,Centre-Forward,171,right,England  St. Lucia,31.73,6e+06,8e+06
 66219,2014,33,22,19,0,0,0,6,0,0,34,31,0,3,9,0,27,25,0,1,14,13,42,Tottenham,1.816,6,Kyle Naughton,Defender,Right-Back,181,right,England  Ireland,25.62,5e+06,5.5e+06
 95424,2014,27,26,26,1,2,0,5,0,0,34,34,1,3,3,0,50,48,0,5,36,36,90,Tottenham,1.816,6,Kyle Walker,Defender,Right-Back,183,right,England,24.09,1.7e+07,1.7e+07
+55508,2014,32,26,17,2,3,0,3,0,0,37,24,6,9,6,0,44,32,4,13,30,22,82,Tottenham,1.816,6,Lewis Holtby,Midfield,Central Midfield,176,left,Germany  England,23.78,7.5e+06,9e+06
 9988,2014,34,32,31,0,0,0,7,0,0,41,37,0,0,6,0,34,29,2,0,27,23,190,Tottenham,1.816,6,Michael Dawson,Defender,Centre-Back,189,right,England,30.62,6.5e+06,8e+06
 202228,2014,6,2,0,0,0,0,0,0,0,16,14,0,1,0,0,19,17,1,1,0,0,0,Tottenham,1.816,6,Milos Veljkovic,Defender,Centre-Back,188,right,Serbia  Switzerland,18.76,,
 19368,2014,28,28,22,1,1,0,5,0,0,42,34,2,1,7,0,44,36,2,5,32,28,83,Tottenham,1.816,6,Mousa Dembélé,Midfield,Central Midfield,185,left,Belgium  Mali,26.96,1.7e+07,2e+07
@@ -5743,6 +5743,7 @@ player_id,season,epl_squad,epl_apps,epl_starts,epl_goals,epl_assists,epl_pens,ep
 50202,2017,36,36,36,16,5,2,3,0,0,43,39,17,7,0,0,43,35,6,8,31,25,240,Chelsea,2.447,1,Eden Hazard,Attack,Left Winger,175,right,Belgium,26.48,7.5e+07,6.5e+07
 27511,2017,38,37,36,6,0,0,5,0,0,43,42,8,0,0,0,37,34,4,0,23,21,271,Chelsea,2.447,1,Gary Cahill,Defender,Centre-Back,193,right,England,31.53,1.6e+07,1.6e+07
 3160,2017,22,9,6,1,0,0,1,0,0,15,11,1,0,0,0,33,32,1,1,24,24,467,Chelsea,2.447,1,John Terry,Defender,Centre-Back,187,right,England,36.56,1e+06,2.5e+06
+281404,2017,4,2,1,0,0,0,0,0,0,3,1,0,0,0,0,20,7,2,1,14,4,4,Chelsea,2.447,1,Kenedy,Attack,Left Winger,180,left,Brazil,21.39,7e+06,8e+06
 157509,2017,22,9,3,0,1,0,0,0,0,17,10,0,1,0,0,32,28,2,1,23,21,77,Chelsea,2.447,1,Kurt Zouma,Defender,Centre-Back,190,right,France  Central African Republic,22.68,1.5e+07,1.7e+07
 112515,2017,34,31,30,6,3,0,2,0,0,37,36,6,3,0,0,39,32,3,4,31,26,70,Chelsea,2.447,1,Marcos Alonso,Defender,Left-Back,188,left,Spain,26.51,2.5e+07,9e+06
 179184,2017,37,20,1,5,1,0,0,0,0,29,8,11,3,0,0,50,45,23,10,36,32,38,Chelsea,2.447,1,Michy Batshuayi,Attack,Centre-Forward,185,right,Belgium  DR Congo,23.75,2.5e+07,2.5e+07
@@ -6105,7 +6106,6 @@ player_id,season,epl_squad,epl_apps,epl_starts,epl_goals,epl_assists,epl_pens,ep
 295331,2017,24,19,2,1,1,0,2,0,0,19,2,1,1,0,0,33,30,6,2,30,28,37,Watford,1.053,17,Isaac Success,Attack,Centre-Forward,182,right,Nigeria,21.48,4e+06,4e+06
 236513,2017,15,5,1,0,0,0,0,0,0,12,6,1,0,0,0,17,15,6,2,0,0,0,Watford,1.053,17,Jerome Sinclair,Attack,Centre-Forward,181,right,England,20.78,1.5e+06,1.5e+06
 41112,2017,34,33,33,2,4,0,14,0,0,33,33,2,4,0,0,13,13,1,0,11,11,34,Watford,1.053,17,Jose Cholevas,Defender,Left-Back,,,Greece  Germany,33.01,2e+06,2e+06
-281404,2017,4,2,1,0,0,0,0,0,0,3,1,0,0,0,0,20,7,2,1,14,4,4,Watford,1.053,17,Kenedy,Attack,Left Winger,180,left,Brazil,21.39,7e+06,8e+06
 101500,2017,2,1,0,0,0,0,0,0,0,38,21,5,1,0,0,37,28,9,3,0,0,7,Watford,1.053,17,Matej Vydra,Attack,Centre-Forward,180,right,Czech Republic,25.17,6e+06,6e+06
 26456,2017,3,3,3,0,0,0,0,0,0,12,4,4,1,1,0,38,22,8,4,30,15,125,Watford,1.053,17,Mauro Zárate,Attack,Centre-Forward,175,right,Argentina  Chile,30.29,2e+06,3e+06
 157501,2017,16,16,15,2,2,0,2,0,0,34,28,5,5,0,0,21,17,8,4,16,15,73,Watford,1.053,17,Mbaye Niang,Attack,Centre-Forward,188,right,Senegal  France,22.53,1.5e+07,1.2e+07
@@ -7314,6 +7314,7 @@ player_id,season,epl_squad,epl_apps,epl_starts,epl_goals,epl_assists,epl_pens,ep
 19948,2020,38,5,5,0,0,0,0,1,7,14,14,0,0,2,2,9,9,0,0,2,2,143,Chelsea,1.737,4,Willy Caballero,Goalkeeper,Goalkeeper,186,right,Argentina  Spain,38.76,6e+05,1e+06
 61842,2020,29,24,14,1,1,0,0,0,0,25,15,1,1,0,0,45,40,9,5,38,34,145,Crystal Palace,1.132,14,Andros Townsend,Attack,Right Winger,181,left,England,28.96,9.5e+06,1.5e+07
 703470,2020,17,2,0,0,0,0,0,0,0,5,3,0,0,0,0,2,2,0,0,0,0,0,Crystal Palace,1.132,14,Brandon Pierrick,Attack,Left Winger,182,right,England  Cameroon,18.56,,
+45671,2020,21,10,4,2,0,0,0,0,0,13,4,2,3,0,0,29,11,4,3,25,10,22,Crystal Palace,1.132,14,Cenk Tosun,Attack,Centre-Forward,183,right,Türkiye  Germany,29.07,1.2e+07,1.8e+07
 66934,2020,38,35,29,1,1,0,4,0,0,36,30,1,1,0,0,37,25,0,3,31,21,148,Crystal Palace,1.132,14,Cheikhou Kouyaté,Midfield,Defensive Midfield,189,right,Senegal  Belgium,30.53,8e+06,1e+07
 50201,2020,27,24,13,2,1,0,4,0,0,25,14,2,1,0,0,19,9,1,1,16,9,165,Crystal Palace,1.132,14,Christian Benteke,Attack,Centre-Forward,190,right,Belgium  DR Congo,29.58,1.05e+07,1.5e+07
 95435,2020,13,6,0,1,1,0,0,0,0,21,10,3,1,0,0,8,1,1,1,6,0,68,Crystal Palace,1.132,14,Connor Wickham,Attack,Centre-Forward,189,right,England  Northern Ireland,27.25,1.2e+06,3e+06
@@ -7340,7 +7341,6 @@ player_id,season,epl_squad,epl_apps,epl_starts,epl_goals,epl_assists,epl_pens,ep
 221025,2020,19,19,17,0,1,0,6,0,0,20,18,0,1,0,0,29,25,1,2,27,24,105,Everton,1.289,12,André Gomes,Midfield,Central Midfield,190,right,Portugal,26.92,2.25e+07,2.8e+07
 503733,2020,16,11,4,0,1,0,0,0,0,24,16,7,4,0,0,22,13,3,2,0,0,0,Everton,1.289,12,Anthony Gordon,Attack,Left Winger,183,right,England,19.35,5e+06,
 175169,2020,33,27,15,3,2,0,2,0,0,30,17,3,2,0,0,36,27,2,4,34,25,25,Everton,1.289,12,Bernard,Attack,Left Winger,167,right,Brazil,27.81,1.6e+07,2e+07
-45671,2020,21,10,4,2,0,0,0,0,0,13,4,2,3,0,0,29,11,4,3,25,10,22,Everton,1.289,12,Cenk Tosun,Attack,Centre-Forward,183,right,Türkiye  Germany,29.07,1.2e+07,1.8e+07
 161869,2020,31,25,18,0,4,0,3,0,0,28,21,0,5,0,0,32,27,0,4,26,22,153,Everton,1.289,12,Djibril Sidibé,Defender,Right-Back,183,right,France  Mali,27.92,9.5e+06,1.5e+07
 306024,2020,38,36,30,13,1,0,9,0,0,41,34,15,1,0,0,38,22,8,3,35,19,42,Everton,1.289,12,Dominic Calvert-Lewin,Attack,Centre-Forward,189,right,England,23.29,2.4e+07,2e+07
 50362,2020,17,16,13,0,0,0,3,0,0,20,16,0,0,0,0,20,13,0,1,11,8,136,Everton,1.289,12,Fabian Delph,Midfield,Central Midfield,174,left,England  Guyana,30.61,1e+07,1.5e+07
@@ -10398,3 +10398,540 @@ player_id,season,epl_squad,epl_apps,epl_starts,epl_goals,epl_assists,epl_pens,ep
 433183,2025,33,24,3,0,1,0,1,0,0,26,5,1,1,0,0,32,17,1,0,26,11,11,Wolves,1.105,16,Tommy Doyle,Midfield,Central Midfield,172,right,England,23.7,1e+07,1e+07
 606718,2025,32,31,30,0,1,0,7,0,0,34,32,0,1,0,0,42,38,2,3,35,31,45,Wolves,1.105,16,Toti,Defender,Centre-Back,187,left,Portugal  Guinea-Bissau,26.46,2.8e+07,2e+07
 716276,2025,5,5,5,0,0,0,2,0,0,5,5,0,0,0,0,18,15,3,1,16,14,14,Wolves,1.105,16,Yerson Mosquera,Defender,Centre-Back,188,right,Colombia,24.16,8e+06,6e+06
+335721,2026,29,12,9,0,1,0,0,0,0,30,23,1,2,11,11,26,17,0,2,17,13,152,Arsenal,2.237,1,Ben White,Defender,Right-Back,186,right,England,28.73,3e+07,4.5e+07
+433177,2026,32,31,25,7,7,1,2,0,0,48,36,11,9,10,10,37,30,12,14,25,20,177,Arsenal,2.237,1,Bukayo Saka,Attack,Right Winger,178,left,England  Nigeria,24.82,1.1e+08,1.5e+08
+148367,2026,28,7,1,0,0,0,0,0,0,20,11,0,3,6,6,35,35,6,4,34,34,124,Arsenal,2.237,1,Christian Nørgaard,Midfield,Defensive Midfield,187,right,Denmark,32.31,5e+06,1.1e+07
+646750,2026,31,20,9,0,0,0,4,0,0,34,19,0,0,9,9,41,41,1,0,37,37,74,Arsenal,2.237,1,Cristhian Mosquera,Defender,Centre-Back,191,right,Spain  Colombia,22.01,4e+07,3e+07
+262749,2026,37,37,37,0,0,0,1,19,26,50,50,0,0,13,13,55,55,0,0,38,38,132,Arsenal,2.237,1,David Raya,Goalkeeper,Goalkeeper,183,right,Spain,30.79,3e+07,4e+07
+357662,2026,37,36,35,4,7,0,3,0,0,54,48,5,11,12,12,52,48,9,10,35,33,260,Arsenal,2.237,1,Declan Rice,Midfield,Central Midfield,188,right,England  Ireland,27.46,1.2e+08,1.2e+08
+479999,2026,37,33,22,7,2,0,1,0,0,53,38,10,6,12,12,43,40,14,11,34,31,120,Arsenal,2.237,1,Eberechi Eze,Midfield,Attacking Midfield,178,right,England  Nigeria,28.01,6.5e+07,5.5e+07
+890719,2026,17,6,0,0,0,0,0,0,0,21,7,3,1,3,3,37,16,9,2,26,11,11,Arsenal,2.237,1,Ethan Nwaneri,Midfield,Attacking Midfield,176,left,England  Nigeria,19.28,3.5e+07,5.5e+07
+363205,2026,24,14,3,3,0,0,3,0,0,27,9,6,2,6,6,27,13,7,2,17,6,146,Arsenal,2.237,1,Gabriel Jesus,Attack,Centre-Forward,175,right,Brazil,29.24,1.7e+07,3.2e+07
+435338,2026,32,32,30,3,4,0,4,0,0,50,45,4,5,11,11,42,40,5,3,28,28,191,Arsenal,2.237,1,Gabriel Magalhães,Defender,Centre-Back,190,left,Brazil,28.53,7.5e+07,7.5e+07
+655488,2026,36,30,11,1,4,0,3,0,0,52,25,11,7,13,13,51,40,10,6,33,25,117,Arsenal,2.237,1,Gabriel Martinelli,Attack,Left Winger,178,right,Brazil  Italy,25.03,4.5e+07,5.5e+07
+420243,2026,30,30,28,3,6,0,5,0,0,43,37,4,7,7,7,48,42,2,4,30,27,28,Arsenal,2.237,1,Jurriën Timber,Defender,Right-Back,179,right,Netherlands  Curacao,25.04,7e+07,5.5e+07
+309400,2026,14,12,7,2,3,0,1,0,0,23,11,6,5,5,5,36,30,15,5,23,21,220,Arsenal,2.237,1,Kai Havertz,Attack,Centre-Forward,193,left,Germany,27.06,5.5e+07,6.5e+07
+192279,2026,38,1,1,0,0,0,0,0,1,12,12,0,0,1,1,35,35,0,0,31,31,205,Arsenal,2.237,1,Kepa Arrizabalaga,Goalkeeper,Goalkeeper,188,right,Spain,31.74,5e+06,1e+07
+144028,2026,34,31,21,6,6,0,2,0,0,49,31,8,10,10,10,56,37,10,10,38,28,156,Arsenal,2.237,1,Leandro Trossard,Attack,Left Winger,172,right,Belgium,31.57,1.8e+07,2.2e+07
+316264,2026,25,24,16,1,7,0,0,0,0,35,22,1,8,7,7,45,38,6,12,30,26,171,Arsenal,2.237,1,Martin Ødegaard,Midfield,Attacking Midfield,178,left,Norway,27.54,6.5e+07,8.5e+07
+423440,2026,38,38,34,5,1,0,4,0,0,56,48,6,3,12,12,48,44,2,2,36,33,146,Arsenal,2.237,1,Martín Zubimendi,Midfield,Defensive Midfield,181,right,Spain,27.41,7.5e+07,6e+07
+1187629,2026,17,6,1,1,1,0,0,0,0,13,4,1,1,3,3,23,21,19,5,0,0,0,Arsenal,2.237,1,Max Dowman,Midfield,Attacking Midfield,183,left,England,16.5,3e+07,
+338424,2026,24,22,10,4,3,0,1,0,0,34,20,6,3,7,7,44,29,9,5,28,17,205,Arsenal,2.237,1,Mikel Merino,Midfield,Central Midfield,189,left,Spain,30.02,2.5e+07,3.5e+07
+890721,2026,37,20,5,0,0,0,3,0,0,35,18,0,4,9,9,42,29,1,3,23,15,15,Arsenal,2.237,1,Myles Lewis-Skelly,Defender,Left-Back,178,left,England  Barbados,19.76,4.5e+07,4.5e+07
+503987,2026,32,26,16,3,1,0,0,0,0,47,29,8,4,9,9,41,31,11,5,32,27,47,Arsenal,2.237,1,Noni Madueke,Attack,Right Winger,182,left,England  Nigeria,24.31,5e+07,4e+07
+659813,2026,30,25,20,1,2,0,2,0,0,40,31,1,2,9,9,45,40,3,2,32,28,91,Arsenal,2.237,1,Piero Hincapié,Defender,Centre-Back,184,left,Ecuador,24.47,5e+07,5e+07
+502821,2026,28,26,22,1,2,0,5,0,0,36,28,1,3,6,6,29,16,3,2,19,11,42,Arsenal,2.237,1,Riccardo Calafiori,Defender,Left-Back,188,left,Italy,24.12,5.5e+07,3.5e+07
+325443,2026,36,36,26,14,1,3,5,0,0,54,40,21,3,12,12,52,44,54,13,0,0,0,Arsenal,2.237,1,Viktor Gyökeres,Attack,Centre-Forward,189,right,Sweden  Hungary,28.07,6.5e+07,7.5e+07
+495666,2026,31,31,30,1,0,0,2,0,0,49,47,1,1,11,11,51,50,2,0,35,35,180,Arsenal,2.237,1,William Saliba,Defender,Centre-Back,192,right,France  Cameroon,25.27,1e+08,8e+07
+1005583,2026,3,3,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,Aston Villa,1.711,4,Alysson,Attack,Right Winger,184,left,Brazil,20.16,1e+07,1e+06
+485706,2026,26,25,21,2,0,0,3,0,0,37,32,2,0,11,0,34,25,5,0,26,20,83,Aston Villa,1.711,4,Amadou Onana,Midfield,Defensive Midfield,195,right,Belgium  Senegal,24.87,4.5e+07,5e+07
+1063329,2026,15,6,1,0,0,0,0,0,0,8,1,0,0,1,0,33,29,3,3,7,5,5,Aston Villa,1.711,4,Andrés García,Defender,Right-Back,185,right,Spain,23.39,6e+06,7e+06
+394327,2026,18,18,17,1,3,0,5,0,0,26,20,1,4,6,0,42,34,1,0,26,20,183,Aston Villa,1.711,4,Boubacar Kamara,Midfield,Defensive Midfield,184,right,France  Senegal,26.6,4e+07,4e+07
+1202361,2026,4,1,0,0,0,0,0,0,0,1,0,0,0,0,0,36,29,12,7,0,0,0,Aston Villa,1.711,4,Bradley Burrowes,Midfield,Attacking Midfield,,,England,18.32,,
+326029,2026,21,21,5,4,1,0,0,0,0,49,31,22,5,8,0,38,13,8,1,28,8,71,Aston Villa,1.711,4,Donyell Malen,Attack,Right Winger,176,right,Netherlands  Suriname,27.45,4.5e+07,2.5e+07
+447661,2026,29,21,12,1,0,0,3,0,0,34,21,1,2,9,0,26,6,0,0,19,3,179,Aston Villa,1.711,4,Douglas Luiz,Midfield,Central Midfield,177,right,Brazil,28.15,1.8e+07,3e+07
+321247,2026,37,36,21,6,2,0,6,0,0,53,33,10,8,14,0,34,8,5,0,23,3,87,Aston Villa,1.711,4,Emiliano Buendía,Midfield,Attacking Midfield,172,right,Argentina  Spain,29.51,1.6e+07,1.5e+07
+111873,2026,32,32,32,0,1,0,2,8,39,43,42,0,1,10,0,53,53,0,0,37,37,198,Aston Villa,1.711,4,Emiliano Martínez,Goalkeeper,Goalkeeper,195,right,Argentina  Spain,33.83,1.2e+07,2e+07
+500689,2026,26,21,9,1,1,0,0,0,0,29,16,3,1,7,0,42,35,13,10,33,30,61,Aston Villa,1.711,4,Evann Guessand,Attack,Centre-Forward,188,right,Cote d'Ivoire  France,25,2.5e+07,2.5e+07
+413403,2026,36,34,34,0,0,0,0,0,0,47,45,2,1,11,0,50,49,3,0,34,33,193,Aston Villa,1.711,4,Ezri Konsa,Defender,Centre-Back,183,right,England  DR Congo,28.69,4e+07,3.5e+07
+1023191,2026,12,2,0,0,0,0,0,0,0,4,1,0,0,2,0,33,28,3,1,0,0,0,Aston Villa,1.711,4,George Hemmings,Midfield,Central Midfield,,both,England,19.24,,
+565822,2026,11,5,1,0,0,0,0,0,0,11,3,1,0,4,0,28,6,5,3,18,2,35,Aston Villa,1.711,4,Harvey Elliott,Midfield,Attacking Midfield,170,left,England,23.24,2e+07,3e+07
+485585,2026,38,30,17,0,2,0,2,0,0,43,25,1,2,10,0,45,17,2,2,29,10,26,Aston Villa,1.711,4,Ian Maatsen,Defender,Left-Back,178,left,Netherlands  Suriname,24.31,3e+07,2.8e+07
+401173,2026,29,23,9,0,2,0,0,0,0,38,18,1,3,12,0,42,26,5,10,31,19,153,Aston Villa,1.711,4,Jadon Sancho,Attack,Left Winger,180,right,England  Jamaica,26.27,1.8e+07,2.8e+07
+954105,2026,9,1,0,0,0,0,0,0,0,4,0,1,0,1,0,37,31,10,5,0,0,0,Aston Villa,1.711,4,Jamaldeen Jimoh-Aloba,Midfield,Attacking Midfield,,,England  Nigeria,19.75,,3e+05
+193116,2026,30,30,28,5,5,0,5,0,0,43,37,10,7,11,0,49,40,4,6,34,27,191,Aston Villa,1.711,4,John McGinn,Midfield,Central Midfield,178,left,Scotland,31.7,1.3e+07,1.6e+07
+645686,2026,38,28,11,0,0,0,5,0,0,44,22,0,0,13,0,18,11,0,0,8,5,5,Aston Villa,1.711,4,Lamare Bogarde,Defender,Centre-Back,185,right,Netherlands  Suriname,22.49,1.8e+07,6e+06
+387626,2026,16,13,3,0,1,0,1,0,0,30,6,1,3,8,0,38,25,2,4,24,14,152,Aston Villa,1.711,4,Leon Bailey,Attack,Right Winger,178,left,Jamaica,28.89,1.4e+07,2.8e+07
+126664,2026,38,31,21,0,6,0,3,0,0,43,30,0,7,10,0,45,40,0,7,32,28,327,Aston Villa,1.711,4,Lucas Digne,Defender,Left-Back,178,left,France,32.95,6e+06,1e+07
+124884,2026,37,7,6,0,0,0,1,2,10,14,13,0,0,4,0,41,41,0,0,32,32,139,Aston Villa,1.711,4,Marco Bizot,Goalkeeper,Goalkeeper,193,right,Netherlands,35.31,1.5e+06,3e+06
+425334,2026,35,35,34,3,3,0,9,0,0,48,44,3,5,11,0,38,34,1,2,27,24,133,Aston Villa,1.711,4,Matty Cash,Defender,Right-Back,185,right,Poland  England,28.9,2.2e+07,2.5e+07
+503743,2026,37,37,37,10,7,0,7,0,0,54,50,13,11,14,0,54,53,14,16,37,37,45,Aston Villa,1.711,4,Morgan Rogers,Midfield,Attacking Midfield,187,right,England,23.93,9e+07,5.5e+07
+324358,2026,37,37,33,16,3,0,4,0,0,54,42,21,5,14,0,54,43,17,14,38,31,174,Aston Villa,1.711,4,Ollie Watkins,Attack,Centre-Forward,180,right,England,30.5,2.5e+07,4e+07
+399776,2026,32,21,18,0,0,0,1,0,0,35,32,0,1,11,0,34,31,0,2,24,23,183,Aston Villa,1.711,4,Pau Torres,Defender,Centre-Back,192,left,Spain,29.45,2e+07,3.2e+07
+131978,2026,22,21,7,3,1,0,1,0,0,23,8,3,1,1,0,30,6,4,2,20,3,208,Aston Villa,1.711,4,Ross Barkley,Midfield,Central Midfield,189,right,England,32.57,4e+06,6e+06
+331726,2026,14,12,2,2,0,0,0,0,0,40,25,15,3,3,0,45,17,10,7,29,12,126,Aston Villa,1.711,4,Tammy Abraham,Attack,Centre-Forward,194,right,England  Nigeria,28.74,1.8e+07,1.5e+07
+253677,2026,23,17,15,0,1,0,1,0,0,21,18,1,1,4,0,22,20,0,1,14,12,162,Aston Villa,1.711,4,Tyrone Mings,Defender,Centre-Back,196,left,England,33.3,3e+06,5e+06
+184573,2026,34,17,11,0,1,0,0,0,0,27,20,0,1,9,0,25,12,0,0,16,6,166,Aston Villa,1.711,4,Victor Lindelöf,Defender,Centre-Back,187,right,Sweden,31.96,5e+06,8e+06
+249565,2026,25,25,21,0,4,0,0,0,0,34,27,1,7,8,0,53,52,5,10,36,35,228,Aston Villa,1.711,4,Youri Tielemans,Midfield,Central Midfield,177,right,Belgium  DR Congo,29.15,3e+07,3.8e+07
+61841,2026,33,22,14,0,2,0,3,0,0,23,15,0,2,0,0,27,20,0,0,25,19,205,Bournemouth,1.5,6,Adam Smith,Defender,Right-Back,174,right,England,35.17,3e+05,7.5e+05
+654539,2026,38,38,38,1,5,0,5,0,0,39,38,1,5,0,0,35,33,3,2,33,31,120,Bournemouth,1.5,6,Adrien Truffert,Defender,Left-Back,176,left,France,24.61,3e+07,1.5e+07
+855256,2026,37,37,34,3,1,0,5,0,0,39,36,4,1,0,0,23,10,0,0,20,8,19,Bournemouth,1.5,6,Alex Scott,Midfield,Central Midfield,178,right,England  Guernsey,22.86,5e+07,2e+07
+998101,2026,16,9,2,0,0,0,1,0,0,9,2,0,0,0,0,41,36,2,11,0,0,0,Bournemouth,1.5,6,Alex Tóth,Midfield,Central Midfield,181,right,Hungary,20.69,1.2e+07,2.5e+06
+532776,2026,37,31,10,3,2,0,2,0,0,34,13,3,3,0,0,28,11,2,2,20,6,43,Bournemouth,1.5,6,Amine Adli,Attack,Left Winger,180,left,Morocco  France,26.14,2e+07,1.8e+07
+583255,2026,37,37,37,17,4,1,7,0,0,47,43,20,6,2,2,42,39,13,7,37,36,63,Bournemouth,1.5,6,Antoine Semenyo,Attack,Right Winger,185,right,Ghana  England,26.48,8e+07,4e+07
+463605,2026,37,18,15,0,0,0,1,0,0,20,17,0,0,0,0,48,47,4,1,31,31,102,Bournemouth,1.5,6,Bafodé Diakité,Defender,Centre-Back,184,right,France  Guinea,25.48,2.5e+07,2.8e+07
+719673,2026,19,8,0,0,1,0,0,0,0,9,1,0,1,0,0,24,21,3,7,0,0,0,Bournemouth,1.5,6,Ben Doak,Attack,Right Winger,173,right,Scotland,20.64,1.5e+07,1.4e+07
+854721,2026,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,Bournemouth,1.5,6,Ben Winterburn,Midfield,Defensive Midfield,185,right,England,21.82,,
+277033,2026,33,31,13,1,3,0,7,0,0,33,14,2,3,0,0,33,12,2,2,29,9,50,Bournemouth,1.5,6,David Brooks,Attack,Right Winger,173,left,Wales  England,28.98,1.2e+07,1e+07
+465555,2026,38,38,38,0,0,0,3,11,54,40,40,0,0,0,0,31,31,0,0,31,31,53,Bournemouth,1.5,6,Djordje Petrovic,Goalkeeper,Goalkeeper,194,right,Serbia,26.73,2.8e+07,2e+07
+955357,2026,38,33,21,13,0,2,5,0,0,35,23,13,0,0,0,32,23,23,3,0,0,11,Bournemouth,1.5,6,Eli Kroupi,Attack,Centre-Forward,179,right,France  Cote d'Ivoire,20.02,7e+07,1.5e+07
+251106,2026,27,23,0,1,0,0,1,0,0,24,1,1,0,0,0,17,2,2,1,17,2,153,Bournemouth,1.5,6,Enes Ünal,Attack,Centre-Forward,187,right,Türkiye,29.14,7e+06,1e+07
+711337,2026,36,36,32,6,3,0,2,0,0,38,32,6,4,0,0,35,30,12,5,31,28,28,Bournemouth,1.5,6,Evanilson,Attack,Centre-Forward,183,both,Brazil,26.74,3.5e+07,3.5e+07
+391065,2026,1,1,0,0,1,0,0,0,0,17,9,2,2,2,2,26,26,10,2,26,26,129,Bournemouth,1.5,6,Hamed Traoré,Attack,Left Winger,177,right,Cote d'Ivoire,26.37,1.5e+07,2e+07
+611793,2026,34,29,22,0,3,0,5,0,0,31,24,0,3,0,0,14,9,0,1,10,6,7,Bournemouth,1.5,6,James Hill,Defender,Centre-Back,184,right,England,24.47,2.3e+07,3e+06
+1009658,2026,17,3,0,0,0,0,0,0,0,5,2,0,0,0,0,5,2,0,0,3,0,0,Bournemouth,1.5,6,Julio Soler,Defender,Left-Back,175,left,Argentina  Paraguay,21.37,8e+06,8e+06
+330659,2026,21,20,10,2,0,0,5,0,0,21,11,2,0,0,0,39,31,13,8,34,29,135,Bournemouth,1.5,6,Justin Kluivert,Midfield,Attacking Midfield,172,both,Netherlands  Suriname,27.16,2.5e+07,3.5e+07
+249089,2026,19,18,8,0,1,0,1,0,0,19,9,0,1,0,0,40,35,1,3,36,32,133,Bournemouth,1.5,6,Lewis Cook,Midfield,Central Midfield,175,right,England,29.4,1.1e+07,1.5e+07
+469781,2026,37,37,37,0,5,0,8,0,0,39,37,0,5,0,0,19,15,0,0,17,13,68,Bournemouth,1.5,6,Marcos Senesi,Defender,Centre-Back,185,left,Argentina  Italy,29.14,2.5e+07,2.2e+07
+399434,2026,34,34,31,7,4,2,6,0,0,35,31,8,4,0,0,32,23,3,6,29,20,64,Bournemouth,1.5,6,Marcus Tavernier,Midfield,Left Midfield,178,left,England,27.28,2.5e+07,1.8e+07
+1012564,2026,15,15,13,5,2,0,1,0,0,15,13,5,2,0,0,0,0,0,0,0,0,0,Bournemouth,1.5,6,Rayan,Attack,Right Winger,185,left,Brazil,19.91,6e+07,1.4e+07
+188077,2026,27,26,9,2,0,0,3,0,0,27,10,2,0,0,0,32,30,2,3,29,27,84,Bournemouth,1.5,6,Ryan Christie,Midfield,Central Midfield,178,left,Scotland,31.35,8e+06,1e+07
+332705,2026,26,25,21,2,2,0,8,0,0,26,21,2,2,0,0,32,25,0,3,28,21,97,Bournemouth,1.5,6,Tyler Adams,Midfield,Defensive Midfield,175,right,United States,27.38,2.5e+07,1.8e+07
+989112,2026,22,7,4,0,0,0,0,0,0,12,7,0,0,0,0,32,29,0,3,0,0,0,Bournemouth,1.5,6,Veljko Milosavljevic,Defender,Centre-Back,192,right,Serbia,19.01,2e+07,1e+06
+741257,2026,32,31,26,1,0,0,10,0,0,33,26,1,1,0,0,46,38,4,2,22,14,14,Bournemouth,1.5,6,Álex Jiménez,Defender,Right-Back,177,right,Spain,21.15,2.2e+07,1.5e+07
+591949,2026,29,21,8,0,0,0,1,0,0,26,12,1,0,0,0,0,0,0,0,0,0,76,Brentford,1.395,9,Aaron Hickey,Defender,Right-Back,185,both,Scotland,24.06,1.6e+07,1e+07
+683620,2026,4,1,1,0,0,0,0,0,0,3,3,0,0,0,0,43,37,7,9,0,0,0,Brentford,1.395,9,Antoni Milambo,Midfield,Attacking Midfield,179,right,Netherlands  DR Congo,21.24,1.5e+07,1.8e+07
+340918,2026,37,37,37,0,0,0,1,10,49,38,38,0,0,0,0,20,20,0,0,10,10,25,Brentford,1.395,9,Caoimhín Kelleher,Goalkeeper,Goalkeeper,188,right,Ireland,27.6,2.8e+07,2e+07
+823231,2026,32,32,25,7,8,0,5,0,0,37,28,7,8,0,0,37,23,9,4,32,21,73,Brentford,1.395,9,Dango Ouattara,Attack,Left Winger,177,left,Burkina Faso,24.38,3.5e+07,2.8e+07
+442248,2026,36,4,4,0,0,0,1,0,0,8,8,0,0,0,0,23,22,2,0,22,21,111,Brentford,1.395,9,Ethan Pinnock,Defender,Centre-Back,194,left,Jamaica  England,33.09,3e+06,7e+06
+421637,2026,16,6,0,0,1,0,0,0,0,9,3,0,2,0,0,37,34,0,2,33,30,61,Brentford,1.395,9,Frank Onyeka,Midfield,Central Midfield,183,right,Nigeria,28.5,8e+06,7e+06
+559263,2026,10,6,1,1,0,0,0,0,0,9,4,3,1,0,0,24,8,3,3,19,3,11,Brentford,1.395,9,Fábio Carvalho,Midfield,Attacking Midfield,170,right,Portugal  England,23.84,8e+06,1.4e+07
+488935,2026,38,1,1,0,0,0,0,0,3,7,7,0,0,0,0,5,4,0,0,2,1,1,Brentford,1.395,9,Hákon Valdimarsson,Goalkeeper,Goalkeeper,195,right,Iceland,24.71,2.5e+06,2.5e+06
+739443,2026,38,38,37,22,1,8,7,0,0,40,38,25,1,0,0,8,1,0,0,8,1,1,Brentford,1.395,9,Igor Thiago,Attack,Centre-Forward,191,right,Brazil  Bulgaria,25.01,6.5e+07,1.8e+07
+61651,2026,33,32,22,1,3,0,6,0,0,34,24,1,3,0,0,45,36,1,6,0,0,361,Brentford,1.395,9,Jordan Henderson,Midfield,Defensive Midfield,182,right,England,36.04,1.2e+06,2.5e+06
+340321,2026,5,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,16,Brentford,1.395,9,Josh Dasilva,Midfield,Central Midfield,184,left,England  Angola,27.69,1.5e+06,5e+06
+1011936,2026,13,1,0,0,0,0,0,0,0,10,1,1,0,1,1,23,20,10,1,0,0,0,Brentford,1.395,9,Kaye Furo,Attack,Centre-Forward,190,right,Belgium,19.4,8e+06,1e+06
+644401,2026,38,36,22,3,3,0,1,0,0,41,25,5,4,0,0,43,39,2,4,38,36,54,Brentford,1.395,9,Keane Lewis-Potter,Attack,Left Winger,170,right,England,25.35,2.5e+07,2.3e+07
+473050,2026,35,35,32,8,4,0,6,0,0,39,35,8,4,0,0,43,31,12,3,38,26,44,Brentford,1.395,9,Kevin Schade,Attack,Left Winger,185,right,Germany  Nigeria,24.59,3.5e+07,3e+07
+328658,2026,36,27,20,0,1,0,4,0,0,31,24,0,2,0,0,25,18,0,0,24,17,70,Brentford,1.395,9,Kristoffer Ajer,Defender,Centre-Back,198,right,Norway,28.21,1.8e+07,1.8e+07
+319859,2026,38,36,26,3,1,0,3,0,0,42,31,5,3,0,0,27,10,0,2,24,8,94,Brentford,1.395,9,Mathias Jensen,Midfield,Central Midfield,180,right,Denmark,30.5,1e+07,1.4e+07
+823486,2026,37,37,37,1,1,0,8,0,0,44,40,1,2,0,0,24,12,0,2,17,7,29,Brentford,1.395,9,Michael Kayode,Defender,Right-Back,179,right,Italy  Nigeria,21.97,4e+07,1.8e+07
+540941,2026,35,33,24,4,4,0,0,0,0,37,27,4,4,0,0,43,37,3,11,38,34,74,Brentford,1.395,9,Mikkel Damsgaard,Midfield,Attacking Midfield,180,right,Denmark,25.99,3e+07,2.8e+07
+587002,2026,5,1,0,0,0,0,0,0,0,1,0,0,0,0,0,31,19,3,4,0,0,0,Brentford,1.395,9,Myles Peart-Harris,Midfield,Attacking Midfield,187,right,Jamaica  England,23.78,,9e+05
+469050,2026,38,35,32,1,2,0,7,0,0,41,35,2,3,0,0,42,40,2,5,38,38,104,Brentford,1.395,9,Nathan Collins,Defender,Centre-Back,193,right,Ireland,25.17,3e+07,2.8e+07
+340325,2026,24,10,0,0,1,0,0,0,0,14,3,1,2,0,0,13,6,2,1,12,5,20,Brentford,1.395,9,Reiss Nelson,Attack,Left Winger,175,right,England  Jamaica,26.56,8e+06,1.6e+07
+339556,2026,29,25,14,0,0,0,2,0,0,30,19,0,0,0,0,6,1,0,0,5,0,75,Brentford,1.395,9,Rico Henry,Defender,Left-Back,170,left,England  Jamaica,28.98,1.3e+07,1.5e+07
+1091562,2026,23,4,0,0,1,0,0,0,0,9,2,0,2,0,0,9,4,1,0,0,0,0,Brentford,1.395,9,Romelle Donovan,Attack,Right Winger,171,left,England  St. Kitts & Nevis,19.58,3.5e+06,8e+05
+541231,2026,37,32,30,0,2,0,2,0,0,38,35,0,2,0,0,35,33,0,1,31,29,68,Brentford,1.395,9,Sepp van den Berg,Defender,Centre-Back,192,right,Netherlands,24.53,3.2e+07,2.2e+07
+270171,2026,28,25,15,1,4,0,8,0,0,30,18,1,4,0,0,35,30,1,3,32,27,115,Brentford,1.395,9,Vitaly Janelt,Midfield,Defensive Midfield,184,left,Germany  Bosnia-Herzegovina,28.14,1.6e+07,2e+07
+717411,2026,37,37,30,1,2,0,7,0,0,42,33,1,2,0,0,35,19,0,0,31,15,21,Brentford,1.395,9,Yegor Yarmolyuk,Midfield,Central Midfield,180,right,Ukraine,22.33,3.2e+07,1.5e+07
+565093,2026,38,38,38,0,0,0,3,10,46,38,38,0,0,0,0,40,40,0,1,36,36,57,Brighton,1.395,8,Bart Verbruggen,Goalkeeper,Goalkeeper,194,right,Netherlands,23.87,4e+07,3e+07
+700106,2026,19,18,8,1,1,0,2,0,0,34,18,6,6,0,0,25,9,1,5,21,8,27,Brighton,1.395,8,Brajan Gruda,Attack,Right Winger,178,left,Germany  Albania,22.08,2.8e+07,2.5e+07
+973085,2026,32,31,23,0,0,0,5,0,0,35,26,0,0,0,0,40,37,4,2,34,31,52,Brighton,1.395,8,Carlos Baleba,Midfield,Defensive Midfield,179,left,Cameroon,22.49,5.5e+07,4e+07
+1060087,2026,29,21,2,2,1,0,2,0,0,26,4,2,1,0,0,37,22,12,2,0,0,0,Brighton,1.395,8,Charalampos Kostoulas,Attack,Centre-Forward,185,right,Greece,19.09,2.5e+07,1.2e+07
+67063,2026,37,37,26,13,1,1,5,0,0,40,28,14,2,0,0,36,26,11,4,30,24,226,Brighton,1.395,8,Danny Welbeck,Attack,Centre-Forward,185,right,England  Ghana,35.59,3e+06,5e+06
+660860,2026,22,5,2,0,0,0,2,0,0,22,19,0,4,0,0,35,34,2,0,34,33,65,Brighton,1.395,8,Diego Coppola,Defender,Centre-Back,193,right,Italy  Netherlands,22.51,1.8e+07,1e+07
+996897,2026,32,32,26,5,1,0,9,0,0,37,31,10,1,0,0,20,5,1,1,16,4,4,Brighton,1.395,8,Diego Gómez,Midfield,Central Midfield,185,right,Paraguay,23.26,2.5e+07,1.4e+07
+369316,2026,38,37,34,1,0,0,6,0,0,42,39,1,0,0,0,13,9,3,0,6,5,5,Brighton,1.395,8,Ferdi Kadıoğlu,Defender,Left-Back,174,right,Türkiye  Netherlands,26.73,3.5e+07,2.5e+07
+538977,2026,36,32,20,3,4,0,2,0,0,35,22,3,4,0,0,34,24,8,5,28,19,46,Brighton,1.395,8,Georginio Rutter,Attack,Centre-Forward,182,left,France  Martinique,24.2,3e+07,3.2e+07
+1067168,2026,7,3,1,0,0,0,0,0,0,6,3,1,2,0,0,27,20,13,4,1,0,0,Brighton,1.395,8,Harry Howell,Midfield,Attacking Midfield,,left,England,18.2,,
+867688,2026,29,27,20,4,4,0,0,0,0,30,23,4,4,0,0,31,26,5,3,26,22,30,Brighton,1.395,8,Jack Hinshelwood,Midfield,Defensive Midfield,182,right,England,21.22,2.8e+07,2.4e+07
+3333,2026,28,20,7,1,1,1,2,0,0,22,9,1,1,0,0,4,3,0,0,4,3,433,Brighton,1.395,8,James Milner,Midfield,Central Midfield,175,right,England,40.49,5e+05,1e+06
+576314,2026,36,36,36,3,3,0,9,0,0,40,38,3,3,0,0,39,38,1,1,34,33,62,Brighton,1.395,8,Jan Paul van Hecke,Defender,Centre-Back,189,right,Netherlands,26.06,4.5e+07,3.2e+07
+978668,2026,5,1,0,0,0,0,0,0,0,1,0,0,0,0,0,22,17,1,1,0,0,0,Brighton,1.395,8,Joe Knight,Midfield,Central Midfield,,,England,20.77,,
+111195,2026,33,24,9,1,0,0,5,0,0,28,13,1,1,0,0,24,21,0,2,21,19,119,Brighton,1.395,8,Joël Veltman,Defender,Right-Back,184,right,Netherlands,34.46,1.5e+06,4e+06
+504849,2026,25,25,19,3,1,0,5,0,0,27,19,3,1,0,0,41,32,11,4,36,28,67,Brighton,1.395,8,Kaoru Mitoma,Attack,Left Winger,178,right,Japan,29.11,2.2e+07,4e+07
+148153,2026,34,33,31,1,0,0,10,0,0,34,32,1,0,0,0,27,24,0,0,25,23,264,Brighton,1.395,8,Lewis Dunk,Defender,Centre-Back,192,right,England,34.61,3.5e+06,6e+06
+415381,2026,26,26,23,2,3,0,8,0,0,28,23,2,3,0,0,28,11,1,5,25,10,10,Brighton,1.395,8,Mats Wieffer,Midfield,Defensive Midfield,188,right,Netherlands,26.62,2.5e+07,2.5e+07
+406634,2026,13,6,2,1,0,1,0,0,0,29,12,2,3,7,7,26,15,2,4,21,11,11,Brighton,1.395,8,Matt Oriley,Midfield,Central Midfield,189,left,Denmark  England,25.61,1.8e+07,2.2e+07
+429915,2026,36,30,17,2,3,0,2,0,0,31,18,2,3,0,0,54,51,4,7,0,0,0,Brighton,1.395,8,Maxim De Cuyper,Defender,Left-Back,182,left,Belgium,25.52,2.2e+07,1.6e+07
+914269,2026,7,1,0,0,0,0,0,0,0,1,0,0,0,0,0,21,15,3,5,0,0,0,Brighton,1.395,8,Nehemiah Oriola,Attack,Left Winger,,,England  Nigeria,19.06,,
+318508,2026,38,12,9,0,1,0,2,0,0,17,13,1,1,0,0,43,41,1,6,0,0,20,Brighton,1.395,8,Olivier Boscagli,Defender,Centre-Back,181,left,France,28.62,1.5e+07,2e+07
+82873,2026,19,19,18,1,3,0,2,0,0,42,33,1,5,3,3,45,40,1,15,30,28,295,Brighton,1.395,8,Pascal Groß,Midfield,Central Midfield,181,right,Germany,35.04,2.5e+06,5e+06
+209212,2026,6,4,0,0,0,0,0,0,0,4,0,0,0,0,0,11,2,1,1,8,1,134,Brighton,1.395,8,Solly March,Attack,Right Winger,180,left,England,31.95,1e+06,6e+06
+950091,2026,11,9,1,1,1,0,0,0,0,12,3,3,2,0,0,24,20,12,3,0,0,0,Brighton,1.395,8,Stefanos Tzimas,Attack,Centre-Forward,186,both,Greece,20.48,1.8e+07,2.2e+07
+933018,2026,11,6,0,0,0,0,1,0,0,10,1,1,3,0,0,30,19,9,3,0,0,0,Brighton,1.395,8,Tom Watson,Attack,Left Winger,190,right,England,20.23,7e+06,8e+06
+1012534,2026,36,34,26,3,4,0,3,0,0,36,26,3,4,0,0,37,25,7,5,32,20,20,Brighton,1.395,8,Yankuba Minteh,Attack,Right Winger,180,left,The Gambia,21.94,4.5e+07,3e+07
+667287,2026,31,29,20,3,3,0,1,0,0,32,20,4,3,0,0,39,25,2,1,34,22,23,Brighton,1.395,8,Yasin Ayari,Midfield,Central Midfield,172,right,Sweden  Tunisia,22.74,3.5e+07,2.2e+07
+571743,2026,29,24,8,1,1,0,0,0,0,26,10,1,2,0,0,13,6,0,0,10,4,33,Burnley,0.5789,19,Armando Broja,Attack,Centre-Forward,191,right,Albania  England,24.8,5e+06,1.2e+07
+63200,2026,18,7,0,0,0,0,1,0,0,11,2,2,0,0,0,24,4,1,1,0,0,135,Burnley,0.5789,19,Ashley Barnes,Attack,Centre-Forward,185,right,England,36.67,1.5e+05,2.5e+05
+342046,2026,14,14,14,1,0,0,1,0,0,16,15,1,0,0,0,23,21,0,1,22,20,36,Burnley,0.5789,19,Axel Tuanzebe,Defender,Right-Back,185,right,DR Congo  England,28.63,5e+06,5e+06
+612517,2026,26,20,17,0,2,0,6,0,0,22,19,0,2,0,0,28,22,1,2,0,0,0,Burnley,0.5789,19,Bashir Humphreys,Defender,Left-Back,186,left,England  Uganda,23.3,1.2e+07,7e+06
+357162,2026,35,31,25,0,2,0,6,0,0,42,29,1,2,0,0,43,41,2,1,0,0,11,Burnley,0.5789,19,Florentino,Midfield,Defensive Midfield,184,right,Portugal  Angola,26.87,1.6e+07,2.2e+07
+607224,2026,29,27,15,1,4,0,10,0,0,30,16,1,4,0,0,39,25,1,5,0,0,3,Burnley,0.5789,19,Hannibal,Midfield,Attacking Midfield,183,right,Tunisia  France,23.44,1.5e+07,1.2e+07
+392179,2026,33,19,17,0,0,0,0,0,0,21,19,0,1,0,0,15,14,0,0,0,0,5,Burnley,0.5789,19,Hjalmar Ekdal,Defender,Centre-Back,187,right,Sweden,27.69,5e+06,4.5e+06
+293281,2026,32,28,10,0,1,0,0,0,0,30,12,0,3,0,0,35,12,3,3,27,6,57,Burnley,0.5789,19,Jacob Bruun Larsen,Attack,Left Winger,183,right,Denmark,27.78,4e+06,5e+06
+684210,2026,38,37,32,8,4,0,4,0,0,38,33,9,4,0,0,43,42,8,7,0,0,13,Burnley,0.5789,19,Jaidon Anthony,Attack,Left Winger,183,right,England  Jamaica,26.58,2e+07,9e+06
+181579,2026,20,18,12,0,1,0,1,0,0,20,14,0,1,0,0,26,19,1,2,24,17,314,Burnley,0.5789,19,James Ward-Prowse,Midfield,Central Midfield,177,right,England,31.66,5e+06,8e+06
+706889,2026,2,1,0,0,0,0,0,0,0,4,0,1,0,0,0,19,15,3,1,0,0,0,Burnley,0.5789,19,Jaydon Banel,Attack,Left Winger,173,right,Netherlands  Suriname,21.7,,1e+06
+415970,2026,24,11,5,0,0,0,0,0,0,13,7,0,0,0,0,13,7,0,1,0,0,26,Burnley,0.5789,19,Joe Worrall,Defender,Centre-Back,190,right,England,29.47,2e+06,5e+06
+242606,2026,18,18,18,2,2,0,2,0,0,18,18,2,2,0,0,44,43,2,3,0,0,23,Burnley,0.5789,19,Josh Cullen,Midfield,Defensive Midfield,175,right,Ireland  England,30.23,4e+06,6.5e+06
+314241,2026,37,33,18,1,0,0,7,0,0,36,21,2,0,0,0,48,28,2,2,0,0,0,Burnley,0.5789,19,Josh Laurent,Midfield,Central Midfield,188,right,England,31.15,1.5e+06,1.8e+06
+95424,2026,37,36,35,0,2,0,9,0,0,36,35,0,2,0,0,34,22,0,0,26,16,395,Burnley,0.5789,19,Kyle Walker,Defender,Right-Back,183,right,England,36.09,1.5e+06,4e+06
+711999,2026,37,35,27,3,2,0,1,0,0,38,29,3,2,0,0,31,23,1,2,26,18,39,Burnley,0.5789,19,Lesley Ugochukwu,Midfield,Defensive Midfield,190,right,France  Nigeria,22.26,2.2e+07,1.8e+07
+607226,2026,38,29,14,2,1,0,2,0,0,32,17,3,1,0,0,37,15,2,1,24,6,29,Burnley,0.5789,19,Loum Tchaouna,Attack,Right Winger,180,left,France  Chad,22.81,1.3e+07,1e+07
+927768,2026,33,20,15,0,0,0,1,0,0,23,17,0,0,0,0,38,35,0,2,0,0,15,Burnley,0.5789,19,Lucas Pires,Defender,Left-Back,182,left,Brazil,25.27,4e+06,5e+06
+467623,2026,28,26,15,3,2,0,4,0,0,27,16,3,3,0,0,31,19,3,5,0,0,23,Burnley,0.5789,19,Lyle Foster,Attack,Centre-Forward,185,right,South Africa,25.82,8e+06,6e+06
+314367,2026,35,23,11,1,3,0,0,0,0,26,13,1,4,0,0,26,16,5,1,0,0,0,Burnley,0.5789,19,Marcus Edwards,Attack,Right Winger,168,left,England  Cyprus,27.58,6e+06,1.2e+07
+74960,2026,38,35,35,0,0,0,1,4,71,35,35,0,0,0,0,16,16,0,0,10,10,160,Burnley,0.5789,19,Martin Dúbravka,Goalkeeper,Goalkeeper,191,right,Slovakia,37.46,5e+05,1e+06
+829299,2026,38,3,3,0,0,0,0,0,4,7,7,0,0,0,0,37,37,0,0,0,0,0,Burnley,0.5789,19,Max Weiß,Goalkeeper,Goalkeeper,190,right,Germany,22.04,4e+06,4e+06
+842341,2026,34,34,34,0,0,0,1,0,0,36,36,0,0,0,0,48,47,1,0,0,0,65,Burnley,0.5789,19,Maxime Estève,Defender,Centre-Back,193,left,France,24.1,2.8e+07,2e+07
+381963,2026,8,6,0,0,0,0,0,0,0,8,0,0,1,0,0,1,0,0,1,0,0,3,Burnley,0.5789,19,Mike Tresor,Attack,Left Winger,172,right,Belgium  Burundi,27.09,2e+06,5e+06
+541628,2026,10,7,1,1,0,0,0,0,0,10,4,2,0,0,0,27,23,4,4,0,0,0,Burnley,0.5789,19,Oliver Sonne,Defender,Right-Back,184,right,Peru  Denmark,25.64,4e+06,2.7e+06
+514285,2026,30,21,21,0,5,0,1,0,0,23,23,0,5,0,0,12,8,0,1,0,0,0,Burnley,0.5789,19,Quilindschy Hartman,Defender,Left-Back,183,left,Netherlands  Curacao,24.63,1.6e+07,1.4e+07
+548729,2026,4,4,0,0,0,0,0,0,0,4,0,0,0,0,0,45,13,10,3,0,0,27,Burnley,0.5789,19,Zeki Amdouni,Attack,Centre-Forward,185,both,Switzerland  Türkiye,25.57,7e+06,1.2e+07
+411537,2026,32,29,21,11,0,2,5,0,0,32,23,12,0,0,0,37,28,14,4,0,0,0,Burnley,0.5789,19,Zian Flemming,Attack,Centre-Forward,185,right,Netherlands,27.92,1.2e+07,6.5e+06
+811779,2026,33,24,14,1,4,0,2,0,0,42,22,8,4,9,9,58,36,11,10,36,23,58,Chelsea,1.368,11,Alejandro Garnacho,Attack,Left Winger,180,right,Argentina  Spain,22,2.8e+07,4.5e+07
+743600,2026,37,27,13,1,0,0,4,0,0,47,26,3,5,6,6,34,34,11,5,32,32,41,Chelsea,1.368,11,Andrey Santos,Midfield,Central Midfield,180,right,Brazil,22.16,4e+07,3.5e+07
+463603,2026,19,8,6,0,0,0,2,0,0,18,14,0,0,4,4,20,18,0,0,5,3,126,Chelsea,1.368,11,Benoît Badiashile,Defender,Centre-Back,194,left,France  DR Congo,25.26,1.5e+07,2.2e+07
+568177,2026,27,26,24,10,1,5,5,0,0,39,34,14,5,4,4,46,41,15,12,37,36,68,Chelsea,1.368,11,Cole Palmer,Midfield,Attacking Midfield,185,left,England  St. Kitts & Nevis,24.15,1e+08,1.2e+08
+670717,2026,10,3,0,0,0,0,2,0,0,8,0,0,2,0,0,29,25,1,0,27,25,25,Chelsea,1.368,11,Dário Essugo,Midfield,Defensive Midfield,178,right,Portugal  Angola,21.3,1.5e+07,2e+07
+648195,2026,36,36,35,10,4,2,10,0,0,60,54,16,10,10,10,46,39,8,14,36,32,76,Chelsea,1.368,11,Enzo Fernández,Midfield,Central Midfield,178,right,Argentina,25.45,9e+07,7.5e+07
+1056993,2026,25,22,12,2,2,0,4,0,0,41,25,9,4,7,7,0,0,0,0,0,0,0,Chelsea,1.368,11,Estêvão,Attack,Right Winger,176,left,Brazil,19.19,8e+07,6e+07
+585323,2026,28,5,3,0,0,0,0,0,8,13,11,0,0,3,3,23,23,0,0,6,6,44,Chelsea,1.368,11,Filip Jørgensen,Goalkeeper,Goalkeeper,192,right,Denmark  Sweden,24.21,1.5e+07,1.8e+07
+670882,2026,22,16,5,0,2,0,0,0,0,28,12,1,5,7,7,48,34,12,5,32,21,40,Chelsea,1.368,11,Jamie Gittens,Attack,Left Winger,178,right,England  Barbados,21.89,3e+07,5e+07
+1135611,2026,4,1,1,0,0,0,0,0,0,3,1,0,0,0,0,20,11,9,2,0,0,0,Chelsea,1.368,11,Jesse Derry,Attack,Right Winger,,,England,19,,
+904802,2026,35,22,12,0,0,0,7,0,0,35,24,2,1,4,4,50,48,3,6,0,0,0,Chelsea,1.368,11,Jorrel Hato,Defender,Left-Back,182,left,Netherlands  Curacao,20.32,4e+07,3.5e+07
+1004708,2026,35,17,8,1,0,0,1,0,0,31,15,2,0,5,5,18,14,0,1,4,2,2,Chelsea,1.368,11,Josh Acheampong,Defender,Right-Back,190,right,England  Ghana,20.16,2.5e+07,8e+06
+626724,2026,35,35,31,15,8,0,5,0,0,52,43,23,9,8,8,30,24,10,7,27,23,57,Chelsea,1.368,11,João Pedro,Attack,Centre-Forward,182,right,Brazil,24.76,8e+07,5e+07
+614258,2026,3,3,2,0,0,0,0,0,0,8,7,0,1,0,0,38,35,2,1,35,35,68,Chelsea,1.368,11,Levi Colwill,Defender,Centre-Back,187,left,England,23.34,5e+07,5.5e+07
+610849,2026,29,28,12,1,1,0,4,0,0,46,20,3,5,5,5,40,32,12,2,37,32,32,Chelsea,1.368,11,Liam Delap,Attack,Centre-Forward,186,right,England  Ireland,23.39,2.8e+07,4e+07
+620322,2026,35,34,26,2,3,0,3,0,0,55,42,3,6,7,7,41,25,0,2,32,19,78,Chelsea,1.368,11,Malo Gusto,Defender,Right-Back,178,right,France  Martinique,23.12,3.5e+07,3.5e+07
+910905,2026,10,3,1,0,0,0,0,0,0,24,21,0,0,1,1,29,29,0,1,27,27,27,Chelsea,1.368,11,Mamadou Sarr,Defender,Centre-Back,194,right,France  Senegal,20.84,2.2e+07,2e+07
+284857,2026,34,34,31,1,4,0,8,0,0,55,48,1,4,9,9,48,41,7,4,36,33,209,Chelsea,1.368,11,Marc Cucurella,Defender,Left-Back,173,left,Spain,27.94,5e+07,3.5e+07
+938158,2026,28,10,1,0,1,0,1,0,0,18,6,3,2,1,1,14,7,6,0,3,0,1,Chelsea,1.368,11,Marc Guiu,Attack,Centre-Forward,187,right,Spain,20.49,1.2e+07,8e+06
+687626,2026,34,33,32,3,1,0,11,0,0,54,51,5,2,10,10,45,43,2,5,38,38,113,Chelsea,1.368,11,Moisés Caicedo,Midfield,Defensive Midfield,178,right,Ecuador,24.66,1e+08,9e+07
+487465,2026,34,34,30,5,6,0,2,0,0,57,49,13,10,8,8,45,33,6,9,35,24,99,Chelsea,1.368,11,Pedro Neto,Attack,Right Winger,174,left,Portugal,26.31,6e+07,5e+07
+472423,2026,32,29,20,2,5,0,4,0,0,43,32,3,7,8,8,27,18,2,2,19,12,94,Chelsea,1.368,11,Reece James,Defender,Right-Back,180,right,England,26.56,6e+07,3e+07
+403151,2026,36,35,35,0,1,0,3,9,49,55,54,0,1,8,8,34,34,0,0,32,32,135,Chelsea,1.368,11,Robert Sánchez,Goalkeeper,Goalkeeper,197,right,Spain  England,28.62,2.2e+07,2e+07
+628451,2026,15,12,4,0,0,0,0,0,0,24,13,0,0,4,4,18,12,0,1,16,11,37,Chelsea,1.368,11,Roméo Lavia,Midfield,Defensive Midfield,181,right,Belgium,22.48,2.2e+07,4e+07
+982097,2026,1,1,0,0,0,0,0,0,0,4,0,0,0,0,0,35,24,11,3,1,0,0,Chelsea,1.368,11,Shumaira Mheuka,Attack,Centre-Forward,185,right,England  Zimbabwe,18.7,,8e+05
+258878,2026,28,16,8,0,0,0,2,0,0,33,20,3,0,5,5,37,30,4,1,22,15,89,Chelsea,1.368,11,Tosin Adarabioyo,Defender,Centre-Back,197,right,England  Nigeria,28.77,1.6e+07,2e+07
+346314,2026,35,34,31,3,0,0,3,0,0,52,45,3,1,8,8,33,29,3,1,25,23,92,Chelsea,1.368,11,Trevoh Chalobah,Defender,Centre-Back,192,right,England  Sierra Leone,26.99,4e+07,2.5e+07
+475411,2026,31,25,20,0,1,0,5,0,0,37,30,0,2,6,6,14,14,0,0,14,14,79,Chelsea,1.368,11,Wesley Fofana,Defender,Centre-Back,185,right,France  Cote d'Ivoire,25.54,2.8e+07,2.5e+07
+744149,2026,34,34,29,1,5,0,4,0,0,39,34,1,6,0,0,27,21,0,2,20,16,31,Crystal Palace,1.184,15,Adam Wharton,Midfield,Defensive Midfield,182,left,England,22.4,7e+07,4.5e+07
+293194,2026,30,7,0,0,0,0,1,0,0,14,5,0,0,0,0,20,14,0,0,19,14,96,Crystal Palace,1.184,15,Borna Sosa,Defender,Left-Back,187,left,Croatia  Germany,28.44,3e+06,4.5e+06
+470607,2026,37,34,19,2,1,0,6,0,0,41,23,4,1,4,4,51,36,18,7,33,24,83,Crystal Palace,1.184,15,Brennan Johnson,Attack,Left Winger,186,right,Wales  England,25.11,3e+07,4e+07
+689637,2026,17,9,6,0,1,0,2,0,0,9,6,0,1,0,0,4,4,0,0,1,1,25,Crystal Palace,1.184,15,Chadi Riad,Defender,Centre-Back,187,left,Morocco  Spain,23.04,1.5e+07,1.5e+07
+578539,2026,34,33,31,1,0,0,4,0,0,38,35,2,0,0,0,32,29,1,1,24,22,74,Crystal Palace,1.184,15,Chris Richards,Defender,Centre-Back,188,right,United States,26.26,2.8e+07,1.4e+07
+1124005,2026,25,14,0,0,1,0,0,0,0,21,4,1,2,0,0,38,33,4,7,33,30,30,Crystal Palace,1.184,15,Christantus Uche,Attack,Centre-Forward,190,both,Nigeria,23.12,1.2e+07,1.5e+07
+356141,2026,28,28,22,0,1,0,3,0,0,32,26,0,1,0,0,43,21,2,3,34,15,132,Crystal Palace,1.184,15,Daichi Kamada,Midfield,Attacking Midfield,180,right,Japan,29.9,1e+07,1.2e+07
+493003,2026,29,29,29,4,3,0,7,0,0,34,34,4,3,0,0,46,46,6,8,37,37,53,Crystal Palace,1.184,15,Daniel Muñoz,Defender,Right-Back,181,right,Colombia,30.1,2.2e+07,2.5e+07
+258919,2026,37,37,37,0,0,0,5,11,51,40,40,0,0,0,0,44,44,0,0,38,38,122,Crystal Palace,1.184,15,Dean Henderson,Goalkeeper,Goalkeeper,188,right,England,29.3,2.8e+07,2e+07
+340324,2026,12,12,2,2,0,0,2,0,0,14,4,2,0,0,0,37,12,7,3,29,9,47,Crystal Palace,1.184,15,Eddie Nketiah,Attack,Centre-Forward,175,right,England  Ghana,27.09,1e+07,1.8e+07
+410225,2026,28,28,24,9,1,3,2,0,0,32,28,12,2,0,0,47,36,12,8,38,30,162,Crystal Palace,1.184,15,Ismaïla Sarr,Attack,Right Winger,185,right,Senegal,28.34,4e+07,2.5e+07
+1006411,2026,34,20,14,0,0,0,3,0,0,26,20,0,0,0,0,25,18,0,0,18,12,12,Crystal Palace,1.184,15,Jaydee Canvot,Defender,Centre-Back,188,right,France  Senegal,19.92,2.8e+07,4e+06
+420002,2026,32,32,25,12,0,4,2,0,0,38,30,14,0,0,0,46,42,17,4,37,33,133,Crystal Palace,1.184,15,Jean-Philippe Mateta,Attack,Centre-Forward,192,right,France  DR Congo,29.01,3e+07,3e+07
+262980,2026,35,31,18,0,4,0,7,0,0,37,21,0,6,0,0,42,31,0,1,33,26,206,Crystal Palace,1.184,15,Jefferson Lerma,Midfield,Defensive Midfield,179,right,Colombia,31.68,6e+06,1e+07
+1348941,2026,6,2,0,0,0,0,0,0,0,3,1,0,0,0,0,0,0,0,0,0,0,0,Crystal Palace,1.184,15,Joél Drakes-Thomas,Attack,Right Winger,180,right,England,17.06,,
+747009,2026,36,21,7,1,0,1,0,0,0,28,9,1,0,0,0,37,14,4,2,23,4,4,Crystal Palace,1.184,15,Justin Devenny,Midfield,Attacking Midfield,184,left,Northern Ireland  Scotland,22.72,1.2e+07,6e+06
+860078,2026,11,1,0,0,0,0,0,0,0,2,1,0,0,0,0,21,16,0,0,0,0,0,Crystal Palace,1.184,15,Kaden Rodney,Midfield,Defensive Midfield,189,right,England,21.73,2e+05,2e+05
+392757,2026,35,35,35,3,4,0,6,0,0,46,44,5,4,2,2,44,44,3,2,34,34,130,Crystal Palace,1.184,15,Marc Guéhi,Defender,Centre-Back,182,right,England  Cote d'Ivoire,25.97,7e+07,4.5e+07
+434224,2026,36,35,35,1,2,0,4,0,0,41,41,1,2,0,0,44,44,1,1,35,35,138,Crystal Palace,1.184,15,Maxence Lacroix,Defender,Centre-Back,190,right,France  Guadeloupe,26.23,5e+07,2.5e+07
+85177,2026,34,10,7,0,1,0,1,0,0,11,7,0,1,0,0,19,7,0,1,13,5,241,Crystal Palace,1.184,15,Nathaniel Clyne,Defender,Right-Back,175,right,England  Grenada,35.24,3e+05,1e+06
+344152,2026,2,1,0,0,0,0,0,0,0,31,26,12,3,0,0,8,2,0,0,6,1,60,Crystal Palace,1.184,15,Odsonne Édouard,Attack,Centre-Forward,187,right,France  French Guiana,28.45,1.2e+07,8e+06
+1047257,2026,13,1,1,0,0,0,0,0,0,2,1,0,0,0,0,18,8,2,0,0,0,0,Crystal Palace,1.184,15,Rio Cardines,Defender,Left-Back,,left,Trinidad and Tobago  England,20,3e+05,1e+05
+967319,2026,15,4,0,0,0,0,0,0,0,5,1,0,0,0,0,35,26,6,2,7,1,1,Crystal Palace,1.184,15,Romain Esse,Attack,Right Winger,178,left,England  Cote d'Ivoire,21.13,1e+07,1.2e+07
+730893,2026,38,38,36,1,2,0,6,0,0,42,38,1,2,0,0,45,45,0,6,37,37,164,Crystal Palace,1.184,15,Tyrick Mitchell,Defender,Left-Back,181,left,England  Jamaica,26.83,2.5e+07,2.5e+07
+296802,2026,36,1,1,0,0,0,0,1,0,5,5,0,0,0,0,46,46,0,0,0,0,166,Crystal Palace,1.184,15,Walter Benítez,Goalkeeper,Goalkeeper,191,right,Argentina  France,33.45,4e+06,7.5e+06
+207014,2026,37,31,19,0,0,0,7,0,0,37,22,0,1,0,0,41,29,0,5,33,24,136,Crystal Palace,1.184,15,Will Hughes,Midfield,Central Midfield,185,left,England,31.21,5e+06,7e+06
+568157,2026,36,34,26,2,2,0,4,0,0,40,32,4,4,0,0,35,26,4,10,34,25,90,Crystal Palace,1.184,15,Yéremy Pino,Attack,Right Winger,172,right,Spain,23.7,3e+07,3e+07
+595809,2026,37,37,17,9,1,0,3,0,0,40,18,10,1,0,0,35,20,12,1,30,15,72,Everton,1.289,13,Beto,Attack,Centre-Forward,194,right,Guinea-Bissau  Portugal,28.41,1.8e+07,2.2e+07
+748319,2026,28,20,6,0,1,0,4,0,0,22,8,1,1,0,0,17,7,2,3,16,7,23,Everton,1.289,13,Carlos Alcaraz,Midfield,Central Midfield,176,right,Argentina,23.58,1.5e+07,1.4e+07
+584769,2026,36,22,14,0,1,0,1,0,0,25,17,0,1,0,0,23,17,5,8,21,15,202,Everton,1.289,13,Dwight McNeil,Attack,Left Winger,183,left,England  Jamaica,26.61,1.8e+07,2.5e+07
+1107733,2026,20,13,6,0,0,0,0,0,0,15,8,0,2,0,0,29,22,6,2,3,0,0,Everton,1.289,13,Harrison Armstrong,Midfield,Central Midfield,185,right,England,19.45,1.2e+07,8e+05
+126665,2026,25,25,25,2,3,0,1,0,0,25,25,2,3,0,0,40,37,0,3,37,35,383,Everton,1.289,13,Idrissa Gueye,Midfield,Defensive Midfield,174,right,Senegal,36.76,5e+05,1.5e+06
+623570,2026,32,32,32,6,3,2,2,0,0,34,32,6,3,0,0,37,33,11,0,33,29,48,Everton,1.289,13,Iliman Ndiaye,Attack,Right Winger,180,right,Senegal  France,26.32,5.5e+07,2.2e+07
+203460,2026,20,20,18,2,6,0,2,0,0,22,19,2,6,0,0,32,16,3,5,20,7,138,Everton,1.289,13,Jack Grealish,Attack,Left Winger,180,right,England  Ireland,30.81,2e+07,2.8e+07
+711544,2026,37,37,35,1,1,0,6,0,0,40,37,1,1,0,0,25,22,2,1,20,17,44,Everton,1.289,13,Jake Obrien,Defender,Centre-Back,197,right,Ireland,25.13,1.8e+07,1.8e+07
+505219,2026,38,38,38,2,7,0,12,0,0,41,41,3,7,0,0,23,19,0,1,21,17,58,Everton,1.289,13,James Garner,Midfield,Defensive Midfield,182,right,England,25.3,4.5e+07,1.8e+07
+173504,2026,37,37,37,2,3,0,8,0,0,40,40,2,3,0,0,34,34,1,1,33,33,288,Everton,1.289,13,James Tarkowski,Defender,Centre-Back,185,right,England  Poland,33.61,5e+06,9e+06
+661053,2026,10,10,7,1,1,0,1,0,0,10,7,1,1,0,0,33,31,0,1,30,28,69,Everton,1.289,13,Jarrad Branthwaite,Defender,Centre-Back,195,left,England,24.01,4e+07,5e+07
+130164,2026,38,38,38,0,0,0,4,11,50,39,39,0,0,0,0,40,40,0,0,38,38,324,Everton,1.289,13,Jordan Pickford,Goalkeeper,Goalkeeper,185,left,England,32.32,1.3e+07,1.8e+07
+475188,2026,31,31,30,8,6,0,6,0,0,37,31,9,6,0,0,31,18,4,4,13,2,53,Everton,1.289,13,Kiernan Dewsbury-Hall,Midfield,Central Midfield,176,left,England  Ireland,27.82,3.5e+07,2e+07
+608832,2026,27,16,6,1,0,0,0,0,0,20,7,1,0,0,0,20,11,0,1,19,11,28,Everton,1.289,13,Merlin Röhl,Midfield,Attacking Midfield,192,right,Germany,23.99,1.6e+07,1.2e+07
+118534,2026,34,33,29,3,1,0,1,0,0,35,31,3,1,0,0,18,14,3,1,14,11,231,Everton,1.289,13,Michael Keane,Defender,Centre-Back,188,right,England  Ireland,33.47,3e+06,5e+06
+424015,2026,28,7,3,0,0,0,0,0,0,8,4,0,0,0,0,15,8,0,2,10,3,26,Everton,1.289,13,Nathan Patterson,Defender,Right-Back,189,right,Scotland,24.71,1e+07,1.5e+07
+68390,2026,24,5,1,0,0,0,0,0,0,7,3,0,0,0,0,6,4,0,0,5,3,326,Everton,1.289,13,Séamus Coleman,Defender,Right-Back,177,right,Ireland,37.72,2e+05,5e+05
+937941,2026,38,38,21,8,0,0,3,0,0,41,23,8,0,0,0,41,30,19,4,35,25,25,Everton,1.289,13,Thierno Barry,Attack,Centre-Forward,195,right,France  Guinea,23.69,3e+07,2e+07
+696589,2026,35,29,17,0,3,0,9,0,0,31,18,0,3,0,0,21,6,0,2,18,5,7,Everton,1.289,13,Tim Iroegbunam,Midfield,Central Midfield,183,right,England  Nigeria,23,1.8e+07,9e+06
+866655,2026,36,14,4,0,0,0,2,0,0,17,6,0,0,0,0,38,24,4,3,33,20,20,Everton,1.289,13,Tyler Dibling,Attack,Right Winger,178,left,England,20.37,1.7e+07,2.5e+07
+936874,2026,21,15,1,0,0,0,2,0,0,24,6,4,1,4,4,36,21,6,11,8,1,1,Everton,1.289,13,Tyrique George,Attack,Left Winger,181,right,England  Nigeria,20.4,2e+07,1e+07
+404842,2026,34,33,33,0,1,0,6,0,0,37,36,0,1,0,0,37,37,1,3,35,35,105,Everton,1.289,13,Vitaliy Mykolenko,Defender,Left-Back,180,left,Ukraine,27.09,2.5e+07,2.8e+07
+204103,2026,33,24,1,0,0,0,1,0,0,32,8,0,3,0,0,41,20,2,9,36,18,124,Fulham,1.368,10,Adama Traoré,Attack,Right Winger,178,right,Spain  Mali,30.43,6e+06,9e+06
+242631,2026,29,29,29,4,3,0,3,0,0,33,30,4,3,0,0,44,38,9,6,38,35,228,Fulham,1.368,10,Alex Iwobi,Attack,Left Winger,183,right,Nigeria  England,30.16,2e+07,2.8e+07
+349701,2026,27,22,17,1,0,1,5,0,0,26,20,1,1,0,0,38,37,0,10,36,35,131,Fulham,1.368,10,Antonee Robinson,Defender,Left-Back,183,left,United States  England,28.9,2.2e+07,3.5e+07
+72476,2026,38,38,38,0,0,0,3,9,51,38,38,0,0,0,0,40,40,0,0,38,38,445,Fulham,1.368,10,Bernd Leno,Goalkeeper,Goalkeeper,190,right,Germany,34.32,6e+06,1e+07
+461883,2026,32,30,28,1,1,0,5,0,0,32,29,1,1,0,0,37,36,2,0,35,34,59,Fulham,1.368,10,Calvin Bassey,Defender,Centre-Back,185,left,Nigeria  England,26.5,2.8e+07,2.5e+07
+392765,2026,37,37,22,3,0,0,1,0,0,43,27,5,0,0,0,40,26,6,3,34,25,68,Fulham,1.368,10,Emile Smith Rowe,Midfield,Attacking Midfield,182,right,England,25.92,2e+07,3e+07
+226973,2026,29,7,1,1,0,0,0,0,0,14,7,2,1,0,0,17,3,0,0,12,0,82,Fulham,1.368,10,Harrison Reed,Midfield,Central Midfield,181,right,England,31.43,2e+06,6e+06
+279455,2026,36,36,32,10,7,0,7,0,0,41,34,11,8,0,0,27,14,6,2,25,12,61,Fulham,1.368,10,Harry Wilson,Attack,Right Winger,173,left,Wales  England,29.28,2.5e+07,1.5e+07
+272622,2026,25,13,8,1,0,0,2,0,0,18,13,1,0,0,0,24,17,0,0,21,15,226,Fulham,1.368,10,Issa Diop,Defender,Centre-Back,194,right,France  Senegal,29.47,8e+06,1.4e+07
+260827,2026,34,33,33,0,1,0,7,0,0,35,35,0,1,0,0,34,34,1,1,30,30,219,Fulham,1.368,10,Joachim Andersen,Defender,Centre-Back,192,right,Denmark,30.08,2e+07,2.7e+07
+1069512,2026,18,7,0,0,0,0,1,0,0,11,1,0,0,0,0,23,15,5,2,1,0,0,Fulham,1.368,10,Jonah Kusi-Asare,Attack,Centre-Forward,196,right,Sweden  Ghana,18.99,3e+06,2.5e+06
+494880,2026,31,15,11,0,0,0,6,0,0,22,18,0,0,0,0,12,8,0,0,8,4,61,Fulham,1.368,10,Jorge Cuenca,Defender,Centre-Back,190,left,Spain,26.62,8e+06,5e+06
+1011131,2026,35,32,15,1,2,0,4,0,0,38,17,2,2,0,0,21,12,2,3,8,1,1,Fulham,1.368,10,Josh King,Midfield,Central Midfield,173,right,England,19.49,2.5e+07,1e+06
+206746,2026,28,22,21,1,0,0,2,0,0,23,22,1,0,0,0,22,21,0,2,22,21,115,Fulham,1.368,10,Kenny Tete,Defender,Right-Back,180,right,Netherlands  Mozambique,30.73,8e+06,1.3e+07
+900195,2026,27,26,9,1,2,0,1,0,0,36,18,8,6,0,0,35,30,9,4,0,0,0,Fulham,1.368,10,Kevin,Attack,Left Winger,176,right,Brazil,23.49,2.5e+07,1.2e+07
+661207,2026,27,23,11,0,1,0,1,0,0,33,17,1,1,3,3,5,2,0,1,3,0,2,Fulham,1.368,10,Oscar Bobb,Attack,Right Winger,175,left,Norway  The Gambia,22.97,2.8e+07,2.5e+07
+206040,2026,36,36,27,9,3,4,5,0,0,43,31,10,3,0,0,43,31,14,3,38,30,173,Fulham,1.368,10,Raúl Jiménez,Attack,Centre-Forward,187,right,Mexico,35.16,3e+06,5e+06
+735571,2026,21,21,10,1,1,0,2,0,0,25,12,1,1,0,0,36,13,11,2,31,8,26,Fulham,1.368,10,Rodrigo Muniz,Attack,Centre-Forward,186,right,Brazil,25.16,2e+07,2e+07
+392775,2026,28,27,20,3,3,0,0,0,0,31,23,3,3,0,0,22,11,4,4,16,7,76,Fulham,1.368,10,Ryan Sessegnon,Defender,Left-Back,178,left,England,26.12,2.2e+07,1.5e+07
+401922,2026,24,23,10,3,4,0,0,0,0,26,11,3,4,0,0,36,11,5,3,26,9,112,Fulham,1.368,10,Samuel Chukwueze,Attack,Right Winger,172,left,Nigeria,27.11,1.8e+07,1e+07
+333014,2026,37,35,34,0,1,0,5,0,0,39,35,0,1,0,0,36,30,0,0,31,26,85,Fulham,1.368,10,Sander Berge,Midfield,Defensive Midfield,195,right,Norway,28.38,2.5e+07,2.5e+07
+245056,2026,29,26,20,1,3,0,9,0,0,30,22,2,3,0,0,35,31,0,2,30,28,166,Fulham,1.368,10,Saša Lukić,Midfield,Central Midfield,182,right,Serbia,29.88,1e+07,1.4e+07
+262226,2026,38,30,20,0,0,0,4,0,0,36,26,0,1,0,0,30,23,1,1,24,17,188,Fulham,1.368,10,Timothy Castagne,Defender,Right-Back,185,right,Belgium,30.57,8e+06,1.3e+07
+123275,2026,36,24,6,2,0,0,3,0,0,29,10,2,1,0,0,29,6,2,0,25,3,66,Fulham,1.368,10,Tom Cairney,Midfield,Central Midfield,185,left,Scotland  England,35.44,5e+05,1.5e+06
+344069,2026,30,29,28,5,3,0,3,0,0,34,29,5,3,0,0,39,38,2,2,30,29,99,Leeds,1.237,14,Anton Stach,Midfield,Defensive Midfield,194,right,Germany,27.62,2.8e+07,1.4e+07
+489359,2026,37,28,14,2,0,0,1,0,0,33,19,4,0,0,0,49,41,5,2,0,0,0,Leeds,1.237,14,Ao Tanaka,Midfield,Central Midfield,180,right,Japan,27.81,1.3e+07,1e+07
+393323,2026,38,37,30,4,5,0,3,0,0,42,32,4,5,0,0,47,44,9,2,0,0,42,Leeds,1.237,14,Brenden Aaronson,Midfield,Attacking Midfield,177,right,United States,25.69,2.2e+07,1.5e+07
+319301,2026,23,19,6,0,0,0,0,0,0,21,7,0,0,0,0,37,30,12,9,0,0,75,Leeds,1.237,14,Daniel James,Attack,Right Winger,171,right,Wales  England,28.64,1e+07,1.8e+07
+306024,2026,35,35,30,14,1,4,3,0,0,39,31,15,1,0,0,26,19,3,2,26,19,179,Leeds,1.237,14,Dominic Calvert-Lewin,Attack,Centre-Forward,189,right,England,29.29,2.2e+07,1.6e+07
+392771,2026,35,35,35,1,1,0,10,0,0,40,39,1,1,0,0,32,29,0,0,0,0,80,Leeds,1.237,14,Ethan Ampadu,Defender,Centre-Back,182,right,Wales  England,25.79,3e+07,2e+07
+983989,2026,13,4,1,0,0,0,1,0,0,12,8,1,2,3,3,35,16,6,3,31,14,37,Leeds,1.237,14,Facundo Buonanotte,Midfield,Attacking Midfield,174,left,Argentina  Italy,21.52,1.2e+07,2e+07
+362108,2026,32,32,31,0,0,0,4,0,0,35,34,1,1,0,0,45,30,2,1,30,20,58,Leeds,1.237,14,Gabriel Gudmundsson,Defender,Left-Back,180,left,Sweden,27.17,2e+07,7e+06
+381753,2026,33,23,15,0,3,0,3,0,0,26,17,0,3,0,0,25,20,0,2,0,0,18,Leeds,1.237,14,Ilia Gruev,Midfield,Defensive Midfield,185,left,Bulgaria  Germany,26.15,1.2e+07,5e+06
+417346,2026,20,11,1,0,0,0,0,0,0,29,14,1,3,0,0,38,24,1,1,34,24,149,Leeds,1.237,14,Jack Harrison,Attack,Left Winger,175,left,England,29.61,6.5e+06,1.4e+07
+371851,2026,34,25,21,1,2,0,4,0,0,31,27,1,3,0,0,37,37,2,2,34,34,89,Leeds,1.237,14,Jaka Bijol,Defender,Centre-Back,190,right,Slovenia,27.4,2e+07,1.8e+07
+413220,2026,36,29,21,2,1,0,4,0,0,34,24,3,1,0,0,39,37,4,2,36,34,93,Leeds,1.237,14,James Justin,Defender,Right-Back,183,both,England  St. Lucia,28.35,1.2e+07,1.3e+07
+465717,2026,34,34,32,1,4,0,6,0,0,39,34,2,4,0,0,45,44,6,5,0,0,44,Leeds,1.237,14,Jayden Bogle,Defender,Right-Back,178,right,England,25.93,1.5e+07,9e+06
+297212,2026,35,35,33,2,0,0,3,0,0,38,34,2,0,0,0,48,47,1,0,0,0,24,Leeds,1.237,14,Joe Rodon,Defender,Centre-Back,193,right,Wales,28.69,1.8e+07,1e+07
+369962,2026,37,16,2,0,0,0,0,0,0,21,5,1,0,0,0,48,37,19,7,0,0,0,Leeds,1.237,14,Joël Piroe,Attack,Centre-Forward,185,left,Netherlands  Suriname,26.91,1e+07,1.8e+07
+99397,2026,37,22,22,0,0,0,1,5,27,24,24,0,0,0,0,10,10,0,0,0,0,52,Leeds,1.237,14,Karl Darlow,Goalkeeper,Goalkeeper,190,right,Wales  England,35.73,2e+05,2e+05
+352041,2026,34,16,16,0,0,0,2,3,29,20,20,0,0,0,0,45,45,0,1,33,33,33,Leeds,1.237,14,Lucas Perri,Goalkeeper,Goalkeeper,197,right,Brazil  Italy,28.56,1e+07,1e+07
+314288,2026,34,31,10,6,1,2,0,0,0,37,15,7,3,0,0,20,3,3,0,19,3,32,Leeds,1.237,14,Lukas Nmecha,Attack,Centre-Forward,185,right,Germany  England,27.55,1e+07,3e+06
+346890,2026,29,28,19,8,1,0,3,0,0,34,24,8,3,0,0,21,6,1,2,15,5,11,Leeds,1.237,14,Noah Okafor,Attack,Left Winger,185,right,Switzerland  Nigeria,26.1,2.5e+07,1.3e+07
+410708,2026,36,34,33,0,1,0,5,0,0,37,35,0,1,0,0,38,33,5,0,0,0,70,Leeds,1.237,14,Pascal Struijk,Defender,Centre-Back,190,left,Netherlands  Belgium,26.89,2.2e+07,1.8e+07
+236953,2026,18,2,0,0,0,0,0,0,0,5,1,0,0,0,0,39,19,1,1,0,0,43,Leeds,1.237,14,Sam Byram,Defender,Left-Back,183,right,England,32.79,4e+05,8e+05
+346707,2026,29,23,10,2,2,0,2,0,0,28,13,3,2,0,0,32,12,0,1,25,8,118,Leeds,1.237,14,Sean Longstaff,Midfield,Central Midfield,187,right,England,28.67,1.5e+07,2e+07
+338629,2026,30,12,5,0,0,0,1,0,0,17,9,0,0,0,0,16,9,2,0,15,8,121,Leeds,1.237,14,Sebastiaan Bornauw,Defender,Centre-Back,191,right,Belgium,27.28,8e+06,6e+06
+627626,2026,31,23,4,0,3,0,3,0,0,29,7,1,4,0,0,46,28,9,6,0,0,14,Leeds,1.237,14,Wilfried Gnonto,Attack,Right Winger,170,right,Italy  Cote d'Ivoire,22.65,1.6e+07,2.2e+07
+349066,2026,16,14,8,3,1,0,0,0,0,22,13,4,1,7,7,42,41,27,6,34,34,151,Liverpool,1.579,5,Alexander Isak,Attack,Centre-Forward,192,right,Sweden  Eritrea,26.78,8.5e+07,1.2e+08
+534033,2026,37,37,31,2,4,0,7,0,0,55,44,5,7,12,12,49,40,7,6,35,30,131,Liverpool,1.579,5,Alexis Mac Allister,Midfield,Central Midfield,176,right,Argentina  Italy,27.52,7e+07,1e+08
+105470,2026,26,26,26,0,0,0,1,8,31,35,35,0,0,6,6,35,35,0,0,28,28,266,Liverpool,1.579,5,Alisson,Goalkeeper,Goalkeeper,193,right,Brazil,33.74,1.5e+07,2e+07
+234803,2026,38,24,11,1,0,0,0,0,0,36,20,3,2,7,7,45,38,0,2,33,29,283,Liverpool,1.579,5,Andrew Robertson,Defender,Left-Back,178,left,Scotland,32.31,7e+06,1.8e+07
+434675,2026,36,36,32,7,5,0,3,0,0,52,41,9,6,11,11,49,32,18,7,35,23,57,Liverpool,1.579,5,Cody Gakpo,Attack,Left Winger,193,right,Netherlands  Togo,27.15,6e+07,7e+07
+624258,2026,16,15,12,0,2,0,5,0,0,21,13,0,2,5,5,29,14,0,4,19,7,17,Liverpool,1.579,5,Conor Bradley,Defender,Right-Back,181,right,Northern Ireland,22.98,2.5e+07,3e+07
+433188,2026,36,34,18,1,2,0,2,0,0,49,28,3,3,9,9,46,27,3,7,33,19,69,Liverpool,1.579,5,Curtis Jones,Midfield,Central Midfield,185,right,England,25.42,3.5e+07,4.5e+07
+451276,2026,36,36,36,6,7,0,8,0,0,53,53,13,12,12,12,49,40,8,9,36,29,97,Liverpool,1.579,5,Dominik Szoboszlai,Midfield,Attacking Midfield,187,right,Hungary,25.68,1e+08,8e+07
+341092,2026,36,26,1,2,1,0,3,0,0,36,5,3,3,5,5,14,4,2,2,6,1,191,Liverpool,1.579,5,Federico Chiesa,Attack,Right Winger,175,right,Italy,28.68,1.3e+07,1.4e+07
+598577,2026,33,33,27,5,4,0,1,0,0,49,40,7,10,11,11,45,36,16,15,31,25,112,Liverpool,1.579,5,Florian Wirtz,Midfield,Attacking Midfield,177,right,Germany,23.16,1e+08,1.4e+08
+226049,2026,19,3,2,0,0,0,0,0,5,4,3,0,0,0,0,44,44,0,0,0,0,4,Liverpool,1.579,5,Freddie Woodman,Goalkeeper,Goalkeeper,188,right,England,29.33,3e+06,3.5e+06
+502676,2026,36,10,10,0,0,0,0,2,18,20,19,0,0,7,7,34,34,0,0,34,34,127,Liverpool,1.579,5,Giorgi Mamardashvili,Goalkeeper,Goalkeeper,197,left,Georgia,25.75,2.8e+07,3e+07
+709726,2026,29,28,21,11,4,0,0,0,0,45,34,17,6,12,12,48,43,22,12,33,31,65,Liverpool,1.579,5,Hugo Ekitiké,Attack,Centre-Forward,190,right,France  Cameroon,24.03,8e+07,7.5e+07
+357119,2026,37,36,36,1,0,0,7,0,0,51,49,2,0,10,10,42,39,2,2,31,30,130,Liverpool,1.579,5,Ibrahima Konaté,Defender,Centre-Back,194,right,France  Mali,27.1,4.5e+07,6e+07
+484547,2026,23,21,12,0,2,0,1,0,0,35,23,2,2,9,9,48,37,5,12,33,25,113,Liverpool,1.579,5,Jeremie Frimpong,Defender,Right-Back,172,right,Netherlands  Ghana,25.56,3.5e+07,5e+07
+256178,2026,32,21,7,0,2,0,4,0,0,33,16,0,2,6,6,17,11,0,0,9,6,108,Liverpool,1.579,5,Joe Gomez,Defender,Centre-Back,188,right,England  The Gambia,29.11,1.3e+07,2e+07
+730861,2026,38,34,27,2,1,0,4,0,0,48,38,2,2,9,9,41,40,2,6,38,38,60,Liverpool,1.579,5,Milos Kerkez,Defender,Left-Back,180,left,Hungary  Serbia,22.65,3.5e+07,4.5e+07
+148455,2026,29,27,23,7,7,1,1,0,0,41,34,12,10,10,10,52,50,34,23,38,38,348,Liverpool,1.579,5,Mohamed Salah,Attack,Right Winger,175,left,Egypt,34.04,2.2e+07,5e+07
+1108466,2026,37,19,5,2,1,0,0,0,0,29,9,2,1,4,4,26,20,2,4,0,0,0,Liverpool,1.579,5,Rio Ngumoha,Attack,Left Winger,170,right,England  Nigeria,17.84,3e+07,1e+07
+478573,2026,36,36,34,5,3,0,5,0,0,50,47,6,6,11,11,49,49,0,4,37,37,52,Liverpool,1.579,5,Ryan Gravenberch,Midfield,Defensive Midfield,190,right,Netherlands  Suriname,24.13,8e+07,7.5e+07
+1045123,2026,29,6,0,0,0,0,0,0,0,14,2,0,0,3,3,26,23,2,2,0,0,0,Liverpool,1.579,5,Trey Nyoni,Midfield,Central Midfield,180,right,England  Zimbabwe,19,8e+06,4.5e+06
+139208,2026,38,38,38,6,0,0,4,0,0,55,55,8,3,12,12,49,49,5,1,37,37,300,Liverpool,1.579,5,Virgil van Dijk,Defender,Centre-Back,195,right,Netherlands  Suriname,34.98,1.5e+07,2.3e+07
+146310,2026,20,8,1,0,1,0,1,0,0,12,3,0,1,1,1,32,7,0,0,20,1,120,Liverpool,1.579,5,Wataru Endo,Midfield,Defensive Midfield,178,right,Japan,33.39,4e+06,8e+06
+763079,2026,30,21,15,0,0,0,2,0,0,37,31,0,0,6,6,25,21,1,1,19,17,26,Man City,2.053,2,Abdukodir Khusanov,Defender,Centre-Back,186,right,Uzbekistan,22.34,5e+07,3.5e+07
+241641,2026,38,38,34,2,4,0,9,0,0,55,47,4,6,8,8,49,42,5,4,33,29,288,Man City,2.053,2,Bernardo Silva,Midfield,Attacking Midfield,173,left,Portugal,31.89,2.2e+07,3.8e+07
+1047280,2026,11,2,0,0,0,0,0,0,0,7,4,0,2,0,0,41,32,17,25,0,0,0,Man City,2.053,2,Divine Mukasa,Midfield,Attacking Midfield,,left,England,18.86,,
+418560,2026,36,35,34,27,8,3,2,0,0,55,49,41,9,10,10,44,43,31,4,31,31,152,Man City,2.053,2,Erling Haaland,Attack,Centre-Forward,195,left,Norway,25.94,2e+08,1.8e+08
+315858,2026,34,34,34,0,0,0,7,15,29,50,50,0,0,9,9,40,40,0,0,24,24,319,Man City,2.053,2,Gianluigi Donnarumma,Goalkeeper,Goalkeeper,196,right,Italy,27.35,4.5e+07,4e+07
+566799,2026,38,4,4,0,0,0,0,1,6,16,16,0,0,1,1,45,45,0,0,0,0,28,Man City,2.053,2,James Trafford,Goalkeeper,Goalkeeper,197,right,England,23.72,2.5e+07,2.2e+07
+186590,2026,24,9,5,0,0,0,0,0,0,18,13,0,0,4,4,20,13,3,2,11,6,213,Man City,2.053,2,John Stones,Defender,Centre-Back,188,right,England,32.09,1.2e+07,2.5e+07
+475959,2026,20,18,16,2,2,0,2,0,0,27,23,2,5,5,5,53,49,6,2,37,36,114,Man City,2.053,2,Josko Gvardiol,Defender,Centre-Back,185,left,Croatia,24.44,7e+07,7.5e+07
+486049,2026,31,30,19,5,7,0,0,0,0,49,35,10,14,9,9,38,22,6,9,29,16,78,Man City,2.053,2,Jérémy Doku,Attack,Left Winger,173,right,Belgium  Ghana,24.1,7.5e+07,5e+07
+51471,2026,12,6,1,0,1,0,0,0,0,8,2,0,1,1,1,42,31,7,3,31,25,227,Man City,2.053,2,Mateo Kovacic,Midfield,Central Midfield,177,right,Croatia,32.15,1e+07,2e+07
+601883,2026,37,34,32,1,7,0,5,0,0,52,47,1,10,6,6,39,30,4,10,26,19,58,Man City,2.053,2,Matheus Nunes,Midfield,Central Midfield,183,right,Portugal  Brazil,27.84,5e+07,3.5e+07
+843595,2026,7,2,2,0,0,0,0,0,0,8,7,1,0,1,1,28,28,1,4,0,0,0,Man City,2.053,2,Max Alleyne,Defender,Centre-Back,185,both,England  Barbados,20.94,8e+06,5e+05
+177476,2026,35,18,6,0,0,0,1,0,0,34,18,0,0,5,5,18,14,0,0,10,8,207,Man City,2.053,2,Nathan Aké,Defender,Centre-Back,180,left,Netherlands  Cote d'Ivoire,31.36,1.2e+07,2.5e+07
+466805,2026,33,25,17,1,0,0,6,0,0,42,29,2,0,8,8,45,38,9,6,11,9,39,Man City,2.053,2,Nico González,Midfield,Central Midfield,188,right,Spain,24.49,4e+07,4e+07
+743413,2026,35,34,29,5,3,0,5,0,0,54,44,9,6,8,8,29,24,7,3,9,6,6,Man City,2.053,2,Nico Oreilly,Midfield,Central Midfield,193,left,England  Jamaica,21.28,7e+07,1.8e+07
+445939,2026,28,21,8,3,3,0,3,0,0,38,17,8,3,8,8,48,42,28,17,33,31,92,Man City,2.053,2,Omar Marmoush,Attack,Centre-Forward,183,right,Egypt  Canada,27.39,5e+07,7.5e+07
+406635,2026,36,33,23,7,5,0,4,0,0,54,34,13,8,7,7,45,31,10,6,28,20,128,Man City,2.053,2,Phil Foden,Attack,Right Winger,171,left,England,26.09,7e+07,1e+08
+578391,2026,26,17,12,0,2,0,2,0,0,31,23,0,6,6,6,41,40,5,7,37,37,129,Man City,2.053,2,Rayan Aït-Nouri,Defender,Left-Back,180,left,Algeria  France,25.07,4e+07,3.5e+07
+607223,2026,34,33,19,4,12,0,1,0,0,55,31,11,16,8,8,44,34,12,20,30,22,71,Man City,2.053,2,Rayan Cherki,Attack,Right Winger,177,both,France  Algeria,22.87,9e+07,4.5e+07
+701057,2026,27,11,4,0,1,0,2,0,0,23,13,2,3,4,4,43,33,2,5,28,21,39,Man City,2.053,2,Rico Lewis,Defender,Right-Back,170,right,England,21.61,2.8e+07,4e+07
+357565,2026,22,21,17,1,0,0,3,0,0,36,26,2,1,5,5,4,2,0,0,3,1,239,Man City,2.053,2,Rodri,Midfield,Defensive Midfield,191,right,Spain,30.02,5e+07,1.1e+08
+258004,2026,30,26,24,2,0,0,3,0,0,36,32,2,0,7,7,41,36,0,0,27,25,134,Man City,2.053,2,Rúben Dias,Defender,Centre-Back,187,right,Portugal,29.13,5.5e+07,6.5e+07
+743591,2026,27,24,7,1,2,0,2,0,0,39,17,5,4,7,7,45,33,2,12,29,21,56,Man City,2.053,2,Savinho,Attack,Right Winger,176,left,Brazil,22.22,3.5e+07,5e+07
+460939,2026,38,28,19,5,2,0,2,0,0,50,34,7,8,10,10,54,53,15,5,37,36,69,Man City,2.053,2,Tijjani Reijnders,Midfield,Central Midfield,185,right,Netherlands,27.92,5e+07,6e+07
+336077,2026,38,6,6,0,0,0,0,0,11,6,6,0,0,0,0,10,10,0,0,4,4,4,Man United,1.868,3,Altay Bayındır,Goalkeeper,Goalkeeper,198,right,Türkiye,28.21,5e+06,8e+06
+536835,2026,32,32,27,2,4,0,2,0,0,33,28,2,4,0,0,43,28,11,10,26,20,25,Man United,1.868,3,Amad Diallo,Attack,Right Winger,173,left,Cote d'Ivoire  Italy,23.97,4.5e+07,4.5e+07
+1078163,2026,38,17,11,0,1,0,2,0,0,18,12,0,1,0,0,22,18,0,0,4,2,2,Man United,1.868,3,Ayden Heaven,Defender,Centre-Back,189,left,England,19.77,3e+07,5e+06
+1085591,2026,4,1,0,0,0,0,0,0,0,1,0,0,0,0,0,20,14,10,4,0,0,0,Man United,1.868,3,Bendito Mantato,Attack,Right Winger,180,,England  Angola,18.43,4e+05,
+627442,2026,31,30,17,11,1,0,2,0,0,32,19,12,1,0,0,45,40,21,6,33,30,47,Man United,1.868,3,Benjamin Sesko,Attack,Centre-Forward,195,right,Slovenia,23.09,7.5e+07,7e+07
+240306,2026,35,35,35,9,21,4,5,0,0,37,36,9,22,0,0,57,55,19,19,36,35,270,Man United,1.868,3,Bruno Fernandes,Midfield,Attacking Midfield,179,right,Portugal,31.81,3.5e+07,5e+07
+413039,2026,33,33,31,11,3,0,4,0,0,34,31,12,3,0,0,42,39,20,9,38,38,130,Man United,1.868,3,Bryan Mbeumo,Attack,Right Winger,171,left,Cameroon  France,26.9,7.5e+07,5.5e+07
+16306,2026,34,34,33,9,2,0,9,0,0,35,33,9,2,0,0,42,31,5,3,24,18,260,Man United,1.868,3,Casemiro,Midfield,Defensive Midfield,185,right,Brazil  Spain,34.35,6e+06,1e+07
+357147,2026,35,34,29,1,3,0,5,0,0,36,31,1,3,0,0,53,49,3,5,33,31,132,Man United,1.868,3,Diogo Dalot,Defender,Right-Back,183,right,Portugal,27.29,3e+07,3e+07
+177907,2026,26,23,19,1,2,0,3,0,0,25,20,2,2,0,0,40,30,4,1,27,19,239,Man United,1.868,3,Harry Maguire,Defender,Centre-Back,194,right,England,33.32,8e+06,1.3e+07
+1011140,2026,8,3,0,0,0,0,0,0,0,3,0,0,0,0,0,22,17,8,7,0,0,0,Man United,1.868,3,Jack Fletcher,Midfield,Attacking Midfield,,left,England  Scotland,19.29,,
+435648,2026,36,24,5,2,1,0,3,0,0,26,5,2,1,0,0,49,22,7,3,32,14,55,Man United,1.868,3,Joshua Zirkzee,Attack,Centre-Forward,193,right,Netherlands  Nigeria,25.11,2e+07,3e+07
+820374,2026,32,28,16,1,2,0,2,0,0,30,18,1,3,0,0,37,23,2,1,25,19,43,Man United,1.868,3,Kobbie Mainoo,Midfield,Central Midfield,180,right,England  Ghana,21.2,7e+07,5e+07
+923831,2026,37,32,18,0,2,0,1,0,0,33,19,0,2,0,0,33,22,1,1,21,12,50,Man United,1.868,3,Leny Yoro,Defender,Centre-Back,190,right,France  Cote d'Ivoire,20.63,5e+07,5.5e+07
+480762,2026,19,18,13,0,0,0,0,0,0,19,14,0,0,0,0,32,31,2,2,20,20,52,Man United,1.868,3,Lisandro Martínez,Defender,Centre-Back,175,left,Argentina,28.45,4e+07,4e+07
+183288,2026,38,38,38,1,1,0,9,0,0,38,38,1,1,0,0,12,5,0,0,7,4,238,Man United,1.868,3,Luke Shaw,Defender,Left-Back,178,left,England,30.97,8e+06,1.2e+07
+476701,2026,37,22,8,0,0,0,1,0,0,24,10,0,0,0,0,45,36,2,6,29,22,43,Man United,1.868,3,Manuel Ugarte,Midfield,Defensive Midfield,182,right,Uruguay,25.22,2.5e+07,4.5e+07
+346483,2026,29,23,12,3,0,0,2,0,0,25,13,3,1,0,0,26,11,3,0,16,8,124,Man United,1.868,3,Mason Mount,Midfield,Attacking Midfield,181,right,England,27.47,2.5e+07,2.8e+07
+517894,2026,34,33,29,10,4,0,4,0,0,35,31,10,4,0,0,36,31,17,6,33,29,126,Man United,1.868,3,Matheus Cunha,Attack,Second Striker,183,right,Brazil,27.1,7.5e+07,6e+07
+326031,2026,13,13,13,1,0,0,0,0,0,14,13,1,0,0,0,42,36,2,0,29,25,148,Man United,1.868,3,Matthijs de Ligt,Defender,Centre-Back,189,right,Netherlands,26.89,3e+07,3.8e+07
+340456,2026,26,20,11,0,0,0,3,0,0,20,11,0,0,0,0,57,52,0,3,37,34,60,Man United,1.868,3,Noussair Mazraoui,Defender,Right-Back,183,right,Morocco  Netherlands,28.63,1.8e+07,2.5e+07
+926952,2026,28,26,15,4,4,0,5,0,0,28,17,4,4,0,0,43,41,3,2,33,31,48,Man United,1.868,3,Patrick Dorgu,Defender,Left-Back,185,left,Denmark  Nigeria,21.68,3.5e+07,2.5e+07
+503883,2026,35,32,32,0,0,0,0,8,39,37,37,0,0,0,0,44,44,0,1,0,0,0,Man United,1.868,3,Senne Lammens,Goalkeeper,Goalkeeper,193,right,Belgium,23.98,3.5e+07,9e+06
+926309,2026,14,3,0,0,0,0,0,0,0,4,0,0,0,0,0,13,4,2,3,0,0,0,Man United,1.868,3,Shea Lacey,Attack,Right Winger,,left,England  Ireland,19.21,,
+1049911,2026,14,2,0,0,0,0,0,0,0,2,0,0,0,0,0,32,29,4,14,0,0,0,Man United,1.868,3,Tyler Fletcher,Midfield,Central Midfield,,right,Scotland  England,19.29,,
+911424,2026,11,1,0,0,0,0,0,0,0,2,1,0,0,0,0,21,18,1,0,2,2,2,Man United,1.868,3,Tyler Fredricson,Defender,Centre-Back,188,right,England,21.35,3e+06,3e+06
+339340,2026,28,3,0,0,0,0,0,0,0,3,0,0,0,0,0,21,12,0,0,3,2,16,Man United,1.868,3,Tyrell Malacia,Defender,Left-Back,169,left,Netherlands  Curacao,26.87,4e+06,8e+06
+427568,2026,38,12,11,0,0,0,2,1,18,23,22,0,0,4,4,32,32,0,0,30,30,183,Newcastle,1.289,12,Aaron Ramsdale,Goalkeeper,Goalkeeper,190,right,England,28.13,1.2e+07,1.6e+07
+900601,2026,25,2,0,0,0,0,0,0,0,6,1,0,0,1,1,19,17,2,0,0,0,0,Newcastle,1.289,12,Alex Murphy,Defender,Left-Back,188,left,Ireland,22.02,1.5e+06,3e+05
+583189,2026,34,32,14,0,1,0,0,0,0,49,23,3,2,10,10,43,32,6,12,38,31,77,Newcastle,1.289,12,Anthony Elanga,Attack,Right Winger,178,right,Sweden  Cameroon,24.18,3.2e+07,4.2e+07
+503733,2026,30,26,24,6,2,3,3,0,0,46,36,17,5,12,12,42,33,9,7,34,28,108,Newcastle,1.289,12,Anthony Gordon,Attack,Left Winger,183,right,England,25.35,6.5e+07,6.5e+07
+520624,2026,30,29,27,9,6,2,6,0,0,41,37,9,8,7,7,47,42,5,8,38,38,161,Newcastle,1.289,12,Bruno Guimarães,Midfield,Defensive Midfield,182,right,Brazil  Spain,28.62,7e+07,8e+07
+134270,2026,31,29,25,1,3,0,9,0,0,44,39,2,6,11,11,46,44,2,1,37,37,194,Newcastle,1.289,12,Dan Burn,Defender,Centre-Back,201,left,England,34.14,4e+06,6e+06
+184528,2026,10,1,1,0,0,0,0,0,0,3,3,0,0,0,0,18,6,0,0,12,2,114,Newcastle,1.289,12,Emil Krafth,Defender,Right-Back,184,right,Sweden,31.91,7.5e+05,2e+06
+135343,2026,19,16,11,0,0,0,1,0,0,21,15,1,0,3,3,42,40,6,1,34,33,230,Newcastle,1.289,12,Fabian Schär,Defender,Centre-Back,186,right,Switzerland,34.53,4e+06,7e+06
+398065,2026,38,37,19,7,1,0,1,0,0,57,33,16,6,12,12,40,22,9,5,33,17,137,Newcastle,1.289,12,Harvey Barnes,Attack,Left Winger,182,right,England  Scotland,28.56,3.2e+07,3.5e+07
+199527,2026,36,33,19,3,2,0,2,0,0,46,25,4,5,9,9,41,35,9,14,35,31,105,Newcastle,1.289,12,Jacob Murphy,Attack,Right Winger,179,right,England  Ireland,31.35,1.2e+07,1.6e+07
+503749,2026,33,28,15,2,3,0,3,0,0,43,25,2,3,9,9,46,25,4,7,29,19,93,Newcastle,1.289,12,Jacob Ramsey,Midfield,Central Midfield,180,right,England,25.09,3.5e+07,3.2e+07
+183318,2026,5,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,154,Newcastle,1.289,12,Jamaal Lascelles,Defender,Centre-Back,188,right,England  Barbados,32.64,,4e+06
+340329,2026,37,24,10,0,2,0,3,0,0,39,18,1,3,9,9,41,16,3,2,32,11,94,Newcastle,1.289,12,Joe Willock,Midfield,Central Midfield,186,right,England  Montserrat,26.86,1.4e+07,2.2e+07
+333241,2026,30,27,23,2,1,0,10,0,0,42,33,6,2,10,10,37,37,4,3,29,29,184,Newcastle,1.289,12,Joelinton,Midfield,Central Midfield,186,right,Brazil,29.88,2.5e+07,3.5e+07
+95810,2026,29,21,18,0,1,0,3,0,0,37,31,0,4,9,9,32,20,0,4,25,14,242,Newcastle,1.289,12,Kieran Trippier,Defender,Right-Back,173,right,England,35.78,1.5e+06,4e+06
+670858,2026,34,30,24,1,1,0,5,0,0,46,35,1,2,10,10,34,29,0,5,27,24,40,Newcastle,1.289,12,Lewis Hall,Defender,Left-Back,179,left,England,21.81,4e+07,3.2e+07
+922769,2026,28,23,15,1,4,0,0,0,0,34,20,3,4,7,7,21,6,2,0,14,1,15,Newcastle,1.289,12,Lewis Miley,Midfield,Central Midfield,189,right,England,20.17,2.5e+07,2.2e+07
+521964,2026,38,35,33,4,0,0,4,0,0,54,51,5,1,11,11,31,26,1,1,22,19,71,Newcastle,1.289,12,Malick Thiaw,Defender,Centre-Back,194,right,Germany  Finland,24.9,4.5e+07,1.8e+07
+192080,2026,33,27,27,0,0,0,2,7,40,36,36,0,1,8,8,32,32,0,0,28,28,220,Newcastle,1.289,12,Nick Pope,Goalkeeper,Goalkeeper,198,right,England,34.2,5e+06,8e+06
+455661,2026,34,33,24,8,3,1,0,0,0,54,38,12,5,10,10,33,22,17,3,28,17,31,Newcastle,1.289,12,Nick Woltemade,Attack,Second Striker,198,right,Germany,24.38,5.5e+07,3e+07
+397033,2026,35,35,31,0,2,0,4,0,0,53,47,3,7,11,11,45,35,6,3,36,28,145,Newcastle,1.289,12,Sandro Tonali,Midfield,Central Midfield,181,right,Italy,26.15,8e+07,6e+07
+1071818,2026,14,1,0,0,0,0,0,0,0,2,0,0,0,1,1,17,15,11,4,0,0,0,Newcastle,1.289,12,Sean Neave,Attack,Centre-Forward,184,,England,19.1,,
+361093,2026,30,25,21,1,1,0,2,0,0,38,32,2,1,8,8,11,9,0,0,8,6,118,Newcastle,1.289,12,Sven Botman,Defender,Centre-Back,193,left,Netherlands,26.47,3.5e+07,4.2e+07
+503981,2026,17,17,14,0,1,0,1,0,0,26,19,0,1,5,5,45,38,0,1,37,32,69,Newcastle,1.289,12,Tino Livramento,Defender,Right-Back,182,right,England  Scotland,23.63,4.5e+07,4e+07
+609556,2026,26,24,8,7,0,0,0,0,0,35,13,9,1,6,6,19,3,2,2,14,0,9,Newcastle,1.289,12,William Osula,Attack,Centre-Forward,191,right,Denmark  England,22.91,2.8e+07,7e+06
+388165,2026,23,19,4,1,1,0,3,0,0,28,8,3,2,4,4,39,35,20,5,35,34,121,Newcastle,1.289,12,Yoane Wissa,Attack,Centre-Forward,176,right,DR Congo  France,29.82,2.5e+07,3.2e+07
+201574,2026,14,1,0,0,0,0,0,0,1,1,0,0,0,0,0,35,35,0,0,0,0,31,Nott'm Forest,1.158,16,Angus Gunn,Goalkeeper,Goalkeeper,196,right,Scotland  England,30.44,1e+06,2.2e+06
+585959,2026,18,9,0,0,0,0,0,0,0,33,20,8,1,4,0,34,32,18,4,33,31,121,Nott'm Forest,1.158,16,Arnaud Kalimuendo,Attack,Centre-Forward,175,right,France  DR Congo,24.44,2.5e+07,2.2e+07
+392768,2026,30,30,21,3,4,0,0,0,0,43,28,6,4,11,0,36,27,5,3,31,25,84,Nott'm Forest,1.158,16,Callum Hudson-Odoi,Attack,Left Winger,178,right,England  Ghana,25.65,3e+07,2.5e+07
+108725,2026,15,15,11,3,0,0,0,0,0,20,15,5,0,5,0,40,36,20,3,36,35,206,Nott'm Forest,1.158,16,Chris Wood,Attack,Centre-Forward,191,right,New Zealand,34.57,5e+06,1e+07
+365108,2026,29,24,14,1,1,0,1,0,0,37,23,2,2,12,0,41,36,9,6,30,26,51,Nott'm Forest,1.158,16,Dan Ndoye,Attack,Right Winger,184,right,Switzerland  Senegal,25.68,3.2e+07,3.5e+07
+540664,2026,21,14,6,0,2,0,1,0,0,29,11,1,5,8,0,31,29,6,9,30,29,54,Nott'm Forest,1.158,16,Dilane Bakwa,Attack,Right Winger,180,left,France  DR Congo,23.85,2.8e+07,2.5e+07
+567576,2026,38,38,37,4,4,1,8,0,0,50,45,4,5,12,0,42,36,2,6,37,33,46,Nott'm Forest,1.158,16,Elliot Anderson,Midfield,Central Midfield,179,right,England  Scotland,23.65,7.5e+07,3.2e+07
+375885,2026,31,28,25,2,2,0,5,0,0,43,32,2,3,14,0,17,9,0,3,13,7,93,Nott'm Forest,1.158,16,Ibrahim Sangaré,Midfield,Defensive Midfield,191,right,Cote d'Ivoire,28.58,2e+07,2.4e+07
+432164,2026,37,37,28,6,4,1,2,0,0,56,42,18,5,13,0,1,1,0,0,0,0,0,Nott'm Forest,1.158,16,Igor Jesus,Attack,Centre-Forward,179,right,Brazil  United Arab Emirates,25.34,2.5e+07,1.5e+07
+984096,2026,23,9,6,0,0,0,0,0,0,19,15,1,0,4,0,0,0,0,0,0,0,0,Nott'm Forest,1.158,16,Jair Cunha,Defender,Centre-Back,198,both,Brazil,21.32,1.5e+07,1.3e+07
+583199,2026,35,14,2,0,1,0,1,0,0,26,13,1,2,10,0,27,9,7,0,15,3,23,Nott'm Forest,1.158,16,James McAtee,Midfield,Attacking Midfield,180,left,England,23.7,1.8e+07,2e+07
+432914,2026,18,5,5,0,0,0,1,1,8,13,13,0,0,3,0,1,1,0,0,0,0,0,Nott'm Forest,1.158,16,John Victor,Goalkeeper,Goalkeeper,197,right,Brazil  Portugal,30.38,5e+06,8e+06
+663244,2026,1,1,0,0,0,0,0,0,0,19,5,5,1,0,0,38,9,5,3,31,5,5,Nott'm Forest,1.158,16,Jota Silva,Attack,Right Winger,179,right,Portugal,26.92,1e+07,1.5e+07
+572265,2026,6,4,1,1,0,0,0,0,0,32,9,3,0,10,5,36,30,14,2,33,27,57,Nott'm Forest,1.158,16,Lorenzo Lucca,Attack,Centre-Forward,201,right,Italy,25.8,2e+07,2.2e+07
+524285,2026,13,7,3,0,0,0,0,0,0,24,14,0,2,0,0,25,9,1,2,24,8,59,Nott'm Forest,1.158,16,Luca Netz,Defender,Left-Back,184,left,Germany,23.13,8e+06,6e+06
+127202,2026,34,31,30,0,0,0,2,7,42,38,37,0,0,6,0,42,41,0,0,38,38,218,Nott'm Forest,1.158,16,Matz Sels,Goalkeeper,Goalkeeper,188,right,Belgium,34.34,3.5e+06,7e+06
+673492,2026,37,21,14,1,0,0,5,0,0,37,29,1,0,14,0,30,9,0,0,26,6,6,Nott'm Forest,1.158,16,Morato,Defender,Centre-Back,192,left,Brazil,25,1.4e+07,1.4e+07
+429014,2026,37,37,35,15,4,1,1,0,0,53,45,18,7,14,0,38,36,7,10,34,34,115,Nott'm Forest,1.158,16,Morgan Gibbs-White,Midfield,Attacking Midfield,171,right,England  Jamaica,26.43,7e+07,5e+07
+1005649,2026,26,25,25,1,0,0,5,0,0,39,34,2,0,13,0,39,39,2,0,36,36,68,Nott'm Forest,1.158,16,Murillo,Defender,Centre-Back,180,left,Brazil,23.99,5e+07,5.5e+07
+503680,2026,37,37,36,2,3,0,6,0,0,53,46,2,4,15,0,39,29,1,3,35,28,72,Nott'm Forest,1.158,16,Neco Williams,Defender,Left-Back,183,right,Wales,25.22,2.8e+07,2e+07
+497291,2026,31,27,17,1,1,0,3,0,0,41,28,2,1,13,0,39,26,0,1,34,23,114,Nott'm Forest,1.158,16,Nicolás Domínguez,Midfield,Central Midfield,179,right,Argentina  Italy,28.01,1.5e+07,1.8e+07
+708072,2026,18,14,11,2,0,0,2,0,0,23,18,2,2,4,0,37,26,2,1,28,19,19,Nott'm Forest,1.158,16,Nicolò Savona,Defender,Right-Back,192,right,Italy,23.29,1.5e+07,1.2e+07
+413507,2026,38,38,37,0,0,0,6,0,0,53,48,1,1,15,0,40,39,5,2,37,37,239,Nott'm Forest,1.158,16,Nikola Milenković,Defender,Centre-Back,195,right,Serbia,28.72,2.8e+07,3.5e+07
+236490,2026,18,18,18,0,0,0,3,0,0,26,23,0,1,8,0,37,37,2,1,35,35,154,Nott'm Forest,1.158,16,Ola Aina,Defender,Right-Back,184,right,Nigeria  England,29.73,1.8e+07,2.2e+07
+203853,2026,8,5,4,0,0,0,0,0,0,12,10,0,0,3,0,23,8,1,1,15,5,109,Nott'm Forest,1.158,16,Oleksandr Zinchenko,Defender,Left-Back,175,left,Ukraine,29.54,8e+06,2e+07
+741238,2026,36,31,17,1,7,0,1,0,0,41,26,1,8,8,0,32,30,3,2,31,30,30,Nott'm Forest,1.158,16,Omari Hutchinson,Midfield,Attacking Midfield,174,left,England  Jamaica,22.67,3e+07,2.2e+07
+425902,2026,32,22,2,0,2,0,3,0,0,35,10,2,4,12,0,39,22,4,1,35,18,60,Nott'm Forest,1.158,16,Ryan Yates,Midfield,Central Midfield,190,right,England,28.61,7e+06,1.2e+07
+85941,2026,11,3,3,0,0,0,0,1,4,11,11,0,0,7,0,21,20,0,1,13,12,87,Nott'm Forest,1.158,16,Stefan Ortega,Goalkeeper,Goalkeeper,185,right,Germany  Spain,33.65,4e+06,8e+06
+295313,2026,25,17,3,4,2,0,2,0,0,18,3,4,2,0,0,32,8,2,0,26,3,82,Nott'm Forest,1.158,16,Taiwo Awoniyi,Attack,Centre-Forward,183,right,Nigeria,28.88,8e+06,1.6e+07
+933017,2026,16,3,2,0,0,0,0,0,0,10,7,0,0,7,0,24,24,2,1,0,0,0,Nott'm Forest,1.158,16,Zach Abbott,Defender,Centre-Back,180,right,England,20.13,4e+06,3e+05
+181380,2026,11,3,2,0,0,0,1,0,0,8,6,0,0,0,0,47,45,1,10,0,0,106,Sunderland,1.421,7,Arthur Masuaku,Defender,Left-Back,179,left,DR Congo  France,32.65,2e+06,3e+06
+131996,2026,16,12,9,1,0,0,1,0,0,13,10,1,0,0,0,49,30,10,8,0,0,106,Sunderland,1.421,7,Bertrand Traoré,Attack,Right Winger,181,left,Burkina Faso,30.82,4e+06,8e+06
+473169,2026,33,31,22,7,1,0,6,0,0,32,22,7,1,0,0,44,33,7,6,0,0,1,Sunderland,1.421,7,Brian Brobbey,Attack,Centre-Forward,180,right,Netherlands  Ghana,24.41,3e+07,2.2e+07
+743384,2026,31,28,16,4,2,0,0,0,0,30,18,4,2,0,0,44,22,7,5,0,0,0,Sunderland,1.421,7,Chemsdine Talbi,Attack,Right Winger,175,right,Morocco  Belgium,21.14,2.5e+07,8e+06
+947411,2026,36,18,11,1,1,0,1,0,0,20,13,1,1,0,0,47,39,4,1,0,0,0,Sunderland,1.421,7,Chris Rigg,Midfield,Attacking Midfield,177,left,England,19.04,2.5e+07,2e+07
+503686,2026,29,29,24,2,2,0,4,0,0,31,25,2,2,0,0,24,16,3,1,0,0,0,Sunderland,1.421,7,Dan Ballard,Defender,Centre-Back,187,right,Northern Ireland  England,26.77,2e+07,8e+06
+570336,2026,22,3,0,0,0,0,0,0,0,5,2,0,0,0,0,48,48,2,3,0,0,0,Sunderland,1.421,7,Dan Neil,Midfield,Central Midfield,185,left,England,24.55,,7.5e+06
+568006,2026,19,8,3,0,0,0,2,0,0,10,5,0,1,0,0,39,33,3,2,0,0,0,Sunderland,1.421,7,Dennis Cirkin,Defender,Left-Back,182,left,England  Ireland,24.24,6e+06,8e+06
+967346,2026,38,20,8,2,0,0,0,0,0,23,10,2,1,0,0,41,26,10,5,0,0,0,Sunderland,1.421,7,Eliezer Mayenda,Attack,Centre-Forward,180,left,Spain  France,21.15,1.6e+07,1.2e+07
+633992,2026,36,36,33,5,6,3,5,0,0,40,37,6,6,0,0,28,20,1,3,6,4,104,Sunderland,1.421,7,Enzo Le Fée,Midfield,Central Midfield,173,right,France,26.41,2.8e+07,1.8e+07
+111455,2026,34,34,32,1,6,0,8,0,0,36,33,1,6,0,0,49,47,2,7,33,33,377,Sunderland,1.421,7,Granit Xhaka,Midfield,Defensive Midfield,186,left,Switzerland,33.76,8e+06,1.2e+07
+876631,2026,21,20,15,2,3,1,6,0,0,22,17,3,3,0,0,33,27,4,5,30,27,74,Sunderland,1.421,7,Habib Diarra,Midfield,Central Midfield,178,right,Senegal  France,22.49,3.5e+07,2e+07
+617755,2026,3,2,1,0,0,0,0,0,0,13,10,0,0,0,0,3,2,0,0,0,0,0,Sunderland,1.421,7,Jenson Seelt,Defender,Centre-Back,195,right,Netherlands  Indonesia,23.11,5e+06,2e+06
+1322090,2026,5,1,1,0,0,0,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,Sunderland,1.421,7,Jocelin Ta Bi,Attack,Right Winger,175,left,Cote d'Ivoire,21.39,2.5e+06,
+282939,2026,29,12,5,0,1,0,1,0,0,15,8,0,1,0,0,49,48,3,1,0,0,0,Sunderland,1.421,7,Luke Onien,Defender,Centre-Back,174,right,England,31.61,7e+05,1.5e+06
+420210,2026,35,28,17,0,0,0,2,0,0,30,19,0,0,0,0,39,31,1,1,24,17,17,Sunderland,1.421,7,Lutsharel Geertruida,Defender,Right-Back,184,right,Netherlands  Curacao,25.95,2e+07,2e+07
+605426,2026,14,3,3,0,0,0,0,1,2,11,11,0,0,5,0,3,3,0,0,0,0,0,Sunderland,1.421,7,Melker Ellborg,Goalkeeper,Goalkeeper,191,,Sweden,23.11,3e+06,3e+05
+903611,2026,8,8,5,0,0,0,1,0,0,36,33,7,7,0,0,44,19,4,4,0,0,0,Sunderland,1.421,7,Nilson Angulo,Attack,Left Winger,183,right,Ecuador,23.03,1.7e+07,2e+06
+727089,2026,33,33,33,0,1,0,9,0,0,35,34,0,1,0,0,55,53,2,6,0,0,0,Sunderland,1.421,7,Noah Sadiki,Midfield,Central Midfield,173,right,DR Congo  Belgium,21.54,3.5e+07,1.2e+07
+348026,2026,33,32,32,3,4,0,5,0,0,35,35,3,4,0,0,24,19,2,1,15,10,155,Sunderland,1.421,7,Nordi Mukiele,Defender,Right-Back,187,right,France  DR Congo,28.66,1.6e+07,1e+07
+353032,2026,35,33,32,1,1,0,6,0,0,34,33,1,1,0,0,36,35,1,0,34,34,123,Sunderland,1.421,7,Omar Alderete,Defender,Centre-Back,188,left,Paraguay,29.51,1.3e+07,8e+06
+225452,2026,3,1,0,0,0,0,0,0,0,2,1,0,0,0,0,48,40,2,8,0,0,6,Sunderland,1.421,7,Patrick Roberts,Attack,Right Winger,167,left,England,29.4,,5e+06
+240692,2026,25,25,23,0,2,0,7,0,0,26,23,0,2,0,0,29,15,0,0,19,10,109,Sunderland,1.421,7,Reinildo Mandava,Defender,Left-Back,180,left,Mozambique,32.44,4e+06,5e+06
+646991,2026,35,35,35,0,0,0,4,10,46,37,37,0,0,0,0,33,33,0,1,0,0,0,Sunderland,1.421,7,Robin Roefs,Goalkeeper,Goalkeeper,193,left,Netherlands,23.45,2.8e+07,4e+06
+696181,2026,15,14,2,0,0,0,1,0,0,16,4,0,0,0,0,25,19,5,2,0,0,0,Sunderland,1.421,7,Romaine Mundle,Attack,Left Winger,,right,England  Jamaica,23.19,7e+06,6e+06
+658536,2026,22,14,9,1,1,0,2,0,0,31,21,4,3,2,2,33,15,5,2,29,12,37,Sunderland,1.421,7,Simon Adingra,Attack,Left Winger,175,right,Cote d'Ivoire,24.5,2.2e+07,2.8e+07
+515544,2026,38,38,34,2,1,0,9,0,0,40,36,2,1,0,0,48,47,3,6,0,0,0,Sunderland,1.421,7,Trai Hume,Defender,Right-Back,180,right,Northern Ireland,24.29,2.2e+07,1.2e+07
+494237,2026,36,32,11,6,0,0,2,0,0,36,13,6,0,0,0,53,38,15,2,0,0,0,Sunderland,1.421,7,Wilson Isidor,Attack,Centre-Forward,186,right,France  Haiti,25.84,1.8e+07,1.2e+07
+725912,2026,37,7,7,0,0,0,0,2,7,10,10,0,0,1,1,39,39,0,0,6,6,6,Tottenham,1.079,17,Antonín Kinský,Goalkeeper,Goalkeeper,190,right,Czech Republic,23.3,1.5e+07,1.5e+07
+922693,2026,35,24,18,2,2,0,5,0,0,35,27,2,3,8,8,46,35,0,0,28,19,19,Tottenham,1.079,17,Archie Gray,Midfield,Defensive Midfield,187,right,England  Scotland,20.3,3.5e+07,3.8e+07
+192765,2026,14,3,2,1,0,0,1,0,0,5,3,1,0,1,1,28,23,0,0,17,14,262,Tottenham,1.079,17,Ben Davies,Defender,Centre-Back,181,left,Wales,33.19,3e+06,6e+06
+985546,2026,8,1,0,0,0,0,0,0,0,2,0,0,0,1,1,16,15,6,0,0,0,0,Tottenham,1.079,17,Callum Olusesi,Midfield,Central Midfield,,right,England  Nigeria,19.31,,5e+05
+488362,2026,16,16,14,1,1,0,2,0,0,48,24,4,2,8,8,47,27,4,6,32,19,135,Tottenham,1.079,17,Conor Gallagher,Midfield,Central Midfield,182,right,England,26.4,3.2e+07,4e+07
+355915,2026,23,23,22,4,1,0,9,0,0,32,31,6,4,8,8,26,26,1,2,18,18,184,Tottenham,1.079,17,Cristian Romero,Defender,Centre-Back,185,right,Argentina,28.18,4.5e+07,5e+07
+670883,2026,11,2,0,0,0,0,0,0,0,15,6,0,1,2,2,27,9,5,3,3,0,0,Tottenham,1.079,17,Dane Scarlett,Attack,Centre-Forward,180,right,England  Jamaica,22.27,1.5e+06,2e+06
+556385,2026,21,20,14,0,1,0,4,0,0,28,17,0,1,7,7,36,33,0,1,25,24,112,Tottenham,1.079,17,Destiny Udogie,Defender,Left-Back,188,left,Italy  Nigeria,23.59,3e+07,4e+07
+483348,2026,34,30,23,0,0,0,4,0,0,44,34,0,0,10,10,35,25,2,3,25,19,34,Tottenham,1.079,17,Djed Spence,Defender,Left-Back,184,right,England  Jamaica,25.89,3e+07,2e+07
+258889,2026,16,15,11,3,0,0,1,0,0,20,12,6,0,3,3,45,37,16,8,27,25,118,Tottenham,1.079,17,Dominic Solanke,Attack,Centre-Forward,186,right,England  Nigeria,28.79,2.8e+07,4e+07
+286047,2026,33,31,31,0,0,0,1,7,50,43,42,0,0,10,10,34,34,0,0,24,24,135,Tottenham,1.079,17,Guglielmo Vicario,Goalkeeper,Goalkeeper,194,right,Italy,29.73,1.8e+07,3.2e+07
+294057,2026,6,3,0,0,0,0,0,0,0,3,0,0,0,0,0,45,32,12,11,31,21,191,Tottenham,1.079,17,James Maddison,Midfield,Attacking Midfield,175,right,England,29.6,2e+07,4.2e+07
+999743,2026,7,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,Tottenham,1.079,17,James Rowswell,Defender,Centre-Back,188,right,England,19.97,,
+257455,2026,35,33,23,5,2,0,8,0,0,46,31,7,3,8,8,24,9,0,0,17,6,72,Tottenham,1.079,17,João Palhinha,Midfield,Defensive Midfield,190,right,Portugal,30.98,1.5e+07,3e+07
+1196272,2026,6,1,0,0,0,0,0,0,0,3,0,0,0,2,2,0,0,0,0,0,0,0,Tottenham,1.079,17,Jun'ai Byfield,Defender,Centre-Back,185,,England,17.57,,
+263236,2026,34,24,17,0,0,0,8,0,0,36,26,0,0,8,8,29,26,0,0,22,21,156,Tottenham,1.079,17,Kevin Danso,Defender,Centre-Back,190,right,Austria,27.78,2e+07,2.5e+07
+866246,2026,28,23,11,1,3,0,2,0,0,33,17,1,5,7,7,45,24,1,4,27,11,11,Tottenham,1.079,17,Lucas Bergvall,Midfield,Central Midfield,187,right,Sweden,20.41,3.5e+07,3.8e+07
+801734,2026,38,31,13,4,1,0,1,0,0,38,17,4,2,3,3,34,18,3,3,21,13,20,Tottenham,1.079,17,Mathys Tel,Attack,Centre-Forward,183,right,France  Guadeloupe,21.18,2.2e+07,3.5e+07
+557459,2026,36,35,35,4,1,0,9,0,0,45,45,7,1,8,8,22,21,0,2,13,12,74,Tottenham,1.079,17,Micky van de Ven,Defender,Centre-Back,193,left,Netherlands,25.2,5e+07,5e+07
+543499,2026,19,19,19,2,6,0,3,0,0,26,23,3,6,5,5,35,32,5,4,32,31,58,Tottenham,1.079,17,Mohammed Kudus,Attack,Right Winger,177,left,Ghana,25.91,5e+07,4.5e+07
+568693,2026,29,26,13,2,4,0,3,0,0,37,22,2,4,9,9,55,33,6,3,36,22,91,Tottenham,1.079,17,Pape Matar Sarr,Midfield,Central Midfield,184,right,Senegal,23.79,3e+07,3.2e+07
+553875,2026,34,34,32,1,2,0,10,0,0,47,45,2,6,9,9,51,44,4,9,33,28,108,Tottenham,1.079,17,Pedro Porro,Defender,Right-Back,173,right,Spain,26.8,3.5e+07,3.8e+07
+568559,2026,21,10,5,0,0,0,0,0,0,11,6,0,0,1,1,28,25,0,0,16,14,46,Tottenham,1.079,17,Radu Drăgușin,Defender,Centre-Back,191,right,Romania,24.41,1.6e+07,2.5e+07
+487969,2026,32,30,21,1,1,0,3,0,0,44,29,7,5,9,9,33,18,10,3,26,15,131,Tottenham,1.079,17,Randal Kolo Muani,Attack,Centre-Forward,187,right,France  DR Congo,27.57,2e+07,3e+07
+378710,2026,33,32,20,11,4,0,4,0,0,43,29,12,5,7,7,24,11,5,2,15,4,195,Tottenham,1.079,17,Richarlison,Attack,Centre-Forward,184,right,Brazil,29.14,2.5e+07,2e+07
+354362,2026,27,26,23,1,1,0,7,0,0,34,31,1,1,5,5,44,37,2,1,26,21,158,Tottenham,1.079,17,Rodrigo Bentancur,Midfield,Defensive Midfield,187,right,Uruguay,29.02,2e+07,3e+07
+1086258,2026,12,4,2,0,0,0,1,0,0,4,2,0,0,0,0,0,0,0,0,0,0,0,Tottenham,1.079,17,Souza,Defender,Left-Back,183,left,Brazil,20.04,1.2e+07,
+743498,2026,26,24,10,0,2,0,0,0,0,33,18,2,5,7,7,22,12,4,0,16,9,53,Tottenham,1.079,17,Wilson Odobert,Attack,Left Winger,182,right,France  Martinique,21.59,1.8e+07,2e+07
+566931,2026,28,28,19,2,5,0,5,0,0,43,30,6,7,10,10,33,32,11,8,25,25,58,Tottenham,1.079,17,Xavi Simons,Midfield,Attacking Midfield,179,right,Netherlands  Suriname,23.2,4e+07,7e+07
+410425,2026,15,11,7,0,0,0,4,0,0,11,7,0,0,0,0,44,27,2,0,28,16,164,Tottenham,1.079,17,Yves Bissouma,Midfield,Defensive Midfield,182,right,Mali  Cote d'Ivoire,29.83,1e+07,2.5e+07
+477758,2026,30,25,23,0,3,0,4,0,0,27,24,0,3,0,0,38,37,2,5,36,35,201,West Ham,1.026,18,Aaron Wan-Bissaka,Defender,Right-Back,183,right,DR Congo  England,28.59,1.5e+07,2.4e+07
+120629,2026,38,20,20,0,1,0,0,0,37,24,24,0,1,0,0,26,25,0,1,26,25,240,West Ham,1.026,18,Alphonse Areola,Goalkeeper,Goalkeeper,195,right,France  Philippines,33.34,4e+06,9e+06
+430310,2026,15,7,2,0,0,0,0,0,0,7,2,0,0,0,0,11,1,0,0,10,1,1,West Ham,1.026,18,Andrew Irving,Midfield,Central Midfield,190,left,Scotland,26.13,4.5e+06,4e+06
+386047,2026,14,14,14,0,0,0,1,0,0,17,16,1,0,0,0,27,21,2,2,13,9,157,West Ham,1.026,18,Axel Disasi,Defender,Centre-Back,191,right,France  DR Congo,28.31,1.5e+07,2.2e+07
+953135,2026,6,2,0,0,0,0,0,0,0,2,0,0,0,0,0,46,33,10,4,0,0,0,West Ham,1.026,18,Callum Marshall,Attack,Centre-Forward,172,left,Northern Ireland,21.59,2e+06,1.8e+06
+123682,2026,37,32,11,7,1,0,1,0,0,35,12,7,1,0,0,22,3,1,0,18,2,180,West Ham,1.026,18,Callum Wilson,Attack,Centre-Forward,180,right,England,34.34,4e+06,8e+06
+474701,2026,31,31,29,5,4,0,6,0,0,34,30,7,5,0,0,22,10,1,2,19,7,19,West Ham,1.026,18,Crysencio Summerville,Attack,Left Winger,174,right,Netherlands  Suriname,24.67,3.5e+07,2.2e+07
+1111589,2026,32,32,30,0,5,0,6,0,0,34,32,0,5,0,0,41,33,7,4,0,0,0,West Ham,1.026,18,El Hadji Malick Diouf,Defender,Left-Back,183,left,Senegal,21.51,2.8e+07,1.8e+07
+1107726,2026,14,6,0,0,0,0,0,0,0,10,2,0,1,0,0,26,26,0,1,0,0,0,West Ham,1.026,18,Ezra Mayers,Defender,Centre-Back,183,left,England  Germany,19.46,2e+06,
+698164,2026,33,22,12,0,1,0,1,0,0,25,14,0,1,0,0,38,36,1,4,0,0,0,West Ham,1.026,18,Freddie Potts,Midfield,Defensive Midfield,183,right,England,22.8,1e+07,1.4e+06
+697280,2026,6,1,0,0,0,0,0,0,0,1,0,0,0,0,0,40,12,3,1,0,0,0,West Ham,1.026,18,George Earthy,Midfield,Attacking Midfield,180,right,England,21.82,,2e+06
+342385,2026,21,6,2,0,0,0,1,0,0,25,17,4,0,0,0,24,16,0,1,23,16,145,West Ham,1.026,18,Guido Rodríguez,Midfield,Defensive Midfield,185,right,Argentina  Italy,32.22,4e+06,1e+07
+380350,2026,13,4,1,0,0,0,0,0,0,5,2,0,0,0,0,16,13,0,0,13,10,107,West Ham,1.026,18,Igor Julio,Defender,Centre-Back,188,left,Brazil,28.39,1e+07,2e+07
+314875,2026,38,38,38,9,11,1,4,0,0,42,42,11,12,0,0,36,36,14,10,34,34,180,West Ham,1.026,18,Jarrod Bowen,Attack,Right Winger,176,left,England,29.53,3e+07,4e+07
+605184,2026,30,23,22,0,1,0,5,0,0,25,24,0,1,0,0,29,22,0,0,27,20,150,West Ham,1.026,18,Jean-Clair Todibo,Defender,Centre-Back,190,right,France  French Guiana,26.5,2.2e+07,2.5e+07
+415912,2026,34,31,27,3,0,0,2,0,0,35,31,3,0,0,0,35,22,0,0,33,21,119,West Ham,1.026,18,Konstantinos Mavropanos,Defender,Centre-Back,194,right,Greece,28.55,1.8e+07,1.7e+07
+341051,2026,38,23,15,1,0,0,2,0,0,28,19,1,1,0,0,35,35,0,2,33,33,138,West Ham,1.026,18,Kyle Walker-Peters,Defender,Right-Back,173,right,England  Jamaica,29.22,1.2e+07,1.5e+07
+444523,2026,18,18,18,4,1,2,5,0,0,19,19,5,1,0,0,36,28,5,0,33,27,170,West Ham,1.026,18,Lucas Paquetá,Midfield,Attacking Midfield,180,left,Brazil  Portugal,28.84,3.2e+07,2.8e+07
+991800,2026,8,5,1,0,0,0,0,0,0,20,9,1,0,1,1,13,1,0,0,12,1,1,West Ham,1.026,18,Luis Guilherme,Attack,Right Winger,175,left,Brazil,20.39,1.2e+07,1.5e+07
+400536,2026,38,18,18,0,1,0,0,7,28,19,19,0,1,0,0,28,28,0,0,27,27,27,West Ham,1.026,18,Mads Hermansen,Goalkeeper,Goalkeeper,187,right,Denmark,25.97,1.5e+07,1.5e+07
+880245,2026,36,36,35,3,4,0,6,0,0,39,38,5,4,0,0,44,39,3,6,36,34,34,West Ham,1.026,18,Mateus Fernandes,Midfield,Central Midfield,180,right,Portugal,21.97,5e+07,1.5e+07
+525247,2026,34,21,17,0,0,0,4,0,0,25,20,0,0,0,0,41,41,0,2,38,38,159,West Ham,1.026,18,Maximilian Kilman,Defender,Centre-Back,194,left,England  Ukraine,29.11,1.3e+07,2.5e+07
+1081995,2026,24,11,0,0,0,0,2,0,0,14,2,0,0,0,0,0,0,0,0,0,0,0,West Ham,1.026,18,Mohamadou Kanté,Midfield,Defensive Midfield,189,right,France,20.78,1e+06,
+361914,2026,2,2,2,0,0,0,0,0,0,24,24,1,0,5,5,36,34,0,0,21,21,149,West Ham,1.026,18,Nayef Aguerd,Defender,Centre-Back,190,left,Morocco,30.25,1.5e+07,1.8e+07
+75489,2026,10,8,5,0,0,0,0,0,0,29,8,1,0,0,0,20,8,3,2,18,6,118,West Ham,1.026,18,Niclas Füllkrug,Attack,Centre-Forward,189,right,Germany,33.39,3.5e+06,1e+07
+922563,2026,30,13,9,0,1,0,2,0,0,17,11,0,1,0,0,26,17,3,2,15,7,7,West Ham,1.026,18,Oliver Scarles,Defender,Left-Back,180,left,England,20.55,1e+07,8e+06
+817665,2026,15,14,10,0,1,0,0,0,0,30,23,10,2,0,0,23,10,5,0,0,0,0,West Ham,1.026,18,Pablo,Attack,Centre-Forward,184,right,Brazil  Portugal,22.49,1.8e+07,8e+05
+745181,2026,34,22,11,1,0,0,4,0,0,26,14,1,1,0,0,31,16,1,1,21,12,27,West Ham,1.026,18,Soungoutou Magassa,Midfield,Defensive Midfield,190,right,France  Mali,22.73,1.7e+07,1.2e+07
+522784,2026,18,18,17,6,0,0,6,0,0,34,28,9,3,0,0,40,35,14,8,29,28,77,West Ham,1.026,18,Taty Castellanos,Attack,Centre-Forward,178,right,Argentina,27.74,2.8e+07,2.5e+07
+283628,2026,35,35,24,5,0,0,3,0,0,39,26,6,0,0,0,38,33,9,2,35,30,180,West Ham,1.026,18,Tomáš Souček,Midfield,Defensive Midfield,192,right,Czech Republic,31.34,1e+07,1.8e+07
+250426,2026,14,14,14,2,2,1,3,0,0,19,16,2,2,0,0,39,29,6,2,20,15,47,Wolves,0.5263,20,Adam Armstrong,Attack,Centre-Forward,173,right,England,29.39,6e+06,1.2e+07
+800176,2026,35,35,30,1,0,0,12,0,0,39,34,1,0,0,0,36,32,0,0,33,31,31,Wolves,0.5263,20,André,Midfield,Defensive Midfield,176,right,Brazil,24.96,2.5e+07,2.8e+07
+392770,2026,14,12,7,0,0,0,1,0,0,31,20,3,0,4,4,20,15,2,1,14,10,85,Wolves,0.5263,20,Angel Gomes,Midfield,Attacking Midfield,168,right,England  Portugal,25.83,1e+07,2e+07
+136401,2026,9,3,3,0,0,0,0,0,7,3,3,0,0,0,0,3,3,0,0,2,2,7,Wolves,0.5263,20,Daniel Bentley,Goalkeeper,Goalkeeper,193,,England,32.97,8e+05,1.5e+06
+661427,2026,37,22,11,0,2,0,1,0,0,26,14,2,3,0,0,47,46,3,8,0,0,0,Wolves,0.5263,20,David Møller Wolfe,Defender,Left-Back,187,left,Norway,24.19,8e+06,9e+06
+683895,2026,18,14,12,0,0,0,1,0,0,30,26,1,3,0,0,33,33,1,0,30,30,86,Wolves,0.5263,20,Emmanuel Agbadou,Defender,Centre-Back,192,right,Cote d'Ivoire,29.04,1.6e+07,2e+07
+1064471,2026,20,9,2,0,1,0,1,0,0,35,19,2,2,6,0,37,22,8,3,17,7,7,Wolves,0.5263,20,Fer López,Midfield,Attacking Midfield,188,left,Spain,22.1,1.6e+07,5e+06
+292246,2026,33,26,18,2,2,1,5,0,0,31,22,3,4,0,0,25,8,2,1,21,5,65,Wolves,0.5263,20,Hee-chan Hwang,Attack,Centre-Forward,177,right,"Korea, South",30.43,6e+06,1.2e+07
+698678,2026,35,35,26,1,2,0,3,0,0,38,29,1,2,0,0,30,20,0,4,0,0,23,Wolves,0.5263,20,Hugo Bueno,Defender,Left-Back,180,left,Spain,23.78,1.2e+07,8e+06
+848509,2026,37,31,19,0,1,0,3,0,0,36,23,0,2,0,0,37,37,2,3,36,36,55,Wolves,0.5263,20,Jackson Tchatchoua,Defender,Right-Back,180,right,Cameroon  Belgium,24.79,1.2e+07,8e+06
+450050,2026,28,26,15,1,1,0,5,0,0,31,18,1,1,0,0,39,22,2,7,35,20,129,Wolves,0.5263,20,Jean-Ricner Bellegarde,Midfield,Central Midfield,172,right,Haiti  France,28.01,1.6e+07,1.8e+07
+1370903,2026,2,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,Wolves,0.5263,20,Jerome Abbey,Midfield,Defensive Midfield,,,England,16.79,,
+588989,2026,24,23,14,1,0,0,1,0,0,32,23,3,2,0,0,0,0,0,0,0,0,0,Wolves,0.5263,20,Jhon Arias,Attack,Right Winger,168,right,Colombia,28.77,1.5e+07,1.7e+07
+249994,2026,34,23,23,0,0,0,2,4,37,24,24,0,0,0,0,30,30,0,0,29,29,137,Wolves,0.5263,20,José Sá,Goalkeeper,Goalkeeper,192,right,Portugal,33.45,3.5e+06,7e+06
+735570,2026,36,35,32,1,1,0,10,0,0,41,36,1,3,0,0,40,39,4,2,36,35,74,Wolves,0.5263,20,João Gomes,Midfield,Central Midfield,176,right,Brazil,25.38,4e+07,4e+07
+429983,2026,36,36,26,4,1,1,4,0,0,40,28,9,2,0,0,38,32,14,5,35,30,86,Wolves,0.5263,20,Jørgen Strand Larsen,Attack,Centre-Forward,193,right,Norway,26.4,4e+07,3e+07
+485583,2026,17,8,6,0,0,0,0,0,0,9,7,0,0,0,0,30,26,1,2,30,26,35,Wolves,0.5263,20,Ki-Jana Hoever,Defender,Right-Back,183,right,Netherlands  Suriname,24.45,3.5e+06,5e+06
+345911,2026,30,28,27,2,1,0,3,0,0,34,32,2,1,0,0,0,0,0,0,0,0,0,Wolves,0.5263,20,Ladislav Krejci,Defender,Centre-Back,191,left,Czech Republic,27.2,2.2e+07,
+414908,2026,14,13,9,1,1,0,2,0,0,30,21,6,3,0,0,37,33,6,3,33,31,136,Wolves,0.5263,20,Marshall Munetsi,Midfield,Central Midfield,188,right,Zimbabwe,30.02,1.5e+07,1.5e+07
+1230661,2026,27,27,19,3,2,0,0,0,0,30,21,3,2,0,0,19,15,7,4,1,0,0,Wolves,0.5263,20,Mateus Mané,Attack,Centre-Forward,175,right,England  Portugal,18.79,2e+07,2e+05
+171679,2026,26,11,11,0,0,0,4,0,0,15,14,0,0,0,0,35,27,2,2,30,25,130,Wolves,0.5263,20,Matt Doherty,Defender,Right-Back,185,right,Ireland,34.46,1e+06,2e+06
+1193867,2026,18,9,3,0,0,0,0,0,0,10,3,0,0,0,0,6,3,0,1,3,1,1,Wolves,0.5263,20,Pedro Lima,Defender,Right-Back,174,right,Brazil,20,4e+06,5e+06
+667121,2026,26,22,9,3,0,0,0,0,0,27,10,5,0,0,0,28,10,3,0,25,7,7,Wolves,0.5263,20,Rodrigo Gomes,Defender,Right-Back,175,right,Portugal,22.98,1.5e+07,1.5e+07
+110864,2026,30,12,12,0,0,0,0,0,24,17,17,0,1,0,0,10,10,0,0,7,7,73,Wolves,0.5263,20,Sam Johnstone,Goalkeeper,Goalkeeper,193,right,England,33.27,2e+06,6e+06
+438001,2026,37,29,28,3,2,0,4,0,0,34,33,4,2,0,0,34,23,0,1,29,18,61,Wolves,0.5263,20,Santiago Bueno,Defender,Centre-Back,190,right,Uruguay  Italy,27.64,1e+07,1e+07
+369567,2026,2,1,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,46,Wolves,0.5263,20,Sasa Kalajdzic,Attack,Centre-Forward,200,right,Austria,28.98,4e+06,4e+06
+724783,2026,7,2,0,0,0,0,0,0,0,2,0,0,0,0,0,23,14,2,0,0,0,1,Wolves,0.5263,20,Tawanda Chirewa,Midfield,Attacking Midfield,181,right,Zimbabwe  England,22.72,4.5e+05,5e+05
+683571,2026,35,33,13,3,1,0,1,0,0,43,16,7,2,0,0,45,39,23,7,0,0,0,Wolves,0.5263,20,Tolu Arokodare,Attack,Centre-Forward,197,right,Nigeria,25.6,2e+07,1.8e+07
+1065227,2026,11,3,0,1,0,0,0,0,0,3,0,1,0,0,0,24,19,6,1,0,0,0,Wolves,0.5263,20,Tom Edozie,Attack,Right Winger,178,right,England  Nigeria,20.12,,
+606718,2026,26,19,17,0,0,0,2,0,0,22,19,0,0,0,0,34,32,0,1,31,30,75,Wolves,0.5263,20,Toti,Defender,Centre-Back,187,left,Portugal  Guinea-Bissau,27.46,1.8e+07,2.8e+07
+716276,2026,33,27,24,0,0,0,12,0,0,31,28,0,0,0,0,5,5,0,0,5,5,19,Wolves,0.5263,20,Yerson Mosquera,Defender,Centre-Back,188,right,Colombia,25.16,1.2e+07,8e+06

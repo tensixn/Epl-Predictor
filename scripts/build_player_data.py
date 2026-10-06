@@ -19,6 +19,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "players" / "epl_player_seasons.csv"
+SNAPSHOT = ROOT / "data" / "players" / "snapshot"  # 2025/26, from scripts/fetch_player_snapshot.py
 BASE = "https://github.com/salimt/football-datasets/raw/main/datalake/transfermarkt"  # redirects LFS files to the media host
 FILES = {
     "player_performances.csv": "player_performances/player_performances.csv",
@@ -86,8 +87,27 @@ def stat_totals(perf, mask, prefix):
     return g.rename(columns={c: f"{prefix}{n}" for c, n in cols.items()})
 
 
+def with_snapshot(name, raw, key=None):
+    """A datalake table with data/players/snapshot's newer rows added (scripts/fetch_player_snapshot.py).
+    For performances the snapshot replaces the datalake's seasons it covers; for profiles it only adds
+    players the datalake doesn't have."""
+    df = pd.read_csv(raw / name, low_memory=False)
+    path = SNAPSHOT / name
+    if not path.exists():
+        return df
+    new = pd.read_csv(path, low_memory=False)
+    if key == "season_name":
+        df = df[~df.season_name.isin(new.season_name)]
+        # club names as the datalake spells them, so CLUBS maps them
+        names = df.drop_duplicates("team_id", keep="last").set_index("team_id").team_name
+        new["team_name"] = new.team_id.map(names).fillna(new.team_name)
+    elif key == "player_id":
+        new = new[~new.player_id.isin(df.player_id)]
+    return pd.concat([df, new], ignore_index=True)
+
+
 def build(raw):
-    perf = pd.read_csv(raw / "player_performances.csv", low_memory=False)
+    perf = with_snapshot("player_performances.csv", raw, "season_name")
     perf["season"] = perf.season_name.map(season_end)
     num = ["nb_in_group", "nb_on_pitch", "subed_in", "goals", "assists", "penalty_goals", "yellow_cards",
            "clean_sheets", "goals_conceded"]
@@ -124,7 +144,7 @@ def build(raw):
     club = e.groupby(["player_id", "season"]).team_name.last().map(CLUBS).rename("club").reset_index()
     df = df.merge(club, on=["player_id", "season"]).merge(club_table(), on=["club", "season"], how="left")
 
-    prof = pd.read_csv(raw / "player_profiles.csv", low_memory=False)
+    prof = with_snapshot("player_profiles.csv", raw, "player_id")
     prof = prof[prof.player_id.isin(epl_ids)]
     prof["name"] = prof.player_name.str.replace(r"\s*\(\d+\)$", "", regex=True).fillna(
         prof.player_slug.str.replace("-", " ").str.title())
@@ -137,7 +157,7 @@ def build(raw):
 
     # target: last Transfermarkt value dated 1 Jan - 31 Aug after the season ends;
     # prev_value: the last value before the season started (for reference only, not a model feature)
-    mv = pd.read_csv(raw / "player_market_value.csv")
+    mv = with_snapshot("player_market_value.csv", raw)
     mv = mv[mv.player_id.isin(epl_ids) & (mv.value > 0)]
     mv["date"] = pd.to_datetime(mv.date_unix)
     mv = mv.sort_values("date")
@@ -155,8 +175,10 @@ def build(raw):
     start = pd.to_datetime((df.season - 1).astype(str) + "-08-31")
     df["prev_value"] = value_at(start, pd.to_datetime((df.season - 2).astype(str) + "-09-01"))
 
-    # the newest season in the datalake is only a few matchdays old, and has no summer value yet
-    df = df[(df.season >= FIRST_SEASON) & (df.season < df.season.max()) & df.dob.notna() & df.club.notna()]
+    # keep finished seasons only: the newest season in the data may be a few matchdays old, with no summer value
+    apps = df.groupby("season").epl_apps.sum()
+    finished = apps[apps >= 0.8 * apps.median()].index
+    df = df[(df.season >= FIRST_SEASON) & df.season.isin(finished) & df.dob.notna() & df.club.notna()]
     df = df.drop(columns="dob").sort_values(["season", "club", "name"])
     return df
 

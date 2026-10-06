@@ -4,7 +4,7 @@ import pandas as pd
 
 from src import scout
 
-SEASON = 2025
+SEASON = 2026  # 2025/26
 
 
 def values():
@@ -28,10 +28,10 @@ def test_needs_cover_every_role_weakest_first():
 
 def test_shortlist_respects_the_filters():
     pv = values()
-    picks = scout.shortlist(pv, "Man United", SEASON, ["Striker", "Winger"], 40e6, 26)
+    picks = scout.shortlist(pv, "Man United", SEASON, ["Defensive midfield", "Centre-back"], 50e6, 27)
     assert len(picks)
-    assert (picks.value <= 40e6).all() and (picks.age <= 26).all()
-    assert (picks.club != "Man United").all() and set(picks.role) <= {"Striker", "Winger"}
+    assert (picks.value <= 50e6).all() and (picks.age <= 27).all()
+    assert (picks.club != "Man United").all() and set(picks.role) <= {"Defensive midfield", "Centre-back"}
     current = scout.role_strength(scout.with_roles(pv[pv.season == SEASON])).strength
     assert all(row.stats_value > current[("Man United", row.role)] for row in picks.itertuples())
 

@@ -23,7 +23,7 @@ scripts/build_player_data.py  builds data/players/ from the Transfermarkt datala
 app.py               Streamlit page on top of src/predict.py
 tests/               leakage, Elo, fetch, simulation and tracker checks
 results/             metrics, per-match test predictions (xgboost, logistic and blend; the blend's feeds the calibration chart), predictions_log.csv (live track record)
-data/players/        one row per EPL player-season (2004/05 to 2024/25): stats, profile, summer market value
+data/players/        one row per EPL player-season (2004/05 to 2025/26): stats, profile, summer market value
 data/odds/           closing odds for the three test seasons, used only as a benchmark
 ```
 
@@ -105,23 +105,28 @@ they did on the pitch. Values are modelled relative to that summer's median EPL 
 inflation doesn't dominate.
 
 Data: [salimt/football-datasets](https://github.com/salimt/football-datasets), a Transfermarkt
-datalake on GitHub (Transfermarkt itself, FBref and the transfermarkt-datasets R2 bucket are blocked
-from the build environment). Its newest values are from September 2025, so 2024/25 is the latest
-season with a summer value. Its minutes column is missing for over half the rows, so starts stand in.
-Rebuild with `python scripts/build_player_data.py`.
+datalake on GitHub, for 2004/05 to 2024/25 (its values stop in September 2025), plus 2025/26 from the
+[dcaribou/transfermarkt-datasets](https://github.com/dcaribou/transfermarkt-datasets) snapshot
+(appearances to June 2026, values to 12 June 2026). That snapshot sits on a bucket the cloud build
+environment can't reach, so `scripts/fetch_player_snapshot.py` runs from GitHub Actions (the "player
+snapshot" workflow, run by hand) and commits the 2025/26 rows to `data/players/snapshot/`. The snapshot's
+updates are paused, so 2025/26 with summer 2026 values is the latest season. Transfermarkt itself, FBref and
+Kaggle are blocked from the build environment. The datalake's minutes column is missing for over half the
+rows, so starts stand in. Rebuild with `python scripts/build_player_data.py`.
 
-Walk-forward test, each of 2022/23, 2023/24 and 2024/25 predicted by models trained only on earlier seasons:
+Walk-forward test, each of 2023/24, 2024/25 and 2025/26 predicted by models trained only on earlier seasons:
 
 | model | median error | within 25% | variance explained (log value) |
 |---|---|---|---|
-| median by age band and position | 58% | 21% | 24% |
-| xgboost | **36%** | **37%** | **74%** |
+| median by age band and position | 57% | 21% | 24% |
+| xgboost | **35%** | **37%** | **75%** |
 
-A typical estimate is about a third off the market value. (Before October 2026 the data left out
-Aston Villa, Crystal Palace and Sheffield United, and the same test read 32%.) Adding the player's previous market
+A typical estimate is about a third off the market value. 2025/26 is the hardest of
+the three (39%). Its rows come from the other source, which leaves out a few minor competitions (youth
+leagues) the datalake counts, so that may explain some of it. Adding the player's previous market
 value as a feature cuts that to about 21%, but then the model mostly repeats last year's price, so it
 is left out on purpose. `results/player_values.csv` holds out-of-sample stats values for 2009/10 to
-2024/25, which the app's Player values tab reads.
+2025/26, which the app's Player values tab reads.
 
 ```
 python -m src.player_value                   # metrics + player_values.csv -> results/
@@ -145,7 +150,7 @@ Cloud add `ANTHROPIC_API_KEY = "..."` under the app's Settings → Secrets; loca
 in `.streamlit/secrets.toml` (git-ignored) or set the environment variable. Each report is one API
 call, and the app caches it so the same club, budget and shortlist don't call twice.
 
-It uses the player value data, so it scouts on 2024/25 stats and summer 2025 prices, and only
+It uses the player value data, so it scouts on 2025/26 stats and summer 2026 prices, and only
 Premier League players; some have moved since.
 
 ## Ideas for next steps
