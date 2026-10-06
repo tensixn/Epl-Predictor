@@ -333,6 +333,11 @@ if section == "Match predictor":
                 st.line_chart(cal.rename(columns={"observed": "observed frequency"})
                               .assign(perfect=cal.predicted).set_index("predicted")[["observed frequency", "perfect"]])
 
+    with st.expander("What I tried that didn't help"):
+        st.markdown("**Expected goals (xG).** I added rolling 5 and 10-match xG for and against from Understat "
+                    "(2014/15 on). Log loss, lower is better: 0.9791 without xG, 0.9847 with all the xG columns, "
+                    "0.9793 with only the 10-match differences. It never beat the model without it, so I dropped it.")
+
     with st.expander("Model settings (advanced)"):
         st.radio("Model", ["blend", "logistic", "xgboost"], horizontal=True, key="model",
                  format_func={"blend": "Blend", "logistic": "Logistic regression", "xgboost": "XGBoost"}.get,
