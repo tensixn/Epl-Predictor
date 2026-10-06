@@ -3,6 +3,7 @@
 Run locally from the project root:  streamlit run app.py
 """
 import json
+import os
 import sys
 from html import escape
 from pathlib import Path
@@ -20,6 +21,7 @@ for _name in [m for m in sys.modules if m == "src" or m.startswith("src.")]:
 from src.features import load_matches
 from src.fixtures import next_round, season_matches
 from src.predict import predict, train
+from src.scout import ROLES, scouting_report, shortlist, squad_needs
 from src.simulate import simulate_season
 from src.tracker import calibration, read_log, summarise, vs_bookmaker
 
@@ -106,6 +108,32 @@ def season_odds(model):
     return simulate_season(models, cols, state, season_matches(), model=model)
 
 
+def anthropic_key():
+    """The Anthropic API key from Streamlit secrets or the environment, or None."""
+    try:
+        if "ANTHROPIC_API_KEY" in st.secrets:
+            return st.secrets["ANTHROPIC_API_KEY"]
+    except FileNotFoundError:  # no secrets.toml
+        pass
+    return os.environ.get("ANTHROPIC_API_KEY")
+
+
+@st.cache_data(show_spinner=False)
+def report(key, club, season_label, budget, needs_json, picks_json):
+    """Claude's write-up, cached so the same inputs don't call the API twice."""
+    import anthropic
+    from io import StringIO
+    needs, picks = pd.read_json(StringIO(needs_json)), pd.read_json(StringIO(picks_json))
+    try:
+        return scouting_report(anthropic.Anthropic(api_key=key), club, season_label, budget, needs, picks)
+    except anthropic.AuthenticationError:
+        return "The Anthropic API key was rejected. Check ANTHROPIC_API_KEY in the app's secrets."
+    except anthropic.RateLimitError:
+        return "Too many requests right now. Try again in a minute."
+    except anthropic.APIError as e:
+        return f"Couldn't reach Claude ({e.__class__.__name__}). Try again later."
+
+
 @st.cache_data
 def player_values():
     """Out-of-sample stats values from `python -m src.player_value`, or None if they haven't been built."""
@@ -162,7 +190,8 @@ form_to = max(state.last_date.values())
 st.title("Football predictor")
 # A widget's state is dropped on runs where it isn't drawn, so re-assign it to survive a trip to Player values.
 st.session_state.model = st.session_state.get("model", "blend")
-section = st.radio("Section", ["Match predictor", "Player values"], horizontal=True, label_visibility="collapsed")
+section = st.radio("Section", ["Match predictor", "Player values", "Scout"], horizontal=True,
+                   label_visibility="collapsed")
 
 if section == "Match predictor":
     st.caption("The chance of a home win, a draw or an away win for each Premier League match, from a model trained on "
@@ -300,7 +329,7 @@ if section == "Match predictor":
                       "walk-forward test (log loss 0.975 vs 0.979 for logistic alone, 0.988 for XGBoost).")
         st.caption("Changes Fixtures, Pick a match and Season odds. Track record always shows the blend.")
 
-else:
+elif section == "Player values":
     pv = player_values()
     if pv is None:
         st.info("Player values haven't been built yet. Run python -m src.player_value.")
@@ -364,6 +393,67 @@ else:
                     index={"age_position": "Just age and position", "xgboost": "Our model"},
                     columns={"median_pct_error": "Typical miss %", "within_25pct": "Players within 25% of price"}),
                     width="stretch")
+
+else:
+    pv = player_values()
+    if pv is None:
+        st.info("Player values haven't been built yet. Run python -m src.player_value.")
+    else:
+        season = int(pv.season.max())
+        label = f"{season - 1}/{season % 100:02d}"
+        st.caption(f"Pick a club, a budget and an age limit. The scout finds the club's weakest positions, shortlists "
+                   f"Premier League players who'd be an upgrade there, and Claude writes up the best signings. "
+                   f"Based on {label} stats and summer 2025 prices, the latest our data has, so some players have "
+                   "since moved.")
+        c1, c2, c3 = st.columns(3)
+        club = c1.selectbox("Club", sorted(pv[pv.season == season].club.unique()))
+        budget = c2.slider("Budget (€m)", 10, 200, 60, step=5) * 1e6
+        max_age = c3.slider("Oldest age", 18, 34, 28)
+
+        needs = squad_needs(pv, club, season)
+        st.subheader("Where they're weakest")
+        st.dataframe(needs.assign(strength=needs.strength / 1e6, top6=needs.top6 / 1e6, vs_top6=needs.vs_top6 * 100),
+                     hide_index=True, width="stretch",
+                     column_order=["role", "regulars", "starts", "age", "strength", "top6", "vs_top6"],
+                     column_config={
+                         "role": "Position", "regulars": "Who played there",
+                         "starts": st.column_config.NumberColumn("Starts", width="small"),
+                         "age": st.column_config.NumberColumn("Avg age", format="%.0f", width="small"),
+                         "strength": st.column_config.NumberColumn("Stats value €m", format="%.0f", width="small",
+                                                                   help="Starts-weighted stats value of who played there"),
+                         "top6": st.column_config.NumberColumn("Top six €m", format="%.0f", width="small",
+                                                               help="The same for the average top-six club"),
+                         "vs_top6": st.column_config.ProgressColumn("vs top six", format="%.0f%%", min_value=0,
+                                                                    max_value=200)})
+
+        roles = st.multiselect("Positions to strengthen", list(ROLES), default=list(needs.role[:2]))
+        picks = shortlist(pv, club, season, roles, budget, max_age)
+        st.subheader("Shortlist")
+        if picks.empty:
+            st.info("Nobody fits. Try a bigger budget, a higher age limit or other positions.")
+        else:
+            st.dataframe(picks.assign(value=picks.value / 1e6, stats_value=picks.stats_value / 1e6),
+                         hide_index=True, width="stretch",
+                         column_order=["name", "club", "sub_position", "age", "value", "stats_value", "epl_starts",
+                                       "epl_goals", "epl_assists"],
+                         column_config={
+                             "name": "Player", "club": "Club", "sub_position": "Position",
+                             "age": st.column_config.NumberColumn("Age", format="%d", width="small"),
+                             "value": st.column_config.NumberColumn("Price €m", format="%.0f", width="small"),
+                             "stats_value": st.column_config.NumberColumn("Stats say €m", format="%.0f", width="small"),
+                             "epl_starts": st.column_config.NumberColumn("Starts", width="small"),
+                             "epl_goals": st.column_config.NumberColumn("Goals", width="small"),
+                             "epl_assists": st.column_config.NumberColumn("Assists", width="small")})
+            st.caption("Players at other Premier League clubs, within budget and age, whose stats value beats the "
+                       "club's current players in that position. Best first.")
+
+            st.subheader("Scouting report")
+            key = anthropic_key()
+            if key is None:
+                st.info("Add an ANTHROPIC_API_KEY to the app's secrets to have Claude write up the best signings.")
+            elif st.button("Write the scouting report", type="primary"):
+                with st.spinner("Claude is reading the shortlist..."):
+                    st.markdown(report(key, club, label, budget, needs.to_json(), picks.to_json()))
 
 st.caption("Data: football-data.co.uk, openfootball and Transfermarkt (via salimt/football-datasets). "
            "These are model probabilities, not betting tips.")
