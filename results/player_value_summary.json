@@ -1,14 +1,14 @@
 {
   "age_position": {
-    "mae_log": 0.8446,
-    "r2_log": 0.2443,
-    "median_pct_error": 0.5797,
-    "within_25pct": 0.2045
+    "mae_log": 0.8291,
+    "r2_log": 0.2435,
+    "median_pct_error": 0.5719,
+    "within_25pct": 0.2144
   },
   "xgboost": {
-    "mae_log": 0.4759,
-    "r2_log": 0.7385,
-    "median_pct_error": 0.356,
-    "within_25pct": 0.3702
+    "mae_log": 0.4615,
+    "r2_log": 0.7543,
+    "median_pct_error": 0.3489,
+    "within_25pct": 0.3666
   }
 }
