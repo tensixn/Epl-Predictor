@@ -20,7 +20,7 @@ for _name in [m for m in sys.modules if m == "src" or m.startswith("src.")]:
 
 from src.features import load_matches
 from src.fixtures import next_round, season_matches
-from src.predict import predict, train
+from src.predict import explain, predict, train
 from src.form import load_fpl
 from src.scout import ROLES, scouting_report, shortlist, squad_needs
 from src.simulate import simulate_season
@@ -36,8 +36,7 @@ st.markdown("""
         --display:'Barlow Condensed','Arial Narrow',sans-serif; --ease:cubic-bezier(.16,1,.3,1); }
 html { scrollbar-color:#2a3a52 transparent; }
 [data-testid="stHeader"] { background:transparent; }
-.stApp { background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.017) 0 7rem, transparent 7rem 14rem),
-                           radial-gradient(50rem 22rem at 50% -10%, rgba(200,255,61,.09), transparent 70%); }
+.stApp { background-image: radial-gradient(50rem 22rem at 50% -10%, rgba(200,255,61,.07), transparent 70%); }
 h1, h1 span { font-family:var(--display) !important; font-weight:800 !important; text-transform:uppercase; }
 h1 { font-size:3.6rem; line-height:.95; letter-spacing:-.01em; text-wrap:balance; }
 h2, h3, h2 span, h3 span { font-family:var(--display) !important; font-weight:700 !important; text-transform:uppercase; }
@@ -61,7 +60,9 @@ h2, h3 { letter-spacing:.015em; text-wrap:balance; }
 .pbar .h { background:var(--home); color:var(--ink); }
 .pbar .d { background:var(--draw); color:var(--ink); }
 .pbar .a { background:var(--away); color:var(--ink); }
-.why { font-size:.8rem; opacity:.75; margin-top:.5rem; }
+.verdict { font-family:var(--display); font-weight:700; font-size:1.2rem; letter-spacing:.03em; text-transform:uppercase;
+           margin-top:.7rem; }
+.why { font-size:.9rem; opacity:.8; margin-top:.15rem; }
 .thin { font-size:.8rem; opacity:.8; text-align:right; margin-top:.25rem; }
 .legend { display:flex; flex-wrap:wrap; justify-content:space-between; gap:.2rem 1rem; font-size:.85rem; margin:.4rem 0 .8rem; }
 .legend.key { justify-content:flex-start; gap:.2rem 1.4rem; margin:.2rem 0 0; }
@@ -180,11 +181,10 @@ def bar(p_home, p_draw, p_away, home, away, legend=True):
     return html + (f'<div class="thin">{" · ".join(thin)}</div>' if thin else "")
 
 
-def why(home, away):
-    """One line of what drives a prediction: the strength-rating (Elo) gap and points per game over the last 5."""
-    h, a = state.team_features(home, form_to), state.team_features(away, form_to)
-    return (f'<div class="why">Strength {h["elo"]:.0f} v {a["elo"]:.0f} · '
-            f'points per game, last 5: {h["pts_5"]:.1f} v {a["pts_5"]:.1f}</div>')
+def why(home, away, probs):
+    """The verdict and a plain-English reason for one prediction."""
+    head, reason = explain(home, away, probs, state.team_features(home, form_to), state.team_features(away, form_to))
+    return f'<div class="verdict">{escape(head)}</div><div class="why">{escape(reason)}</div>'
 
 
 def kickoff(g, tz):
@@ -203,7 +203,8 @@ section = st.radio("Section", ["Match predictor", "Player values", "Scout"], hor
 
 if section == "Match predictor":
     st.caption("The chance of a home win, a draw or an away win for each Premier League match, from a model trained on "
-               f"26 seasons of results. Based on matches up to {form_to:%d %b %Y}. Probabilities, not tips.")
+               f"26 seasons of results. Based on matches up to {form_to:%d %b %Y}. Probabilities, not tips: "
+               "the bar splits 100% between home win, draw and away win, and the line under it says why.")
 
     model = st.session_state.model  # the picker is in "Model settings" at the bottom
 
@@ -240,7 +241,8 @@ if section == "Match predictor":
                     st.markdown(f'<div class="day">{ko:%A %d %B}</div>', unsafe_allow_html=True)
                 st.markdown(f'<div class="card" style="--i:{i}"><div class="fx"><span>{escape(g["home"])}</span>'
                             f'<small>{ko:%H:%M}</small><span>{escape(g["away"])}</span></div>'
-                            + bar(ph, pd_, pa, g["home"], g["away"], legend=False) + why(g["home"], g["away"]) + '</div>',
+                            + bar(ph, pd_, pa, g["home"], g["away"], legend=False)
+                            + why(g["home"], g["away"], (ph, pd_, pa)) + '</div>',
                             unsafe_allow_html=True)
         elif round_name is None and not games:
             st.info("No upcoming fixtures found.")
@@ -256,7 +258,8 @@ if section == "Match predictor":
             st.warning("Pick two different teams.")
         else:
             p_home, p_draw, p_away = predict({model: models[model]}, cols, state, [(home, away)])[model][0]
-            st.markdown(bar(p_home, p_draw, p_away, home, away), unsafe_allow_html=True)
+            st.markdown(bar(p_home, p_draw, p_away, home, away) + why(home, away, (p_home, p_draw, p_away)),
+                        unsafe_allow_html=True)
             with st.expander("Team form behind this prediction"):
                 rows = []
                 for t in (home, away):
