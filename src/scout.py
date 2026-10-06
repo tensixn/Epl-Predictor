@@ -15,6 +15,8 @@ Steps 1 and 2 are plain pandas, so the app shows them without an API key; only s
 """
 import pandas as pd
 
+from src.form import with_form
+
 MODEL = "claude-opus-5-5"
 
 ROLES = {
@@ -60,18 +62,24 @@ def squad_needs(pv, club, season):
     return out.sort_values("vs_top6").reset_index(drop=True)
 
 
-def shortlist(pv, club, season, roles, budget, max_age, min_starts=15, per_role=5):
+def shortlist(pv, club, season, roles, budget, max_age, min_starts=15, per_role=5, fpl=None):
     """Players at other clubs, priced within budget and no older than max_age, who outscore the club's
-    current regulars in each role. Best stats value first."""
+    current regulars in each role. Best stats value first. With `fpl` (src.form.load_fpl()), adds this
+    season's form and current club, and leaves out players who have since joined `club`."""
     players = with_roles(pv[(pv.season == season) & pv.value.notna()])
     current = role_strength(players).strength
     pool = players[(players.club != club) & players.role.isin(roles) & (players.value <= budget)
                    & (players.age <= max_age) & (players.epl_starts >= min_starts)]
     bar = pd.Series([current.get((club, r), 0.0) for r in pool.role], index=pool.index, dtype=float)
     pool = pool[pool.stats_value > bar]
-    pool = pool.sort_values("stats_value", ascending=False).groupby("role").head(per_role)
     cols = ["name", "club", "role", "sub_position", "age", "value", "stats_value", "gap",
             "epl_starts", "epl_goals", "epl_assists", "epl_clean_sheets"]
+    if fpl is not None:
+        pool = with_form(pool, fpl)
+        pool = pool[pool.now_club != club]
+        cols += ["now_club", "now_starts", "now_minutes", "now_goals", "now_assists", "now_xg", "now_xa",
+                 "now_status", "now_news"]
+    pool = pool.sort_values("stats_value", ascending=False).groupby("role").head(per_role)
     return pool[cols].reset_index(drop=True)
 
 
@@ -81,22 +89,27 @@ Recommend up to three signings, all from the shortlist; never name a player who 
 For each pick, say which need it fills and back it with the numbers given (starts, goals, assists, age, price, stats value).
 "Price" is the Transfermarkt market value, not a transfer fee. "Stats value" is what the player's season says they're worth;
 a stats value above the price suggests a bargain. Keep the picks within the total budget if you can, and say so if you can't.
+If the shortlist has now_ columns, they are this season so far: now_club is where the player is now (blank: not on a
+Premier League squad now, so he left the league or we couldn't match him), now_status is FPL's availability
+(a = available, d = doubtful, i = injured, s = suspended, u = unavailable) with now_news explaining it.
+Weigh this season's form and availability as well as last season's numbers, and say when they disagree.
 Close with one line on the biggest risk. Plain English, no hype, under 250 words, Markdown with a short heading per pick."""
 
 
-def build_prompt(club, season_label, budget, needs, picks):
+def build_prompt(club, season_label, budget, needs, picks, form_label=None):
     money = lambda v: f"{v / 1e6:.1f}"
     needs_csv = needs.assign(strength=needs.strength.map(money), top6=needs.top6.map(money),
                              vs_top6=needs.vs_top6.round(2), age=needs.age.round(1)).to_csv(index=False)
     picks_csv = picks.assign(value=picks.value.map(money), stats_value=picks.stats_value.map(money),
                              gap=picks.gap.round(2), age=picks.age.round(1)).to_csv(index=False)
-    return (f"Club: {club}\nSeason the stats are from: {season_label}\nTotal budget: €{budget / 1e6:.0f}m\n\n"
+    form = f"This season's form (now_ columns): {form_label}\n" if form_label else ""
+    return (f"Club: {club}\nSeason the stats are from: {season_label}\n{form}Total budget: €{budget / 1e6:.0f}m\n\n"
             f"Squad needs, weakest role first (strength and top6 in €m, vs_top6 = club strength / top-six average):\n"
             f"{needs_csv}\nShortlist (value = price in €m, stats_value in €m, gap = price / stats value - 1):\n"
             f"{picks_csv}")
 
 
-def scouting_report(client, club, season_label, budget, needs, picks, model=MODEL):
+def scouting_report(client, club, season_label, budget, needs, picks, form_label=None, model=MODEL):
     """Claude's recommendation as Markdown. `client` is an anthropic.Anthropic()."""
     response = client.beta.messages.create(
         model=model,
@@ -105,7 +118,7 @@ def scouting_report(client, club, season_label, budget, needs, picks, model=MODE
         betas=["server-side-fallback-2026-07-01"],
         fallbacks="default",
         system=SYSTEM,
-        messages=[{"role": "user", "content": build_prompt(club, season_label, budget, needs, picks)}],
+        messages=[{"role": "user", "content": build_prompt(club, season_label, budget, needs, picks, form_label)}],
     )
     if response.stop_reason == "refusal":
         return "The scout declined to write a report for this request."

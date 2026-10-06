@@ -15,12 +15,14 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python scripts/fetch_current_season.py
       - run: python scripts/log_predictions.py
+      - run: python scripts/fetch_fpl.py
+        continue-on-error: true  # an FPL outage (e.g. between seasons) must not hold up the results refresh
       - name: Commit if anything changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/raw results/predictions_log.csv
+          git add data/raw results/predictions_log.csv data/players/fpl_current.csv
           if ! git diff --cached --quiet; then
-            git commit -m "Refresh current-season results and prediction log"
+            git commit -m "Refresh current-season results, prediction log and FPL player stats"
             git push
           fi

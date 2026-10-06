@@ -21,7 +21,8 @@ OUT = Path(__file__).resolve().parents[1] / "data" / "players" / "fpl_current.cs
 URL = "https://fantasy.premierleague.com/api/bootstrap-static/"
 
 # FPL team name -> football-data.co.uk spelling used in the rest of the repo
-TEAMS = {"Man Utd": "Man United", "Spurs": "Tottenham", "Nott'm Forest": "Nott'm Forest"}
+TEAMS = {"Man Utd": "Man United", "Spurs": "Tottenham", "Coventry City": "Coventry", "Hull City": "Hull",
+         "Ipswich Town": "Ipswich"}
 POSITIONS = {1: "Goalkeeper", 2: "Defender", 3: "Midfield", 4: "Attack"}
 STATS = ["minutes", "starts", "goals_scored", "assists", "clean_sheets", "goals_conceded", "yellow_cards",
          "expected_goals", "expected_assists"]
