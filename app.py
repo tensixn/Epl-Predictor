@@ -337,6 +337,16 @@ if section == "Match predictor":
         st.markdown("**Expected goals (xG).** I added rolling 5 and 10-match xG for and against from Understat "
                     "(2014/15 on). Log loss, lower is better: 0.9791 without xG, 0.9847 with all the xG columns, "
                     "0.9793 with only the 10-match differences. It never beat the model without it, so I dropped it.")
+        st.markdown("**Betting against the bookmakers.** Over the 1,140 backtest matches I staked one unit whenever the "
+                    "model's chance times the bookmakers' average closing odds was above a cutoff. The model never "
+                    "beat the market, and the bigger its claimed edge, the more it lost:")
+        st.dataframe(pd.DataFrame({
+            "Rule": ["Bet on every outcome (the bookmaker margin)", "Favourite only", "Model edge over 5%",
+                     "Model edge over 20%"],
+            "Bets": [3420, 1140, 845, 309], "Return on stake": ["-6.3%", "-4.9%", "-11.0%", "-22.3%"]}),
+            hide_index=True, width="stretch")
+        st.caption("Where the model disagrees most with the market is mostly where the model is wrong. "
+                   "Not betting advice.")
 
     with st.expander("Model settings (advanced)"):
         st.radio("Model", ["blend", "logistic", "xgboost"], horizontal=True, key="model",
