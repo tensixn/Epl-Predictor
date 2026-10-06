@@ -1,0 +1,21 @@
+name: fpl fetch (temporary)
+on:
+  push:
+    branches: [claude/project-thread-lx1sga]
+    paths: [scripts/fetch_fpl.py, .github/workflows/fpl-dev.yml]
+permissions:
+  contents: write
+jobs:
+  fpl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install pandas
+      - run: python scripts/fetch_fpl.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/players/fpl_current.csv
+          git diff --cached --quiet || { git commit -m "Fetch 2026/27 FPL player stats"; git push; }
