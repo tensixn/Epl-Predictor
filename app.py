@@ -58,6 +58,7 @@ h2, h3 { letter-spacing:.015em; text-wrap:balance; }
 .pbar .h { background:var(--home); color:var(--ink); }
 .pbar .d { background:var(--draw); color:var(--ink); }
 .pbar .a { background:var(--away); color:var(--ink); }
+.why { font-size:.8rem; opacity:.75; margin-top:.5rem; }
 .thin { font-size:.8rem; opacity:.8; text-align:right; margin-top:.25rem; }
 .legend { display:flex; flex-wrap:wrap; justify-content:space-between; gap:.2rem 1rem; font-size:.85rem; margin:.4rem 0 .8rem; }
 .legend.key { justify-content:flex-start; gap:.2rem 1.4rem; margin:.2rem 0 0; }
@@ -143,6 +144,13 @@ def bar(p_home, p_draw, p_away, home, away, legend=True):
     return html + (f'<div class="thin">{" · ".join(thin)}</div>' if thin else "")
 
 
+def why(home, away):
+    """One line of what drives a prediction: the strength-rating (Elo) gap and points per game over the last 5."""
+    h, a = state.team_features(home, form_to), state.team_features(away, form_to)
+    return (f'<div class="why">Strength {h["elo"]:.0f} v {a["elo"]:.0f} · '
+            f'points per game, last 5: {h["pts_5"]:.1f} v {a["pts_5"]:.1f}</div>')
+
+
 def kickoff(g, tz):
     """Kick-off as a timestamp in the viewer's time zone; the feed's times are UK time."""
     return pd.Timestamp(f'{g["date"]} {g["time"]}', tz="Europe/London").tz_convert(tz)
@@ -195,7 +203,7 @@ if section == "Match predictor":
                     st.markdown(f'<div class="day">{ko:%A %d %B}</div>', unsafe_allow_html=True)
                 st.markdown(f'<div class="card" style="--i:{i}"><div class="fx"><span>{escape(g["home"])}</span>'
                             f'<small>{ko:%H:%M}</small><span>{escape(g["away"])}</span></div>'
-                            + bar(ph, pd_, pa, g["home"], g["away"], legend=False) + '</div>',
+                            + bar(ph, pd_, pa, g["home"], g["away"], legend=False) + why(g["home"], g["away"]) + '</div>',
                             unsafe_allow_html=True)
         elif round_name is None and not games:
             st.info("No upcoming fixtures found.")
