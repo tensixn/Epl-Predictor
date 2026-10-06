@@ -78,9 +78,15 @@ def performances(d):
         "minutes_played": g.minutes_played.sum(),
         "goals_conceded": g.goals_conceded.sum(), "clean_sheets": g.clean_sheets.sum(),
     }).reset_index()
-    perf["nb_in_group"] = perf.nb_on_pitch  # per-competition squad counts aren't in the snapshot
+    # matchday squads (starters and named substitutes, used or not), as the datalake's nb_in_group counts them
+    squads = lineups.merge(games[["game_id", "competition_id"]], on="game_id")
+    squads = squads.groupby(["player_id", "competition_id", "club_id"]).game_id.nunique().rename("nb_in_group")
+    perf = perf.merge(squads.rename_axis(["player_id", "competition_id", "team_id"]).reset_index(),
+                      on=["player_id", "competition_id", "team_id"], how="left")
+    perf["nb_in_group"] = perf.nb_in_group.fillna(0).clip(lower=perf.nb_on_pitch).astype(int)
     clubs = d["clubs"].set_index("club_id").name
     perf["team_name"] = perf.team_id.map(clubs)
+    perf = perf[perf.team_name.notna()]  # national teams aren't in clubs; the datalake leaves them out too
     perf["season_name"] = LABEL
     return perf, epl_ids
 
