@@ -42,6 +42,24 @@ def predict(models, cols, state, fixtures, date=None):
             else m.predict_proba(select(X, use, cols)) for name, (m, use) in models.items()}
 
 
+def explain(home, away, probs, h, a):
+    """Plain-English (headline, reason) for one prediction. `probs` = (home, draw, away); `h`, `a` are team_features
+    dicts. Reasons are only given when they point the favourite's way, so the text never contradicts the bar."""
+    ph, pd_, pa = probs
+    if abs(ph - pa) < 0.08:
+        return "Too close to call", f"The teams are evenly matched, so a draw ({pd_:.0%}) is a real possibility."
+    fav, opp, f, o, p = (home, away, h, a, ph) if ph > pa else (away, home, a, h, pa)
+    reasons = []
+    if f["elo"] - o["elo"] > 40:
+        reasons.append("is the stronger side over the long run")
+    if f["pts_5"] - o["pts_5"] > 0.5:
+        reasons.append(f"is in better form ({f['pts_5']:.1f} v {o['pts_5']:.1f} points a game lately)")
+    if fav == home:
+        reasons.append("plays at home")
+    return f"{fav} favoured: {p:.0%} to win", f"{fav} " + (", ".join(reasons[:-1]) + " and " + reasons[-1]
+                                                          if len(reasons) > 1 else (reasons or ["has a small edge"])[0]) + "."
+
+
 def main(args):
     if not args or len(args) % 2:
         sys.exit('usage: python -m src.predict HOME AWAY [HOME AWAY ...]')
