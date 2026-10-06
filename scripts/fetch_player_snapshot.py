@@ -34,7 +34,10 @@ def load(tmp):
     for t in TABLES:
         path = tmp / f"{t}.csv.gz"
         print("downloading", t, flush=True)
-        urllib.request.urlretrieve(f"{BASE}/{t}.csv.gz", path)
+        # the bucket answers 403 to Python's default user agent
+        req = urllib.request.Request(f"{BASE}/{t}.csv.gz", headers={"User-Agent": "curl/8.5.0"})
+        with urllib.request.urlopen(req) as r:
+            path.write_bytes(r.read())
         out[t] = pd.read_csv(path, low_memory=False)
         print(f"  {len(out[t])} rows: {list(out[t].columns)}", flush=True)
     return out
