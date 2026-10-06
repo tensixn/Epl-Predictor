@@ -334,10 +334,11 @@ elif section == "Player values":
     if pv is None:
         st.info("Player values haven't been built yet. Run python -m src.player_value.")
     else:
+        label = lambda s: f"{s - 1}/{s % 100:02d}"
         st.caption("Is a player's price tag fair? We compare each Premier League player's Transfermarkt price with what "
                    "their season says they're worth: age, position, games, goals, assists and how their club finished. "
-                   "It's an estimate, not a transfer fee. Covers 2004/05 to 2024/25: our price data stops in September 2025.")
-        label = lambda s: f"{s - 1}/{s % 100:02d}"
+                   f"It's an estimate, not a transfer fee. Covers {label(pv.season.min())} to {label(pv.season.max())}, "
+                   "with prices from the summer after each season.")
         seasons = sorted(pv.season.unique(), reverse=True)
         c1, c2 = st.columns(2)
         season = c1.selectbox("Season", seasons, format_func=label)
@@ -403,7 +404,7 @@ else:
         label = f"{season - 1}/{season % 100:02d}"
         st.caption(f"Pick a club, a budget and an age limit. The scout finds the club's weakest positions, shortlists "
                    f"Premier League players who'd be an upgrade there, and Claude writes up the best signings. "
-                   f"Based on {label} stats and summer 2025 prices, the latest our data has, so some players have "
+                   f"Based on {label} stats and summer {season} prices, the latest our data has, so some players have "
                    "since moved.")
         c1, c2, c3 = st.columns(3)
         club = c1.selectbox("Club", sorted(pv[pv.season == season].club.unique()))

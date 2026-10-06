@@ -27,7 +27,7 @@ from xgboost import XGBRegressor
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "players" / "epl_player_seasons.csv"
 OUT_DIR = ROOT / "results"
-TEST_SEASONS = [2023, 2024, 2025]  # 2022/23 to 2024/25, the three latest seasons with summer values
+TEST_SEASONS = [2024, 2025, 2026]  # 2023/24 to 2025/26, the three latest seasons with summer values
 FIRST_SCORED = 2010  # seasons from here on get out-of-sample estimates in player_values.csv
 COUNT_PREFIXES = ("epl_", "all_", "prev_", "europe_", "ucl_", "career_")
 POSITIONS = ["Goalkeeper", "Centre-Back", "Left-Back", "Right-Back", "Defensive Midfield", "Central Midfield",
