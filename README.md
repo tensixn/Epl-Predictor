@@ -153,6 +153,16 @@ call, and the app caches it so the same club, budget and shortlist don't call tw
 It uses the player value data, so it scouts on 2025/26 stats and summer 2026 prices, and only
 Premier League players; some have moved since.
 
+### This season's form
+FPL is the only reachable source for 2026/27 player stats, so `scripts/fetch_fpl.py` pulls the
+Fantasy Premier League API from GitHub Actions (the daily refresh) into `data/players/fpl_current.csv`:
+minutes, starts, goals, assists, expected goals and assists, availability and current club for every
+Premier League squad player. `src/form.py` matches those players to ours by name (FPL often uses full
+legal names, e.g. "Bruno Borges Fernandes"), and only takes unambiguous matches: 403 of the 537
+2025/26 players match; most of the rest have left the league. The Scout adds the "now" columns to the
+shortlist and Claude's prompt, and leaves out players who have since joined the club you're scouting
+for. FPL has no market values, so prices stay at summer 2026.
+
 ## Ideas for next steps
 - xG was tried (Understat, 2014/15 on, rolling 5/10-match xG for/against): it did not help. Logistic log loss went from 0.9791 to 0.9847 with all xG columns, and 0.9793 with only the 10-match differences, so it was dropped
 - Injuries were tried (Transfermarkt injury dates, 2008/09 on): the share of a club's previous-season starters out on match day, as home, away and difference columns. It did not help, within ±0.001 log loss on 2023/24 and 2024/25 for logistic and xgboost, so it was dropped. The data also ends in December 2025, so it couldn't feed live predictions anyway

@@ -21,6 +21,7 @@ for _name in [m for m in sys.modules if m == "src" or m.startswith("src.")]:
 from src.features import load_matches
 from src.fixtures import next_round, season_matches
 from src.predict import predict, train
+from src.form import load_fpl
 from src.scout import ROLES, scouting_report, shortlist, squad_needs
 from src.simulate import simulate_season
 from src.tracker import calibration, read_log, summarise, vs_bookmaker
@@ -119,19 +120,26 @@ def anthropic_key():
 
 
 @st.cache_data(show_spinner=False)
-def report(key, club, season_label, budget, needs_json, picks_json):
+def report(key, club, season_label, budget, needs_json, picks_json, form_label):
     """Claude's write-up, cached so the same inputs don't call the API twice."""
     import anthropic
     from io import StringIO
     needs, picks = pd.read_json(StringIO(needs_json)), pd.read_json(StringIO(picks_json))
     try:
-        return scouting_report(anthropic.Anthropic(api_key=key), club, season_label, budget, needs, picks)
+        return scouting_report(anthropic.Anthropic(api_key=key), club, season_label, budget, needs, picks,
+                               form_label)
     except anthropic.AuthenticationError:
         return "The Anthropic API key was rejected. Check ANTHROPIC_API_KEY in the app's secrets."
     except anthropic.RateLimitError:
         return "Too many requests right now. Try again in a minute."
     except anthropic.APIError as e:
         return f"Couldn't reach Claude ({e.__class__.__name__}). Try again later."
+
+
+@st.cache_data(ttl=3600)
+def fpl_form():
+    """This season's FPL player stats from scripts/fetch_fpl.py (refreshed daily), or None."""
+    return load_fpl()
 
 
 @st.cache_data
@@ -402,10 +410,15 @@ else:
     else:
         season = int(pv.season.max())
         label = f"{season - 1}/{season % 100:02d}"
+        fpl = fpl_form()
+        form_label = None
+        if fpl is not None:
+            form_label = (f"{season}/{(season + 1) % 100:02d} up to gameweek {fpl.gameweeks.iloc[0]} "
+                          f"(Fantasy Premier League, {pd.Timestamp(fpl.as_of.iloc[0]):%d %b})")
         st.caption(f"Pick a club, a budget and an age limit. The scout finds the club's weakest positions, shortlists "
                    f"Premier League players who'd be an upgrade there, and Claude writes up the best signings. "
-                   f"Based on {label} stats and summer {season} prices, the latest our data has, so some players have "
-                   "since moved.")
+                   f"Based on {label} stats and summer {season} prices, the latest our data has"
+                   + (f", plus this season's form: {form_label}." if form_label else "."))
         c1, c2, c3 = st.columns(3)
         club = c1.selectbox("Club", sorted(pv[pv.season == season].club.unique()))
         budget = c2.slider("Budget (€m)", 10, 200, 60, step=5) * 1e6
@@ -427,16 +440,19 @@ else:
                          "vs_top6": st.column_config.ProgressColumn("vs top six", format="%.0f%%", min_value=0,
                                                                     max_value=200)})
 
-        roles = st.multiselect("Positions to strengthen", list(ROLES), default=list(needs.role[:2]))
-        picks = shortlist(pv, club, season, roles, budget, max_age)
+        # default to the two weakest positions where someone fits the budget and age, so the list isn't empty
+        fits = [r for r in needs.role if not shortlist(pv, club, season, [r], budget, max_age, fpl=fpl).empty]
+        roles = st.multiselect("Positions to strengthen", list(ROLES), default=(fits or list(needs.role))[:2])
+        picks = shortlist(pv, club, season, roles, budget, max_age, fpl=fpl)
         st.subheader("Shortlist")
         if picks.empty:
             st.info("Nobody fits. Try a bigger budget, a higher age limit or other positions.")
         else:
             st.dataframe(picks.assign(value=picks.value / 1e6, stats_value=picks.stats_value / 1e6),
                          hide_index=True, width="stretch",
-                         column_order=["name", "club", "sub_position", "age", "value", "stats_value", "epl_starts",
-                                       "epl_goals", "epl_assists"],
+                         column_order=["name", "club", "now_club", "sub_position", "age", "value", "stats_value",
+                                       "epl_starts", "epl_goals", "epl_assists", "now_starts", "now_goals",
+                                       "now_assists", "now_news"],
                          column_config={
                              "name": "Player", "club": "Club", "sub_position": "Position",
                              "age": st.column_config.NumberColumn("Age", format="%d", width="small"),
@@ -444,9 +460,17 @@ else:
                              "stats_value": st.column_config.NumberColumn("Stats say €m", format="%.0f", width="small"),
                              "epl_starts": st.column_config.NumberColumn("Starts", width="small"),
                              "epl_goals": st.column_config.NumberColumn("Goals", width="small"),
-                             "epl_assists": st.column_config.NumberColumn("Assists", width="small")})
-            st.caption("Players at other Premier League clubs, within budget and age, whose stats value beats the "
-                       "club's current players in that position. Best first.")
+                             "epl_assists": st.column_config.NumberColumn("Assists", width="small"),
+                             "now_club": "Now at",
+                             "now_starts": st.column_config.NumberColumn("Starts now", width="small",
+                                                                         help="This season so far"),
+                             "now_goals": st.column_config.NumberColumn("Goals now", width="small"),
+                             "now_assists": st.column_config.NumberColumn("Assists now", width="small"),
+                             "now_news": "Fitness news"})
+            st.caption(f"Players at other Premier League clubs in {label}, within budget and age, whose stats value "
+                       "beats the club's players in that position. Best first. Starts, goals and assists are last "
+                       "season's; the \"now\" columns are this season so far. A blank \"Now at\" means he isn't in a "
+                       "Premier League squad this season, or we couldn't match his name.")
 
             st.subheader("Scouting report")
             key = anthropic_key()
@@ -454,7 +478,8 @@ else:
                 st.info("Add an ANTHROPIC_API_KEY to the app's secrets to have Claude write up the best signings.")
             elif st.button("Write the scouting report", type="primary"):
                 with st.spinner("Claude is reading the shortlist..."):
-                    st.markdown(report(key, club, label, budget, needs.to_json(), picks.to_json()))
+                    st.markdown(report(key, club, label, budget, needs.to_json(), picks.to_json(), form_label))
 
-st.caption("Data: football-data.co.uk, openfootball and Transfermarkt (via salimt/football-datasets). "
+st.caption("Data: football-data.co.uk, openfootball, Transfermarkt (via salimt/football-datasets and "
+           "dcaribou/transfermarkt-datasets) and Fantasy Premier League. "
            "These are model probabilities, not betting tips.")
