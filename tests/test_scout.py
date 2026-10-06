@@ -71,10 +71,12 @@ def test_report_handles_a_refusal():
 
 
 def test_shortlist_with_form_drops_players_who_since_joined_the_club():
-    from src.form import load_fpl
+    from src.form import load_fpl, with_form
     pv, fpl = values(), load_fpl()
     roles = list(scout.ROLES)
-    picks = scout.shortlist(pv, "Arsenal", SEASON, roles, 200e6, 34, per_role=50, fpl=fpl)
-    assert "now_starts" in picks and (picks.now_club != "Arsenal").all()
-    plain = scout.shortlist(pv, "Arsenal", SEASON, roles, 200e6, 34, per_role=50)
-    assert len(plain) > len(picks)  # e.g. Bruno Guimarães and Ezri Konsa are Arsenal players now
+    picks = scout.shortlist(pv, "Man United", SEASON, roles, 200e6, 34, per_role=50, fpl=fpl)
+    assert "now_starts" in picks and (picks.now_club != "Man United").all()
+    plain = with_form(scout.shortlist(pv, "Man United", SEASON, roles, 200e6, 34, per_role=50), fpl)
+    joined = plain[plain.now_club == "Man United"]
+    assert len(joined)  # e.g. Youri Tielemans and Carlos Baleba play for Man United now
+    assert set(picks.name) == set(plain.name) - set(joined.name)
