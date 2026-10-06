@@ -1,0 +1,668 @@
+fpl_id,first_name,second_name,web_name,club,position,minutes,starts,goals_scored,assists,clean_sheets,goals_conceded,yellow_cards,expected_goals,expected_assists,status,news,gameweeks,as_of
+2,Kepa,Arrizabalaga Revuelta,Arrizabalaga,Arsenal,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+8,Riccardo,Calafiori,Calafiori,Arsenal,Defender,416,5,0,2,3,4,0,0.67,0.62,a,,5,2026-10-06
+20,Max,Dowman,Dowman,Arsenal,Midfield,9,0,0,0,0,0,0,0.0,0.08,d,Unspecified injury - 75% chance of playing,5,2026-10-06
+14,Eberechi,Eze,Eze,Arsenal,Midfield,85,0,0,0,0,0,0,0.04,0.09,a,,5,2026-10-06
+27,Gabriel,Fernando de Jesus,G.Jesus,Arsenal,Attack,0,0,0,0,0,0,0,0.0,0.0,u,Has joined FC Barcelona permanently,5,2026-10-06
+23,Fábio,Ferreira Vieira,Fábio Vieira,Arsenal,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Hamburger SV permanently,5,2026-10-06
+452,Bruno,Guimarães Rodriguez Moura,Bruno G.,Arsenal,Midfield,123,1,1,0,0,3,0,0.09,0.16,a,,5,2026-10-06
+25,Viktor,Gyökeres,Gyökeres,Arsenal,Attack,29,0,0,0,0,0,0,0.0,0.23,a,,5,2026-10-06
+26,Kai,Havertz,Havertz,Arsenal,Attack,437,5,2,0,3,4,1,1.67,0.37,d,Hamstring injury - 75% chance of playing,5,2026-10-06
+9,Piero,Hincapié,Hincapie,Arsenal,Defender,32,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+31,Ezri,Konsa Ngoyo,Konsa,Arsenal,Defender,281,3,0,0,1,4,0,0.23,0.02,d,Unspecified injury - 75% chance of playing,5,2026-10-06
+7,Myles,Lewis-Skelly,Lewis-Skelly,Arsenal,Midfield,271,4,0,0,2,1,0,0.16,0.23,a,,5,2026-10-06
+16,Noni,Madueke,Madueke,Arsenal,Midfield,23,0,0,0,0,0,0,0.0,0.05,a,,5,2026-10-06
+18,Gabriel,Martinelli Silva,Martinelli,Arsenal,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Al Hilal permanently,5,2026-10-06
+17,Mikel,Merino Zazón,Merino,Arsenal,Midfield,81,0,0,0,0,0,1,0.14,0.15,a,,5,2026-10-06
+3,Illan,Meslier,Meslier,Arsenal,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+11,Cristhian,Mosquera,Mosquera,Arsenal,Defender,168,2,0,0,2,0,0,0.0,0.01,a,,5,2026-10-06
+24,Reiss,Nelson,Nelson,Arsenal,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,has departed the club as a free agent.,5,2026-10-06
+22,Ethan,Nwaneri,Nwaneri,Arsenal,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Borussia Dortmund on loan for the rest of the season,5,2026-10-06
+1,David,Raya Martín,Raya,Arsenal,Goalkeeper,450,5,0,0,3,4,0,0.0,0.01,a,,5,2026-10-06
+13,Declan,Rice,Rice,Arsenal,Midfield,411,5,0,2,3,4,1,0.12,0.69,d,Unspecified injury - 75% chance of playing,5,2026-10-06
+12,Bukayo,Saka,Saka,Arsenal,Midfield,416,5,3,0,3,4,0,3.22,0.98,a,,5,2026-10-06
+6,William,Saliba,Saliba,Arsenal,Defender,0,0,0,0,0,0,0,0.0,0.0,i,Back injury - Unknown return date,5,2026-10-06
+5,Jurriën,Timber,J.Timber,Arsenal,Defender,104,1,0,0,0,3,0,0.0,0.03,a,,5,2026-10-06
+557,Christos,Tzolis,Tzolis,Arsenal,Midfield,362,5,0,2,2,4,2,0.19,0.55,d,Hamstring injury - 75% chance of playing,5,2026-10-06
+10,Benjamin,White,White,Arsenal,Defender,315,4,0,1,2,1,0,0.18,0.29,d,Groin injury - 75% chance of playing,5,2026-10-06
+19,Martín,Zubimendi Ibáñez,Zubimendi,Arsenal,Midfield,89,0,0,0,0,0,0,0.21,0.04,a,,5,2026-10-06
+4,Gabriel,dos Santos Magalhães,Gabriel,Arsenal,Defender,450,5,0,0,3,4,2,0.51,0.2,a,,5,2026-10-06
+15,Martin,Ødegaard,Ødegaard,Arsenal,Midfield,377,5,2,0,3,4,0,1.08,1.32,a,,5,2026-10-06
+56,Tammy,Abraham,Abraham,Aston Villa,Attack,71,0,0,0,0,3,0,0.0,0.0,a,,5,2026-10-06
+44,Leon,Bailey,Bailey,Aston Villa,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Olympiakos permanently,5,2026-10-06
+46,Ross,Barkley,Barkley,Aston Villa,Midfield,308,4,0,0,1,8,0,0.38,0.14,a,,5,2026-10-06
+29,Marco,Bizot,M.Bizot,Aston Villa,Goalkeeper,90,1,0,0,0,4,0,0.0,0.0,i,Back injury - Expected back 10 Oct,5,2026-10-06
+35,Lamare,Bogarde,Bogarde,Aston Villa,Midfield,16,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+41,Emiliano,Buendía Stati,Buendía,Aston Villa,Midfield,401,5,1,0,1,8,0,0.92,0.24,a,,5,2026-10-06
+50,Bradley,Burrowes,Burrowes,Aston Villa,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+32,Matty,Cash,Cash,Aston Villa,Defender,296,3,0,0,1,7,2,0.15,0.04,a,,5,2026-10-06
+30,Lucas,Digne,Digne,Aston Villa,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Paris Saint-Germain permanently,5,2026-10-06
+38,Andrés,García,A.García,Aston Villa,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+160,Alejandro,Garnacho Ferreyra,Garnacho,Aston Villa,Midfield,31,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+54,Joao,Gomes,Gomes,Aston Villa,Midfield,129,2,0,0,0,6,0,0.0,0.03,a,,5,2026-10-06
+618,Leon,Goretzka,Goretzka,Aston Villa,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Knee injury - Expected back 10 Oct,5,2026-10-06
+630,Taylor,Harwood-Bellis,Harwood-Bellis,Aston Villa,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+51,George,Hemmings,George Hemmings,Aston Villa,Midfield,297,4,0,0,1,7,0,0.07,0.16,a,,5,2026-10-06
+49,Samuel,Iling-Junior,Iling Jr,Aston Villa,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Bolton Wanderers on loan for the rest of the season,5,2026-10-06
+166,Nicolas,Jackson,N.Jackson,Aston Villa,Attack,286,4,1,0,1,2,2,0.68,0.6,a,,5,2026-10-06
+47,Boubacar,Kamara,Kamara,Aston Villa,Midfield,443,5,0,1,2,7,0,0.12,0.16,a,,5,2026-10-06
+37,Victor,Lindelöf,Lindelöf,Aston Villa,Defender,450,5,0,0,1,9,0,0.44,0.17,a,,5,2026-10-06
+607,Luka,Lynch,Lynch,Aston Villa,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Oxford United on loan until January,5,2026-10-06
+36,Ian,Maatsen,Maatsen,Aston Villa,Defender,335,4,0,0,1,7,1,0.28,0.45,i,Ankle injury - Unknown return date,5,2026-10-06
+582,Brian,Madjo,Madjo,Aston Villa,Attack,0,0,0,0,0,0,0,0.0,0.0,i,Unspecified injury - Unknown return date,5,2026-10-06
+53,Johan,Manzambi,Manzambi,Aston Villa,Midfield,98,1,1,1,1,1,0,0.44,0.24,a,,5,2026-10-06
+631,Ibrahim,Mbaye,Mbaye,Aston Villa,Midfield,33,0,0,0,0,3,0,0.02,0.13,a,,5,2026-10-06
+45,John,McGinn,McGinn,Aston Villa,Midfield,434,5,0,2,2,7,2,0.77,0.24,a,,5,2026-10-06
+33,Tyrone,Mings,Mings,Aston Villa,Defender,261,2,0,0,1,4,1,0.2,0.02,a,,5,2026-10-06
+39,Kosta,Nedeljkovic,Nedeljkovic,Aston Villa,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Rangers on loan for the rest of the season,5,2026-10-06
+48,Amadou,Onana,Onana,Aston Villa,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Knee injury - Unknown return date,5,2026-10-06
+606,Triston,Rowe,Rowe,Aston Villa,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+596,Matteo,Ruggeri,Ruggeri,Aston Villa,Defender,113,1,0,0,0,2,0,0.03,0.02,a,,5,2026-10-06
+597,Zion,Suzuki,Suzuki,Aston Villa,Goalkeeper,360,4,0,0,1,5,0,0.0,0.01,a,,5,2026-10-06
+34,Pau,Torres,Pau,Aston Villa,Defender,187,3,0,0,0,5,0,0.0,0.01,i,Hamstring injury - Expected back 10 Oct,5,2026-10-06
+611,Aaron,Wan-Bissaka,Wan-Bissaka,Aston Villa,Defender,152,2,0,0,0,2,0,0.0,0.07,a,,5,2026-10-06
+55,Ollie,Watkins,Watkins,Aston Villa,Attack,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Al Hilal permanently,5,2026-10-06
+667,James,Wright,Wright,Aston Villa,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+52,Alysson Edward Franco,da Rocha dos Santos,Alysson,Aston Villa,Midfield,87,0,1,0,0,2,1,0.06,0.0,d,Unspecified injury - 75% chance of playing,5,2026-10-06
+73,Tyler,Adams,Adams,Bournemouth,Midfield,279,3,0,0,0,7,0,0.03,0.07,a,,5,2026-10-06
+77,Amine,Adli,Adli,Bournemouth,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Calf injury - Unknown return date,5,2026-10-06
+65,Julián,Araujo Zúñiga,J.Araujo,Bournemouth,Defender,0,0,0,0,0,0,0,0.0,0.0,i,Thigh injury - Unknown return date,5,2026-10-06
+74,David,Brooks,Brooks,Bournemouth,Midfield,45,0,0,0,0,2,1,0.0,0.07,a,,5,2026-10-06
+75,Ryan,Christie,Christie,Bournemouth,Midfield,102,1,0,0,0,2,0,0.5,0.13,a,,5,2026-10-06
+71,Lewis,Cook,Cook,Bournemouth,Midfield,180,2,0,0,2,1,1,0.0,0.01,a,,5,2026-10-06
+59,Will,Dennis,Dennis,Bournemouth,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,u,Has joined MK Dons permanently,5,2026-10-06
+615,Michele,Di Gregorio,Di Gregorio,Bournemouth,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+62,Bafodé,Diakité,Diakité,Bournemouth,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+58,Fraser,Forster,Forster,Bournemouth,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+72,Ben,Gannon-Doak,Gannon-Doak,Bournemouth,Midfield,12,0,0,0,0,1,0,0.12,0.05,a,,5,2026-10-06
+60,James,Hill,Hill,Bournemouth,Defender,450,5,0,0,0,8,1,0.0,0.79,a,,5,2026-10-06
+608,Daniel,Jebbison,Jebbison,Bournemouth,Attack,31,0,0,0,0,2,0,0.1,0.0,a,,5,2026-10-06
+70,Justin,Kluivert,Kluivert,Bournemouth,Midfield,294,4,1,0,2,3,1,0.99,0.08,i,Unspecified injury - Unknown return date,5,2026-10-06
+78,Junior,Kroupi,Kroupi.Jr,Bournemouth,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Foot injury - Expected back 7 Nov,5,2026-10-06
+63,Veljko,Milosavljevic,Milosavljević,Bournemouth,Defender,0,0,0,0,0,0,0,0.0,0.0,i,Thigh injury - Unknown return date,5,2026-10-06
+566,António João,Pereira de Albuquerque Tavares da Silva,Silva,Bournemouth,Defender,450,5,0,0,0,8,2,0.85,0.29,a,,5,2026-10-06
+57,Đorđe,Petrović,Petrović,Bournemouth,Goalkeeper,450,5,0,0,0,8,0,0.0,0.0,a,,5,2026-10-06
+81,Álvaro,Rodríguez,Rodríguez,Bournemouth,Attack,10,0,0,0,0,1,0,0.0,0.0,a,,5,2026-10-06
+69,Alex,Scott,Scott,Bournemouth,Midfield,446,5,1,2,1,7,1,0.64,0.42,d,Thigh injury - 50% chance of playing,5,2026-10-06
+67,Rayan Vitor,Simplício Rocha,Rayan,Bournemouth,Midfield,434,5,0,0,0,7,0,0.87,0.43,a,,5,2026-10-06
+64,Adam,Smith,Smith,Bournemouth,Defender,434,5,0,0,0,8,3,0.01,0.09,a,,5,2026-10-06
+66,Julio,Soler Barreto,Soler,Bournemouth,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+573,Juanlu,Sánchez,Sanchez,Bournemouth,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+68,Marcus,Tavernier,Tavernier,Bournemouth,Midfield,424,5,3,0,0,8,2,1.7,0.92,a,,5,2026-10-06
+61,Adrien,Truffert,Truffert,Bournemouth,Defender,450,5,0,0,0,8,1,0.11,0.29,a,,5,2026-10-06
+76,Alex,Tóth,Tóth.A,Bournemouth,Midfield,17,0,0,0,0,2,0,0.0,0.0,a,,5,2026-10-06
+79,Francisco Evanilson,de Lima Barbosa,Evanilson,Bournemouth,Attack,424,5,0,3,2,5,1,0.87,0.52,a,,5,2026-10-06
+80,Enes,Ünal,Enes Ünal,Bournemouth,Attack,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Getafe permanently,5,2026-10-06
+87,Kristoffer,Ajer,Ajer,Brentford,Defender,450,5,0,0,2,4,1,0.13,0.08,a,,5,2026-10-06
+105,Jaidon,Anthony,Anthony,Brentford,Midfield,267,3,1,0,2,3,1,1.15,0.54,a,,5,2026-10-06
+661,Ellery,Balcombe,Balcombe,Brentford,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+84,Nathan,Collins,Collins,Brentford,Defender,196,3,0,0,1,1,1,0.51,0.05,i,Calf injury - Unknown return date,5,2026-10-06
+96,Mikkel,Damsgaard,Damsgaard,Brentford,Midfield,283,3,0,1,2,1,0,0.17,0.73,d,Unspecified injury - 75% chance of playing,5,2026-10-06
+103,Josh,Dasilva,Dasilva,Brentford,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Hamstring injury - Expected back 10 Oct,5,2026-10-06
+620,El Hadji Malick,Diouf,Diouf,Brentford,Defender,39,0,0,0,0,0,0,0.0,0.01,a,,5,2026-10-06
+660,Benjamin,Fredrick,Fredrick,Brentford,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+100,Fábio,Freitas Gouveia Carvalho,Carvalho,Brentford,Midfield,3,0,1,0,0,0,0,0.43,0.0,a,,5,2026-10-06
+107,Kaye,Furo,Furo,Brentford,Attack,0,0,0,0,0,0,0,0.0,0.0,i,Unspecified injury - Unknown return date,5,2026-10-06
+89,Rico,Henry,Henry,Brentford,Defender,2,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+90,Aaron,Hickey,Hickey,Brentford,Defender,152,1,0,0,0,3,0,0.03,0.06,a,,5,2026-10-06
+98,Vitaly,Janelt,Janelt,Brentford,Midfield,450,5,2,0,2,4,3,0.53,0.44,a,,5,2026-10-06
+97,Mathias,Jensen,Jensen,Brentford,Midfield,66,1,0,1,1,0,0,0.08,0.34,i,Unspecified injury - Expected back 10 Oct,5,2026-10-06
+92,Kim,Ji-soo,Ji-soo,Brentford,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+88,Michael,Kayode,Kayode,Brentford,Defender,294,4,1,0,2,1,0,0.55,0.43,a,,5,2026-10-06
+82,Caoimhín,Kelleher,Kelleher,Brentford,Goalkeeper,450,5,0,0,2,4,0,0.0,0.01,a,,5,2026-10-06
+86,Keane,Lewis-Potter,Lewis-Potter,Brentford,Midfield,406,5,1,1,2,4,0,1.21,0.79,a,,5,2026-10-06
+99,Antoni,Milambo,Milambo,Brentford,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Knee injury - Unknown return date,5,2026-10-06
+106,Igor Thiago,Nascimento Rodrigues,Thiago,Brentford,Attack,442,5,1,0,2,4,2,3.13,0.16,a,,5,2026-10-06
+657,Gustavo,Nunes Fernandes Gomes,Nunes,Brentford,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+95,Dango,Ouattara,O.Dango,Brentford,Midfield,179,2,0,0,1,1,0,0.09,0.39,a,,5,2026-10-06
+565,Mamadou,Sangaré,M.Sangaré,Brentford,Midfield,321,4,0,2,1,3,2,0.41,0.65,a,,5,2026-10-06
+94,Kevin,Schade,Schade,Brentford,Midfield,447,5,3,2,2,4,0,1.52,0.32,a,,5,2026-10-06
+93,Jannik,Schuster,Schuster,Brentford,Defender,253,2,0,1,1,3,0,0.1,0.54,a,,5,2026-10-06
+83,Hákon Rafn,Valdimarsson,Valdimarsson,Brentford,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+108,Callum,Wilson,Wilson,Brentford,Attack,13,0,0,0,0,0,0,0.07,0.04,a,,5,2026-10-06
+102,Yehor,Yarmoliuk,Yarmoliuk,Brentford,Midfield,216,2,0,1,1,4,1,0.1,0.3,a,,5,2026-10-06
+85,Sepp,van den Berg,Van den Berg,Brentford,Defender,0,0,0,0,0,0,0,0.0,0.0,i,Groin injury - Unknown return date,5,2026-10-06
+639,José María,Andrés Baixauli,Andrés,Brighton,Midfield,109,1,1,1,1,0,0,0.52,0.12,a,,5,2026-10-06
+129,Yasin,Ayari,Ayari,Brighton,Midfield,333,4,1,0,3,1,1,0.7,0.18,a,,5,2026-10-06
+652,Femi,Azeez,Azeez,Brighton,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Hamstring injury - Expected back 10 Oct,5,2026-10-06
+114,Olivier,Boscagli,Boscagli,Brighton,Defender,437,5,0,0,3,5,1,0.07,0.53,a,,5,2026-10-06
+128,Facundo,Buonanotte,Buonanotte,Brighton,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Elche on loan for the rest of the season,5,2026-10-06
+117,Diego,Coppola,Coppola,Brighton,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+624,Amario,Cozier-Duberry,Cozier-Duberry,Brighton,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Middlesbrough on loan for the rest of the season,5,2026-10-06
+594,Promise,David,David,Brighton,Attack,23,0,0,0,0,0,1,0.42,0.0,a,,5,2026-10-06
+115,Maxim,De Cuyper,De Cuyper,Brighton,Defender,423,5,1,3,3,5,2,1.55,0.67,a,,5,2026-10-06
+116,Lewis,Dunk,Dunk,Brighton,Defender,360,4,1,0,2,5,1,0.03,0.09,d,Neck injury - 75% chance of playing,5,2026-10-06
+139,Evan,Ferguson,Ferguson,Brighton,Attack,0,0,0,0,0,0,0,0.0,0.0,i,Ankle injury - Expected back 10 Oct,5,2026-10-06
+124,Pascal,Groß,Groß,Brighton,Midfield,450,5,3,4,3,5,2,1.77,0.86,a,,5,2026-10-06
+127,Diego,Gómez Amarilla,Gomez,Brighton,Midfield,433,5,0,3,3,5,0,0.79,0.78,a,,5,2026-10-06
+614,Jaouen,Hadjam,Hadjam,Brighton,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+123,Jack,Hinshelwood,Hinshelwood,Brighton,Midfield,63,1,2,0,1,0,0,1.41,0.02,i,Ankle injury - Expected back 10 Oct,5,2026-10-06
+132,Harry,Howell,Howell,Brighton,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Leicester City on loan for the rest of the season,5,2026-10-06
+658,Younes,Ibrahim,Ibrahim,Brighton,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+113,Ferdi,Kadıoğlu,F.Kadıoğlu,Brighton,Defender,332,4,0,0,2,5,1,0.12,0.13,a,,5,2026-10-06
+121,Mitoma,Kaoru,Mitoma,Brighton,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Hamstring injury - Expected back 10 Oct,5,2026-10-06
+138,Charalampos,Kostoulas,Kostoulas,Brighton,Attack,353,4,2,3,2,5,1,1.35,0.06,a,,5,2026-10-06
+119,João Pedro,Loureiro da Costa,Costinha,Brighton,Defender,68,0,0,0,0,0,1,0.12,0.3,a,,5,2026-10-06
+122,Yankuba,Minteh,Minteh,Brighton,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Leg injury - Expected back 28 Nov,5,2026-10-06
+126,Matt,O'Riley,O'Riley,Brighton,Midfield,10,0,0,0,0,0,0,0.28,0.01,a,,5,2026-10-06
+134,Nehemiah,Oriola,Oriola,Brighton,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+600,Ibrahim,Osman,Osman,Brighton,Midfield,40,0,0,0,0,1,0,0.05,0.07,a,,5,2026-10-06
+125,Georginio,Rutter,Georginio,Brighton,Attack,104,1,0,1,1,0,0,0.17,0.45,a,,5,2026-10-06
+111,Jason,Steele,Steele,Brighton,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+328,Pascal,Struijk,Struijk,Brighton,Defender,98,1,0,0,1,0,1,0.16,0.01,d,Hamstring injury - 75% chance of playing,5,2026-10-06
+120,Michael,Svoboda,Svoboda,Brighton,Defender,4,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+137,Stefanos,Tzimas,Tzimas,Brighton,Attack,0,0,0,0,0,0,0,0.0,0.0,i,Knee injury - Unknown return date,5,2026-10-06
+109,Bart,Verbruggen,Verbruggen,Brighton,Goalkeeper,450,5,0,0,3,5,0,0.0,0.2,a,,5,2026-10-06
+504,Luka,Vušković,Vuskovic,Brighton,Defender,437,5,1,0,3,5,0,0.46,0.07,a,,5,2026-10-06
+133,Tom,Watson,Watson,Brighton,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Leicester City on loan for the rest of the season,5,2026-10-06
+130,Mats,Wieffer,Wieffer,Brighton,Defender,156,2,0,0,1,4,0,0.12,0.13,i,Knee injury - Unknown return date,5,2026-10-06
+605,Malick,Yalcouyé,Yalcouyé,Brighton,Midfield,236,3,2,0,1,4,0,1.46,0.45,a,,5,2026-10-06
+135,Zadok,Yohanna,Yohanna,Brighton,Midfield,12,0,0,0,0,0,0,0.0,0.03,i,Unspecified injury - Expected back 10 Oct,5,2026-10-06
+118,Igor Julio,dos Santos de Paulo,Igor,Brighton,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Burnley permanently,5,2026-10-06
+151,Josh,Acheampong,Acheampong,Chelsea,Defender,221,2,0,0,0,7,0,0.0,0.03,a,,5,2026-10-06
+157,Estêvão,Almeida de Oliveira Gonçalves,Estêvão,Chelsea,Midfield,23,0,0,0,0,1,0,0.07,0.07,a,,5,2026-10-06
+561,Aaron,Anselmino,Anselmino,Chelsea,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+146,Benoît,Badiashile Mukinayi,B.Badiashile,Chelsea,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Napoli on loan for the rest of the season,5,2026-10-06
+568,Valentín,Barco,Barco,Chelsea,Midfield,115,1,0,0,0,3,1,0.07,0.11,a,,5,2026-10-06
+158,Jamie,Bynoe-Gittens,Gittens,Chelsea,Midfield,0,0,0,0,0,0,0,0.0,0.0,d,Ankle injury - 75% chance of playing,5,2026-10-06
+159,Moisés,Caicedo Corozo,Caicedo,Chelsea,Midfield,13,0,0,0,0,0,0,0.0,0.0,d,Calf injury - 50% chance of playing,5,2026-10-06
+143,Trevoh,Chalobah,Chalobah,Chelsea,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Como permanently,5,2026-10-06
+583,Pep,Chavarría,Chavarria,Chelsea,Defender,208,1,0,0,0,4,0,0.04,0.07,a,,5,2026-10-06
+170,Emmanuel,Emegha,Emegha,Chelsea,Attack,0,0,0,0,0,0,0,0.0,0.0,i,Hamstring injury - Expected back 10 Oct,5,2026-10-06
+145,Wesley,Fofana,Fofana,Chelsea,Defender,312,4,0,0,0,7,1,0.0,0.08,a,,5,2026-10-06
+168,Marc,Guiu Paz,Marc Guiu,Chelsea,Attack,0,0,0,0,0,0,0,0.0,0.0,u,Has joined RB Leipzig permanently,5,2026-10-06
+144,Malo,Gusto,Gusto,Chelsea,Defender,272,3,0,0,0,7,0,0.08,0.12,a,,5,2026-10-06
+148,Jorrel,Hato,Hato,Chelsea,Defender,258,4,0,2,0,9,0,0.01,0.21,a,,5,2026-10-06
+101,Jordan,Henderson,Henderson,Chelsea,Midfield,90,1,0,0,0,3,0,0.0,0.08,a,,5,2026-10-06
+142,Reece,James,James,Chelsea,Defender,292,3,0,0,0,7,1,0.33,0.26,d,Hamstring injury - 75% chance of playing,5,2026-10-06
+165,João Pedro,Junqueira de Jesus,João Pedro,Chelsea,Attack,360,4,3,3,0,9,1,2.17,0.19,d,Knee injury - 75% chance of playing,5,2026-10-06
+141,Filip,Jörgensen,Jörgensen,Chelsea,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,u,Has joined RC Strasbourg on loan for the rest of the season,5,2026-10-06
+200,Maxence,Lacroix,Lacroix,Chelsea,Defender,364,4,0,1,0,10,1,0.15,0.22,a,,5,2026-10-06
+161,Roméo,Lavia,Lavia,Chelsea,Midfield,258,4,1,0,0,8,1,0.75,0.11,a,,5,2026-10-06
+156,Pedro,Lomba Neto,Neto,Chelsea,Midfield,332,4,1,0,0,8,0,0.68,0.58,a,,5,2026-10-06
+163,Dário,Luís Essugo,D.Essugo,Chelsea,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined RC Strasbourg on loan for the rest of the season,5,2026-10-06
+140,Robert,Lynch Sánchez,Sánchez,Chelsea,Goalkeeper,90,1,0,0,0,2,0,0.0,0.01,u,Has joined Como on loan for the rest of the season,5,2026-10-06
+28,Emiliano,Martínez Romero,Martinez,Chelsea,Goalkeeper,360,4,0,0,0,10,0,0.0,0.01,a,,5,2026-10-06
+169,Shumaira,Mheuka,Mheuka,Chelsea,Attack,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+662,Mahdi,Nicoll-Jazuli,Nicoll-Jazuli,Chelsea,Midfield,3,0,0,0,0,1,0,0.0,0.0,a,,5,2026-10-06
+152,Marco,Palestra,Palestra,Chelsea,Defender,0,0,0,0,0,0,0,0.0,0.0,d,Thigh injury - 50% chance of playing,5,2026-10-06
+154,Cole,Palmer,Palmer,Chelsea,Midfield,442,5,2,2,0,12,1,1.31,0.79,d,Muscular injury - 75% chance of playing,5,2026-10-06
+560,Mike,Penders,Penders,Chelsea,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+164,Geovany,Quenda,Quenda,Chelsea,Midfield,27,0,0,0,0,2,0,0.03,0.01,a,,5,2026-10-06
+40,Morgan,Rogers,Rogers,Chelsea,Midfield,437,5,3,1,0,12,1,1.72,1.23,a,,5,2026-10-06
+149,Levi,Samuels Colwill,Colwill,Chelsea,Defender,341,4,0,0,0,9,1,0.01,0.05,a,,5,2026-10-06
+150,Mamadou,Sarr,M.Sarr,Chelsea,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Real Sociedad on loan for the rest of the season,5,2026-10-06
+136,Danny,Welbeck,Welbeck,Chelsea,Attack,85,1,0,0,0,1,0,0.0,0.14,a,,5,2026-10-06
+182,Aurèle,Amenda,Amenda,Coventry,Defender,360,4,0,0,0,10,1,0.02,0.39,i,Calf injury - Unknown return date,5,2026-10-06
+192,Kai,Andrews,Andrews,Coventry,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Oxford United on loan for the rest of the season,5,2026-10-06
+492,Taiwo,Awoniyi,Awoniyi,Coventry,Attack,232,3,0,0,0,7,0,1.3,0.04,s,Suspended until 19 Oct,5,2026-10-06
+197,Norman,Bassette,Bassette,Coventry,Attack,0,0,0,0,0,0,0,0.0,0.0,u,Has joined KVC Westerlo on loan for the rest of the season,5,2026-10-06
+623,Dan,Bentley,Bentley,Coventry,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+178,Jake,Bidwell,Bidwell,Coventry,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+191,Raphael,Borges Rodrigues,Borges Rodrigues,Coventry,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Burton Albion on loan for the rest of the season,5,2026-10-06
+181,Miguel,Brau,Brau,Coventry,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Academico de Viseu on loan for the rest of the season,5,2026-10-06
+599,Sidiki,Cherif,Cherif,Coventry,Attack,30,0,0,0,0,3,0,0.0,0.0,a,,5,2026-10-06
+176,Jay,Dasilva,Dasilva,Coventry,Defender,444,5,1,0,1,10,0,0.5,0.52,a,,5,2026-10-06
+171,Oliver,Dovin,Dovin,Coventry,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Leyton Orient on loan for the rest of the season,5,2026-10-06
+187,Josh,Eccles,Eccles,Coventry,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Unspecified injury - Expected back 12 Oct,5,2026-10-06
+655,Yann,Gboho,Gboho,Coventry,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+184,Matt,Grimes,Grimes,Coventry,Midfield,443,5,0,0,1,9,0,0.12,0.13,a,,5,2026-10-06
+584,Gustavo,Hamer,Hamer,Coventry,Midfield,32,0,0,0,0,1,0,0.0,0.02,a,,5,2026-10-06
+177,Kaine,Kesler-Hayden,Kesler-Hayden,Coventry,Defender,0,0,0,0,0,0,0,0.0,0.0,i,Hamstring injury - Unknown return date,5,2026-10-06
+174,Liam,Kitching,Kitching,Coventry,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Sheffield United on loan for the rest of the season,5,2026-10-06
+179,Joel,Latibeaudiere,Latibeaudiere,Coventry,Defender,1,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+196,Jahnoah,Markelo,Markelo,Coventry,Attack,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Shabab Al-Ahli Dubai permanently,5,2026-10-06
+186,Ephron,Mason-Clark,Mason-Clark,Coventry,Midfield,231,4,0,0,0,3,0,0.51,0.12,a,,5,2026-10-06
+656,Stephen,Mfuni,Mfuni,Coventry,Defender,90,1,0,0,1,0,0,0.0,0.01,a,,5,2026-10-06
+104,Frank,Onyeka,Onyeka,Coventry,Midfield,314,4,0,0,1,7,0,0.03,0.02,a,,5,2026-10-06
+91,Ethan,Pinnock,Pinnock,Coventry,Defender,282,3,0,0,1,7,1,0.12,0.0,a,,5,2026-10-06
+183,Jack,Rudoni,Rudoni,Coventry,Midfield,297,4,0,0,2,4,0,0.92,1.11,a,,5,2026-10-06
+110,Carl,Rushworth,Rushworth,Coventry,Goalkeeper,450,5,0,1,1,10,0,0.0,0.02,a,,5,2026-10-06
+185,Tatsuhiro,Sakamoto,Sakamoto,Coventry,Midfield,31,0,0,0,0,1,0,0.02,0.02,a,,5,2026-10-06
+189,George,Shepherd,Shepherd,Coventry,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+195,Ellis,Simms,Simms,Coventry,Attack,104,1,0,0,0,3,0,0.3,0.01,a,,5,2026-10-06
+190,Loum,Tchaouna,Tchaouna,Coventry,Midfield,211,2,0,0,0,3,0,0.23,0.18,a,,5,2026-10-06
+173,Bobby,Thomas,Thomas,Coventry,Defender,437,5,0,0,2,9,0,0.49,0.3,a,,5,2026-10-06
+194,Brandon,Thomas-Asante,Thomas-Asante,Coventry,Attack,227,2,0,0,1,6,0,0.34,0.06,a,,5,2026-10-06
+188,Victor,Torp,Torp,Coventry,Midfield,53,0,0,0,0,2,0,0.0,0.12,a,,5,2026-10-06
+172,Ben,Wilson,Wilson,Coventry,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+180,Luke,Woolfenden,Woolfenden,Coventry,Defender,0,0,0,0,0,0,0,0.0,0.0,i,Knee injury - Unknown return date,5,2026-10-06
+193,Haji,Wright,Wright,Coventry,Attack,0,0,0,0,0,0,0,0.0,0.0,i,Thigh injury - Unknown return date,5,2026-10-06
+575,Caleb,Yirenkyi,Yirenkyi,Coventry,Midfield,265,3,0,0,2,5,1,0.03,0.15,a,,5,2026-10-06
+175,Milan,van Ewijk,van Ewijk,Coventry,Defender,360,4,0,0,0,10,1,0.0,0.3,d,Hamstring injury - 75% chance of playing,5,2026-10-06
+633,Honest,Ahanor,Ahanor,Crystal Palace,Defender,90,1,0,0,0,3,0,0.0,0.01,a,,5,2026-10-06
+199,Walter,Benítez,Benitez,Crystal Palace,Goalkeeper,180,2,0,0,1,3,0,0.0,0.0,a,,5,2026-10-06
+203,Jaydee,Canvot,Canvot,Crystal Palace,Defender,360,4,0,0,1,8,0,0.05,0.13,a,,5,2026-10-06
+220,Rio,Cardines,Cardines,Crystal Palace,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Bristol City on loan for the rest of the season,5,2026-10-06
+643,Ben,Chilwell,Chilwell,Crystal Palace,Defender,29,0,1,0,0,1,0,0.27,0.01,a,,5,2026-10-06
+215,Justin,Devenny,Devenny,Crystal Palace,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Stoke City permanently,5,2026-10-06
+153,Axel,Disasi,Disasi,Crystal Palace,Defender,139,2,0,0,0,6,0,0.0,0.04,s,Suspended until 25 Oct,5,2026-10-06
+218,Cheick,Doucouré,Doucouré,Crystal Palace,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+221,Joél,Drakes-Thomas,Drakes-Thomas,Crystal Palace,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+216,Romain,Esse,Esse,Crystal Palace,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Millwall on loan for the rest of the season,5,2026-10-06
+217,Matheus,França de Oliveira,M.França,Crystal Palace,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Alverca on loan for the rest of the season,5,2026-10-06
+595,Zavier,Gozo,Gozo,Crystal Palace,Midfield,28,0,0,0,0,2,0,0.0,0.0,a,,5,2026-10-06
+42,Evann,Guessand,Guessand,Crystal Palace,Midfield,54,0,0,0,0,1,0,0.03,0.03,a,,5,2026-10-06
+198,Dean,Henderson,Henderson,Crystal Palace,Goalkeeper,270,3,0,0,0,8,0,0.0,0.0,i,Foot injury - Expected back 11 Oct,5,2026-10-06
+212,Will,Hughes,Hughes,Crystal Palace,Midfield,29,0,0,0,0,1,0,0.0,0.04,a,,5,2026-10-06
+214,Daichi,Kamada,Kamada,Crystal Palace,Midfield,441,5,0,3,1,10,1,0.47,0.38,a,,5,2026-10-06
+588,Anan,Khalaili,Khalaili,Crystal Palace,Defender,379,4,1,0,1,8,1,0.96,0.33,d,Hamstring injury - 75% chance of playing,5,2026-10-06
+213,Jefferson,Lerma Solís,Lerma,Crystal Palace,Midfield,51,0,0,0,0,1,1,0.26,0.0,a,,5,2026-10-06
+223,Jean-Philippe,Mateta,Mateta,Crystal Palace,Attack,62,1,0,0,0,2,0,0.7,0.02,i,Hamstring injury - Expected back 11 Oct,5,2026-10-06
+555,Remi,Matthews,Matthews,Crystal Palace,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+241,Dwight,McNeil,McNeil,Crystal Palace,Midfield,84,1,0,0,0,3,0,0.05,0.02,a,,5,2026-10-06
+207,Oscar,Mingueza,Mingueza,Crystal Palace,Defender,16,0,0,0,0,1,0,0.0,0.0,a,,5,2026-10-06
+204,Tyrick,Mitchell,Mitchell,Crystal Palace,Defender,419,5,2,0,1,10,0,0.77,0.26,a,,5,2026-10-06
+224,Eddie,Nketiah,Nketiah,Crystal Palace,Attack,175,3,0,1,0,7,0,1.1,0.6,a,,5,2026-10-06
+647,Darío,Osorio,Osorio,Crystal Palace,Midfield,1,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+211,Yéremy,Pino Santos,Yeremy,Crystal Palace,Midfield,307,4,0,2,1,6,1,0.52,0.55,a,,5,2026-10-06
+219,Jesurun,Rak-Sakyi,J.Rak-Sakyi,Crystal Palace,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,has joined  Kasimpasa on loan for the rest of the seaon.,5,2026-10-06
+206,Chadi,Riad Dnanou,Chadi Riad,Crystal Palace,Defender,72,1,0,0,0,2,0,0.0,0.01,i,Knee injury - Unknown return date,5,2026-10-06
+202,Chris,Richards,Richards,Crystal Palace,Defender,450,5,0,0,1,11,1,0.08,0.07,a,,5,2026-10-06
+208,Ismaïla,Sarr,Sarr,Crystal Palace,Midfield,8,0,0,0,0,0,0,0.0,0.01,a,,5,2026-10-06
+205,Borna,Sosa,Sosa,Crystal Palace,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined FC Cologne on loan for the rest of the season,5,2026-10-06
+222,Jørgen,Strand Larsen,Strand Larsen,Crystal Palace,Attack,298,3,1,0,1,5,0,0.43,0.2,a,,5,2026-10-06
+644,Quinten,Timber,Timber,Crystal Palace,Midfield,253,3,0,0,1,5,0,0.24,0.06,a,,5,2026-10-06
+577,Takehiro,Tomiyasu,Tomiyasu,Crystal Palace,Defender,189,2,0,0,0,5,0,0.0,0.03,d,Calf injury - 75% chance of playing,5,2026-10-06
+225,Christantus,Uche,Uche,Crystal Palace,Attack,0,0,0,0,0,0,0,0.0,0.0,u,has returned to Getafe CF,5,2026-10-06
+210,Adam,Wharton,Wharton,Crystal Palace,Midfield,436,5,0,0,1,10,1,0.15,0.58,a,,5,2026-10-06
+243,Carlos,Alcaraz Durán,Alcaraz,Everton,Midfield,5,0,0,0,0,0,1,0.05,0.02,a,,5,2026-10-06
+244,Harrison,Armstrong,Armstrong,Everton,Midfield,446,5,0,1,3,3,2,0.21,0.49,a,,5,2026-10-06
+235,Adam,Aznou,Aznou,Everton,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Malaga on loan for the rest of the season,5,2026-10-06
+249,Thierno,Barry,Barry,Everton,Attack,417,5,2,0,3,3,0,3.5,0.15,a,,5,2026-10-06
+230,Jarrad,Branthwaite,Branthwaite,Everton,Defender,450,5,0,0,3,3,0,0.17,0.02,a,,5,2026-10-06
+236,Kiernan,Dewsbury-Hall,Dewsbury-Hall,Everton,Midfield,450,5,1,0,3,3,1,0.99,0.83,a,,5,2026-10-06
+245,Tyler,Dibling,Dibling,Everton,Midfield,24,0,0,0,0,0,0,0.17,0.16,a,,5,2026-10-06
+239,James,Garner,Garner,Everton,Midfield,328,4,0,0,2,2,2,0.2,0.17,a,,5,2026-10-06
+242,Tyrique,George,George,Everton,Midfield,309,4,1,0,2,3,0,0.35,0.32,a,,5,2026-10-06
+248,Norberto Bercique,Gomes Betuncal,Beto,Everton,Attack,31,0,0,0,0,0,0,0.09,0.0,u,Has joined Fiorentina permanently,5,2026-10-06
+654,Braiden,Graham,Graham,Everton,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+238,Jack,Grealish,Grealish,Everton,Midfield,135,1,0,0,1,1,0,0.02,0.44,a,,5,2026-10-06
+247,Hayden,Hackney,Hackney,Everton,Midfield,137,1,0,1,1,1,0,0.05,0.13,a,,5,2026-10-06
+209,Brennan,Johnson,Johnson,Everton,Midfield,238,3,0,0,2,1,1,1.03,0.22,a,,5,2026-10-06
+231,Michael,Keane,Keane,Everton,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+228,Tom,King,King,Everton,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+649,Ainsley,Maitland-Niles,Maitland-Niles,Everton,Defender,177,2,1,0,2,1,0,0.06,0.25,a,,5,2026-10-06
+233,Vitalii,Mykolenko,Mykolenko,Everton,Defender,450,5,0,0,3,3,1,0.04,0.16,d,Leg injury - 75% chance of playing,5,2026-10-06
+21,Christian,Nørgaard,Nørgaard,Everton,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Groin injury - Unknown return date,5,2026-10-06
+232,Jake,O'Brien,O'Brien,Everton,Defender,16,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+234,Nathan,Patterson,Patterson,Everton,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Torino permanently,5,2026-10-06
+226,Jordan,Pickford,Pickford,Everton,Goalkeeper,450,5,0,0,3,3,0,0.0,0.02,a,,5,2026-10-06
+246,Merlin,Röhl,Röhl,Everton,Midfield,249,3,0,0,1,2,1,0.0,0.2,i,Unspecified injury - Expected back 11 Oct,5,2026-10-06
+229,James,Tarkowski,Tarkowski,Everton,Defender,450,5,1,1,3,3,0,0.18,0.04,a,,5,2026-10-06
+227,Mark,Travers,Travers,Everton,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+650,David,Affengruber,Affengruber,Fulham,Defender,180,2,0,0,1,1,0,0.0,0.02,a,,5,2026-10-06
+253,Joachim,Andersen,Andersen,Fulham,Defender,190,2,0,0,0,5,1,0.0,0.1,a,,5,2026-10-06
+257,Calvin,Bassey,Bassey,Fulham,Defender,450,5,0,1,1,8,1,0.13,0.08,a,,5,2026-10-06
+265,Sander,Berge,Berge,Fulham,Midfield,349,4,0,0,2,5,0,0.08,0.36,a,,5,2026-10-06
+264,Oscar,Bobb,Bobb,Fulham,Midfield,343,5,0,0,3,6,0,0.54,1.14,a,,5,2026-10-06
+266,Tom,Cairney,Cairney,Fulham,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Knee injury - Expected back 10 Oct,5,2026-10-06
+258,Timothy,Castagne,Castagne,Fulham,Defender,408,5,0,2,2,7,2,0.67,0.39,a,,5,2026-10-06
+580,Shea,Charles,Charles,Fulham,Midfield,303,3,0,0,1,5,0,0.09,0.16,a,,5,2026-10-06
+255,Jorge,Cuenca Barreno,J.Cuenca,Fulham,Defender,90,1,0,0,0,3,0,0.0,0.03,a,,5,2026-10-06
+610,Luc,De Fougerolles,De Fougerolles,Fulham,Defender,0,0,0,0,0,0,0,0.0,0.0,u,has joined  Real Salt Lake on loan for the rest of the seaon.,5,2026-10-06
+569,Gonzalo,García,Gonzalo,Fulham,Attack,425,5,1,0,2,7,0,2.33,0.58,a,,5,2026-10-06
+261,Alex,Iwobi,Iwobi,Fulham,Midfield,408,5,0,0,2,7,0,0.39,1.22,a,,5,2026-10-06
+268,Josh,King,King,Fulham,Midfield,425,5,2,0,2,7,1,1.54,0.46,a,,5,2026-10-06
+272,Jonah,Kusi-Asare,Kusi-Asare,Fulham,Attack,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+635,Hugo,Larsson,Larsson,Fulham,Midfield,37,0,0,0,0,1,0,0.13,0.23,a,,5,2026-10-06
+251,Benjamin,Lecomte,Lecomte,Fulham,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+250,Bernd,Leno,Leno,Fulham,Goalkeeper,450,5,0,0,1,8,0,0.0,0.0,a,,5,2026-10-06
+252,Alfie,McNally,McNally,Fulham,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,u,Has joined York City on loan for the rest of the season,5,2026-10-06
+636,Manuel Ángel,Morán Ibáñez,Ángel,Fulham,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+271,Rodrigo,Muniz Carvalho,Muniz,Fulham,Attack,38,0,0,0,0,1,1,0.4,0.0,a,,5,2026-10-06
+570,César,Palacios,Palacios,Fulham,Midfield,226,3,1,0,0,7,1,0.98,0.03,a,,5,2026-10-06
+270,Harrison,Reed,Reed,Fulham,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+254,Antonee,Robinson,Robinson,Fulham,Defender,429,5,0,0,1,8,0,0.26,0.3,a,,5,2026-10-06
+263,Kevin,Santos Lopes de Macedo,Kevin,Fulham,Midfield,61,0,0,0,0,1,0,0.07,0.12,a,,5,2026-10-06
+269,Ryan,Sessegnon,Sessegnon,Fulham,Defender,50,0,0,0,0,1,0,0.13,0.44,a,,5,2026-10-06
+262,Emile,Smith Rowe,Smith Rowe,Fulham,Midfield,38,0,0,0,0,0,0,0.06,0.02,a,,5,2026-10-06
+256,Kenny,Tete,Tete,Fulham,Defender,27,0,0,0,0,0,1,0.0,0.0,a,,5,2026-10-06
+626,Macaulay,Zepa,Zepa,Fulham,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+279,Semi,Ajayi,Ajayi,Hull,Defender,423,5,1,0,3,4,1,0.66,0.01,a,,5,2026-10-06
+296,David,Akintola,Akintola,Hull,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Omonoia FC permanently,5,2026-10-06
+632,Ilyas,Ansah,Ansah,Hull,Attack,0,0,0,0,0,0,0,0.0,0.0,i,Back injury - Unknown return date,5,2026-10-06
+286,Mohamed,Belloumi,Belloumi,Hull,Midfield,394,5,2,2,3,3,1,0.72,0.43,a,,5,2026-10-06
+299,Mason,Burstow,Burstow,Hull,Attack,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Sheffield Wednesday on loan for the rest of the season,5,2026-10-06
+274,Jack,Butland,Butland,Hull,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,i,Arm injury - Unknown return date,5,2026-10-06
+275,Harvey,Cartwright,Cartwright,Hull,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Grimsby Town on loan for the rest of the season,5,2026-10-06
+617,Mohamed-Ali,Cho,Cho,Hull,Midfield,72,0,1,0,0,1,0,0.79,0.36,a,,5,2026-10-06
+280,Lewie,Coyle,Coyle,Hull,Defender,348,5,0,0,2,4,1,0.13,0.07,a,,5,2026-10-06
+289,Matt,Crooks,Crooks,Hull,Midfield,203,3,0,0,1,4,3,0.0,0.12,a,,5,2026-10-06
+298,Enis,Destan,Destan,Hull,Attack,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Konyaspor permanently,5,2026-10-06
+288,Kieran,Dowell,Dowell,Hull,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+281,Cody,Drameh,Drameh,Hull,Defender,65,0,0,0,0,0,0,0.05,0.0,u,Has joined Genoa permanently,5,2026-10-06
+277,John,Egan,Egan,Hull,Defender,437,5,0,0,3,4,1,0.05,0.0,a,,5,2026-10-06
+340,Joe,Gelhardt,Gelhardt,Hull,Midfield,7,0,0,0,0,0,0,0.1,0.02,a,,5,2026-10-06
+282,Ryan,Giles,Giles,Hull,Defender,444,5,0,1,3,4,1,0.02,0.43,a,,5,2026-10-06
+589,Lucas,Gourna-Douath,Gourna-Douath,Hull,Midfield,138,1,0,0,1,0,1,0.03,0.03,a,,5,2026-10-06
+297,Darko,Gyabi,Gyabi,Hull,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Thigh injury - Unknown return date,5,2026-10-06
+585,Lucas,Herrington,Herrington,Hull,Defender,197,1,0,0,0,3,0,0.02,0.04,a,,5,2026-10-06
+574,Jens,Hjertø-Dahl,Hjertø-Dahl,Hull,Midfield,8,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+278,Charlie,Hughes,Hughes,Hull,Defender,0,0,0,0,0,0,0,0.0,0.0,i,Groin injury - Unknown return date,5,2026-10-06
+240,Tim,Iroegbunam,Iroegbunam,Hull,Midfield,70,0,0,0,0,0,1,0.12,0.01,a,,5,2026-10-06
+283,Matty,Jacob,Jacob,Hull,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Newport County on loan until January,5,2026-10-06
+293,Abu,Kamara,Kamara,Hull,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Portsmouth permanently,5,2026-10-06
+276,Thimothée,Lo-Tutala,Lo-Tutala,Hull,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Colchester United on loan for the rest of the season,5,2026-10-06
+291,Eliot,Matazo,Matazo,Hull,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Knee injury - Unknown return date,5,2026-10-06
+295,Oli,McBurnie,McBurnie,Hull,Attack,441,5,0,2,3,4,3,1.23,0.13,a,,5,2026-10-06
+284,Cathal,McCarthy,McCarthy,Hull,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+285,Paddy,McNair,McNair,Hull,Defender,26,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+586,Nobel,Mendy,Mendy,Hull,Defender,249,4,1,0,2,1,0,0.32,0.0,a,,5,2026-10-06
+287,Liam,Millar,Millar,Hull,Midfield,50,0,1,0,0,0,1,0.58,0.0,u,Has joined Birmingham on loan for the rest of the season,5,2026-10-06
+563,Hidemasa,Morita,Morita,Hull,Midfield,45,1,0,0,0,0,0,0.0,0.0,i,Calf injury - Expected back 11 Oct,5,2026-10-06
+645,Christos,Mouzakitis,Mouzakitis,Hull,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+638,Brooke,Norton-Cuffy,Norton-Cuffy,Hull,Defender,34,0,0,0,0,0,1,0.05,0.0,d,Hamstring injury - 75% chance of playing,5,2026-10-06
+273,Dillon,Phillips,Phillips,Hull,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+290,Regan,Slater,Slater,Hull,Midfield,437,5,0,1,3,4,1,0.21,0.59,a,,5,2026-10-06
+576,Elliot,Stroud,Stroud,Hull,Midfield,249,4,0,0,2,1,1,0.06,0.05,a,,5,2026-10-06
+556,Matt,Targett,Targett,Hull,Defender,5,0,0,0,0,0,0,0.0,0.0,d,Ankle injury - 75% chance of playing,5,2026-10-06
+642,Sorba,Thomas,Thomas,Hull,Midfield,119,1,0,0,0,3,0,0.21,0.11,a,,5,2026-10-06
+572,Konstantinos,Tzolakis,Tzolakis,Hull,Goalkeeper,450,5,0,0,3,4,1,0.0,0.0,a,,5,2026-10-06
+637,Robinio,Vaz,Vaz,Hull,Attack,20,0,0,0,0,0,0,0.0,0.01,a,,5,2026-10-06
+294,Óscar,Zambrano,Zambrano,Hull,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+292,Abdülkadir,Ömür,Ömür,Hull,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+320,Chuba,Akpom,Akpom,Ipswich,Attack,78,0,1,0,0,4,0,1.14,0.0,a,,5,2026-10-06
+322,Ali,Al-Hamadi,Al-Hamadi,Ipswich,Attack,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Sheffield Wednesday on loan for the rest of the season,5,2026-10-06
+311,Wes,Burns,Burns,Ipswich,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Leicester City permanently,5,2026-10-06
+302,David,Button,Button,Ipswich,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+313,Jack,Clarke,Clarke,Ipswich,Midfield,170,2,1,0,0,2,1,0.3,0.37,a,,5,2026-10-06
+316,Emersonn,Correia da Silva,Emersonn,Ipswich,Attack,317,5,2,1,0,6,0,1.61,0.12,a,,5,2026-10-06
+305,Leif,Davis,Davis,Ipswich,Defender,450,5,2,2,0,11,0,1.59,0.46,a,,5,2026-10-06
+259,Issa,Diop,Diop,Ipswich,Defender,450,5,0,0,0,11,0,0.06,0.16,a,,5,2026-10-06
+591,Julio,Enciso,Enciso,Ipswich,Midfield,413,5,0,2,0,11,1,1.26,0.89,a,,5,2026-10-06
+315,Abdul,Fatawu,Fatawu,Ipswich,Midfield,352,5,0,1,0,10,2,0.17,1.11,s,Suspended until 17 Oct,5,2026-10-06
+640,Zian,Flemming,Flemming,Ipswich,Attack,60,0,1,0,0,1,1,0.64,0.01,a,,5,2026-10-06
+308,Darnell,Furlong,Furlong,Ipswich,Defender,17,0,0,0,0,1,0,0.0,0.0,a,,5,2026-10-06
+306,Jacob,Greaves,Greaves,Ipswich,Defender,357,4,0,0,0,10,1,0.0,0.06,a,,5,2026-10-06
+317,George,Hirst,Hirst,Ipswich,Attack,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Stoke City permanently,5,2026-10-06
+602,Cameron,Humphreys,Humphreys,Ipswich,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Huddersfield Town on loan for the rest of the season,5,2026-10-06
+307,Ben,Johnson,Johnson,Ipswich,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Stoke City on loan for the rest of the season,5,2026-10-06
+303,Cédric,Kipré,Kipré,Ipswich,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+267,Saša,Lukić,Lukić,Ipswich,Midfield,400,5,0,1,0,10,2,0.02,0.41,a,,5,2026-10-06
+562,Daizen,Maeda,Maeda,Ipswich,Midfield,259,3,0,0,0,8,0,0.71,0.02,a,,5,2026-10-06
+310,Azor,Matusiwa,Matusiwa,Ipswich,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+323,Kasey,McAteer,McAteer,Ipswich,Midfield,42,0,0,0,0,0,0,0.05,0.0,a,,5,2026-10-06
+324,Anis,Mehmeti,Mehmeti,Ipswich,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+571,Florentino Ibrain,Morris Luís,Florentino,Ipswich,Midfield,30,0,0,0,0,0,0,0.0,0.01,a,,5,2026-10-06
+309,Marcelino,Núñez,Núñez,Ipswich,Midfield,140,2,0,0,0,4,0,0.03,0.05,a,,5,2026-10-06
+304,Dara,O'Shea,O'Shea,Ipswich,Defender,450,5,0,0,0,11,0,0.07,0.26,a,,5,2026-10-06
+314,Chiedozie,Ogbene,Ogbene,Ipswich,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Lincoln City on loan until January,5,2026-10-06
+592,Abdoul,Ouattara,Ouattara,Ipswich,Defender,131,1,0,0,0,2,0,0.02,0.03,a,,5,2026-10-06
+619,Exequiel,Palacios,Palacios,Ipswich,Midfield,275,3,0,0,0,7,0,0.0,0.09,a,,5,2026-10-06
+301,Alex,Palmer,Palmer,Ipswich,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+318,Jaden,Philogene,Philogene,Ipswich,Midfield,52,0,0,0,0,1,0,0.08,0.01,a,,5,2026-10-06
+564,Kjell,Scherpen,Scherpen,Ipswich,Goalkeeper,360,4,0,0,0,10,0,0.0,0.01,a,,5,2026-10-06
+319,Sam,Szmodics,Szmodics,Ipswich,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Derby County on loan for the rest of the season,5,2026-10-06
+312,Jack,Taylor,Taylor,Ipswich,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Knee injury - Unknown return date,5,2026-10-06
+321,Sindre,Walle Egeli,Walle Egeli,Ipswich,Attack,10,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+300,Christian,Walton,Walton,Ipswich,Goalkeeper,90,1,0,0,0,1,0,0.0,0.01,a,,5,2026-10-06
+554,Kayne,van Oevelen,Van Oevelen,Ipswich,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Valencia on loan for the rest of the season,5,2026-10-06
+337,Brenden,Aaronson,Aaronson,Leeds,Midfield,194,2,0,0,1,3,0,0.01,0.02,a,,5,2026-10-06
+338,Ethan,Ampadu,Ampadu,Leeds,Midfield,450,5,0,1,2,3,0,0.08,0.26,a,,5,2026-10-06
+345,Tanaka,Ao,Tanaka,Leeds,Midfield,255,3,0,2,2,1,1,0.73,0.05,a,,5,2026-10-06
+648,Jean-Mattéo,Bahoya,Bahoya,Leeds,Midfield,1,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+641,Melvin,Bard,Bard,Leeds,Defender,18,0,0,0,0,1,0,0.0,0.0,a,,5,2026-10-06
+327,Jaka,Bijol,Bijol,Leeds,Defender,164,2,0,0,1,2,0,0.11,0.0,a,,5,2026-10-06
+330,Jayden,Bogle,Bogle,Leeds,Defender,365,5,2,0,4,1,2,1.38,0.08,a,,5,2026-10-06
+333,Sebastiaan,Bornauw,Bornauw,Leeds,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Hamburg SV on loan for the rest of the season,5,2026-10-06
+625,Alex,Cairns,Cairns,Leeds,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+346,Dominic,Calvert-Lewin,Calvert-Lewin,Leeds,Attack,419,5,2,1,3,2,3,3.0,0.08,a,,5,2026-10-06
+604,Alfie,Cresswell,Cresswell,Leeds,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+598,Nico,Elvedi,Elvedi,Leeds,Defender,326,3,0,0,1,3,0,0.12,0.58,a,,5,2026-10-06
+341,Wilfried,Gnonto,Gnonto,Leeds,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined ACF Fiorentina on loan for the rest of the season,5,2026-10-06
+344,Ilia,Gruev,Gruev,Leeds,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+331,Gabriel,Gudmundsson,Gudmundsson,Leeds,Defender,252,3,0,0,2,1,0,0.0,0.21,a,,5,2026-10-06
+342,Jack,Harrison,Harrison,Leeds,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined New England Revolution permanently,5,2026-10-06
+343,Daniel,James,James,Leeds,Midfield,52,0,0,0,0,1,0,0.35,0.01,a,,5,2026-10-06
+349,Mateo,Joseph Fernández-Regatillo,Mateo Joseph,Leeds,Attack,0,0,0,0,0,0,0,0.0,0.0,i,Knee injury - Unknown return date,5,2026-10-06
+332,James,Justin,Justin,Leeds,Defender,450,5,0,0,2,3,0,0.22,0.42,a,,5,2026-10-06
+603,Jayden,Lienou,Lienou,Leeds,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+339,Sean,Longstaff,Longstaff,Leeds,Midfield,10,0,0,0,0,1,0,0.0,0.0,a,,5,2026-10-06
+334,Tarik,Muharemović,Muharemović,Leeds,Defender,450,5,0,1,2,3,0,0.49,0.05,a,,5,2026-10-06
+347,Lukas,Nmecha,Nmecha,Leeds,Attack,64,0,0,1,0,1,0,0.27,0.15,a,,5,2026-10-06
+336,Noah,Okafor,Okafor,Leeds,Midfield,299,4,1,0,3,1,0,0.17,0.27,a,,5,2026-10-06
+326,Lucas Estella,Perri,Perri,Leeds,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Torino on loan for the rest of the season,5,2026-10-06
+348,Joël,Piroe,Piroe,Leeds,Attack,0,0,0,0,0,0,0,0.0,0.0,u,Has joined West Ham United on loan for the rest of the season,5,2026-10-06
+329,Joe,Rodon,Rodon,Leeds,Defender,123,2,0,0,1,0,0,0.03,0.06,i,Hamstring injury - Expected back 21 Nov,5,2026-10-06
+335,Anton,Stach,Stach,Leeds,Midfield,447,5,1,0,3,2,0,0.97,0.31,a,,5,2026-10-06
+385,James,Trafford,Trafford,Leeds,Goalkeeper,450,5,0,0,2,3,0,0.0,0.0,a,,5,2026-10-06
+260,Harry,Wilson,Wilson,Leeds,Midfield,145,1,0,0,1,1,1,0.01,0.09,i,Thigh injury - Unknown return date,5,2026-10-06
+629,Michael,Zetterer,Zetterer,Leeds,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+579,Ronald,Araujo,Araujo,Liverpool,Defender,284,3,0,0,3,0,1,0.0,0.06,a,,5,2026-10-06
+376,Stefan,Bajčetić Maquieira,Bajcetic,Liverpool,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Celta Vigo permanently,5,2026-10-06
+627,Bradley,Barcola,Barcola,Liverpool,Midfield,168,2,0,0,2,0,0,0.26,0.13,a,,5,2026-10-06
+350,Alisson,Becker,A.Becker,Liverpool,Goalkeeper,450,5,0,0,3,4,1,0.0,0.0,a,,5,2026-10-06
+360,Conor,Bradley,Bradley,Liverpool,Defender,0,0,0,0,0,0,0,0.0,0.0,i,Knee injury - Unknown return date,5,2026-10-06
+370,Federico,Chiesa,Chiesa,Liverpool,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Back injury - Unknown return date,5,2026-10-06
+382,Jayden,Danns,Danns,Liverpool,Attack,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+355,Harvey,Davies,Davies,Liverpool,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+380,Hugo,Ekitiké,Ekitiké,Liverpool,Attack,0,0,0,0,0,0,0,0.0,0.0,i,Achilles injury - Unknown return date,5,2026-10-06
+383,Harvey,Elliott,Elliott,Liverpool,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Valencia on loan for the rest of the season,5,2026-10-06
+357,Jeremie,Frimpong,Frimpong,Liverpool,Defender,178,2,0,0,0,4,1,0.01,0.23,a,,5,2026-10-06
+367,Cody,Gakpo,Gakpo,Liverpool,Midfield,370,4,1,3,2,4,0,0.64,1.71,d,Ankle injury - 75% chance of playing,5,2026-10-06
+359,Joe,Gomez,Gomez,Liverpool,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+371,Ryan,Gravenberch,Gravenberch,Liverpool,Midfield,190,2,0,1,0,2,0,0.1,0.08,a,,5,2026-10-06
+379,Alexander,Isak,Isak,Liverpool,Attack,413,5,4,0,3,4,1,3.54,0.08,d,Thigh injury - 75% chance of playing,5,2026-10-06
+362,Jeremy,Jacquet,Jacquet,Liverpool,Defender,415,5,0,0,3,4,1,0.0,0.14,d,Hamstring injury - 75% chance of playing,5,2026-10-06
+354,Vitezslav,Jaros,Jaros,Liverpool,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,i,Knee injury - Unknown return date,5,2026-10-06
+373,Curtis,Jones,C.Jones,Liverpool,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Internazionale permanently,5,2026-10-06
+358,Milos,Kerkez,Kerkez,Liverpool,Defender,385,4,0,0,2,4,2,0.07,0.08,a,,5,2026-10-06
+381,Lewis,Koumas,Koumas,Liverpool,Midfield,22,0,0,0,0,0,0,0.28,0.0,a,,5,2026-10-06
+363,Giovanni,Leoni,Leoni,Liverpool,Defender,0,0,0,0,0,0,0,0.0,0.0,i,Knee injury - Unknown return date,5,2026-10-06
+361,Wellity,Lucky,Lucky,Liverpool,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+372,Alexis,Mac Allister,Mac Allister,Liverpool,Midfield,306,3,0,0,2,2,1,0.1,0.49,a,,5,2026-10-06
+351,Giorgi,Mamardashvili,Mamardashvili,Liverpool,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+378,James,McConnell,McConnell,Liverpool,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+377,Victor,Munoz,Munoz,Liverpool,Midfield,257,3,1,1,1,2,1,0.52,0.31,a,,5,2026-10-06
+369,Rio,Ngumoha,Ngumoha,Liverpool,Midfield,99,1,0,0,0,2,0,0.15,0.05,a,,5,2026-10-06
+375,Trey,Nyoni,Nyoni,Liverpool,Midfield,38,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+353,Armin,Pecsi,Pecsi,Liverpool,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,u,Has joined TSV Hartberg on loan for the rest of the season,5,2026-10-06
+365,Calvin,Ramsay,Ramsay,Liverpool,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined St Mirren on loan for the rest of the season,5,2026-10-06
+368,Dominik,Szoboszlai,Szoboszlai,Liverpool,Midfield,440,5,1,0,3,4,1,1.42,0.82,a,,5,2026-10-06
+364,Kostas,Tsimikas,Tsimikas,Liverpool,Defender,64,1,0,0,0,0,0,0.04,0.02,a,,5,2026-10-06
+374,Endo,Wataru,Endo,Liverpool,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+366,Florian,Wirtz,Wirtz,Liverpool,Midfield,402,5,0,2,3,4,1,1.0,0.4,a,,5,2026-10-06
+352,Freddie,Woodman,Woodman,Liverpool,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+356,Virgil,van Dijk,Virgil,Liverpool,Defender,450,5,0,0,3,4,1,0.25,0.08,a,,5,2026-10-06
+394,Max,Alleyne,Alleyne,Man City,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Burnley on loan for the rest of the season,5,2026-10-06
+481,Elliot,Anderson,Anderson,Man City,Midfield,413,5,0,0,2,5,1,0.11,0.67,a,,5,2026-10-06
+628,Allan,Andrade Elias,Allan,Man City,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+392,Rayan,Aït-Nouri,Aït-Nouri,Man City,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+386,Marcus,Bettinelli,Bettinelli,Man City,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+616,Ayyoub,Bouaddi,Bouaddi,Man City,Midfield,22,0,0,0,0,0,0,0.0,0.12,a,,5,2026-10-06
+622,Kaden,Braithwaite,Braithwaite,Man City,Defender,1,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+399,Rayan,Cherki,Cherki,Man City,Midfield,302,4,3,2,1,4,1,0.72,1.54,a,,5,2026-10-06
+400,Jérémy,Doku,Doku,Man City,Midfield,15,0,0,0,0,0,0,0.23,0.32,a,,5,2026-10-06
+384,Gianluigi,Donnarumma,Donnarumma,Man City,Goalkeeper,450,5,0,0,2,5,0,0.0,0.0,a,,5,2026-10-06
+407,Claudio,Echeverri,Echeverri,Man City,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Benfica on loan for the rest of the season,5,2026-10-06
+155,Enzo,Fernández,Enzo,Man City,Midfield,271,3,1,0,2,3,1,0.35,0.53,a,,5,2026-10-06
+398,Phil,Foden,Foden,Man City,Midfield,217,3,0,2,0,2,1,1.61,0.88,s,Suspended until 17 Oct,5,2026-10-06
+388,Marc,Guéhi,Guéhi,Man City,Defender,450,5,1,1,2,5,0,0.95,0.39,a,,5,2026-10-06
+391,Joško,Gvardiol,Gvardiol,Man City,Defender,434,5,1,3,2,5,1,0.22,0.74,a,,5,2026-10-06
+411,Erling,Haaland,Haaland,Man City,Attack,450,5,5,0,2,5,0,4.42,0.53,a,,5,2026-10-06
+402,Rodrigo 'Rodri',Hernandez Cascante,Rodrigo,Man City,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Barcelona permanently,5,2026-10-06
+393,Abdukodir,Khusanov,Khusanov,Man City,Defender,268,3,0,0,1,2,1,0.0,0.06,a,,5,2026-10-06
+406,Mateo,Kovačić,Kovačić,Man City,Midfield,42,0,0,0,0,0,0,0.0,0.02,a,,5,2026-10-06
+395,Rico,Lewis,Lewis,Man City,Defender,56,1,0,0,0,1,0,0.17,0.02,a,,5,2026-10-06
+621,Ryan,McAidoo,McAidoo,Man City,Midfield,11,0,0,0,0,0,0,0.1,0.0,a,,5,2026-10-06
+410,Jeremy,Monga,Monga,Man City,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Swansea City on loan for the rest of the season,5,2026-10-06
+409,Divine,Mukasa,Mukasa,Man City,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,has joined West Ham on loan for the rest of the seaon.,5,2026-10-06
+237,Iliman,Ndiaye,Ndiaye,Man City,Midfield,385,4,0,2,2,4,0,0.38,0.58,a,,5,2026-10-06
+389,Matheus,Nunes,Matheus N.,Man City,Defender,213,2,0,0,1,3,0,0.0,0.06,a,,5,2026-10-06
+387,Nico,O'Reilly,O'Reilly,Man City,Defender,163,2,0,0,0,2,0,0.87,0.43,d,Unspecified injury - 75% chance of playing,5,2026-10-06
+408,Kalvin,Phillips,Phillips,Man City,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Sheffield United on loan for the rest of the season,5,2026-10-06
+404,Tijjani,Reijnders,Reijnders,Man City,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Al Qadsiah permanently,5,2026-10-06
+587,Gerónimo,Rulli,Rulli,Man City,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+653,Floyd,Samba,Samba,Man City,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+397,Antoine,Semenyo,Semenyo,Man City,Midfield,450,5,2,3,2,5,0,0.33,1.16,d,Ankle injury - 75% chance of playing,5,2026-10-06
+396,Vitor,de Oliveira Nunes dos Reis,Vitor Reis,Man City,Defender,1,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+390,Rúben,dos Santos Gato Alves Dias,Rúben,Man City,Defender,450,5,0,0,2,5,0,0.29,0.74,a,,5,2026-10-06
+424,Harry,Amass,Amass,Man United,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+131,Carlos,Baleba,Baleba,Man United,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+413,Altay,Bayındır,Bayindir,Man United,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Celta Vigo on loan for the rest of the season,5,2026-10-06
+426,Bruno,Borges Fernandes,B.Fernandes,Man United,Midfield,450,5,3,1,0,8,0,2.56,1.32,a,,5,2026-10-06
+436,Toby,Collyer,Collyer,Man United,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined West Brom permanently,5,2026-10-06
+417,Diogo,Dalot Teixeira,Dalot,Man United,Defender,346,4,0,0,0,4,1,0.24,0.23,a,,5,2026-10-06
+325,Karl,Darlow,Darlow,Man United,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,d,Unspecified injury - 75% chance of playing,5,2026-10-06
+431,Amad,Diallo,Amad,Man United,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Unspecified injury - Unknown return date,5,2026-10-06
+415,Patrick,Dorgu,Dorgu,Man United,Midfield,171,2,0,1,0,6,1,0.78,0.09,d,Hamstring injury - 75% chance of playing,5,2026-10-06
+434,Jack,Fletcher,J.Fletcher,Man United,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+438,Tyler,Fletcher,Fletcher,Man United,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+425,Tyler,Fredricson,Fredricson,Man United,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Lausanne-Sport permanently,5,2026-10-06
+414,Tom,Heaton,Heaton,Man United,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,i,Hamstring injury - Unknown return date,5,2026-10-06
+421,Ayden,Heaven,Heaven,Man United,Defender,90,1,0,0,0,2,0,0.12,0.04,a,,5,2026-10-06
+435,Shea,Lacey,Lacey,Man United,Midfield,10,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+412,Senne,Lammens,Lammens,Man United,Goalkeeper,450,5,0,0,0,8,0,0.0,0.0,a,,5,2026-10-06
+418,Harry,Maguire,Maguire,Man United,Defender,450,5,0,1,0,8,2,0.2,0.46,a,,5,2026-10-06
+432,Kobbie,Mainoo,Mainoo,Man United,Midfield,354,4,0,1,0,4,0,0.3,0.52,d,Unspecified injury - 75% chance of playing,5,2026-10-06
+437,Bendito,Mantato,Bendito Mantato,Man United,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+419,Lisandro,Martínez,Martinez,Man United,Defender,360,4,0,0,0,6,0,0.21,0.16,a,,5,2026-10-06
+422,Noussair,Mazraoui,Mazraoui,Man United,Defender,97,1,0,0,0,4,0,0.22,0.06,d,Back injury - 75% chance of playing,5,2026-10-06
+427,Bryan,Mbeumo,Mbeumo,Man United,Midfield,450,5,2,1,0,8,1,3.07,0.8,a,,5,2026-10-06
+430,Mason,Mount,Mount,Man United,Midfield,10,0,0,0,0,0,0,0.09,0.01,a,,5,2026-10-06
+162,Andrey,Nascimento dos Santos,Andrey Santos,Man United,Midfield,82,1,0,0,0,4,0,0.0,0.24,a,,5,2026-10-06
+441,Chido,Obi,Obi,Man United,Attack,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Willem II on loan for the rest of the season,5,2026-10-06
+429,Marcus,Rashford,Rashford,Man United,Midfield,351,4,0,0,1,3,0,0.78,0.43,d,Unspecified injury - 75% chance of playing,5,2026-10-06
+428,Matheus,Santos Carneiro da Cunha,Cunha,Man United,Midfield,407,5,1,2,1,5,0,0.63,0.83,a,,5,2026-10-06
+439,Benjamin,Sesko,Šeško,Man United,Attack,76,0,1,0,0,3,0,0.39,0.01,d,Shin injury - 75% chance of playing,5,2026-10-06
+423,Luke,Shaw,Shaw,Man United,Defender,335,4,0,1,0,5,1,0.03,0.58,a,,5,2026-10-06
+43,Youri,Tielemans,Tielemans,Man United,Midfield,402,5,0,0,0,8,0,0.65,0.52,a,,5,2026-10-06
+433,Manuel,Ugarte Ribeiro,Ugarte,Man United,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Knee injury - Unknown return date,5,2026-10-06
+420,Leny,Yoro,Yoro,Man United,Defender,22,0,0,0,0,2,0,0.0,0.02,a,,5,2026-10-06
+440,Joshua,Zirkzee,Zirkzee,Man United,Attack,20,0,0,0,0,0,0,0.0,0.01,a,,5,2026-10-06
+416,Matthijs,de Ligt,De Ligt,Man United,Defender,0,0,0,0,0,0,0,0.0,0.0,i,Back injury - Unknown return date,5,2026-10-06
+458,Joelinton Cássio,Apolinário de Lira,Joelinton,Newcastle,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Unspecified injury - Unknown return date,5,2026-10-06
+559,Aladji,Bamba,Bamba,Newcastle,Midfield,27,0,0,0,0,1,0,0.0,0.0,a,,5,2026-10-06
+453,Harvey,Barnes,Barnes,Newcastle,Midfield,450,5,1,3,1,9,0,0.62,0.48,a,,5,2026-10-06
+447,Sven,Botman,Botman,Newcastle,Defender,450,5,0,0,1,9,1,0.06,0.17,a,,5,2026-10-06
+448,Dan,Burn,Burn,Newcastle,Defender,0,0,0,0,0,0,0,0.0,0.0,i,Ankle injury - Expected back 12 Oct,5,2026-10-06
+593,Amar,Dedic,Dedić,Newcastle,Defender,327,4,0,1,1,7,0,0.14,0.08,i,Unspecified injury - Unknown return date,5,2026-10-06
+454,Anthony,Elanga,Elanga,Newcastle,Midfield,232,3,2,0,1,3,1,0.42,0.34,i,Unspecified injury - Unknown return date,5,2026-10-06
+634,Matias,Fernandez-Pardo,Fernandez-Pardo,Newcastle,Attack,157,2,0,0,0,4,0,0.05,0.01,a,,5,2026-10-06
+443,Mark,Gillespie,Gillespie,Newcastle,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+405,Nico,González Iglesias,N.Gonzalez,Newcastle,Midfield,164,3,0,0,1,2,1,0.0,0.21,a,,5,2026-10-06
+449,Lewis,Hall,Hall,Newcastle,Defender,449,5,1,1,1,9,0,0.25,0.79,a,,5,2026-10-06
+567,Lukás,Hornícek,Horníček,Newcastle,Goalkeeper,450,5,0,0,1,9,1,0.0,0.0,a,,5,2026-10-06
+444,Ewen,Jaouen,Jaouen,Newcastle,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,d,Ankle injury - 50% chance of playing,5,2026-10-06
+450,Tino,Livramento,Livramento,Newcastle,Defender,33,0,0,1,0,1,1,0.0,0.01,d,Unspecified injury - 75% chance of playing,5,2026-10-06
+459,Lewis,Miley,L.Miley,Newcastle,Midfield,396,5,0,0,1,8,1,0.05,0.14,d,Unspecified injury - 75% chance of playing,5,2026-10-06
+659,Mason,Miley,Miley,Newcastle,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+665,Michael,Mills,Mills,Newcastle,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+451,Alex,Murphy,A.Murphy,Newcastle,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined FC Kaiserslautern on loan for the rest of the season,5,2026-10-06
+457,Jacob,Murphy,J.Murphy,Newcastle,Midfield,181,2,0,0,0,5,3,0.03,0.41,a,,5,2026-10-06
+466,Sean,Neave,Neave,Newcastle,Attack,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Wolves on loan for the rest of the season,5,2026-10-06
+465,William,Osula,Osula,Newcastle,Attack,55,1,0,1,0,1,0,0.06,0.14,i,Foot injury - Unknown return date,5,2026-10-06
+663,Miodrag,Pivas,Pivas,Newcastle,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+442,Nick,Pope,Pope,Newcastle,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+456,Jacob,Ramsey,J.Ramsey,Newcastle,Midfield,69,0,1,0,0,1,1,0.17,0.16,i,Thigh injury - Unknown return date,5,2026-10-06
+664,Vakhtang,Salia,Salia,Newcastle,Attack,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+446,Fabian,Schär,Schär,Newcastle,Defender,25,0,0,0,0,2,0,0.0,0.01,a,,5,2026-10-06
+609,Leo,Shahar,Shahar,Newcastle,Defender,0,0,0,0,0,0,0,0.0,0.0,u,has joined Arouca on loan for the rest of the seaon.,5,2026-10-06
+462,Sean,Steur,Steur,Newcastle,Midfield,223,2,0,0,1,5,0,0.0,0.06,a,,5,2026-10-06
+445,Malick,Thiaw,Thiaw,Newcastle,Defender,450,5,0,0,1,9,0,0.0,0.08,a,,5,2026-10-06
+666,Kyran,Thompson,Thompson,Newcastle,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+461,Bazoumana,Touré,Touré,Newcastle,Midfield,50,0,1,0,0,1,0,0.28,0.01,a,,5,2026-10-06
+460,Joe,Willock,Willock,Newcastle,Midfield,284,3,2,0,1,5,0,0.81,0.3,a,,5,2026-10-06
+464,Yoane,Wissa,Wissa,Newcastle,Attack,441,5,1,1,1,8,2,2.35,0.06,a,,5,2026-10-06
+463,Nick,Woltemade,Woltemade,Newcastle,Attack,19,0,0,1,0,0,0,0.02,0.01,u,Has joined Juventus on loan for the rest of the season,5,2026-10-06
+477,Zach,Abbott,Abbott,Nott'm Forest,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Southampton on loan for the rest of the season,5,2026-10-06
+473,Ola,Aina,Aina,Nott'm Forest,Defender,306,4,0,0,1,3,2,0.04,0.53,a,,5,2026-10-06
+485,Dilane,Bakwa,Bakwa,Nott'm Forest,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Lille on loan for the rest of the season,5,2026-10-06
+590,Steven,Benda,Benda,Nott'm Forest,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+479,Tyler,Bindon,Bindon,Nott'm Forest,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Charlton Athletic on loan for the rest of the season,5,2026-10-06
+472,Murillo,Costa dos Santos,Murillo,Nott'm Forest,Defender,449,5,0,1,1,5,1,0.42,0.37,a,,5,2026-10-06
+167,Liam,Delap,Delap,Nott'm Forest,Attack,277,3,1,0,1,3,2,0.89,0.35,a,,5,2026-10-06
+581,Ousmane,Diomande,Diomande,Nott'm Forest,Defender,163,2,0,0,0,2,0,0.16,0.01,a,,5,2026-10-06
+487,Nicolás,Domínguez,Dominguez,Nott'm Forest,Midfield,1,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+480,Morgan,Gibbs-White,Gibbs-White,Nott'm Forest,Midfield,450,5,1,2,1,5,0,1.56,1.42,a,,5,2026-10-06
+482,Callum,Hudson-Odoi,Hudson-Odoi,Nott'm Forest,Midfield,1,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+484,Omari,Hutchinson,Hutchinson,Nott'm Forest,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined AC Milan on loan for the rest of the season,5,2026-10-06
+493,Arnaud,Kalimuendo,Kalimuendo,Nott'm Forest,Attack,1,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+468,John Victor,Maciel Furtado,John,Nott'm Forest,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+491,Igor Jesus,Maciel da Cruz,Igor Jesus,Nott'm Forest,Attack,257,2,1,0,0,3,1,1.25,0.08,a,,5,2026-10-06
+486,James,McAtee,McAtee,Nott'm Forest,Midfield,416,5,0,0,2,4,2,0.37,0.96,a,,5,2026-10-06
+471,Nikola,Milenković,Milenković,Nott'm Forest,Defender,270,3,0,0,1,3,1,0.11,0.03,i,Hamstring injury - Expected back 11 Oct,5,2026-10-06
+201,Daniel,Muñoz Mejía,Muñoz,Nott'm Forest,Defender,257,3,0,0,0,4,0,0.6,0.21,a,,5,2026-10-06
+483,Dan,Ndoye,Ndoye,Nott'm Forest,Midfield,316,5,1,0,1,3,1,1.25,0.93,a,,5,2026-10-06
+478,Luca,Netz,Netz,Nott'm Forest,Defender,27,0,0,0,0,1,0,0.0,0.02,a,,5,2026-10-06
+474,Jair,Paula da Cunha Filho,Jair Cunha,Nott'm Forest,Defender,360,4,0,0,1,4,2,0.05,0.02,a,,5,2026-10-06
+476,Omar,Richards,O.Richards,Nott'm Forest,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+470,Felipe,Rodrigues da Silva,Morato,Nott'm Forest,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined West Ham on loan for the rest of the season,5,2026-10-06
+488,Ibrahim,Sangaré,I.Sangaré,Nott'm Forest,Midfield,105,1,0,0,0,1,0,0.09,0.02,a,,5,2026-10-06
+475,Nicolò,Savona,Savona,Nott'm Forest,Defender,0,0,0,0,0,0,0,0.0,0.0,i,Knee injury - Unknown return date,5,2026-10-06
+558,Xaver,Schlager,Schlager,Nott'm Forest,Midfield,376,4,0,0,1,5,1,0.19,0.18,a,,5,2026-10-06
+467,Matz,Sels,Sels,Nott'm Forest,Goalkeeper,450,5,0,0,1,5,0,0.0,0.01,a,,5,2026-10-06
+469,Neco,Williams,N.Williams,Nott'm Forest,Defender,450,5,0,1,1,5,0,0.41,0.61,a,,5,2026-10-06
+490,Chris,Wood,Wood,Nott'm Forest,Attack,62,0,0,0,0,1,0,0.12,0.01,a,,5,2026-10-06
+489,Ryan,Yates,Yates,Nott'm Forest,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+546,Simon,Adingra,Adingra,Sunderland,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Ajax on loan for the rest of the season,5,2026-10-06
+613,Jules,Ahoka,Ahoka,Sunderland,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+535,Omar,Alderete,Alderete,Sunderland,Defender,23,0,0,0,0,1,0,0.0,0.01,a,,5,2026-10-06
+551,Nilson,Angulo,N.Angulo,Sunderland,Midfield,313,5,1,1,1,7,1,0.6,0.13,a,,5,2026-10-06
+651,Juan,Angulo,J.Angulo,Sunderland,Attack,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+532,Daniel,Ballard,Ballard,Sunderland,Defender,450,5,0,0,1,10,2,0.31,0.16,d,Hamstring injury - 75% chance of playing,5,2026-10-06
+550,Djiamgone Jocelin Ta,Bi,Jocelin.T,Sunderland,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+552,Brian,Brobbey,Brobbey,Sunderland,Attack,399,5,3,0,1,9,1,2.94,0.11,d,Hamstring injury - 75% chance of playing,5,2026-10-06
+501,Kevin,Danso,Danso,Sunderland,Defender,270,3,0,0,0,8,0,0.07,0.17,a,,5,2026-10-06
+543,Habib,Diarra,Diarra,Sunderland,Midfield,28,0,0,1,0,1,0,0.03,0.16,i,Hamstring injury - Unknown return date,5,2026-10-06
+531,Melker,Ellborg,Ellborg,Sunderland,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+646,Malick,Fofana,Fofana,Sunderland,Midfield,60,0,0,0,0,2,0,0.39,0.01,a,,5,2026-10-06
+538,Leo Fuhr,Hjelde,Hjelde,Sunderland,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined KV Mechelen on loan for the rest of the season,5,2026-10-06
+534,Trai,Hume,Hume,Sunderland,Defender,206,2,0,0,1,2,0,0.14,0.29,a,,5,2026-10-06
+553,Wilson,Isidor,Isidor,Sunderland,Attack,117,0,1,1,0,3,0,1.49,0.01,a,,5,2026-10-06
+542,Enzo,Le Fée,E.Le Fée,Sunderland,Midfield,438,5,1,1,1,9,0,2.06,1.34,a,,5,2026-10-06
+536,Reinildo,Mandava,Reinildo,Sunderland,Defender,360,4,0,0,1,5,0,0.0,0.32,a,,5,2026-10-06
+540,Arthur,Masuaku,Masuaku,Sunderland,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Konyaspor permanently,5,2026-10-06
+541,Thomas,Meunier,Meunier,Sunderland,Defender,396,5,0,1,1,8,0,0.34,0.58,a,,5,2026-10-06
+533,Nordi,Mukiele,Mukiele,Sunderland,Defender,360,4,0,0,1,8,1,0.75,0.28,a,,5,2026-10-06
+547,Romaine,Mundle,Mundle,Sunderland,Midfield,1,0,0,0,0,0,0,0.17,0.0,i,Knee injury - Unknown return date,5,2026-10-06
+612,Dayann,Méthalie,Methalie,Sunderland,Defender,90,1,0,0,0,5,1,0.03,0.01,a,,5,2026-10-06
+539,Luke,O'Nien,O'Nien,Sunderland,Defender,66,1,0,0,0,1,1,0.01,0.01,a,,5,2026-10-06
+530,Anthony,Patterson,Patterson,Sunderland,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Wrexham permanently,5,2026-10-06
+548,Chris,Rigg,Rigg,Sunderland,Midfield,17,0,0,0,0,1,0,0.0,0.0,a,,5,2026-10-06
+529,Robin,Roefs,Roefs,Sunderland,Goalkeeper,450,5,0,0,1,10,0,0.0,0.01,a,,5,2026-10-06
+545,Noah,Sadiki,Sadiki,Sunderland,Midfield,410,5,0,0,1,9,1,0.44,0.24,a,,5,2026-10-06
+537,Jenson,Seelt,Seelt,Sunderland,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Swansea City on loan for the rest of the season,5,2026-10-06
+549,Chemsdine,Talbi,Talbi,Sunderland,Midfield,31,0,0,0,0,1,0,0.0,0.0,a,,5,2026-10-06
+544,Granit,Xhaka,Xhaka,Sunderland,Midfield,450,5,0,1,1,10,2,0.06,1.32,a,,5,2026-10-06
+147,Tosin,Adarabioyo,Tosin,Tottenham,Defender,5,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+495,Brandon,Austin,Austin,Tottenham,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+516,Rodrigo,Bentancur,Bentancur,Tottenham,Midfield,370,4,0,0,2,6,0,0.02,0.12,a,,5,2026-10-06
+520,Lucas,Bergvall,Bergvall,Tottenham,Midfield,78,1,0,0,0,2,0,0.06,0.27,a,,5,2026-10-06
+509,Jun'ai,Byfield,Byfield,Tottenham,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+508,Ben,Davies,Davies,Tottenham,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+497,Martin,Dubravka,Dubravka,Tottenham,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+525,Mateus,Fernandes,Fernandes,Tottenham,Midfield,249,3,0,0,1,4,1,0.19,0.28,a,,5,2026-10-06
+519,Conor,Gallagher,Gallagher,Tottenham,Midfield,134,2,1,0,1,2,1,0.37,0.12,a,,5,2026-10-06
+522,Archie,Gray,Gray,Tottenham,Midfield,307,3,0,0,1,7,0,0.23,0.05,a,,5,2026-10-06
+496,Antonín,Kinský,Kinsky,Tottenham,Goalkeeper,450,5,0,0,2,8,0,0.0,0.0,a,,5,2026-10-06
+512,Mohammed,Kudus,Kudus,Tottenham,Midfield,123,0,0,1,0,3,0,0.11,0.42,a,,5,2026-10-06
+521,Dejan,Kulusevski,Kulusevski,Tottenham,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Knee injury - Unknown return date,5,2026-10-06
+515,James,Maddison,Maddison,Tottenham,Midfield,59,0,0,0,0,2,0,0.06,0.04,a,,5,2026-10-06
+401,Omar,Marmoush,Marmoush,Tottenham,Attack,339,4,0,0,2,5,0,0.38,0.15,a,,5,2026-10-06
+523,Mikey,Moore,Moore,Tottenham,Midfield,89,1,0,0,0,4,0,0.4,0.02,u,Has joined FC Köln on loan for the rest of the season,5,2026-10-06
+403,Sávio,Moreira de Oliveira,Sávio,Tottenham,Midfield,240,3,0,0,2,3,0,0.41,0.7,a,,5,2026-10-06
+578,Mykhailo,Mudryk,Mudryk,Tottenham,Midfield,16,0,0,0,0,0,0,0.0,0.0,i,Ankle injury - Unknown return date,5,2026-10-06
+517,Wilson,Odobert,Odobert,Tottenham,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Knee injury - Unknown return date,5,2026-10-06
+524,Callum,Olusesi,Olusesi,Tottenham,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+507,Ashley,Phillips,Phillips,Tottenham,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Middlesbrough permanently,5,2026-10-06
+499,Pedro,Porro Sauceda,Pedro Porro,Tottenham,Defender,198,3,0,0,1,2,0,0.37,0.16,d,Hamstring injury - 75% chance of playing,5,2026-10-06
+502,Andrew,Robertson,Robertson,Tottenham,Defender,366,4,0,1,1,7,0,0.13,0.43,a,,5,2026-10-06
+500,Cristian,Romero,Romero,Tottenham,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Atletico Madrid permanently,5,2026-10-06
+510,James,Rowswell,Rowswell,Tottenham,Defender,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+518,Pape Matar,Sarr,P.M.Sarr,Tottenham,Midfield,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Juventus on loan for the rest of the season,5,2026-10-06
+528,Dane,Scarlett,Scarlett,Tottenham,Attack,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Leyton Orient permanently,5,2026-10-06
+498,Marcos,Senesi Barón,Senesi,Tottenham,Defender,90,1,0,0,0,3,0,0.0,0.02,a,,5,2026-10-06
+513,Xavi,Simons,Xavi,Tottenham,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Knee injury - Unknown return date,5,2026-10-06
+526,Dominic,Solanke-Mitchell,Solanke,Tottenham,Attack,170,2,0,0,1,1,0,0.56,0.01,a,,5,2026-10-06
+505,Djed,Spence,Spence,Tottenham,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Internazionale permanently,5,2026-10-06
+514,Mathys,Tel,Tel,Tottenham,Midfield,257,3,0,0,1,4,0,0.21,0.23,a,,5,2026-10-06
+455,Sandro,Tonali,Tonali,Tottenham,Midfield,427,5,0,0,2,8,0,0.24,0.61,a,,5,2026-10-06
+506,Destiny,Udogie,Udogie,Tottenham,Defender,86,1,0,0,1,1,1,0.0,0.23,a,,5,2026-10-06
+494,Guglielmo,Vicario,Vicario,Tottenham,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Juventus on loan for the rest of the season,5,2026-10-06
+601,Luca,Williams-Barnett,Williams-Barnett,Tottenham,Midfield,0,0,0,0,0,0,0,0.0,0.0,a,,5,2026-10-06
+527,Richarlison,de Andrade,Richarlison,Tottenham,Attack,67,1,0,0,0,3,0,0.0,0.0,u,not included in squad.,5,2026-10-06
+511,João Victor,de Souza Menezes,Souza,Tottenham,Defender,0,0,0,0,0,0,0,0.0,0.0,u,Has joined FC Porto on loan for the rest of the season,5,2026-10-06
+112,Jan Paul,van Hecke,Van Hecke,Tottenham,Defender,450,5,1,0,2,8,1,0.69,0.42,d,Foot injury - 75% chance of playing,5,2026-10-06
+503,Micky,van de Ven,Van de Ven,Tottenham,Defender,360,4,0,0,2,5,1,0.59,0.05,a,,5,2026-10-06
