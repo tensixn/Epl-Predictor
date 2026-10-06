@@ -114,10 +114,11 @@ Walk-forward test, each of 2022/23, 2023/24 and 2024/25 predicted by models trai
 
 | model | median error | within 25% | variance explained (log value) |
 |---|---|---|---|
-| median by age band and position | 58% | 22% | 23% |
-| xgboost | **32%** | **40%** | **75%** |
+| median by age band and position | 58% | 21% | 24% |
+| xgboost | **36%** | **37%** | **74%** |
 
-A typical estimate is about a third off the market value. Adding the player's previous market
+A typical estimate is about a third off the market value. (Before October 2026 the data left out
+Aston Villa, Crystal Palace and Sheffield United, and the same test read 32%.) Adding the player's previous market
 value as a feature cuts that to about 21%, but then the model mostly repeats last year's price, so it
 is left out on purpose. `results/player_values.csv` holds out-of-sample stats values for 2009/10 to
 2024/25, which the app's Player values tab reads.
@@ -125,6 +126,27 @@ is left out on purpose. `results/player_values.csv` holds out-of-sample stats va
 ```
 python -m src.player_value                   # metrics + player_values.csv -> results/
 ```
+
+## AI player scout (`src/scout.py`)
+The third idea from the reel: who should a club sign? The app's Scout section takes a club, a
+budget and an age limit, and works in three steps:
+
+1. **Squad needs.** For each position (goalkeeper, centre-back, full-back, defensive, central and
+   attacking midfield, winger, striker) it takes the starts-weighted stats value of the players who
+   played there and compares it with the average of that season's top six. Lowest first.
+2. **Shortlist.** Players at other Premier League clubs in the chosen positions, priced within the
+   budget, no older than the limit, with 15+ starts and a higher stats value than the club's current
+   players there.
+3. **Scouting report.** Claude (`claude-opus-5-5`) gets both tables and picks up to three signings
+   from the shortlist only, backing each with the numbers it was given.
+
+Steps 1 and 2 need nothing extra. The report needs an Anthropic API key: on Streamlit Community
+Cloud add `ANTHROPIC_API_KEY = "..."` under the app's Settings → Secrets; locally put the same line
+in `.streamlit/secrets.toml` (git-ignored) or set the environment variable. Each report is one API
+call, and the app caches it so the same club, budget and shortlist don't call twice.
+
+It uses the player value data, so it scouts on 2024/25 stats and summer 2025 prices, and only
+Premier League players; some have moved since.
 
 ## Ideas for next steps
 - xG was tried (Understat, 2014/15 on, rolling 5/10-match xG for/against): it did not help. Logistic log loss went from 0.9791 to 0.9847 with all xG columns, and 0.9793 with only the 10-match differences, so it was dropped

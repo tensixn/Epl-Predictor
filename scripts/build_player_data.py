@@ -31,7 +31,8 @@ EUROPE = {"CL", "EL", "UCOL", "UEFA"}
 
 # Transfermarkt club name -> football-data.co.uk name used in data/raw
 CLUBS = {
-    "AFC Bournemouth": "Bournemouth", "Arsenal FC": "Arsenal", "Brentford FC": "Brentford",
+    "AFC Bournemouth": "Bournemouth", "Arsenal FC": "Arsenal", "Aston Villa": "Aston Villa",
+    "Crystal Palace": "Crystal Palace", "Sheffield United": "Sheffield United", "Brentford FC": "Brentford",
     "Brighton & Hove Albion": "Brighton", "Burnley FC": "Burnley", "Chelsea FC": "Chelsea",
     "Everton FC": "Everton", "Fulham FC": "Fulham", "Liverpool FC": "Liverpool",
     "Manchester City": "Man City", "Manchester United": "Man United", "Nottingham Forest": "Nott'm Forest",
