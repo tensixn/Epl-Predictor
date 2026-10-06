@@ -1,9 +1,7 @@
 name: player snapshot
+# Run by hand (Actions > player snapshot > Run workflow) if the transfermarkt-datasets snapshot is ever refreshed.
 on:
   workflow_dispatch:
-  push:  # temporary: run once from this branch to fetch the snapshot
-    branches: [claude/project-thread-lx1sga]
-    paths: [scripts/fetch_player_snapshot.py, .github/workflows/player-snapshot.yml]
 permissions:
   contents: write
 jobs:
