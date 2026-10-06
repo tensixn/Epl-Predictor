@@ -128,3 +128,5 @@ python -m src.player_value                   # metrics + player_values.csv -> re
 
 ## Ideas for next steps
 - xG was tried (Understat, 2014/15 on, rolling 5/10-match xG for/against): it did not help. Logistic log loss went from 0.9791 to 0.9847 with all xG columns, and 0.9793 with only the 10-match differences, so it was dropped
+- Injuries were tried (Transfermarkt injury dates, 2008/09 on): the share of a club's previous-season starters out on match day, as home, away and difference columns. It did not help, within ±0.001 log loss on 2023/24 and 2024/25 for logistic and xgboost, so it was dropped. The data also ends in December 2025, so it couldn't feed live predictions anyway
+- Retuning the blend weight is not worth it: 50/50 is already the best, and 0.4 to 0.6 are within 0.0002 of each other
