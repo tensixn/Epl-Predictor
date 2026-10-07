@@ -1,179 +1,144 @@
-# Football predictor
+# Premier League predictor
 
-Two tools on one page: a match predictor and a player value analyzer.
-The match predictor is a machine learning model that predicts home win / draw / away win probabilities for Premier League matches.
-It is trained on 26 seasons of results and tested walk-forward on the last three seasons, with no future data leaking into features.
+A Streamlit app with three tools: a match predictor, a player value analyser and an AI scout that uses Claude.
 
 **Live app: https://epl-predictor-tension.streamlit.app/**
 
-## Project layout
-```
-data/raw/            season CSVs (2000/01 to 2025/26, plus 2026/27 so far)
-scripts/             download_data.sh, fetch_current_season.py (season in progress), fetch_odds.py, log_predictions.py
-src/features.py      Elo ratings and rolling form, built only from past matches
-src/evaluate.py      walk-forward evaluation of the models
-src/dixoncoles.py    Dixon-Coles goals model and the blend with logistic
-src/predict.py       probabilities for any fixture
-src/fixtures.py      next round and full season of fixtures (FPL, else openfootball)
-src/simulate.py      Monte Carlo of the rest of the season (title, top 4, relegation odds), with Elo updated as results are simulated
-src/tracker.py       logs predictions before kickoff and scores them afterwards
-src/player_value.py  player value analyzer: stats-based value vs Transfermarkt market value
-scripts/build_player_data.py  builds data/players/ from the Transfermarkt datalake
-.github/workflows/   ci.yml runs pytest on every push; refresh.yml updates results and the log daily
-app.py               Streamlit page on top of src/predict.py
-tests/               leakage, Elo, fetch, simulation and tracker checks
-results/             metrics, per-match test predictions (xgboost, logistic and blend; the blend's feeds the calibration chart), predictions_log.csv (live track record)
-data/players/        one row per EPL player-season (2004/05 to 2025/26): stats, profile, summer market value
-data/odds/           closing odds for the three test seasons, used only as a benchmark
-```
+The short version of the results: the match model beats simple baselines but does not beat the bookmakers. On the last three seasons it scores a log loss of 0.975 against 1.075 for always guessing the usual home/draw/away split, and 0.960 for the bookmakers' closing odds. The player value model's typical estimate is 35% off the market price, against 57% for a simple baseline. Every number below comes from a walk-forward test, where each season is predicted by a model trained only on the seasons before it.
 
-## Data
-`data/raw/season-XXYY.csv`: 26 seasons (2000/01 to 2025/26, 9,880 matches) from the
-[datasets/football-datasets](https://github.com/datasets/football-datasets) mirror of
-football-data.co.uk (the same source as datahub.io). Kaggle isn't reachable from the
-build environment, so this replaces the Kaggle set from the reel. The columns are
-results plus shots, shots on target, corners, fouls and cards. data/raw has no odds,
-lineups or injuries.
+![Fixtures tab: home, draw and away probabilities for the next round](docs/screenshots/fixtures.png)
 
-The mirror only adds a season once it has finished, so the season in progress
-(`season-2627.csv`) comes from the Fantasy Premier League API, which posts scores within
-hours of the final whistle. If FPL can't be reached (it is blocked from our cloud sessions and
-resets between seasons) it falls back to [openfootball](https://github.com/openfootball/football.json),
-which can lag a week or more. Both have scores only (openfootball adds half-time scores), so
-points and goals form uses this season's matches while shots form falls back to each
-team's latest matches that have shot data. Checked against the mirror on 2024/25,
-all 380 openfootball results match. Refresh it with `python scripts/fetch_current_season.py`.
+## What's in the app
 
-## Features (`src/features.py`)
-Everything is computed from matches *before* kickoff:
-- Elo rating per team (home advantage, goal-difference multiplier, 20% regression to the mean each summer, promoted teams start at 1420)
-- Rolling averages over the last 5 and 10 matches: points, goals for/against, shots for/against, shots on target for/against
-- Rest days, plus home−away differences of all of the above
+**Match predictor.** Home win, draw and away win probabilities for the next round of Premier League fixtures, with one plain-English line under each match saying why the model leans the way it does. You can also pick any two teams, see title, top 4 and relegation odds from 10,000 simulated finishes to the season, and follow a live track record. Predictions are logged before kickoff and scored after the final whistle, so that record can't be tuned after the fact.
 
-## Models (`src/evaluate.py`)
-- `base_rate`: always predicts historical H/D/A frequencies
-- `elo_logistic`: multinomial logistic regression on Elo difference only
-- `logistic`: logistic regression on all features
-- `xgboost`: gradient-boosted trees on all features
-- `dixon_coles`: Poisson goals model with attack/defence ratings, home advantage, the low-score correction and time decay (8-month half-life, refit every 4 weeks). Scores only, no form or shots
-- `blend`: average of `logistic` and `dixon_coles`. This is the app's default and the model in the live track record
+| Pick a match | Season odds |
+|---|---|
+| ![Pick a match](docs/screenshots/pick.png) | ![Season odds](docs/screenshots/season.png) |
 
-Walk-forward test: each of 2023/24, 2024/25 and 2025/26 is predicted by models trained only on earlier seasons.
+**Player values.** For every Premier League player since 2009/10, the app compares the Transfermarkt price with what the player's season says they're worth, and gives a verdict from Bargain to Overpriced. The "stats value" model never sees a market value, so the gap between the two is the interesting part.
+
+![Player values: price vs stats value with a verdict](docs/screenshots/players.png)
+
+**Scout.** Pick a club, a budget and an age limit. The app finds the club's weakest positions by comparing them with the top six, shortlists Premier League players who would be an upgrade and fit the budget, and then Claude writes a scouting report that picks up to three signings from that shortlist, using only the numbers it was given. The shortlist also shows this season's form from Fantasy Premier League and leaves out anyone who has already joined the club.
+
+![Scout: shortlist for Everton's two weakest positions](docs/screenshots/scout.png)
+
+## Results
+
+### Match predictor
+
+Tested on 2023/24, 2024/25 and 2025/26 (1,140 matches), each season predicted by models trained only on earlier seasons. Lower is better for log loss, Brier and RPS.
 
 | model | log loss | Brier | RPS | accuracy |
 |---|---|---|---|---|
-| base_rate | 1.0745 | 0.6507 | 0.2329 | 43.2% |
-| elo_logistic | 0.9852 | 0.5879 | 0.2019 | 53.4% |
-| logistic | 0.9791 | 0.5839 | 0.1993 | 53.2% |
-| xgboost | 0.9877 | 0.5880 | 0.2010 | 53.3% |
-| ensemble (logistic + xgboost average) | 0.9815 | 0.5847 | 0.1997 | 53.3% |
-| dixon_coles | 0.9787 | 0.5832 | 0.2000 | 52.5% |
-| blend (logistic + dixon_coles) | **0.9747** | **0.5807** | **0.1984** | 53.3% |
-| bookmaker closing odds | **0.9597** | **0.5699** | **0.1938** | 55.0% |
+| base rate (always the usual H/D/A split) | 1.0745 | 0.6507 | 0.2329 | 43.2% |
+| logistic regression, Elo difference only | 0.9852 | 0.5879 | 0.2019 | 53.4% |
+| logistic regression, all features | 0.9791 | 0.5839 | 0.1993 | 53.2% |
+| XGBoost, all features | 0.9877 | 0.5880 | 0.2010 | 53.3% |
+| Dixon-Coles goals model | 0.9787 | 0.5832 | 0.2000 | 52.5% |
+| **blend (logistic + Dixon-Coles), used in the app** | **0.9747** | **0.5807** | **0.1984** | 53.3% |
+| bookmaker closing odds | 0.9597 | 0.5699 | 0.1938 | 55.0% |
 
-The bookmaker row is market-average closing odds with the margin removed (`data/odds/`, from football-data.co.uk). It beats every model here, so that is the realistic ceiling. Averaging logistic and xgboost did not beat logistic alone, but averaging logistic with Dixon-Coles did. The decay rate was picked on these same three seasons, so the true gain is probably a little under the 0.004 shown. Odds can't be a model feature here: they only exist for past matches, and the fixture feed (openfootball) carries none.
+Three things I'd point out:
 
-## Run
-```
-pip install -r requirements.txt
-python -m src.evaluate                       # metrics -> results/
-python -m src.predict Arsenal Chelsea        # HOME AWAY pairs
-pytest                                       # run the tests
-streamlit run app.py                         # web page with team pickers
-./scripts/download_data.sh                   # refresh data/raw (all seasons)
-python scripts/fetch_current_season.py       # refresh just the current season
-```
-Team names follow football-data.co.uk spelling ("Man City", "Man United", "Nott'm Forest", "Spurs" is "Tottenham").
+- **The bookmakers win.** Their closing odds (market average, margin removed, from football-data.co.uk) beat every model on every metric. That's the realistic ceiling for a model built on public results data, so the app says so on the page.
+- **XGBoost lost to logistic regression.** With around 9,000 training matches and features that are mostly smooth differences in team strength, the simpler model generalised better.
+- **The blend's gain is small and slightly flattering.** The Dixon-Coles time decay was picked on these same three seasons, so the real gain over logistic alone is probably a bit under the 0.004 shown.
 
-## Web app
-`app.py` is a Streamlit page with two sections, switched at the top. **Match predictor** has four tabs: predictions
-for the next round of fixtures (kick-off times are shown in the viewer's own time zone), a picker for any home and
-away team, title / top 4 / relegation odds for the season, and the live track record. Each prediction is a home /
-draw / away probability bar. **Player values** compares each player's Transfermarkt price with what their season says
-they're worth, by season, club and position, with a plain-language verdict from Bargain to Overpriced. The look
-(a dark "matchday broadcast" style) is the CSS block at the top of `app.py` plus the theme in `.streamlit/config.toml`.
-The app trains its models from `data/raw` when it starts (about 10 seconds, cached after that), so there is no
-separate training step. To host it on Streamlit Community Cloud, sign in at share.streamlit.io with GitHub, choose
-this repo, branch `main` and main file path `app.py`.
+The live track record started on 10 October 2026, so it has no scored matches yet. It will be the honest test of whether these numbers hold.
 
-## Player value analyzer (`src/player_value.py`)
-The second idea from the reel: what should a player be worth, judging only by their season?
-For every Premier League player-season since 2004/05, an XGBoost model estimates the player's
-Transfermarkt value in the summer after the season from age, position, height, foot, league and
-all-competition appearances, starts, goals and assists (this season and last), European games,
-big-5 league experience and the club's league finish. It never sees a market value, so the gap
-between the market value and this "stats value" shows who the market prices above or below what
-they did on the pitch. Values are modelled relative to that summer's median EPL value so transfer
-inflation doesn't dominate.
+### Player value analyser
 
-Data: [salimt/football-datasets](https://github.com/salimt/football-datasets), a Transfermarkt
-datalake on GitHub, for 2004/05 to 2024/25 (its values stop in September 2025), plus 2025/26 from the
-[dcaribou/transfermarkt-datasets](https://github.com/dcaribou/transfermarkt-datasets) snapshot
-(appearances to June 2026, values to 12 June 2026). That snapshot sits on a bucket the cloud build
-environment can't reach, so `scripts/fetch_player_snapshot.py` runs from GitHub Actions (the "player
-snapshot" workflow, run by hand) and commits the 2025/26 rows to `data/players/snapshot/`. The snapshot's
-updates are paused, so 2025/26 with summer 2026 values is the latest season. Transfermarkt itself, FBref and
-Kaggle are blocked from the build environment. The datalake's minutes column is missing for over half the
-rows, so starts stand in. Rebuild with `python scripts/build_player_data.py`.
+Same walk-forward setup, 1,607 player-seasons across 2023/24 to 2025/26.
 
-Walk-forward test, each of 2023/24, 2024/25 and 2025/26 predicted by models trained only on earlier seasons:
-
-| model | median error | within 25% | variance explained (log value) |
+| model | median error | within 25% of price | variance explained (log value) |
 |---|---|---|---|
 | median by age band and position | 57% | 21% | 24% |
-| xgboost | **35%** | **37%** | **75%** |
+| **XGBoost on stats and profile** | **35%** | **37%** | **75%** |
 
-A typical estimate is about a third off the market value. 2025/26 is the hardest of
-the three (39%). Its rows come from the other source, which leaves out a few minor competitions (youth
-leagues) the datalake counts, so that may explain some of it. Adding the player's previous market
-value as a feature cuts that to about 21%, but then the model mostly repeats last year's price, so it
-is left out on purpose. `results/player_values.csv` holds out-of-sample stats values for 2009/10 to
-2025/26, which the app's Player values tab reads.
+A typical estimate is about a third off the market price. Adding last year's market value as a feature cuts the error to about 21%, but then the model mostly repeats last year's price and stops saying anything about the season, so I left it out on purpose.
+
+### What I tried that didn't help
+
+- **Expected goals (xG).** Rolling 5 and 10-match xG from Understat, 2014/15 onwards. Log loss got worse (0.9791 to 0.9847 with all xG columns, 0.9793 with only the 10-match differences), so it was dropped.
+- **Injuries.** The share of a club's regular starters missing on match day, from Transfermarkt injury data. No change beyond ±0.001 log loss, and the data stops in December 2025 anyway.
+- **Fixture congestion,** including cup and European games. Days of rest since the last league match are already in the model and barely matter (taking them out costs 0.0005 log loss). Congestion counts and short-rest flags moved log loss by less than 0.002 either way.
+- **Averaging logistic and XGBoost.** Worse than logistic alone (0.9815).
+
+## How it works
 
 ```
-python -m src.player_value                   # metrics + player_values.csv -> results/
+football-data.co.uk mirror ─┐
+FPL API (this season) ──────┼─► features.py ─► logistic + Dixon-Coles ─► app.py (Streamlit)
+openfootball (fallback) ────┘   Elo, form,     blend                     ▲
+                                shots                                     │
+Transfermarkt datalake ─────► player_value.py (XGBoost) ─► scout.py ─► Claude API
+FPL player stats ───────────► form.py (name matching) ─────┘
 ```
 
-## AI player scout (`src/scout.py`)
-The third idea from the reel: who should a club sign? The app's Scout section takes a club, a
-budget and an age limit, and works in three steps:
+- **Data.** 26 seasons of results (2000/01 to 2025/26, 9,880 matches) with shots, corners and cards. The current season comes from the Fantasy Premier League API, with openfootball as a fallback. Player data is about 10,900 Premier League player-seasons from 2004/05 on.
+- **Features** (`src/features.py`). Elo ratings (home advantage, goal-difference multiplier, regression to the mean each summer) and rolling 5 and 10-match averages of points, goals, shots and shots on target, and rest days, all computed only from matches before kickoff. A test checks that no feature can see the match it's predicting.
+- **Models** (`src/evaluate.py`, `src/dixoncoles.py`). Multinomial logistic regression and a Dixon-Coles Poisson goals model with time decay, averaged 50/50.
+- **Season simulation** (`src/simulate.py`). Monte Carlo of the remaining fixtures, with Elo updated after each simulated result so a hot streak carries on.
+- **Player values** (`src/player_value.py`). XGBoost on age, position, appearances, starts, goals, assists, European games and the club's league finish. The target is log value relative to that summer's median, so transfer inflation doesn't dominate.
+- **Scout** (`src/scout.py`). Squad needs and the shortlist are plain pandas. Only the final report calls Claude, and it is told to pick only from the shortlist and back each pick with the numbers given. Reports are cached and capped at 20 new ones a day for the whole site, since the API key is mine and the site is public.
+- **Automation.** GitHub Actions runs the 43 tests on every push, and a daily job pulls new results and FPL stats, logs predictions for the next round and commits them back, so the live app keeps itself up to date.
 
-1. **Squad needs.** For each position (goalkeeper, centre-back, full-back, defensive, central and
-   attacking midfield, winger, striker) it takes the starts-weighted stats value of the players who
-   played there and compares it with the average of that season's top six. Lowest first.
-2. **Shortlist.** Players at other Premier League clubs in the chosen positions, priced within the
-   budget, no older than the limit, with 15+ starts and a higher stats value than the club's current
-   players there.
-3. **Scouting report.** Claude (`claude-opus-5-5`) gets both tables and picks up to three signings
-   from the shortlist only, backing each with the numbers it was given.
+## Run it yourself
 
-Steps 1 and 2 need nothing extra. The report needs an Anthropic API key: on Streamlit Community
-Cloud add `ANTHROPIC_API_KEY = "..."` under the app's Settings → Secrets; locally put the same line
-in `.streamlit/secrets.toml` (git-ignored) or set the environment variable. Each report is one API
-call, and the app saves it so the same club, budget and shortlist don't call twice. Because the key is
-yours and the site is public, the app writes at most 20 new reports a day for the whole site
-(`REPORTS_PER_DAY` in `app.py`, reset at midnight UTC, counted in memory so a reboot resets it too);
-saved reports don't count.
+```
+pip install -r requirements.txt
+streamlit run app.py                         # the app (trains its models on start, about 10 s)
+python -m src.evaluate                       # match model metrics -> results/
+python -m src.player_value                   # player value metrics -> results/
+python -m src.predict Arsenal Chelsea        # HOME AWAY pairs
+pytest                                       # tests
+python scripts/fetch_current_season.py       # refresh this season's results
+```
 
-It uses the player value data, so it scouts on 2025/26 stats and summer 2026 prices, and only
-Premier League players; some have moved since.
+The Scout report needs an Anthropic API key: put `ANTHROPIC_API_KEY = "..."` in `.streamlit/secrets.toml` (git-ignored), or under Settings → Secrets on Streamlit Community Cloud. Everything else works without one.
 
-### This season's form
-FPL is the only reachable source for 2026/27 player stats, so `scripts/fetch_fpl.py` pulls the
-Fantasy Premier League API from GitHub Actions (the daily refresh) into `data/players/fpl_current.csv`:
-minutes, starts, goals, assists, expected goals and assists, availability and current club for every
-Premier League squad player. `src/form.py` matches those players to ours by name (FPL often uses full
-legal names, e.g. "Bruno Borges Fernandes"), and only takes unambiguous matches: 403 of the 537
-2025/26 players match; most of the rest have left the league. The Scout adds the "now" columns to the
-shortlist and Claude's prompt, and leaves out players who have since joined the club you're scouting
-for. FPL has no market values, so prices stay at summer 2026.
+Team names follow football-data.co.uk spelling ("Man City", "Man United", "Nott'm Forest", "Tottenham").
 
-The club picker lists this season's clubs from FPL, so promoted clubs (Coventry, Hull, Ipswich) are in and
-relegated ones out. A promoted club has no 2025/26 Premier League rows, so its needs count only the players
-on its squad now who played in the league last season, at other clubs (Hull has one, Coventry and Ipswich
-four each); positions with nobody score zero.
+<details>
+<summary>Data sources and their limits</summary>
 
-## Ideas for next steps
-- xG was tried (Understat, 2014/15 on, rolling 5/10-match xG for/against): it did not help. Logistic log loss went from 0.9791 to 0.9847 with all xG columns, and 0.9793 with only the 10-match differences, so it was dropped
-- Injuries were tried (Transfermarkt injury dates, 2008/09 on): the share of a club's previous-season starters out on match day, as home, away and difference columns. It did not help, within ±0.001 log loss on 2023/24 and 2024/25 for logistic and xgboost, so it was dropped. The data also ends in December 2025, so it couldn't feed live predictions anyway
-- Retuning the blend weight is not worth it: 50/50 is already the best, and 0.4 to 0.6 are within 0.0002 of each other
+- **Results, 2000/01 to 2025/26:** the [datasets/football-datasets](https://github.com/datasets/football-datasets) mirror of football-data.co.uk. Results plus shots, shots on target, corners, fouls and cards. No lineups or injuries.
+- **Current season:** the Fantasy Premier League API, which posts scores within hours. If it can't be reached, [openfootball](https://github.com/openfootball/football.json), which can lag a week or more. Both have scores only, so shots form uses each team's latest matches that have shot data. All 380 openfootball results for 2024/25 match the mirror.
+- **Bookmaker odds:** closing odds for the three test seasons from football-data.co.uk, used only as a benchmark. They can't be a feature because the fixture feed has none for upcoming matches.
+- **Players, 2004/05 to 2024/25:** the Transfermarkt datalake at [salimt/football-datasets](https://github.com/salimt/football-datasets). Its minutes column is missing for over half the rows, so starts stand in.
+- **Players, 2025/26:** the [dcaribou/transfermarkt-datasets](https://github.com/dcaribou/transfermarkt-datasets) snapshot (values to June 2026), fetched by the "player snapshot" workflow. Its updates are paused, so summer 2026 is the latest price. 2025/26 is the hardest test season (39% median error), partly because this source leaves out a few minor competitions the datalake counts.
+- **This season's player form:** FPL, matched to our players by name (FPL often uses full legal names). 403 of the 537 2025/26 players match, and most of the rest have left the league. FPL has no market values.
+</details>
+
+<details>
+<summary>Project layout</summary>
+
+```
+app.py               Streamlit page (style in the CSS block at the top and .streamlit/config.toml)
+src/features.py      Elo ratings and rolling form, built only from past matches
+src/evaluate.py      walk-forward evaluation of the match models
+src/dixoncoles.py    Dixon-Coles goals model and the blend with logistic
+src/predict.py       probabilities and plain-English explanations for any fixture
+src/fixtures.py      next round and full season of fixtures (FPL, else openfootball)
+src/simulate.py      Monte Carlo of the rest of the season
+src/tracker.py       logs predictions before kickoff and scores them afterwards
+src/player_value.py  stats value vs Transfermarkt market value
+src/form.py          matches this season's FPL players to ours
+src/scout.py         squad needs, shortlist and the Claude scouting report
+src/quota.py         site-wide daily cap on new scouting reports
+scripts/             data downloads, FPL and odds fetches, prediction logging
+.github/workflows/   ci.yml (tests), refresh.yml (daily data), player-snapshot.yml (manual)
+data/raw/            season CSVs, 2000/01 to the season in progress
+data/players/        player-seasons and this season's FPL stats
+data/odds/           closing odds for the test seasons (benchmark only)
+results/             metrics, per-match test predictions, predictions_log.csv (live track record)
+tests/               leakage, Elo, fetch, simulation, tracker, player value and scout tests
+docs/screenshots/    images in this README
+```
+</details>
+
+## Licence
+
+MIT. These are model probabilities, not betting tips.
