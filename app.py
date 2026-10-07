@@ -438,12 +438,17 @@ else:
                    f"Based on {label} stats and summer {season} prices, the latest our data has"
                    + (f", plus this season's form: {form_label}." if form_label else "."))
         c1, c2, c3 = st.columns(3)
-        club = c1.selectbox("Club", sorted(pv[pv.season == season].club.unique()))
+        # this season's clubs when we have them, so promoted clubs are in and relegated ones out
+        clubs = fpl.club.dropna().unique() if fpl is not None else pv[pv.season == season].club.unique()
+        club = c1.selectbox("Club", sorted(clubs))
         budget = c2.slider("Budget (€m)", 10, 200, 60, step=5) * 1e6
         max_age = c3.slider("Oldest age", 18, 34, 28)
 
-        needs = squad_needs(pv, club, season)
+        needs = squad_needs(pv, club, season, fpl)
         st.subheader("Where they're weakest")
+        if club not in set(pv[pv.season == season].club):
+            st.caption(f"{club} weren't in the Premier League in {label}, so this counts only their players who were, "
+                       "at other clubs. Positions with nobody show as zero.")
         st.dataframe(needs.assign(strength=needs.strength / 1e6, top6=needs.top6 / 1e6, vs_top6=needs.vs_top6 * 100),
                      hide_index=True, width="stretch",
                      column_order=["role", "regulars", "starts", "age", "strength", "top6", "vs_top6"],
