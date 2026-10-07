@@ -80,3 +80,16 @@ def test_shortlist_with_form_drops_players_who_since_joined_the_club():
     joined = plain[plain.now_club == "Man United"]
     assert len(joined)  # e.g. Youri Tielemans and Carlos Baleba play for Man United now
     assert set(picks.name) == set(plain.name) - set(joined.name)
+
+
+def test_a_promoted_club_is_judged_on_its_current_squad():
+    from src.form import load_fpl
+    pv, fpl = values(), load_fpl()
+    assert "Hull" not in set(pv[pv.season == SEASON].club)
+    needs = scout.squad_needs(pv, "Hull", SEASON, fpl)
+    assert sorted(needs.role) == sorted(scout.ROLES)
+    own = scout.squad(pv, "Hull", SEASON, fpl)
+    assert len(own) and (own.club == "Hull").all()
+    assert set(needs.regulars.str.split(", ").explode()) - {""} <= set(own.name)
+    picks = scout.shortlist(pv, "Hull", SEASON, list(needs.role[:2]), 30e6, 28, fpl=fpl)
+    assert len(picks) and (picks.now_club != "Hull").all()
