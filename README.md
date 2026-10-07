@@ -163,6 +163,11 @@ legal names, e.g. "Bruno Borges Fernandes"), and only takes unambiguous matches:
 shortlist and Claude's prompt, and leaves out players who have since joined the club you're scouting
 for. FPL has no market values, so prices stay at summer 2026.
 
+The club picker lists this season's clubs from FPL, so promoted clubs (Coventry, Hull, Ipswich) are in and
+relegated ones out. A promoted club has no 2025/26 Premier League rows, so its needs count only the players
+on its squad now who played in the league last season, at other clubs (Hull has one, Coventry and Ipswich
+four each); positions with nobody score zero.
+
 ## Ideas for next steps
 - xG was tried (Understat, 2014/15 on, rolling 5/10-match xG for/against): it did not help. Logistic log loss went from 0.9791 to 0.9847 with all xG columns, and 0.9793 with only the 10-match differences, so it was dropped
 - Injuries were tried (Transfermarkt injury dates, 2008/09 on): the share of a club's previous-season starters out on match day, as home, away and difference columns. It did not help, within ±0.001 log loss on 2023/24 and 2024/25 for logistic and xgboost, so it was dropped. The data also ends in December 2025, so it couldn't feed live predictions anyway

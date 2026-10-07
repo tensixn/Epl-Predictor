@@ -45,14 +45,27 @@ def role_strength(players):
                          "age": (p.age * p.epl_starts).groupby([p.club, p.role]).sum() / g.epl_starts.sum()})
 
 
-def squad_needs(pv, club, season):
+def squad(pv, club, season, fpl=None):
+    """The club's players in `season`. A club that wasn't in the Premier League that season (promoted since) has
+    none, so with `fpl` it gets the players on its squad now who played in the league that season, elsewhere."""
+    players = with_roles(pv[pv.season == season])
+    mine = players[players.club == club]
+    if mine.empty and fpl is not None:
+        mine = with_form(players, fpl)
+        mine = mine.loc[mine.now_club == club, players.columns].assign(club=club)
+    return mine
+
+
+def squad_needs(pv, club, season, fpl=None):
     """The club's roles, weakest first: its strength there against the top six's average."""
     players = with_roles(pv[pv.season == season])
     strength = role_strength(players)
     top6 = players.groupby("club").team_rank.first().nsmallest(6).index
     benchmark = strength.loc[strength.index.get_level_values("club").isin(top6)].groupby("role").strength.mean()
-    mine = strength.loc[club].reindex(list(ROLES))
-    regulars = (players[(players.club == club) & (players.epl_starts > 0)].sort_values("epl_starts", ascending=False)
+    own = squad(pv, club, season, fpl)
+    mine = (role_strength(own).droplevel("club") if len(own) else pd.DataFrame(columns=["strength", "starts", "age"])
+            ).reindex(list(ROLES))
+    regulars = (own[own.epl_starts > 0].sort_values("epl_starts", ascending=False)
                 .groupby("role").name.apply(lambda s: ", ".join(s.head(3))))
     out = pd.DataFrame({"role": list(ROLES), "regulars": regulars.reindex(list(ROLES)).fillna("").values,
                         "starts": mine.starts.fillna(0).astype(int).values, "age": mine.age.values,
@@ -64,10 +77,12 @@ def squad_needs(pv, club, season):
 
 def shortlist(pv, club, season, roles, budget, max_age, min_starts=15, per_role=5, fpl=None):
     """Players at other clubs, priced within budget and no older than max_age, who outscore the club's
-    current regulars in each role. Best stats value first. With `fpl` (src.form.load_fpl()), adds this
+    current regulars in each role (for a promoted club, the players on its squad now who played in the league
+    that season). Best stats value first. With `fpl` (src.form.load_fpl()), adds this
     season's form and current club, and leaves out players who have since joined `club`."""
     players = with_roles(pv[(pv.season == season) & pv.value.notna()])
-    current = role_strength(players).strength
+    own = squad(pv, club, season, fpl)
+    current = role_strength(own).strength if len(own) else pd.Series(dtype=float)
     pool = players[(players.club != club) & players.role.isin(roles) & (players.value <= budget)
                    & (players.age <= max_age) & (players.epl_starts >= min_starts)]
     bar = pd.Series([current.get((club, r), 0.0) for r in pool.role], index=pool.index, dtype=float)
