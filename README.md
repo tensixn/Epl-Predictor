@@ -150,7 +150,10 @@ budget and an age limit, and works in three steps:
 Steps 1 and 2 need nothing extra. The report needs an Anthropic API key: on Streamlit Community
 Cloud add `ANTHROPIC_API_KEY = "..."` under the app's Settings → Secrets; locally put the same line
 in `.streamlit/secrets.toml` (git-ignored) or set the environment variable. Each report is one API
-call, and the app caches it so the same club, budget and shortlist don't call twice.
+call, and the app saves it so the same club, budget and shortlist don't call twice. Because the key is
+yours and the site is public, the app writes at most 20 new reports a day for the whole site
+(`REPORTS_PER_DAY` in `app.py`, reset at midnight UTC, counted in memory so a reboot resets it too);
+saved reports don't count.
 
 It uses the player value data, so it scouts on 2025/26 stats and summer 2026 prices, and only
 Premier League players; some have moved since.
