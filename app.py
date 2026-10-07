@@ -22,6 +22,7 @@ from src.features import load_matches
 from src.fixtures import next_round, season_matches
 from src.predict import explain, predict, train
 from src.form import load_fpl
+from src.quota import DailyCap
 from src.scout import ROLES, scouting_report, shortlist, squad_needs
 from src.simulate import simulate_season
 from src.tracker import calibration, read_log, summarise, vs_bookmaker
@@ -120,21 +121,35 @@ def anthropic_key():
     return os.environ.get("ANTHROPIC_API_KEY")
 
 
-@st.cache_data(show_spinner=False)
+REPORTS_PER_DAY = 20
+
+
+@st.cache_resource
+def report_cap():
+    """One daily limit on Claude reports for the whole site, shared by every visitor."""
+    return DailyCap(REPORTS_PER_DAY)
+
+
+@st.cache_resource
+def saved_reports():
+    """Reports already written, by their inputs, so asking again doesn't call the API or use up the cap."""
+    return {}
+
+
 def report(key, club, season_label, budget, needs_json, picks_json, form_label):
-    """Claude's write-up, cached so the same inputs don't call the API twice."""
+    """Claude's write-up, and whether it worked (errors aren't saved, so they can be retried)."""
     import anthropic
     from io import StringIO
     needs, picks = pd.read_json(StringIO(needs_json)), pd.read_json(StringIO(picks_json))
     try:
         return scouting_report(anthropic.Anthropic(api_key=key), club, season_label, budget, needs, picks,
-                               form_label)
+                               form_label), True
     except anthropic.AuthenticationError:
-        return "The Anthropic API key was rejected. Check ANTHROPIC_API_KEY in the app's secrets."
+        return "The Anthropic API key was rejected. Check ANTHROPIC_API_KEY in the app's secrets.", False
     except anthropic.RateLimitError:
-        return "Too many requests right now. Try again in a minute."
+        return "Too many requests right now. Try again in a minute.", False
     except anthropic.APIError as e:
-        return f"Couldn't reach Claude ({e.__class__.__name__}). Try again later."
+        return f"Couldn't reach Claude ({e.__class__.__name__}). Try again later.", False
 
 
 @st.cache_data(ttl=3600)
@@ -499,9 +514,23 @@ else:
             key = anthropic_key()
             if key is None:
                 st.info("Add an ANTHROPIC_API_KEY to the app's secrets to have Claude write up the best signings.")
-            elif st.button("Write the scouting report", type="primary"):
-                with st.spinner("Claude is reading the shortlist..."):
-                    st.markdown(report(key, club, label, budget, needs.to_json(), picks.to_json(), form_label))
+            else:
+                args = (club, label, budget, needs.to_json(), picks.to_json(), form_label)
+                saved, cap = saved_reports(), report_cap()
+                if st.button("Write the scouting report", type="primary"):
+                    if args in saved:
+                        st.markdown(saved[args])
+                    elif not cap.take():
+                        st.info(f"The scout has written its {REPORTS_PER_DAY} reports for today. Come back after "
+                                "midnight UTC; the squad needs and shortlist above still work.")
+                    else:
+                        with st.spinner("Claude is reading the shortlist..."):
+                            text, ok = report(key, *args)
+                        if ok:
+                            saved[args] = text
+                        st.markdown(text)
+                st.caption(f"{cap.left()} of {REPORTS_PER_DAY} reports left today (the limit is for the whole site, "
+                           "and resets at midnight UTC). A report someone already asked for is free.")
 
 st.caption("Data: football-data.co.uk, openfootball, Transfermarkt (via salimt/football-datasets and "
            "dcaribou/transfermarkt-datasets) and Fantasy Premier League. "
