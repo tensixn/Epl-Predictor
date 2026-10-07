@@ -1,0 +1,160 @@
+{
+ "fixtures": [
+  {
+   "code": 2561001,
+   "minutes": 90,
+   "provisional_start_time": false,
+   "started": true,
+   "finished": true,
+   "finished_provisional": true,
+   "team_h_score": 3,
+   "team_a_score": 0,
+   "stats": [],
+   "team_h_difficulty": 3,
+   "team_a_difficulty": 3,
+   "pulse_id": 124001,
+   "id": 1,
+   "event": 1,
+   "kickoff_time": "2026-08-21T19:00:00Z",
+   "team_h": 1,
+   "team_a": 8
+  },
+  {
+   "code": 2561002,
+   "minutes": 90,
+   "provisional_start_time": false,
+   "started": true,
+   "finished": true,
+   "finished_provisional": true,
+   "team_h_score": 1,
+   "team_a_score": 1,
+   "stats": [],
+   "team_h_difficulty": 3,
+   "team_a_difficulty": 3,
+   "pulse_id": 124002,
+   "id": 2,
+   "event": 1,
+   "kickoff_time": "2026-08-22T14:00:00Z",
+   "team_h": 16,
+   "team_a": 18
+  },
+  {
+   "code": 2561051,
+   "minutes": 90,
+   "provisional_start_time": false,
+   "started": true,
+   "finished": false,
+   "finished_provisional": true,
+   "team_h_score": 2,
+   "team_a_score": 1,
+   "stats": [],
+   "team_h_difficulty": 3,
+   "team_a_difficulty": 3,
+   "pulse_id": 124051,
+   "id": 51,
+   "event": 6,
+   "kickoff_time": "2026-10-04T15:30:00Z",
+   "team_h": 15,
+   "team_a": 13
+  },
+  {
+   "code": 2561052,
+   "minutes": 0,
+   "provisional_start_time": false,
+   "started": false,
+   "finished": false,
+   "finished_provisional": false,
+   "team_h_score": null,
+   "team_a_score": null,
+   "stats": [],
+   "team_h_difficulty": 3,
+   "team_a_difficulty": 3,
+   "pulse_id": 124052,
+   "id": 52,
+   "event": 7,
+   "kickoff_time": "2026-10-17T11:30:00Z",
+   "team_h": 7,
+   "team_a": 11
+  },
+  {
+   "code": 2561053,
+   "minutes": 0,
+   "provisional_start_time": false,
+   "started": false,
+   "finished": false,
+   "finished_provisional": false,
+   "team_h_score": null,
+   "team_a_score": null,
+   "stats": [],
+   "team_h_difficulty": 3,
+   "team_a_difficulty": 3,
+   "pulse_id": 124053,
+   "id": 53,
+   "event": 7,
+   "kickoff_time": "2026-10-26T20:00:00Z",
+   "team_h": 13,
+   "team_a": 1
+  },
+  {
+   "code": 2561060,
+   "minutes": 0,
+   "provisional_start_time": false,
+   "started": false,
+   "finished": false,
+   "finished_provisional": false,
+   "team_h_score": null,
+   "team_a_score": null,
+   "stats": [],
+   "team_h_difficulty": 3,
+   "team_a_difficulty": 3,
+   "pulse_id": 124060,
+   "id": 60,
+   "event": null,
+   "kickoff_time": null,
+   "team_h": 18,
+   "team_a": 7
+  }
+ ],
+ "teams": [
+  {
+   "id": 1,
+   "name": "Arsenal",
+   "short_name": "ARS"
+  },
+  {
+   "id": 7,
+   "name": "Chelsea",
+   "short_name": "CHE"
+  },
+  {
+   "id": 8,
+   "name": "Coventry City",
+   "short_name": "COV"
+  },
+  {
+   "id": 11,
+   "name": "Fulham",
+   "short_name": "FUL"
+  },
+  {
+   "id": 13,
+   "name": "Leeds",
+   "short_name": "LEE"
+  },
+  {
+   "id": 15,
+   "name": "Man City",
+   "short_name": "MCI"
+  },
+  {
+   "id": 16,
+   "name": "Man Utd",
+   "short_name": "MUN"
+  },
+  {
+   "id": 18,
+   "name": "Spurs",
+   "short_name": "TOT"
+  }
+ ]
+}

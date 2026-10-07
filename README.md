@@ -14,7 +14,7 @@ src/features.py      Elo ratings and rolling form, built only from past matches
 src/evaluate.py      walk-forward evaluation of the models
 src/dixoncoles.py    Dixon-Coles goals model and the blend with logistic
 src/predict.py       probabilities for any fixture
-src/fixtures.py      next round and full season of fixtures from openfootball
+src/fixtures.py      next round and full season of fixtures (FPL, else openfootball)
 src/simulate.py      Monte Carlo of the rest of the season (title, top 4, relegation odds), with Elo updated as results are simulated
 src/tracker.py       logs predictions before kickoff and scores them afterwards
 src/player_value.py  player value analyzer: stats-based value vs Transfermarkt market value
@@ -36,8 +36,10 @@ results plus shots, shots on target, corners, fouls and cards. data/raw has no o
 lineups or injuries.
 
 The mirror only adds a season once it has finished, so the season in progress
-(`season-2627.csv`) comes from [openfootball](https://github.com/openfootball/football.json),
-which is updated after each matchday. It has scores and half-time scores only, so
+(`season-2627.csv`) comes from the Fantasy Premier League API, which posts scores within
+hours of the final whistle. If FPL can't be reached (it is blocked from our cloud sessions and
+resets between seasons) it falls back to [openfootball](https://github.com/openfootball/football.json),
+which can lag a week or more. Both have scores only (openfootball adds half-time scores), so
 points and goals form uses this season's matches while shots form falls back to each
 team's latest matches that have shot data. Checked against the mirror on 2024/25,
 all 380 openfootball results match. Refresh it with `python scripts/fetch_current_season.py`.

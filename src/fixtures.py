@@ -1,4 +1,4 @@
-"""Upcoming Premier League fixtures, read from openfootball (see scripts/fetch_current_season.py)."""
+"""Upcoming Premier League fixtures, from FPL or openfootball (see scripts/fetch_current_season.py)."""
 import importlib.util
 from pathlib import Path
 
