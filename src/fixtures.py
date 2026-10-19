@@ -34,12 +34,17 @@ def upcoming_odds():
 
     import pandas as pd
     with urllib.request.urlopen(ODDS_URL, timeout=30) as resp:
-        df = pd.read_csv(io.BytesIO(resp.read()), encoding="utf-8-sig")
+        return odds_table(pd.read_csv(io.BytesIO(resp.read()), encoding="utf-8-sig"))
+
+
+def odds_table(df):
+    """{(date, home, away): (home, draw, away) odds} from a football-data fixtures DataFrame."""
+    import pandas as pd
     out = {}
     for r in df[df.Div == "E0"].itertuples():
         for cols in (("AvgH", "AvgD", "AvgA"), ("B365H", "B365D", "B365A")):  # market average, else Bet365
             odds = tuple(getattr(r, c, float("nan")) for c in cols)
-            if not pd.isna(odds).any():
+            if not any(pd.isna(o) for o in odds):  # pd.isna(tuple) is a plain False, not per-item
                 date = pd.to_datetime(r.Date, dayfirst=True).strftime("%Y-%m-%d")
                 out[(date, r.HomeTeam, r.AwayTeam)] = odds
                 break
