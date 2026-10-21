@@ -1,5 +1,8 @@
 import importlib.util
+import json
 from pathlib import Path
+
+import pytest
 
 spec = importlib.util.spec_from_file_location(
     "fetch_current_season", Path(__file__).resolve().parents[1] / "scripts" / "fetch_current_season.py")
@@ -36,3 +39,40 @@ def test_upcoming_keeps_unplayed_matches():
     ]
     assert list(fcs.upcoming(matches)) == [
         {"round": "Matchday 6", "date": "2026-10-10", "time": "12:30", "home": "Arsenal", "away": "Leeds"}]
+
+
+# Trimmed copy of FPL's /api/fixtures/ plus the "teams" list from /api/bootstrap-static/
+FPL = json.loads((Path(__file__).parent / "data" / "fpl_sample.json").read_text())
+KNOWN = {"Arsenal", "Chelsea", "Coventry", "Fulham", "Leeds", "Man City", "Man United", "Tottenham"}
+
+
+def test_fpl_matches_convert_to_openfootball_shape():
+    matches = fcs.fpl_matches(FPL["fixtures"], FPL["teams"], "2627", known=KNOWN)
+    assert len(matches) == 5  # the postponed game has no date yet
+    assert matches[0] == {"round": "Matchday 1", "date": "2026-08-21", "time": "20:00", "team1": "Arsenal",
+                          "team2": "Coventry", "score": {"ft": [3, 0]}}
+    rows = list(fcs.rows(matches))
+    assert [(r["HomeTeam"], r["AwayTeam"], r["FTHG"], r["FTAG"], r["FTR"]) for r in rows] == [
+        ("Arsenal", "Coventry", 3, 0, "H"), ("Man United", "Tottenham", 1, 1, "D"), ("Man City", "Leeds", 2, 1, "H")]
+    assert rows[0]["HTHG"] == ""  # FPL has no half-time scores
+    assert list(fcs.upcoming(matches)) == [
+        {"round": "Matchday 7", "date": "2026-10-17", "time": "12:30", "home": "Chelsea", "away": "Fulham"},
+        {"round": "Matchday 7", "date": "2026-10-26", "time": "20:00", "home": "Leeds", "away": "Arsenal"}]
+
+
+def test_fpl_matches_reject_unknown_team_and_other_season():
+    with pytest.raises(ValueError, match="unknown FPL team"):
+        fcs.fpl_matches(FPL["fixtures"], FPL["teams"], "2627", known=KNOWN - {"Leeds"})
+    with pytest.raises(ValueError, match="another season"):
+        fcs.fpl_matches(FPL["fixtures"], FPL["teams"], "2526", known=KNOWN)
+
+
+def test_fetch_falls_back_to_openfootball_when_fpl_fails(monkeypatch):
+    def down(season):
+        raise OSError("403")
+    monkeypatch.setattr(fcs, "fetch_fpl", down)
+    monkeypatch.setattr(fcs, "fetch_openfootball", lambda season: ["openfootball"])
+    assert fcs.fetch_matches_with_source(fcs.current_season()) == (["openfootball"], "openfootball")
+    monkeypatch.setattr(fcs, "fetch_fpl", lambda season: ["fpl"])
+    assert fcs.fetch_matches_with_source(fcs.current_season()) == (["fpl"], "FPL")
+    assert fcs.fetch_matches_with_source("2425") == (["openfootball"], "openfootball")  # FPL only has this season

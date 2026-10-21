@@ -4,6 +4,7 @@ The log is results/predictions_log.csv, one row per fixture, written by scripts/
 Only the blend (logistic + Dixon-Coles) is logged, the best model in the walk-forward test.  A fixture is logged the first
 time its round becomes the next one to play, and is never rewritten afterwards.
 """
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -99,8 +100,8 @@ def update(models, cols, state):
     log = log_next_round(models, cols, state, log)
     try:
         log = fill_odds(log, upcoming_odds())
-    except OSError:  # the odds site is flaky: predictions and scores still get saved
-        pass
+    except Exception as e:  # noqa: BLE001 - odds are optional: a flaky site or format change must not block results
+        print(f"skipped bookmaker odds ({e!r})", file=sys.stderr)
     save(log)
     return log
 

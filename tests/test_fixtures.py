@@ -31,3 +31,13 @@ def test_season_matches_marks_unplayed_with_none(feed):
     out = fixtures.season_matches("2627")
     assert out[0] == {"date": "2026-10-03", "home": "Arsenal", "away": "Coventry", "ft": [3, 0]}
     assert [m["ft"] for m in out[1:]] == [None, None, None]
+
+
+def test_odds_table_reads_premier_league_rows_with_average_else_bet365_odds():
+    import pandas as pd
+    df = pd.DataFrame({"Div": ["E0", "E0", "E1"], "Date": ["17/10/2026", "18/10/2026", "17/10/2026"],
+                       "HomeTeam": ["Chelsea", "Leeds", "Hull"], "AwayTeam": ["Fulham", "Arsenal", "Derby"],
+                       "AvgH": [1.8, None, 2.0], "AvgD": [3.6, None, 3.3], "AvgA": [4.5, None, 3.8],
+                       "B365H": [1.8, 4.2, 2.0], "B365D": [3.5, 3.6, 3.3], "B365A": [4.6, 1.85, 3.8]})
+    assert fixtures.odds_table(df) == {("2026-10-17", "Chelsea", "Fulham"): (1.8, 3.6, 4.5),
+                                       ("2026-10-18", "Leeds", "Arsenal"): (4.2, 3.6, 1.85)}
