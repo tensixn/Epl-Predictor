@@ -326,7 +326,7 @@ fpl_id,first_name,second_name,web_name,club,position,minutes,starts,goals_scored
 299,Mason,Burstow,Burstow,Hull,Attack,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Sheffield Wednesday on loan for the rest of the season,7,2026-10-21
 274,Jack,Butland,Butland,Hull,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,i,Arm injury - Unknown return date,7,2026-10-21
 275,Harvey,Cartwright,Cartwright,Hull,Goalkeeper,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Grimsby Town on loan for the rest of the season,7,2026-10-21
-617,Mohamed-Ali,Cho,Cho,Hull,Midfield,72,0,1,0,0,1,0,0.79,0.36,i,Unspecified injury - Expected back 25 Oct,7,2026-10-21
+617,Mohamed-Ali,Cho,Cho,Hull,Midfield,72,0,1,0,0,1,0,0.79,0.36,d,Unspecified injury - 50% chance of playing,7,2026-10-21
 280,Lewie,Coyle,Coyle,Hull,Defender,528,7,0,0,2,7,1,0.18,0.07,a,,7,2026-10-21
 289,Matt,Crooks,Crooks,Hull,Midfield,334,5,0,0,1,6,4,0.0,0.13,a,,7,2026-10-21
 298,Enis,Destan,Destan,Hull,Attack,0,0,0,0,0,0,0,0.0,0.0,u,Has joined Konyaspor permanently,7,2026-10-21
@@ -335,7 +335,7 @@ fpl_id,first_name,second_name,web_name,club,position,minutes,starts,goals_scored
 277,John,Egan,Egan,Hull,Defender,617,7,0,0,3,7,1,0.09,0.16,a,,7,2026-10-21
 340,Joe,Gelhardt,Gelhardt,Hull,Midfield,93,1,1,0,0,1,0,0.9,0.06,a,,7,2026-10-21
 282,Ryan,Giles,Giles,Hull,Defender,529,6,0,1,3,5,1,0.02,0.43,a,,7,2026-10-21
-589,Lucas,Gourna-Douath,Gourna-Douath,Hull,Midfield,138,1,0,0,1,0,1,0.03,0.03,i,Calf injury - Expected back 25 Oct,7,2026-10-21
+589,Lucas,Gourna-Douath,Gourna-Douath,Hull,Midfield,138,1,0,0,1,0,1,0.03,0.03,d,Calf injury - 50% chance of playing,7,2026-10-21
 297,Darko,Gyabi,Gyabi,Hull,Midfield,0,0,0,0,0,0,0,0.0,0.0,i,Thigh injury - Unknown return date,7,2026-10-21
 585,Lucas,Herrington,Herrington,Hull,Defender,242,2,0,0,0,4,1,0.02,0.04,a,,7,2026-10-21
 574,Jens,Hjertø-Dahl,Hjertø-Dahl,Hull,Midfield,8,0,0,0,0,0,0,0.0,0.0,a,,7,2026-10-21
