@@ -20,10 +20,10 @@ date,round,home,away,p_home,p_draw,p_away,result,odds_h,odds_d,odds_a
 2026-10-18,Matchday 7,Nott'm Forest,Arsenal,0.204,0.2666,0.5294,A,,,
 2026-10-19,Matchday 7,Tottenham,Coventry,0.4246,0.2763,0.2991,H,,,
 2026-10-23,Matchday 8,Ipswich,Nott'm Forest,0.3143,0.2519,0.4338,D,,,
-2026-10-24,Matchday 8,Arsenal,Everton,0.6601,0.2302,0.1097,,1.43,4.41,7.27
-2026-10-24,Matchday 8,Aston Villa,Man City,0.2119,0.2439,0.5442,,4.73,4.26,1.62
-2026-10-24,Matchday 8,Chelsea,Tottenham,0.5422,0.2355,0.2224,,1.69,4.12,4.35
-2026-10-24,Matchday 8,Coventry,Fulham,0.3598,0.2923,0.3479,,3.04,3.46,2.23
+2026-10-24,Matchday 8,Arsenal,Everton,0.6601,0.2302,0.1097,H,1.43,4.41,7.27
+2026-10-24,Matchday 8,Aston Villa,Man City,0.2119,0.2439,0.5442,H,4.73,4.26,1.62
+2026-10-24,Matchday 8,Chelsea,Tottenham,0.5422,0.2355,0.2224,A,1.69,4.12,4.35
+2026-10-24,Matchday 8,Coventry,Fulham,0.3598,0.2923,0.3479,A,3.04,3.46,2.23
 2026-10-25,Matchday 8,Crystal Palace,Newcastle,0.3789,0.2723,0.3488,,2.86,3.58,2.28
 2026-10-25,Matchday 8,Hull,Brentford,0.3872,0.2929,0.3199,,4.6,3.92,1.69
 2026-10-25,Matchday 8,Liverpool,Brighton,0.4106,0.2664,0.3231,,2.09,3.76,3.13
